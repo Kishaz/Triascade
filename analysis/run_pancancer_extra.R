@@ -64,6 +64,46 @@ Epr <- sapply(rd, function(v) v[genes]); rownames(Epr) <- genes; colnames(Epr) <
 ypr <- setNames(g$y, g$Deidentified.ID)
 RES$PRINCE <- icb_eval(Epr, ypr, "PRINCE","pancreatic","chemo+nivo±CD40")
 
+## =====================================================================
+## PAPER-ARCHIVE COHORTS (Nov 2 bundle) — all gene SYMBOLS, no ID mapping.
+## Files under data/paper_cohorts_nov2/ (gitignored). SAME evaluator.
+## =====================================================================
+PCN <- "data/paper_cohorts_nov2"
+
+## ---- Braun ccRCC (CheckMate-025 nivolumab arm) — prespecified NEGATIVE control ----
+# Expression = Braun et al. Suppl Table 4A normalized matrix (row 1 is a title -> skip=1);
+# genes x RNA_ID already. Response = RECIST ORR from the cohort metadata, NIVOLUMAB arm only:
+# CR/PR = responder, SD/PD = non-responder, NE dropped. (The archive's binary file instead used the
+# CheckMate "Benefit"==CB endpoint = 57 R; RECIST ORR chosen here for consistency with every other
+# cohort.) RCC responds to ICB clinically, but the ICI panel is NOT expected to rank it -> neg control.
+Ebr  <- as.matrix(fread(file.path(PCN,"expression/Braun_ccRCC/Braun_S4A_expression.csv"), skip=1), rownames=1)
+brm  <- fread(file.path(PCN,"expression/Braun_ccRCC/Braun_ICI_FULL_results/Braun_FULL_ICI_scores_all.csv"))
+brm  <- brm[Arm=="NIVOLUMAB"]
+orr  <- toupper(gsub('"','',brm$ORR))
+ybr  <- ifelse(grepl("CR|PR", orr), 1L, ifelse(orr %in% c("PD","SD"), 0L, NA_integer_))
+names(ybr) <- brm$RNA_ID; ybr <- ybr[!is.na(ybr)]
+Ebr  <- Ebr[, intersect(colnames(Ebr), names(ybr)), drop=FALSE]; ybr <- ybr[colnames(Ebr)]
+RES$Braun <- icb_eval(Ebr, ybr, "Braun","ccRCC","nivolumab(neg-ctrl)")
+
+## ---- Rose BLCA (GSE176307, PD-1/PD-L1 urothelial) ----
+# Expression = log-transformed normalized RNAseq, SAMPLES x genes -> transpose to genes x samples.
+# Response = response_bin (archive RECIST coding), baseline, all ICB-treated. 16 R / 71 NR.
+ro   <- fread(file.path(PCN,"expression/Rose_BLCA_GSE176307/GSE176307_BACI_log_trans_normalized_RNAseq.csv.gz"))
+Ero  <- t(as.matrix(ro[,-1])); colnames(Ero) <- ro[[1]]          # genes x samples
+rob  <- fread(file.path(PCN,"scores/ICI_binary_rose_scores.csv"))
+yro  <- setNames(as.integer(rob$response_bin), rob$sample_id)
+Ero  <- Ero[, intersect(colnames(Ero), names(yro)), drop=FALSE]; yro <- yro[colnames(Ero)]
+RES$Rose <- icb_eval(Ero, yro, "Rose","urothelial","aPD(L)1")
+
+## ---- Friedrich myeloma (GSE217245) — SPECIFICITY control (NOT checkpoint blockade) ----
+# BCMAxCD3 T-cell BISPECIFIC; pseudobulk log2CPM (genes x patient), PRE-treatment per patient.
+# Not ICB -> the panel should NOT separate responders. n=9 (tiny: read as a specificity check, not AUC).
+Efr  <- readRDS(file.path(PCN,"expression/Friedrich_GSE217245/friedrich_pseudobulk_log2cpm.rds"))
+frl  <- fread(file.path(PCN,"clinical/friedrich_response_labels.csv")); frl <- frl[timepoint=="pre"]
+yfr  <- setNames(as.integer(frl$response), frl$patient_id)
+Efr  <- Efr[, intersect(colnames(Efr), names(yfr)), drop=FALSE]; yfr <- yfr[colnames(Efr)]
+RES$Friedrich <- icb_eval(Efr, yfr, "Friedrich","myeloma","BCMAxCD3-bispecific(spec-ctrl)")
+
 saveRDS(RES, "pancancer_validation.rds")
 cat("\n=== SUMMARY: Integration AUC across cohorts ===\n")
 cat(sprintf("%-11s %-10s %-18s n   R/NR   cohort  single(self)\n","cohort","cancer","drug"))
