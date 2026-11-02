@@ -50,6 +50,7 @@ icb_eval <- function(E, y, cohort, cancer, drug) {
                          sens_single =as.numeric(sp$Sensory),     sens_cohort =as.numeric(cm$Sensory),
                          integ_single=as.numeric(sp$Integration), integ_cohort=as.numeric(cm$Integration),
                          exec_single =as.numeric(sp$Execution),   exec_cohort =as.numeric(cm$Execution),
+                         limiting    =kl,                         # per-patient limiting-layer / archetype class
                          row.names=NULL))
 }
 
