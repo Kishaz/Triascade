@@ -45,13 +45,15 @@ alc <- alc[alc$n>0, ]
 ## ---- three-stage alluvial --------------------------------------------------
 pal <- setNames(unname(ACOL[ARCH]), unname(ALAB[ARCH]))
 p <- ggplot(alc, aes(y=n, axis1=Cancer, axis2=Archetype, axis3=Response)) +
-  geom_alluvium(aes(fill=Archetype), width=0.20, alpha=0.78, colour=NA) +
-  geom_stratum(width=0.20, fill="grey96", colour="grey45", linewidth=0.3) +
-  geom_text(stat="stratum", aes(label=after_stat(stratum), angle=after_stat(ifelse(x > 1, 90, 0))),
-            family=PUB_FONT, size=(PT_BASE-3)/.pt, lineheight=0.9) +
+  geom_alluvium(aes(fill=Archetype), width=0.24, alpha=0.78, colour=NA) +
+  geom_stratum(width=0.24, fill="grey96", colour="grey45", linewidth=0.3) +
+  geom_text(stat="stratum", aes(label=after_stat(stratum),
+                                angle=after_stat(ifelse(x > 1, 90, 0)),
+                                hjust=after_stat(ifelse(x==1, 1, 0.5))),
+            family=PUB_FONT, size=(PT_BASE-0.5)/.pt, colour=INK) +
   scale_fill_manual(values=pal, name=NULL) +
   scale_x_continuous(breaks=1:3, labels=c("Cancer type","Archetype","ICB response"),
-                     expand=expansion(add=c(0.30,0.30)), position="top") +
+                     expand=expansion(add=c(0.55,0.30)), position="top") +
   coord_cartesian(clip="off") +
   guides(fill=guide_legend(nrow=1, override.aes=list(colour="white"))) +
   theme_void(base_family=PUB_FONT) +
@@ -61,7 +63,7 @@ p <- ggplot(alc, aes(y=n, axis1=Cancer, axis2=Archetype, axis3=Response)) +
         plot.background=element_rect(fill="white", colour=NA))
 
 dir.create("../results/figures/composite", showWarnings=FALSE, recursive=TRUE)
-w <- FIG_W_DOUBLE*MM_TO_IN; h <- 124*MM_TO_IN
+w <- FIG_W_DOUBLE*MM_TO_IN; h <- 158*MM_TO_IN
 ggsave("../results/figures/composite/ICI_Fig_archetypes.png", p, width=w, height=h, dpi=600,
        device=if(requireNamespace("ragg",quietly=TRUE)) ragg::agg_png else "png")
 ggsave("../results/figures/composite/ICI_Fig_archetypes.svg", p, width=w, height=h,
