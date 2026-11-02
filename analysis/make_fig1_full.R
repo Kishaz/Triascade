@@ -37,7 +37,7 @@ ct<-seq(0,1,length.out=10); chemo<-data.frame(x=34+46*ct, y=51-4.5*sin(pi*ct)+3.
 
 ## ===================== A: provenance =====================
 prov<-rectify(data.frame(x=25,y=c(94,74,54,34,14),w=47,h=15,
-  label=c("Systematic review of\nICB transcriptomic studies",sprintf("%d curated signatures\n(substrate)", n_sig),
+  label=c("Systematic review of\nICB transcriptomic studies",sprintf("%d gene signatures\n(published gene lists)", n_sig),
           "Gene co-occurrence\ngraph","Program-blind Louvain\n+ g:Profiler GO",
           sprintf("6 emergent modules\n(%d genes)", n_genes)),
   out=c(FALSE,FALSE,FALSE,FALSE,TRUE)))
