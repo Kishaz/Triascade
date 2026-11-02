@@ -78,47 +78,42 @@ pA <- ggplot() +
   theme_void() + theme(legend.position="none",
         plot.background=element_rect(fill="white", colour=NA), plot.margin=margin(2,2,2,2,"mm"))
 
-## ===================== Panel B: RESPONSE RATE by archetype ==================
-## Absolute flows are dominated by the ~29% base rate, so show the response RATE
-## per archetype instead (validated cohorts pooled): Inflamed responds most.
-rate <- do.call(rbind, lapply(WORKS, function(k){ s<-R[[k]]$scores; data.frame(arch=classify(s), y=s$y) }))
-base <- mean(rate$y)
-rr <- do.call(rbind, lapply(ARCH, function(a){ v<-rate$y[rate$arch==a]
-  data.frame(arch=a, pctR=100*mean(v), n=length(v)) }))
-rr <- rr[order(rr$pctR), ]                                          # lowest rate first -> bottom
-rr$yy <- seq_len(nrow(rr)); rr$lab2 <- sprintf("%s (n=%d)", ALAB[rr$arch], rr$n); rr$fillc <- afac(rr$arch)
-ytop <- nrow(rr)
+## ===================== Panel B: archetype -> response alluvial ==============
+## Horizontal alluvial (coord_flip) of archetype -> responder/non-responder,
+## validated cohorts pooled. NB these are ABSOLUTE patient counts: at the ~29%
+## base rate most patients are non-responders, so read it with panel B of the
+## response-RATE in mind (Inflamed responds most; see ICI_SuppTable_* ).
+al <- do.call(rbind, lapply(WORKS, function(k){ s<-R[[k]]$scores; data.frame(arch=classify(s), y=s$y) }))
+base <- mean(al$y)
+al$Archetype <- afac(al$arch)
+al$Response  <- factor(ifelse(al$y==1,"Responder","Non-responder"), c("Responder","Non-responder"))
+alc <- as.data.frame(table(Archetype=al$Archetype, Response=al$Response)); names(alc)[3]<-"n"
+alc <- alc[alc$n>0, ]
 
-pB <- ggplot(rr, aes(x=pctR, y=yy, fill=fillc)) +
-  annotate("segment", x=100*base, xend=100*base, y=0.4, yend=ytop+0.5, linetype="22", colour=RULE, linewidth=0.35) +
-  annotate("text", x=100*base, y=ytop+0.8, label=sprintf("all patients  %.0f%%", 100*base),
-           family=PUB_FONT, size=(PT_BASE-3)/.pt, colour=MUTED, hjust=0.5) +
-  geom_col(width=0.64, colour="white", linewidth=0.2, orientation="y") +
-  geom_text(aes(label=sprintf("%.0f%%", pctR)), hjust=-0.3, family=PUB_FONT, size=(PT_BASE-1.5)/.pt, fontface=2, colour=INK) +
+## axis1=Response, axis2=Archetype so after coord_flip the ARCHETYPE row is on top
+pB <- ggplot(alc, aes(y=n, axis1=Response, axis2=Archetype)) +
+  geom_alluvium(aes(fill=Archetype), width=0.26, alpha=0.78, colour=NA) +
+  geom_stratum(width=0.26, colour="grey45", fill="grey96", linewidth=0.3) +
+  geom_text(stat="stratum", aes(label=after_stat(stratum)), family=PUB_FONT, size=(PT_BASE-3)/.pt) +
   scale_fill_manual(values=setNames(unname(ACOL[ARCH]), unname(ALAB[ARCH])), guide="none") +
-  scale_y_continuous(breaks=rr$yy, labels=rr$lab2, expand=expansion(add=c(0.6,1.0))) +
-  scale_x_continuous("Responders (%)", limits=c(0,58), breaks=seq(0,50,10), expand=expansion(mult=c(0,0.02))) +
-  labs(subtitle="Response rate by archetype — validated cohorts (pooled)") +
-  theme_minimal(base_family=PUB_FONT) +
-  theme(panel.grid=element_blank(), axis.title.y=element_blank(),
-        axis.text.y=element_text(size=PT_AXIS_TEXT, colour=INK, hjust=1),
-        axis.text.x=element_text(size=PT_AXIS_TEXT, colour=INK),
-        axis.title.x=element_text(size=PT_AXIS_TITLE, colour=INK),
-        axis.line.x=element_line(linewidth=0.3, colour=RULE), axis.ticks.x=element_line(linewidth=0.25, colour=RULE),
-        plot.subtitle=element_text(size=PT_ANNOT, colour=MUTED, hjust=0.5),
-        plot.background=element_rect(fill="white", colour=NA), plot.margin=margin(2,8,2,2,"mm"))
+  scale_x_continuous(breaks=1:2, labels=c("Response","Archetype"), expand=expansion(add=c(0.22,0.22))) +
+  coord_flip(clip="off") +
+  labs(subtitle=sprintf("Archetype → response, validated cohorts pooled (absolute counts; base rate %.0f%%)", 100*base)) +
+  theme_void(base_family=PUB_FONT) +
+  theme(plot.subtitle=element_text(size=PT_ANNOT, colour=MUTED, hjust=0.5),
+        plot.background=element_rect(fill="white", colour=NA), plot.margin=margin(1,3,2,3,"mm"))
 
 ## shared archetype legend (built from pA's scale), placed under the combo
 leg <- cowplot::get_legend(pA + theme(legend.position="bottom") +
          guides(fill=guide_legend(nrow=1, override.aes=list(colour="white"))))
 
-combo <- (pA / pB) + plot_layout(heights=c(1.85, 0.9)) +
+combo <- (pA / pB) + plot_layout(heights=c(1.5, 1)) +
   plot_annotation(tag_levels="A") &
   theme(plot.tag=element_text(family=PUB_FONT, size=PT_PANEL_TAG, face=2, colour=INK))
 final <- cowplot::plot_grid(combo, leg, ncol=1, rel_heights=c(1, 0.05))
 
 save_fig2 <- function(){ dir.create("../results/figures/composite", showWarnings=FALSE, recursive=TRUE)
-  w<-FIG_W_DOUBLE*MM_TO_IN; h<-150*MM_TO_IN
+  w<-FIG_W_DOUBLE*MM_TO_IN; h<-158*MM_TO_IN
   ggsave("../results/figures/composite/ICI_Fig_archetypes.png", final, width=w, height=h, dpi=600,
          device=if(requireNamespace("ragg",quietly=TRUE)) ragg::agg_png else "png")
   ggsave("../results/figures/composite/ICI_Fig_archetypes.svg", final, width=w, height=h,
