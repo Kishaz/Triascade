@@ -18,7 +18,7 @@ CTLA4 <- c("VanAllen2015"); NULLB <- c("GSE165252","PRINCE","Braun")
 ## author/trial + year so every label identifies its study on its own
 AUTHOR <- c(IMvigor210="IMvigor210", GSE78220="Hugo 2016", GSE91061="Riaz 2017",
           GSE126044="Cho 2020", GSE135222="Jung 2019", Gide2019="Gide 2019", Liu2019="Liu 2019",
-          Puch="Puch", Kim2018gas="Kim 2018", Rose="Rose 2021", ISPY2="I-SPY2 trial",
+          Puch="PUCH 2022", Kim2018gas="Kim 2018", Rose="Rose 2021", ISPY2="I-SPY2 trial",
           VanAllen2015="Van Allen 2015", GSE165252="PERFECT trial", PRINCE="PRINCE trial", Braun="Braun 2020")
 CANC <- c(melanoma="Melanoma", urothelial="Urothelial", NSCLC="NSCLC", gastric="Gastric",
           breast="Breast", EAC="Esophageal", pancreatic="Pancreatic", ccRCC="Renal")
@@ -110,10 +110,10 @@ p <- p + annotate("text", x=-0.95, y=0, label="Integration score  (z within coho
 ## legend (R / NR) — own line, centred over the validated band
 cxL <- mean(range(xpos[WORKS]))
 p <- p +
-  annotate("point", x=cxL-1.9, y=yLEG, colour=RCOL,  size=1.5) +
-  annotate("text",  x=cxL-1.7, y=yLEG, label="responder",     family=PUB_FONT, size=(PT_BASE-2)/.pt, hjust=0, colour=INK) +
-  annotate("point", x=cxL+0.3, y=yLEG, colour=NRCOL, size=1.5) +
-  annotate("text",  x=cxL+0.5, y=yLEG, label="non-responder", family=PUB_FONT, size=(PT_BASE-2)/.pt, hjust=0, colour=INK)
+  annotate("point", x=cxL-2.6, y=yLEG, colour=RCOL,  size=3.4) +
+  annotate("text",  x=cxL-2.35, y=yLEG, label="responder",     family=PUB_FONT, size=PT_BASE/.pt, hjust=0, colour=INK) +
+  annotate("point", x=cxL+0.5, y=yLEG, colour=NRCOL, size=3.4) +
+  annotate("text",  x=cxL+0.75, y=yLEG, label="non-responder", family=PUB_FONT, size=PT_BASE/.pt, hjust=0, colour=INK)
 
 ## panel tag + frame
 p <- p +
