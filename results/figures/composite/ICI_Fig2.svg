@@ -116,18 +116,18 @@
 <text x='93.11' y='277.76' style='font-size: 9.28px; font-weight: bold; font-family: "Arial";'>Inflamed</text>
 <rect x='35.64' y='286.51' width='9.97' height='9.97' style='stroke-width: 1.28; stroke: #9C7A3E; stroke-linecap: butt; stroke-linejoin: miter; fill: #9C7A3E;' />
 <text x='40.63' y='294.19' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>+</text>
-<rect x='51.39' y='286.51' width='9.97' height='9.97' style='stroke-width: 1.28; stroke: #6A2C5A; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
-<text x='56.37' y='294.19' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #6A2C5A; font-family: "Arial";'>−</text>
+<rect x='51.39' y='286.51' width='9.97' height='9.97' style='stroke-width: 1.28; stroke: #6A2C5A; stroke-linecap: butt; stroke-linejoin: miter; fill: #6A2C5A;' />
+<text x='56.37' y='294.19' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>+</text>
 <rect x='67.13' y='286.51' width='9.97' height='9.97' style='stroke-width: 1.28; stroke: #B2567E; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
 <text x='72.12' y='294.19' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #B2567E; font-family: "Arial";'>−</text>
-<text x='93.11' y='294.81' style='font-size: 9.28px; font-weight: bold; font-family: "Arial";'>Excluded</text>
+<text x='93.11' y='294.81' style='font-size: 9.28px; font-weight: bold; font-family: "Arial";'>Execution Failed</text>
 <rect x='35.64' y='303.57' width='9.97' height='9.97' style='stroke-width: 1.28; stroke: #9C7A3E; stroke-linecap: butt; stroke-linejoin: miter; fill: #9C7A3E;' />
 <text x='40.63' y='311.25' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>+</text>
-<rect x='51.39' y='303.57' width='9.97' height='9.97' style='stroke-width: 1.28; stroke: #6A2C5A; stroke-linecap: butt; stroke-linejoin: miter; fill: #6A2C5A;' />
-<text x='56.37' y='311.25' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>+</text>
+<rect x='51.39' y='303.57' width='9.97' height='9.97' style='stroke-width: 1.28; stroke: #6A2C5A; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
+<text x='56.37' y='311.25' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #6A2C5A; font-family: "Arial";'>−</text>
 <rect x='67.13' y='303.57' width='9.97' height='9.97' style='stroke-width: 1.28; stroke: #B2567E; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
 <text x='72.12' y='311.25' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #B2567E; font-family: "Arial";'>−</text>
-<text x='93.11' y='311.87' style='font-size: 9.28px; font-weight: bold; font-family: "Arial";'>Execution Failed</text>
+<text x='93.11' y='311.87' style='font-size: 9.28px; font-weight: bold; font-family: "Arial";'>Excluded</text>
 <rect x='35.64' y='320.62' width='9.97' height='9.97' style='stroke-width: 1.28; stroke: #9C7A3E; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
 <text x='40.63' y='328.30' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #9C7A3E; font-family: "Arial";'>−</text>
 <rect x='51.39' y='320.62' width='9.97' height='9.97' style='stroke-width: 1.28; stroke: #6A2C5A; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
