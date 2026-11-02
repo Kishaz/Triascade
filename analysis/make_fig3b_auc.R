@@ -13,13 +13,14 @@ R <- readRDS("pancancer_validation.rds")
 
 ## ---- buckets (match run_pooled_auc.R) --------------------------------------
 WORKS <- c("IMvigor210","GSE78220","GSE91061","GSE126044","GSE135222",
-           "Gide2019","Liu2019","Puch","Kim2018gas","Rose")
+           "Gide2019","Liu2019","Puch","Kim2018gas","Rose","ISPY2")
 CTLA4 <- c("VanAllen2015"); NULLB <- c("GSE165252","PRINCE","Braun")
 
 ## ---- friendly display names (no fabricated years where unsure) -------------
 DISP <- c(IMvigor210="IMvigor210", GSE78220="Hugo 2016", GSE91061="Riaz 2017",
           GSE126044="Cho 2020", GSE135222="Jung 2019", Gide2019="Gide 2019",
           Liu2019="Liu 2019", Puch="Puch", Kim2018gas="Kim 2018", Rose="Rose",
+          ISPY2="I-SPY2 (breast)",
           VanAllen2015="Van Allen 2015", GSE165252="EAC (PERFECT)",
           PRINCE="PRINCE", Braun="Braun 2020")
 

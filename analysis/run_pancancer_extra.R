@@ -104,6 +104,27 @@ yfr  <- setNames(as.integer(frl$response), frl$patient_id)
 Efr  <- Efr[, intersect(colnames(Efr), names(yfr)), drop=FALSE]; yfr <- yfr[colnames(Efr)]
 RES$Friedrich <- icb_eval(Efr, yfr, "Friedrich","myeloma","BCMAxCD3-bispecific(spec-ctrl)")
 
+## ---- I-SPY2 (GSE194040) pembrolizumab arm, HER2-negative, pCR --------------
+# Breast neoadjuvant pembrolizumab + paclitaxel. Arm + pCR parsed from the two GEO
+# series matrices; gene-level expression (n988). ICB(pembro) arm only, HER2-, baseline.
+# chemo+ICB but IMMUNOGENIC breast -> validates (contrast EAC/PRINCE chemo+ICB but cold).
+.parse_sm <- function(f){ ln<-readLines(gzfile(f),warn=FALSE); ln<-ln[grepl("^!Sample_",ln)]; out<-list()
+  for(r in strsplit(ln,"\t")){ k<-sub("^!Sample_","",r[1]); v<-gsub('"','',r[-1])
+    if(grepl("^characteristics",k)){ i<-which(grepl(":",v))[1]; if(is.na(i)) next
+      nm<-make.names(trimws(sub(":.*$","",v[i]))); v<-trimws(sub("^[^:]*: *","",v)) } else nm<-make.names(k)
+    while(nm %in% names(out)) nm<-paste0(nm,".x"); out[[nm]]<-v }
+  n<-max(lengths(out)); as.data.frame(lapply(out,function(x){length(x)<-n;x}),stringsAsFactors=FALSE) }
+isp <- rbind(.parse_sm("data/ISPY2_GPL20078_series.txt.gz")[,c("patient.id","arm","her2","pcr")],
+             .parse_sm("data/ISPY2_GPL30493_series.txt.gz")[,c("patient.id","arm","her2","pcr")])
+.n01 <- function(v) ifelse(grepl("pos|[+]|yes|^1$",v,TRUE),1L,ifelse(grepl("neg|[-]|no|^0$",v,TRUE),0L,NA))
+isp$.id<-as.character(isp$patient.id); isp$.her2<-.n01(isp$her2); isp$.pcr<-.n01(isp$pcr)
+isp$.arm<-ifelse(grepl("Pembrolizumab",isp$arm),"pembro",NA)
+iex <- as.data.frame(fread("data/ISPY2_geneExp_n988.txt.gz")); rownames(iex)<-toupper(iex[[1]]); iex[[1]]<-NULL
+iex <- as.matrix(iex)
+iel <- subset(isp, .arm=="pembro" & .her2==0 & !is.na(.pcr) & .id %in% colnames(iex)); iel<-iel[!duplicated(iel$.id),]
+Eisp <- iex[, iel$.id]; yisp <- setNames(iel$.pcr, iel$.id)
+RES$ISPY2 <- icb_eval(Eisp, yisp, "ISPY2","breast","pembro+paclitaxel(neoadj)")
+
 saveRDS(RES, "pancancer_validation.rds")
 cat("\n=== SUMMARY: Integration AUC across cohorts ===\n")
 cat(sprintf("%-11s %-10s %-18s n   R/NR   cohort  single(self)\n","cohort","cancer","drug"))

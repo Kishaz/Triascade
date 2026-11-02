@@ -13,12 +13,15 @@ set.seed(7)
 R <- readRDS("pancancer_validation.rds")
 
 WORKS <- c("IMvigor210","GSE78220","GSE91061","GSE126044","GSE135222",
-           "Gide2019","Liu2019","Puch","Kim2018gas","Rose")
+           "Gide2019","Liu2019","Puch","Kim2018gas","Rose","ISPY2")
 CTLA4 <- c("VanAllen2015"); NULLB <- c("GSE165252","PRINCE","Braun")
-DISP <- c(IMvigor210="IMvigor210", GSE78220="Hugo", GSE91061="Riaz",
+AUTHOR <- c(IMvigor210="IMvigor210", GSE78220="Hugo", GSE91061="Riaz",
           GSE126044="Cho", GSE135222="Jung", Gide2019="Gide", Liu2019="Liu",
-          Puch="Puch", Kim2018gas="Kim", Rose="Rose", VanAllen2015="Van Allen",
-          GSE165252="EAC", PRINCE="PRINCE", Braun="Braun")
+          Puch="Puch", Kim2018gas="Kim", Rose="Rose", ISPY2="I-SPY2",
+          VanAllen2015="Van Allen", GSE165252="PERFECT", PRINCE="PRINCE", Braun="Braun")
+CANC <- c(melanoma="Melanoma", urothelial="Urothelial", NSCLC="NSCLC", gastric="Gastric",
+          breast="Breast", EAC="Esophageal", pancreatic="Pancreatic", ccRCC="Renal")
+cdisp <- function(x){ v<-unname(CANC[x]); ifelse(is.na(v), x, v) }
 
 ## ---- order within works by single-patient Integration AUC (desc) ------------
 aucs <- sapply(WORKS, function(k) R[[k]]$int_ci_single[1])
@@ -29,7 +32,7 @@ bucket <- setNames(c(rep("works",length(WORKS)), rep("ctla4",length(CTLA4)),
 
 ## ---- x positions with gaps between buckets ---------------------------------
 xpos <- numeric(0); xc <- 1; prev <- "works"
-for(k in ORDER){ if(bucket[k]!=prev){ xc <- xc + 1.2; prev <- bucket[k] }
+for(k in ORDER){ if(bucket[k]!=prev){ xc <- xc + 1.8; prev <- bucket[k] }
   xpos[k] <- xc; xc <- xc + 1 }
 
 ## ---- long per-patient frame, z-scored within cohort ------------------------
@@ -49,13 +52,11 @@ agg <- do.call(rbind, lapply(split(DF, list(DF$cohort, DF$resp), drop=TRUE), fun
              med=median(d$z), q1=quantile(d$z,.25), q3=quantile(d$z,.75)) }))
 
 ## ---- per-cohort meta (AUC, n, label, y-top) --------------------------------
-ABBR <- c(melanoma="mel", gastric="gastric", NSCLC="NSCLC", urothelial="uro",
-          EAC="EAC", pancreatic="panc", ccRCC="RCC", "ccRCC"="RCC")
-abbr <- function(x) ifelse(!is.na(ABBR[x]), ABBR[x], x)
+## x-axis label: CANCER TYPE first, then author/trial, then n
 meta <- do.call(rbind, lapply(ORDER, function(k){
   data.frame(cohort=k, x=xpos[k], auc=R[[k]]$int_ci_single[1],
              n=R[[k]]$n, cancer=R[[k]]$cancer,
-             label=sprintf("%s  ·  %s (n=%d)", DISP[[k]], abbr(R[[k]]$cancer), R[[k]]$n),
+             label=sprintf("%s · %s (n=%d)", cdisp(R[[k]]$cancer), AUTHOR[[k]], R[[k]]$n),
              bucket=bucket[k]) }))
 
 RCOL <- PLUM; NRCOL <- SAND            # responder = plum, non-responder = sand (house two-group)
@@ -69,9 +70,9 @@ band <- function(ks, fill, lab){ xs <- xpos[ks]
                 family=PUB_FONT, size=(PT_BASE-0.5)/.pt, fontface=2, colour=INK, hjust=0.5)) }
 
 p <- ggplot() +
-  band(WORKS, "#F3EAF0", "Pure PD-(L)1  — validated") +
+  band(WORKS, "#F3EAF0", "Validated  (anti-PD-1/PD-L1)") +
   band(CTLA4, "#F5EEDD", "CTLA-4") +
-  band(NULLB, "#EFECE7", "Non-ICB / cold  — null") +
+  band(NULLB, "#EFECE7", "Null  (cold / resistant)") +
   annotate("segment", x=0.2, xend=max(xpos)+0.8, y=0, yend=0,
            linewidth=0.3, linetype="22", colour=RULE)
 

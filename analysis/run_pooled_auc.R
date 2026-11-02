@@ -11,7 +11,7 @@ R <- readRDS("pancancer_validation.rds")
 
 # ---- bucket membership (explicit & prespecified) --------------------
 WORKS <- c("IMvigor210","GSE78220","GSE91061","GSE126044","GSE135222",
-           "Gide2019","Liu2019","Puch","Kim2018gas","Rose")   # pure PD-(L)1, immunogenic
+           "Gide2019","Liu2019","Puch","Kim2018gas","Rose","ISPY2")  # anti-PD-(L)1, immunogenic
 CTLA4 <- c("VanAllen2015")                                    # CTLA4 monotherapy (reported apart)
 NULLB <- c("GSE165252","PRINCE","Braun")                      # cold / chemo+ICB / neg-control
 EXCL  <- c("Friedrich")                                       # bispecific, n=9, not ICB -> excluded
@@ -62,8 +62,8 @@ report <- function(tag, cohorts, metric){
 }
 
 cat("############ POOLED INTEGRATION AUC ############\n")
-pw_s <- report("WORKS (pure PD-(L)1)", WORKS, "single")
-pw_c <- report("WORKS (pure PD-(L)1)", WORKS, "cohort")
+pw_s <- report("Validated (anti-PD-(L)1)", WORKS, "single")
+pw_c <- report("Validated (anti-PD-(L)1)", WORKS, "cohort")
 
 # contrast buckets (not pooled into the works estimate)
 cat("\n=== CTLA4 monotherapy (separate) ===\n")
