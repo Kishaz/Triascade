@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='493.23pt' height='334.49pt' viewBox='0 0 493.23 334.49'>
+<g class='svglite'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHw0OTMuMjN8MC4wMHwzMzQuNDk='>
+    <rect x='0.00' y='0.00' width='493.23' height='334.49' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw0OTMuMjN8MC4wMHwzMzQuNDk=)'>
+<rect x='0.00' y='0.00' width='493.23' height='334.49' style='stroke-width: 0.00; stroke: none; fill: #FFFFFF;' />
+<line x1='288.75' y1='284.15' x2='288.75' y2='43.14' style='stroke-width: 0.64; stroke: #4C1F41; stroke-dasharray: 2.00,2.00; stroke-linecap: butt;' />
+<text x='288.75' y='38.63' text-anchor='middle' style='font-size: 7.50px;fill: #4C1F41; font-family: "Arial";'>chance</text>
+<text x='27.44' y='51.15' style='font-size: 9.00px; font-weight: bold; font-family: "Arial";'>Pure PD-(L)1  — validated</text>
+<line x1='318.83' y1='59.93' x2='362.11' y2='59.93' style='stroke-width: 1.07; stroke: #6A2C5A; stroke-linecap: butt;' />
+<circle cx='340.47' cy='59.93' r='2.70' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #6A2C5A;' />
+<text x='27.44' y='62.96' style='font-size: 8.50px; font-family: "Arial";'>Gide 2019</text>
+<text x='133.21' y='62.61' style='font-size: 7.50px;fill: #8A7F71; font-family: "Arial";'>melanoma</text>
+<text x='371.18' y='62.61' style='font-size: 7.50px; font-family: "Arial";'>0.83  [0.69–0.97]   n=41</text>
+<line x1='321.97' y1='71.92' x2='356.05' y2='71.92' style='stroke-width: 1.07; stroke: #6A2C5A; stroke-linecap: butt;' />
+<circle cx='339.01' cy='71.92' r='2.70' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #6A2C5A;' />
+<text x='27.44' y='74.95' style='font-size: 8.50px; font-family: "Arial";'>Puch</text>
+<text x='133.21' y='74.60' style='font-size: 7.50px;fill: #8A7F71; font-family: "Arial";'>melanoma</text>
+<text x='371.18' y='74.60' style='font-size: 7.50px; font-family: "Arial";'>0.82  [0.71–0.93]   n=55</text>
+<line x1='317.65' y1='83.91' x2='358.55' y2='83.91' style='stroke-width: 1.07; stroke: #6A2C5A; stroke-linecap: butt;' />
+<circle cx='338.10' cy='83.91' r='2.70' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #6A2C5A;' />
+<text x='27.44' y='86.94' style='font-size: 8.50px; font-family: "Arial";'>Kim 2018</text>
+<text x='133.21' y='86.59' style='font-size: 7.50px;fill: #8A7F71; font-family: "Arial";'>gastric</text>
+<text x='371.18' y='86.59' style='font-size: 7.50px; font-family: "Arial";'>0.82  [0.69–0.95]   n=45</text>
+<line x1='301.66' y1='95.90' x2='363.11' y2='95.90' style='stroke-width: 1.07; stroke: #6A2C5A; stroke-linecap: butt;' />
+<circle cx='332.38' cy='95.90' r='2.70' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #6A2C5A;' />
+<text x='27.44' y='98.93' style='font-size: 8.50px; font-family: "Arial";'>Hugo 2016</text>
+<text x='133.21' y='98.58' style='font-size: 7.50px;fill: #8A7F71; font-family: "Arial";'>melanoma</text>
+<text x='371.18' y='98.58' style='font-size: 7.50px; font-family: "Arial";'>0.78  [0.58–0.98]   n=27</text>
+<line x1='291.16' y1='107.89' x2='366.52' y2='107.89' style='stroke-width: 1.07; stroke: #6A2C5A; stroke-linecap: butt;' />
+<circle cx='331.17' cy='107.89' r='2.70' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #6A2C5A;' />
+<text x='27.44' y='110.92' style='font-size: 8.50px; font-family: "Arial";'>Cho 2020</text>
+<text x='133.21' y='110.57' style='font-size: 7.50px;fill: #8A7F71; font-family: "Arial";'>NSCLC</text>
+<text x='371.18' y='110.57' style='font-size: 7.50px; font-family: "Arial";'>0.77  [0.52–1.00]   n=16</text>
+<line x1='305.39' y1='119.88' x2='345.22' y2='119.88' style='stroke-width: 1.07; stroke: #6A2C5A; stroke-linecap: butt;' />
+<circle cx='325.30' cy='119.88' r='2.70' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #6A2C5A;' />
+<text x='27.44' y='122.92' style='font-size: 8.50px; font-family: "Arial";'>Rose</text>
+<text x='133.21' y='122.56' style='font-size: 7.50px;fill: #8A7F71; font-family: "Arial";'>urothelial</text>
+<text x='371.18' y='122.56' style='font-size: 7.50px; font-family: "Arial";'>0.74  [0.61–0.86]   n=87</text>
+<line x1='279.27' y1='131.87' x2='360.44' y2='131.87' style='stroke-width: 1.07; stroke: #6A2C5A; stroke-linecap: butt;' />
+<circle cx='319.85' cy='131.87' r='2.70' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #6A2C5A;' />
+<text x='27.44' y='134.91' style='font-size: 8.50px; font-family: "Arial";'>Jung 2019</text>
+<text x='133.21' y='134.55' style='font-size: 7.50px;fill: #8A7F71; font-family: "Arial";'>NSCLC</text>
+<text x='371.18' y='134.55' style='font-size: 7.50px; font-family: "Arial";'>0.70  [0.44–0.96]   n=27</text>
+<line x1='294.13' y1='143.86' x2='319.21' y2='143.86' style='stroke-width: 1.07; stroke: #6A2C5A; stroke-linecap: butt;' />
+<circle cx='306.67' cy='143.86' r='2.70' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #6A2C5A;' />
+<text x='27.44' y='146.90' style='font-size: 8.50px; font-family: "Arial";'>IMvigor210</text>
+<text x='133.21' y='146.54' style='font-size: 7.50px;fill: #8A7F71; font-family: "Arial";'>urothelial</text>
+<text x='371.18' y='146.54' style='font-size: 7.50px; font-family: "Arial";'>0.62  [0.53–0.70]   n=298</text>
+<line x1='270.86' y1='155.85' x2='338.94' y2='155.85' style='stroke-width: 1.07; stroke: #6A2C5A; stroke-linecap: butt;' />
+<circle cx='304.90' cy='155.85' r='2.70' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #6A2C5A;' />
+<text x='27.44' y='158.89' style='font-size: 8.50px; font-family: "Arial";'>Riaz 2017</text>
+<text x='133.21' y='158.53' style='font-size: 7.50px;fill: #8A7F71; font-family: "Arial";'>melanoma</text>
+<text x='371.18' y='158.53' style='font-size: 7.50px; font-family: "Arial";'>0.60  [0.39–0.82]   n=49</text>
+<line x1='278.92' y1='167.84' x2='326.78' y2='167.84' style='stroke-width: 1.07; stroke: #6A2C5A; stroke-linecap: butt;' />
+<circle cx='302.85' cy='167.84' r='2.70' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #6A2C5A;' />
+<text x='27.44' y='170.88' style='font-size: 8.50px; font-family: "Arial";'>Liu 2019</text>
+<text x='133.21' y='170.53' style='font-size: 7.50px;fill: #8A7F71; font-family: "Arial";'>melanoma</text>
+<text x='371.18' y='170.53' style='font-size: 7.50px; font-family: "Arial";'>0.59  [0.44–0.74]   n=54</text>
+<polygon points='311.33,179.83 322.61,176.00 332.37,179.83 322.61,183.67 ' style='stroke-width: 1.07; stroke: #4C1F41; stroke-linecap: butt; fill: #4C1F41;' />
+<text x='27.44' y='182.87' style='font-size: 8.50px; font-weight: bold;fill: #4C1F41; font-family: "Arial";'>Pooled (random effects)</text>
+<text x='133.21' y='182.52' style='font-size: 7.50px;fill: #8A7F71; font-family: "Arial";'>10 cohorts</text>
+<text x='371.18' y='182.52' style='font-size: 7.50px; font-weight: bold;fill: #4C1F41; font-family: "Arial";'>0.72  [0.65–0.78]   n=699</text>
+<text x='27.44' y='207.03' style='font-size: 9.00px; font-weight: bold; font-family: "Arial";'>CTLA-4 monotherapy</text>
+<line x1='285.52' y1='215.81' x2='340.74' y2='215.81' style='stroke-width: 1.07; stroke: #9C7A3E; stroke-linecap: butt;' />
+<circle cx='313.13' cy='215.81' r='2.70' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #9C7A3E;' />
+<text x='27.44' y='218.84' style='font-size: 8.50px; font-family: "Arial";'>Van Allen 2015</text>
+<text x='133.21' y='218.49' style='font-size: 7.50px;fill: #8A7F71; font-family: "Arial";'>melanoma</text>
+<text x='371.18' y='218.49' style='font-size: 7.50px; font-family: "Arial";'>0.66  [0.48–0.83]   n=42</text>
+<text x='27.44' y='243.01' style='font-size: 9.00px; font-weight: bold; font-family: "Arial";'>Non-ICB / cold tumours  — null</text>
+<line x1='251.44' y1='251.78' x2='320.87' y2='251.78' style='stroke-width: 1.07; stroke: #8A7F71; stroke-linecap: butt;' />
+<circle cx='286.16' cy='251.78' r='2.70' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #8A7F71;' />
+<text x='27.44' y='254.81' style='font-size: 8.50px; font-family: "Arial";'>EAC (PERFECT)</text>
+<text x='133.21' y='254.46' style='font-size: 7.50px;fill: #8A7F71; font-family: "Arial";'>EAC</text>
+<text x='371.18' y='254.46' style='font-size: 7.50px; font-family: "Arial";'>0.48  [0.26–0.71]   n=32</text>
+<line x1='258.67' y1='263.77' x2='317.96' y2='263.77' style='stroke-width: 1.07; stroke: #8A7F71; stroke-linecap: butt;' />
+<circle cx='288.32' cy='263.77' r='2.70' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #8A7F71;' />
+<text x='27.44' y='266.80' style='font-size: 8.50px; font-family: "Arial";'>PRINCE</text>
+<text x='133.21' y='266.45' style='font-size: 7.50px;fill: #8A7F71; font-family: "Arial";'>pancreatic</text>
+<text x='371.18' y='266.45' style='font-size: 7.50px; font-family: "Arial";'>0.50  [0.31–0.69]   n=38</text>
+<line x1='265.08' y1='275.76' x2='296.28' y2='275.76' style='stroke-width: 1.07; stroke: #8A7F71; stroke-linecap: butt;' />
+<circle cx='280.68' cy='275.76' r='2.70' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #8A7F71;' />
+<text x='27.44' y='278.79' style='font-size: 8.50px; font-family: "Arial";'>Braun 2020</text>
+<text x='133.21' y='278.44' style='font-size: 7.50px;fill: #8A7F71; font-family: "Arial";'>ccRCC</text>
+<text x='371.18' y='278.44' style='font-size: 7.50px; font-family: "Arial";'>0.45  [0.35–0.55]   n=172</text>
+<line x1='257.64' y1='288.95' x2='366.52' y2='288.95' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
+<line x1='257.64' y1='288.95' x2='257.64' y2='291.11' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
+<text x='257.64' y='298.23' text-anchor='middle' style='font-size: 7.50px; font-family: "Arial";'>0.3</text>
+<line x1='273.19' y1='288.95' x2='273.19' y2='291.11' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
+<text x='273.19' y='298.23' text-anchor='middle' style='font-size: 7.50px; font-family: "Arial";'>0.4</text>
+<line x1='288.75' y1='288.95' x2='288.75' y2='291.11' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
+<text x='288.75' y='298.23' text-anchor='middle' style='font-size: 7.50px; font-family: "Arial";'>0.5</text>
+<line x1='304.30' y1='288.95' x2='304.30' y2='291.11' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
+<text x='304.30' y='298.23' text-anchor='middle' style='font-size: 7.50px; font-family: "Arial";'>0.6</text>
+<line x1='319.85' y1='288.95' x2='319.85' y2='291.11' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
+<text x='319.85' y='298.23' text-anchor='middle' style='font-size: 7.50px; font-family: "Arial";'>0.7</text>
+<line x1='335.41' y1='288.95' x2='335.41' y2='291.11' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
+<text x='335.41' y='298.23' text-anchor='middle' style='font-size: 7.50px; font-family: "Arial";'>0.8</text>
+<line x1='350.96' y1='288.95' x2='350.96' y2='291.11' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
+<text x='350.96' y='298.23' text-anchor='middle' style='font-size: 7.50px; font-family: "Arial";'>0.9</text>
+<line x1='366.52' y1='288.95' x2='366.52' y2='291.11' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
+<text x='366.52' y='298.23' text-anchor='middle' style='font-size: 7.50px; font-family: "Arial";'>1.0</text>
+<text x='312.08' y='310.87' text-anchor='middle' style='font-size: 11.00px; font-family: "Arial";'>Single-patient Integration AUC</text>
+<text x='27.44' y='29.45' style='font-size: 12.00px; font-weight: bold; font-family: "Arial";'>B</text>
+</g>
+</g>
+<!-- text joined by svg_join_text.py -->
+</svg>

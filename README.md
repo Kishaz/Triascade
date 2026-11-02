@@ -34,8 +34,16 @@ From `analysis/`:
 ```bash
 Rscript make_fig1_full.R      # → results/figures/composite/ICI_Fig1_full.{png,svg}
 Rscript make_fig2_combined.R  # → results/figures/composite/ICI_Fig2.{png,svg}
-Rscript make_fig3_atlas.R     # → results/figures/composite/ICI_Fig3_atlas.{png,svg}
+Rscript make_fig3_atlas.R     # → results/figures/composite/ICI_Fig3_atlas.{png,svg}   (Fig 3a: anatomy atlas)
+Rscript run_pancancer_extra.R # → analysis/pancancer_validation.rds   (15-cohort ICB validation)
+Rscript run_pooled_auc.R      # → results/tables/pooled_integration_auc.csv, pancancer_cohort_table.csv
+Rscript make_fig3b_auc.R      # → results/figures/composite/ICI_Fig3b_auc.{png,svg}  (Fig 3b: AUC forest)
 ```
+
+**Fig 3a** is a hand-tuned atlas: the committed SVG is the author's Inkscape-edited copy
+(`results/figures/composite/edits/` holds the backup). Re-running `make_fig3_atlas.R`
+reproduces it *except* a manual vertical-framing tweak that lives only in the edited copy —
+so regenerate onto a new name, don't overwrite the edited deliverable.
 `save_fig()` (in `analysis/ici_theme.R`) writes a 600-dpi PNG plus an editable SVG whose text is
 post-processed by `svg_join_text.py` (sentences stay one object; no fixed `textLength`).
 

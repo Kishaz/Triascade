@@ -28,7 +28,7 @@ BADGE_DATA <- PLUM; BADGE_OTH <- "#6E6257"
 ## master legend (num, name, scope, scored-here) -------------------------------
 LEG <- list(
   c(1,"Brain","both",0),   c(2,"Thyroid","both",0), c(3,"Lung","both",1),
-  c(4,"Esophagus","both",0),c(5,"Stomach","both",0),c(6,"Liver","both",0),
+  c(4,"Esophagus","both",0),c(5,"Gastric","both",0),c(6,"Liver","both",0),
   c(7,"Pancreas","both",0), c(8,"Kidney","both",0), c(9,"Colon","both",0),
   c(10,"Bladder","both",1), c(11,"Skin (melanoma)","both",1), c(12,"Breast","female",1),
   c(13,"Ovary","female",0), c(14,"Uterus","female",0), c(15,"Prostate","male",0), c(16,"Testis","male",0))
