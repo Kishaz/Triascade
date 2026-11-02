@@ -81,7 +81,7 @@ p <- ggplot() +
 DF$vx <- DF$x + ifelse(DF$resp=="R", 0.21, -0.21)        # dodge centre for each violin
 p <- p +
   geom_violin(data=DF, aes(x=vx, y=z, group=interaction(cohort,resp), fill=resp, colour=resp),
-              width=0.36, alpha=0.5, linewidth=0.3, trim=TRUE, scale="width") +
+              width=0.36, alpha=0.5, linewidth=0.3, trim=TRUE, scale="width", adjust=0.5) +
   geom_point(data=DF, aes(px, z, colour=resp), size=0.3, alpha=0.25, stroke=0) +
   scale_fill_manual(values=c(R=RCOL, NR=NRCOL), guide="none") +
   scale_colour_manual(values=c(R=RCOL, NR=NRCOL), guide="none")
