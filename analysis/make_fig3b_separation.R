@@ -15,10 +15,11 @@ R <- readRDS("pancancer_validation.rds")
 WORKS <- c("IMvigor210","GSE78220","GSE91061","GSE126044","GSE135222",
            "Gide2019","Liu2019","Puch","Kim2018gas","Rose","ISPY2")
 CTLA4 <- c("VanAllen2015"); NULLB <- c("GSE165252","PRINCE","Braun")
-AUTHOR <- c(IMvigor210="IMvigor210", GSE78220="Hugo", GSE91061="Riaz",
-          GSE126044="Cho", GSE135222="Jung", Gide2019="Gide", Liu2019="Liu",
-          Puch="Puch", Kim2018gas="Kim", Rose="Rose", ISPY2="I-SPY2",
-          VanAllen2015="Van Allen", GSE165252="PERFECT", PRINCE="PRINCE", Braun="Braun")
+## author/trial + year so every label identifies its study on its own
+AUTHOR <- c(IMvigor210="IMvigor210", GSE78220="Hugo 2016", GSE91061="Riaz 2017",
+          GSE126044="Cho 2020", GSE135222="Jung 2019", Gide2019="Gide 2019", Liu2019="Liu 2019",
+          Puch="Puch", Kim2018gas="Kim 2018", Rose="Rose 2021", ISPY2="I-SPY2 trial",
+          VanAllen2015="Van Allen 2015", GSE165252="PERFECT trial", PRINCE="PRINCE trial", Braun="Braun 2020")
 CANC <- c(melanoma="Melanoma", urothelial="Urothelial", NSCLC="NSCLC", gastric="Gastric",
           breast="Breast", EAC="Esophageal", pancreatic="Pancreatic", ccRCC="Renal")
 cdisp <- function(x){ v<-unname(CANC[x]); ifelse(is.na(v), x, v) }
@@ -32,7 +33,7 @@ bucket <- setNames(c(rep("works",length(WORKS)), rep("ctla4",length(CTLA4)),
 
 ## ---- x positions with gaps between buckets ---------------------------------
 xpos <- numeric(0); xc <- 1; prev <- "works"
-for(k in ORDER){ if(bucket[k]!=prev){ xc <- xc + 1.8; prev <- bucket[k] }
+for(k in ORDER){ if(bucket[k]!=prev){ xc <- xc + 1.0; prev <- bucket[k] }  # tighter inter-group gap
   xpos[k] <- xc; xc <- xc + 1 }
 
 ## ---- long per-patient frame, z-scored within cohort ------------------------
@@ -64,15 +65,15 @@ ytop <- 3.1; yAUC <- 3.6; yband <- c(-4.2, 4.3); yHEAD <- yband[2]+0.5; yLEG <- 
 
 ## ---- bucket background bands + headers -------------------------------------
 band <- function(ks, fill, lab){ xs <- xpos[ks]
-  list(annotate("rect", xmin=min(xs)-0.6, xmax=max(xs)+0.6, ymin=yband[1], ymax=yband[2],
+  list(annotate("rect", xmin=min(xs)-0.45, xmax=max(xs)+0.45, ymin=yband[1], ymax=yband[2],
                 fill=fill, colour=NA),
-       annotate("text", x=mean(range(xs)), y=yHEAD, label=lab,
-                family=PUB_FONT, size=(PT_BASE-0.5)/.pt, fontface=2, colour=INK, hjust=0.5)) }
+       annotate("text", x=mean(range(xs)), y=yHEAD, label=lab, lineheight=0.9,
+                family=PUB_FONT, size=(PT_BASE-1)/.pt, fontface=2, colour=INK, hjust=0.5, vjust=1)) }
 
 p <- ggplot() +
-  band(WORKS, "#F3EAF0", "Validated  (anti-PD-1/PD-L1)") +
+  band(WORKS, "#F3EAF0", "Validated\n(anti-PD-1/PD-L1)") +
   band(CTLA4, "#F5EEDD", "CTLA-4") +
-  band(NULLB, "#EFECE7", "Null  (cold / resistant)") +
+  band(NULLB, "#EFECE7", "Null\n(cold / resistant)") +
   annotate("segment", x=0.2, xend=max(xpos)+0.8, y=0, yend=0,
            linewidth=0.3, linetype="22", colour=RULE)
 
@@ -92,10 +93,10 @@ p <- p + geom_text(data=meta, aes(x=x, y=yAUC, label=sprintf("%.2f", auc)),
   annotate("text", x=0.1, y=yAUC, label="AUC", family=PUB_FONT,
            size=(PT_BASE-2.5)/.pt, colour=MUTED, hjust=1)
 
-## cohort labels (name, tumour, n) under the axis — one rotated object each
+## cohort labels (cancer, author, n) under the axis — vertical, house-style font
 p <- p +
-  geom_text(data=meta, aes(x=x, y=-3.5, label=label), family=PUB_FONT,
-            size=(PT_BASE-2)/.pt, angle=45, hjust=1, vjust=1, colour=INK)
+  geom_text(data=meta, aes(x=x, y=-3.35, label=label), family=PUB_FONT,
+            size=(PT_BASE-0.5)/.pt, angle=90, hjust=1, vjust=0.5, colour=INK)
 
 ## y axis (manual, left side) + R/NR legend swatches
 yt <- c(-3,-2,-1,0,1,2,3)
@@ -118,10 +119,10 @@ p <- p +
 p <- p +
   annotate("text", x=-0.95, y=yLEG, label="B", family=PUB_FONT,
            size=PT_PANEL_TAG/.pt, fontface=2, hjust=0, colour=INK) +
-  coord_cartesian(xlim=c(-1.05, max(xpos)+0.9), ylim=c(-5.6, yLEG+0.6), clip="off") +
+  coord_cartesian(xlim=c(-1.05, max(xpos)+0.6), ylim=c(-10.8, yLEG+0.6), clip="off") +
   theme_void() +
   theme(plot.background=element_rect(fill="white", colour=NA),
         plot.margin=margin(2,3,2,2,"mm"))
 
-save_fig(p, "ICI_Fig3b_separation", width_mm=174, height_mm=120, dir="../results/figures/composite")
+save_fig(p, "ICI_Fig3b_separation", width_mm=174, height_mm=168, dir="../results/figures/composite")
 cat("done\n")
