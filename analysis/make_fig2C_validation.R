@@ -53,16 +53,20 @@ ord <- c("Sense-low (cold)","Integration-suppressed","Execution-low","Cascade-in
 nrp <- nrp[match(ord, as.character(nrp$class)), ]
 nnrp <- sum(nrp$n_NR)
 compcol <- c(unname(col["Sense"]), unname(col["Integration"]), unname(col["Execution"]), NEUTRAL)
-complab <- c("cold","blocked","no-kill","none")
+complet <- c("S","I","E","")                       # layer letters (match A/B) above each bar
+complab <- c("cold","blocked","no-kill","none")    # plain descriptor under the letter
 cbx <- c(240, 250, 260, 270); cbw <- 7; cbb <- 34; cbsc <- 36/max(nrp$n_NR)  # tallest bar matches ROC height (y34-70)
 comp_layers <- c(list(
   annotate("segment", x=236+CXO, xend=236+CXO, y=cbb+CYO, yend=cbb+36+CYO, colour=INK, linewidth=0.4),
   annotate("segment", x=236+CXO, xend=273+CXO, y=cbb+CYO, yend=cbb+CYO, colour=INK, linewidth=0.4)),
-  unlist(lapply(1:4, function(i) list(
+  unlist(lapply(1:4, function(i){ base <- list(
     rect(cbx[i]-cbw/2, cbx[i]+cbw/2, cbb, cbb+nrp$n_NR[i]*cbsc, compcol[i], INK, 0.4),
     txt(cbx[i], cbb+nrp$n_NR[i]*cbsc+2, sprintf("%d", nrp$n_NR[i]), size=7, face=2,
         colour=if(i==4) INK else compcol[i]),
-    txt(cbx[i], cbb-3, complab[i], size=6, colour=INK))), recursive=FALSE))
+    txt(cbx[i], cbb-6, complab[i], size=5.5, colour=INK))                 # descriptor
+    if(i<=3) base <- c(base, list(
+      txt(cbx[i], cbb-2.6, complet[i], size=8, face=2, colour=compcol[i]))) # S/I/E in layer colour
+    base }), recursive=FALSE))
 
 C_layers <- list(
   annotate("text", x=1+CXO, y=88+CYO, label="C", family=PUB_FONT, size=PT_PANEL_TAG/.pt, fontface=2, hjust=0),

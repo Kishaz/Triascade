@@ -39,11 +39,12 @@ LOC <- list(
 # Archetypes: canonical S/I/E high(1)/low(0) patterns -> named phenotype (name only; the
 # ICB expectation per archetype is a result and lives in a separate figure).
 # Four data-grounded archetypes (IMvigor210 check, 2026-10-31): Sensing Failed (0,1,1)
-# is only 2.9% and all boundary cases -> dropped. Integration is orthogonal to the
-# S-E temperature axis, so Excluded is (1,0,1) [hot but suppressed], not (1,0,0).
+# is only 2.9% and all boundary cases -> dropped. Excluded = tumour detected (S+) but
+# immune access blocked (I-), so effectors never reach the tumour and cannot kill (E-):
+# S+ I- E- (1,0,0).
 ARCH <- list(
   list(pat=c(1,1,1), name="Inflamed"),
-  list(pat=c(1,0,1), name="Excluded"),
+  list(pat=c(1,0,0), name="Excluded"),
   list(pat=c(1,1,0), name="Execution Failed"),
   list(pat=c(0,0,0), name="Desert"))
 AY  <- c(30, 23.5, 17, 10.5)          # archetype row y-centers (inside card 3)
