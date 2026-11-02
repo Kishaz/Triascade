@@ -1,0 +1,27 @@
+# ── OS ───────────────────────────────────────────────────────────────
+.DS_Store
+**/.DS_Store
+
+# ── Large cohort data (not versioned; see README) ────────────────────
+analysis/data/
+**/_dl/
+
+# ── Python environments & caches ─────────────────────────────────────
+**/.venv/
+**/__pycache__/
+*.pyc
+
+# ── Large binaries (kept on disk, not in git) ────────────────────────
+*.zip
+*.pptx
+*.pdf
+*.gmt
+
+# ── R session junk ───────────────────────────────────────────────────
+.Rhistory
+.RData
+.Rproj.user/
+
+# ── Separate sub-project: systematic-review tooling (its own git repo,
+#    large venv + corpora). Lives on disk, versioned on its own. ───────
+review/

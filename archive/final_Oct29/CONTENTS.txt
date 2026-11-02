@@ -1,0 +1,37 @@
+Immune Cascade Index paper - final files
+
+MANUSCRIPT
+  Immune_Cascade_Index_Manuscript_FINAL.docx   all changes accepted
+
+FIGURES
+  Figure 1      concept: the three layers and the scoring
+  Figure 2A     landscape: each patient's layer states in the 13 analyses
+  Figure 2B     response rate by archetype in each analysis
+  Figure 3      I-SPY2 randomized trial (panels A-F)
+  Figure 4      NeoTRIP replication (panels A-D)
+  Figure 5A-D   IMvigor210 survival by layer
+  Figure 5E     IMvigor210 bivariate Cox models
+  Figure 5F     IMvigor210 layer activity by IHC phenotype
+  Figure 5G     IMvigor210 Integration with TMB and PD-L1
+
+SUPPLEMENTARY FIGURES
+  S1      layer correlations
+  S2      PRISMA flow of the systematic review
+  S3      modules of the 147 recurrent genes
+  S4      layer AUCs by analysis
+  S5      archetype agreement, binary vs continuous scoring
+  S6A-D   Braun survival by layer
+  S6E     NSCLC GSE135222 progression-free survival
+  S6F-I   IMvigor210 benchmark survival curves
+  S7      Integration within inflamed strata
+  S8A     Cohen's d by analysis
+
+SUPPLEMENTARY TABLES
+  S1      gene provenance (and its citation key)
+  S2      ICI genes and published signatures
+  S3      NSCLC studies analyzed separately
+  S4      I-SPY2 interaction tests (likelihood ratio)
+  S5      PRINCE components (S5b: per gene)
+
+SCRIPTS
+  scripts/scripts_by_figure.txt says which script makes each figure and table.

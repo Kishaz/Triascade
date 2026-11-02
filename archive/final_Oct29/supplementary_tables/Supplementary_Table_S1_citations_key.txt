@@ -1,0 +1,21 @@
+ICI 2.0 Manuscript — Supplementary Table S1 — Citations Key
+===============================================================
+
+Ayers2017       = Ayers M et al. JCI 127:2930-2940 (2017). DOI 10.1172/JCI91190
+Bottcher2018    = Bottcher JP et al. Cell 172:1022-1037 (2018). DOI 10.1016/j.cell.2018.01.004
+Cristescu2018   = Cristescu R et al. Science 362:eaar3593 (2018). DOI 10.1126/science.aar3593
+Fridman2012     = Fridman WH et al. Nat Rev Cancer 12:298-306 (2012). DOI 10.1038/nrc3245
+Galon2006       = Galon J et al. Science 313:1960-1964 (2006). DOI 10.1126/science.1129139
+Harlin2009      = Harlin H et al. Cancer Res 69:3077-3085 (2009). DOI 10.1158/0008-5472.CAN-08-2281
+Hugo2016        = Hugo W et al. Cell 165:35-44 (2016). DOI 10.1016/j.cell.2016.02.065
+Khan2019        = Khan O et al. Nature 571:211-218 (2019). DOI 10.1038/s41586-019-1325-x
+Mariathasan2018 = Mariathasan S et al. Nature 554:544-548 (2018). DOI 10.1038/nature25501
+Rooney2015      = Rooney MS et al. Cell 160:48-61 (2015). DOI 10.1016/j.cell.2014.12.033
+Salmon2016      = Salmon H et al. Cell 165:35-44 (2016)
+Schreiber2011   = Schreiber RD et al. Science 331:1565-1570 (2011). DOI 10.1126/science.1203486
+Scott2019       = Scott AC et al. Nature 571:270-274 (2019). DOI 10.1038/s41586-019-1324-y
+Spranger2015    = Spranger S et al. Nature 523:231-235 (2015). DOI 10.1038/nature14404
+Tauriello2018   = Tauriello DVF et al. Nature 554:538-543 (2018). DOI 10.1038/nature25492
+Thommen2018     = Thommen DS et al. Nat Med 24:994-1004 (2018). DOI 10.1038/s41591-018-0057-z
+Tirosh2016      = Tirosh I et al. Science 352:189-196 (2016). DOI 10.1126/science.aad0501
+Wherry2015      = Wherry EJ & Kurachi M. Nat Rev Immunol 15:486-499 (2015). DOI 10.1038/nri3862

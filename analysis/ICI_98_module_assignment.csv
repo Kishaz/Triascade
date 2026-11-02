@@ -1,0 +1,101 @@
+gene,module,module_label,layer,direction
+B2M,M1,IFN / antigen-presentation,Sense,positive
+HLA-A,M1,IFN / antigen-presentation,Sense,positive
+HLA-B,M1,IFN / antigen-presentation,Sense,positive
+HLA-C,M1,IFN / antigen-presentation,Sense,positive
+HLA-E,M1,IFN / antigen-presentation,Sense,positive
+HLA-F,M1,IFN / antigen-presentation,Sense,positive
+HLA-G,M1,IFN / antigen-presentation,Sense,positive
+IFNG,M1,IFN / antigen-presentation,Sense,positive
+IFNGR1,M1,IFN / antigen-presentation,Sense,positive
+IFNGR2,M1,IFN / antigen-presentation,Sense,positive
+IRF1,M1,IFN / antigen-presentation,Sense,positive
+JAK1,M1,IFN / antigen-presentation,Sense,positive
+JAK2,M1,IFN / antigen-presentation,Sense,positive
+PSMB10,M1,IFN / antigen-presentation,Sense,positive
+PSMB8,M1,IFN / antigen-presentation,Sense,positive
+PSMB9,M1,IFN / antigen-presentation,Sense,positive
+STAT1,M1,IFN / antigen-presentation,Sense,positive
+STAT2,M1,IFN / antigen-presentation,Sense,positive
+TAP1,M1,IFN / antigen-presentation,Sense,positive
+TAP2,M1,IFN / antigen-presentation,Sense,positive
+TAPBP,M1,IFN / antigen-presentation,Sense,positive
+BATF3,M2,chemokine / trafficking,Integration,positive
+CCL19,M2,chemokine / trafficking,Integration,positive
+CCL21,M2,chemokine / trafficking,Integration,positive
+CCL4,M2,chemokine / trafficking,Integration,positive
+CCL5,M2,chemokine / trafficking,Integration,positive
+CCR5,M2,chemokine / trafficking,Integration,positive
+CCR7,M2,chemokine / trafficking,Integration,positive
+CD40,M2,chemokine / trafficking,Integration,positive
+CD80,M2,chemokine / trafficking,Integration,positive
+CD86,M2,chemokine / trafficking,Integration,positive
+CR2,M2,chemokine / trafficking,Integration,positive
+CXCL10,M2,chemokine / trafficking,Integration,positive
+CXCL11,M2,chemokine / trafficking,Integration,positive
+CXCL13,M2,chemokine / trafficking,Integration,positive
+CXCL9,M2,chemokine / trafficking,Integration,positive
+CXCR3,M2,chemokine / trafficking,Integration,positive
+ICAM1,M2,chemokine / trafficking,Integration,positive
+IRF8,M2,chemokine / trafficking,Integration,positive
+MADCAM1,M2,chemokine / trafficking,Integration,positive
+TNFRSF17,M2,chemokine / trafficking,Integration,positive
+VCAM1,M2,chemokine / trafficking,Integration,positive
+ACTA2,M3,stromal / ECM,Integration,negative
+COL1A1,M3,stromal / ECM,Integration,negative
+COL1A2,M3,stromal / ECM,Integration,negative
+COL3A1,M3,stromal / ECM,Integration,negative
+COL4A1,M3,stromal / ECM,Integration,negative
+CXCL12,M3,stromal / ECM,Integration,negative
+FAP,M3,stromal / ECM,Integration,negative
+FN1,M3,stromal / ECM,Integration,negative
+MMP14,M3,stromal / ECM,Integration,negative
+MMP2,M3,stromal / ECM,Integration,negative
+MMP9,M3,stromal / ECM,Integration,negative
+EDNRB,M4,angiogenic / CAF-TGFb,Integration,negative
+FLT1,M4,angiogenic / CAF-TGFb,Integration,negative
+KDR,M4,angiogenic / CAF-TGFb,Integration,negative
+TGFB1,M4,angiogenic / CAF-TGFb,Integration,negative
+TGFB2,M4,angiogenic / CAF-TGFb,Integration,negative
+TGFB3,M4,angiogenic / CAF-TGFb,Integration,negative
+VEGFA,M4,angiogenic / CAF-TGFb,Integration,negative
+VEGFB,M4,angiogenic / CAF-TGFb,Integration,negative
+VEGFC,M4,angiogenic / CAF-TGFb,Integration,negative
+CD8A,M5,cytotoxic effector,Execution,positive
+CD8B,M5,cytotoxic effector,Execution,positive
+EOMES,M5,cytotoxic effector,Execution,positive
+FASLG,M5,cytotoxic effector,Execution,positive
+GNLY,M5,cytotoxic effector,Execution,positive
+GZMA,M5,cytotoxic effector,Execution,positive
+GZMB,M5,cytotoxic effector,Execution,positive
+GZMH,M5,cytotoxic effector,Execution,positive
+GZMK,M5,cytotoxic effector,Execution,positive
+GZMM,M5,cytotoxic effector,Execution,positive
+IFNG,M5,cytotoxic effector,Execution,positive
+IL12A,M5,cytotoxic effector,Execution,positive
+IL2,M5,cytotoxic effector,Execution,positive
+LTA,M5,cytotoxic effector,Execution,positive
+NKG7,M5,cytotoxic effector,Execution,positive
+PRF1,M5,cytotoxic effector,Execution,positive
+RUNX3,M5,cytotoxic effector,Execution,positive
+TBX21,M5,cytotoxic effector,Execution,positive
+TNF,M5,cytotoxic effector,Execution,positive
+BTLA,M6,checkpoint / exhaustion,Execution,negative
+CD160,M6,checkpoint / exhaustion,Execution,negative
+CD244,M6,checkpoint / exhaustion,Execution,negative
+CD274,M6,checkpoint / exhaustion,Execution,negative
+CTLA4,M6,checkpoint / exhaustion,Execution,negative
+ENTPD1,M6,checkpoint / exhaustion,Execution,negative
+HAVCR2,M6,checkpoint / exhaustion,Execution,negative
+IDO1,M6,checkpoint / exhaustion,Execution,negative
+IL10,M6,checkpoint / exhaustion,Execution,negative
+LAG3,M6,checkpoint / exhaustion,Execution,negative
+NR4A1,M6,checkpoint / exhaustion,Execution,negative
+NR4A2,M6,checkpoint / exhaustion,Execution,negative
+NR4A3,M6,checkpoint / exhaustion,Execution,negative
+PDCD1,M6,checkpoint / exhaustion,Execution,negative
+PDCD1LG2,M6,checkpoint / exhaustion,Execution,negative
+TGFB1,M6,checkpoint / exhaustion,Execution,negative
+TIGIT,M6,checkpoint / exhaustion,Execution,negative
+TOX,M6,checkpoint / exhaustion,Execution,negative
+VSIR,M6,checkpoint / exhaustion,Execution,negative

@@ -1,0 +1,36 @@
+Which script makes what (final versions only).
+Scripts marked * are your own scripts; the script named before them runs them.
+
+DATA
+  I-SPY2 scores, n = 248                 ISPY2_REBUILD_248_v1.1.R
+  I-SPY2, the 246 with Integration       ICI_FINISH2_v1.0.R
+  NSCLC scored per study                 ICI_NSCLC_SPLIT_v1.2.R
+  The 98-gene panel                      build_scRNA_celltype_PANEL_SOURCE.R
+
+FIGURES
+  Figure 1                               Figure1_ICI_framework_v3.4.R
+  Figure 2A                              ICI_patient_landscape_v2.5.R
+  Figure 2B                              ICI_FIG2B_v1.1.R (runs build_archetype_concordance.R*)
+  Figures 3 and 4                        ICI_FIG3_FIG4_LRT_v1.0.R (runs ICI_FIGS_v12_v1.1.R)
+  Figure 5F                              ICI_FIGS_IMVIGOR_v1.1.R
+  Figures 5A-D, 5E, 5G                   made earlier by your own scripts; not in this folder
+
+SUPPLEMENTARY FIGURES
+  S1                                     ICI_S1_CORRELATIONS_v1.0.R (runs fig2_layer_separability.R*, fig5_S9_S10.R*)
+  S2 (PRISMA flow), S3 (modules)         drawn in the chat; no script in this folder
+  S4                                     ICI_NSCLC_SEPARATE_v1.0.R
+  S5, S6A-D, S6E, S8A                    ICI_SPLIT_RERUN_v1.0.R (runs build_archetype_concordance.R*,
+                                         build_binary_KM.R*, build_waterfall_ridgeline.R*)
+  S6F-I                                  made earlier by your own scripts; not in this folder
+  S7                                     ICI_FIGS_S6_v3.1.R (saves it as SuppFigS6_inflamed_strata,
+                                         its number before the supplementary figures were renumbered)
+
+SUPPLEMENTARY TABLES
+  S1                                     build_gene_provenance.R*
+  S2                                     the systematic review gene lists (S2a and S2b) merged into one table in the chat
+  S3                                     ICI_FINISH_v1.0.R
+  S4                                     ICI_ISPY2_LRT_v1.0.R (runs ispy2_categorical_check.R*, fig2_ispy2_predictive.R*)
+  S5, S5b                                prince_integration_fault.R*
+
+TEXT ONLY
+  Tumor purity results                   ICI_PURITY_SPLIT_v1.0.R (runs 05_tumor_purity_sensitivity.R*)

@@ -1,0 +1,7 @@
+"platform","locked_mode","gene_call_agreement","Integration_spearman","Composite_spearman","archetype_agreement","AUC_Integration_cohortmedian","AUC_Integration_locked"
+"same_platform","quantile",0.971,0.985,0.995,0.872,0.762,0.759
+"same_platform","direct",0.971,0.986,0.995,0.876,0.762,0.758
+"same_platform","selfnorm",0.758,0.914,0.858,0.572,0.762,0.769
+"shifted_platform","quantile",0.626,0.881,0.937,0.664,0.751,0.769
+"shifted_platform","direct",0.626,0.882,0.937,0.672,0.751,0.769
+"shifted_platform","selfnorm",0.57,0.849,0.879,0.536,0.751,0.768

@@ -1,0 +1,4 @@
+"scoring","Integration_spearman","Composite_spearman","archetype_agreement","AUC_Sensory","AUC_Integration","AUC_Execution","AUC_Composite"
+"cohort_median (published rule)",1,1,1,0.656,0.658,0.481,0.617
+"locked LOO (quantile)",1,1,1,0.656,0.658,0.481,0.617
+"locked LOO (selfnorm)",0.964,0.771,0.556,0.844,0.656,0.581,0.756

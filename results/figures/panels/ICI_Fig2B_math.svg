@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='493.23pt' height='194.63pt' viewBox='0 0 493.23 194.63'>
+<g class='svglite'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHw0OTMuMjN8MC4wMHwxOTQuNjM='>
+    <rect x='0.00' y='0.00' width='493.23' height='194.63' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw0OTMuMjN8MC4wMHwxOTQuNjM=)'>
+</g>
+<defs>
+  <clipPath id='cpNC4zNXw0ODguODh8MC4wMHwxOTQuNjM='>
+    <rect x='4.35' y='0.00' width='484.53' height='194.63' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpNC4zNXw0ODguODh8MC4wMHwxOTQuNjM=)'>
+<rect x='4.35' y='0.00' width='484.53' height='194.63' style='stroke-width: 0.00; stroke: none; fill: #FFFFFF;' />
+</g>
+<g clip-path='url(#cpMC4wMHw0OTMuMjN8MC4wMHwxOTQuNjM=)'>
+<text x='9.77' y='14.89' style='font-size: 12.00px; font-weight: bold; font-family: "Arial";'>B</text>
+<circle cx='17.54' cy='23.54' r='6.12' style='stroke-width: 0.71; fill: #000000;' />
+<circle cx='255.67' cy='23.54' r='6.12' style='stroke-width: 0.71; fill: #000000;' />
+<text x='17.54' y='26.40' text-anchor='middle' style='font-size: 8.00px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>1</text>
+<text x='255.67' y='26.40' text-anchor='middle' style='font-size: 8.00px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>2</text>
+<text x='30.48' y='27.29' style='font-size: 10.50px; font-weight: bold; font-family: "Arial";'>Binarize each gene at its cohort median</text>
+<text x='268.62' y='27.29' style='font-size: 10.50px; font-weight: bold; font-family: "Arial";'>Combine within each layer, per gene count</text>
+<line x1='33.07' y1='70.13' x2='188.37' y2='70.13' style='stroke-width: 0.85; stroke-linecap: butt;' />
+<polygon points='184.94,72.12 188.37,70.13 184.94,68.15 ' style='stroke-width: 0.85; stroke-linecap: butt; fill: #000000;' />
+<text x='192.26' y='72.99' style='font-size: 8.00px; font-family: "Arial";'>expression</text>
+<line x1='110.72' y1='85.66' x2='110.72' y2='54.60' style='stroke-width: 1.07; stroke: #4C1F41; stroke-dasharray: 2.85,2.85; stroke-linecap: butt;' />
+<text x='105.54' y='48.99' style='font-size: 8.50px;fill: #4C1F41; font-family: "Arial";'>m</text>
+<text x='112.60' y='50.53' style='font-size: 5.95px;fill: #4C1F41; font-family: "Arial";'>g</text>
+<text x='110.72' y='41.68' text-anchor='middle' style='font-size: 7.30px; font-family: "Arial";'>cohort median</text>
+<circle cx='46.01' cy='70.13' r='3.66' style='stroke-width: 0.71; fill: #FFFFFF;' />
+<circle cx='64.13' cy='70.13' r='3.66' style='stroke-width: 0.71; fill: #FFFFFF;' />
+<circle cx='82.25' cy='70.13' r='3.66' style='stroke-width: 0.71; fill: #FFFFFF;' />
+<circle cx='100.37' cy='70.13' r='3.66' style='stroke-width: 0.71; fill: #FFFFFF;' />
+<circle cx='123.66' cy='70.13' r='3.66' style='stroke-width: 0.71; fill: #C9BEB0;' />
+<circle cx='141.78' cy='70.13' r='3.66' style='stroke-width: 0.71; fill: #C9BEB0;' />
+<circle cx='159.90' cy='70.13' r='3.66' style='stroke-width: 0.71; fill: #C9BEB0;' />
+<circle cx='178.02' cy='70.13' r='3.66' style='stroke-width: 0.71; fill: #C9BEB0;' />
+<text x='60.50' y='83.81' style='font-size: 7.30px; font-family: "Arial";'>x</text>
+<text x='64.15' y='85.13' style='font-size: 5.11px; font-family: "Arial";'>g</text>
+<text xml:space='preserve' x='68.68' y='83.81' style='font-size: 7.30px; font-family: "Symbol";'>&lt; <tspan style='font-family: "Arial";'>m</tspan></text>
+<text x='80.45' y='85.13' style='font-size: 5.11px; font-family: "Arial";'>g</text>
+<text x='61.86' y='94.99' style='font-size: 8.00px; font-family: "Arial";'>b</text>
+<text x='66.30' y='96.44' style='font-size: 5.60px; font-family: "Arial";'>g</text>
+<text xml:space='preserve' x='71.26' y='94.99' style='font-size: 8.00px; font-family: "Symbol";'>= <tspan style='font-family: "Arial";'>0</tspan></text>
+<text x='138.15' y='83.81' style='font-size: 7.30px; font-family: "Arial";'>x</text>
+<text x='141.80' y='85.13' style='font-size: 5.11px; font-family: "Arial";'>g</text>
+<text xml:space='preserve' x='146.33' y='83.81' style='font-size: 7.30px; font-family: "Symbol";'>≥ <tspan style='font-family: "Arial";'>m</tspan></text>
+<text x='158.10' y='85.13' style='font-size: 5.11px; font-family: "Arial";'>g</text>
+<text x='139.51' y='94.99' style='font-size: 8.00px; font-family: "Arial";'>b</text>
+<text x='143.95' y='96.44' style='font-size: 5.60px; font-family: "Arial";'>g</text>
+<text xml:space='preserve' x='148.91' y='94.99' style='font-size: 8.00px; font-family: "Symbol";'>= <tspan style='font-family: "Arial";'>1</tspan></text>
+<text x='62.38' y='129.88' style='font-size: 12.00px; font-family: "Arial";'>b</text>
+<text x='69.04' y='132.05' style='font-size: 8.40px; font-family: "Arial";'>g</text>
+<text x='76.48' y='129.88' style='font-size: 12.00px; font-family: "Symbol";'>=</text>
+<text x='85.84' y='118.33' style='font-size: 12.00px; font-family: "Symbol";'></text>
+<text x='85.84' y='130.24' style='font-size: 12.00px; font-family: "Symbol";'></text>
+<text x='85.84' y='142.17' style='font-size: 12.00px; font-family: "Symbol";'></text>
+<text xml:space='preserve' x='92.71' y='118.63' style='font-size: 12.00px; font-family: "Arial";'>1,<tspan style='font-family: "Symbol";'>  </tspan>if<tspan style='font-family: "Symbol";'>  </tspan>x</text>
+<text x='126.67' y='120.80' style='font-size: 8.40px; font-family: "Arial";'>g</text>
+<text xml:space='preserve' x='134.11' y='118.63' style='font-size: 12.00px; font-family: "Symbol";'>≥ <tspan style='font-family: "Arial";'>m</tspan></text>
+<text x='153.45' y='120.80' style='font-size: 8.40px; font-family: "Arial";'>g</text>
+<text xml:space='preserve' x='91.76' y='139.13' style='font-size: 12.00px; font-family: "Arial";'>0,<tspan style='font-family: "Symbol";'>  </tspan>otherwise</text>
+<text x='17.54' y='164.96' style='font-size: 8.50px; font-family: "Arial";'>x</text>
+<text x='21.78' y='166.50' style='font-size: 5.95px; font-family: "Arial";'>g</text>
+<text x='25.08' y='164.96' style='font-size: 8.50px; font-family: "Arial";'> = gene expression in the tumor</text>
+<text x='17.54' y='176.66' style='font-size: 8.50px; font-family: "Arial";'>m</text>
+<text x='24.60' y='178.20' style='font-size: 5.95px; font-family: "Arial";'>g</text>
+<text xml:space='preserve' x='27.91' y='176.66' style='font-size: 8.50px; font-family: "Arial";'> = cohort median,  b</text>
+<text x='103.15' y='178.20' style='font-size: 5.95px; font-family: "Arial";'>g</text>
+<text x='106.46' y='176.66' style='font-size: 8.50px; font-family: "Arial";'> = 1 (high) or 0 (low)</text>
+<line x1='242.73' y1='189.20' x2='242.73' y2='33.90' style='stroke-width: 0.85; stroke: #CCCCCC; stroke-linecap: butt;' />
+<text xml:space='preserve' x='266.03' y='67.84' style='font-size: 12.00px; font-weight: bold; fill: #9C7A3E; font-family: "Arial";'>S <tspan style='font-family: "Symbol"; font-weight: normal;'>=</tspan></text>
+<text x='289.49' y='57.47' style='font-size: 12.00px;fill: #9C7A3E; font-family: "Arial";'>1</text>
+<text x='286.16' y='77.09' style='font-size: 12.00px;fill: #9C7A3E; font-family: "Arial";'>21</text>
+<polyline points='286.16,64.31 299.50,64.31 ' style='stroke-width: 0.75; stroke: #9C7A3E;' />
+<text x='299.50' y='67.84' style='font-size: 12.00px;fill: #9C7A3E; font-family: "Symbol";'> </text>
+<text x='317.88' y='67.38' style='font-size: 15.00px;fill: #9C7A3E; font-family: "Symbol";'>∑</text>
+<text xml:space='preserve' x='302.49' y='78.02' style='font-size: 8.40px; fill: #9C7A3E; font-family: "Arial";'>g<tspan style='font-family: "Symbol";'>∈</tspan>Sensory</text>
+<text x='345.62' y='67.84' style='font-size: 12.00px;fill: #9C7A3E; font-family: "Arial";'>b</text>
+<text x='352.29' y='70.01' style='font-size: 8.40px;fill: #9C7A3E; font-family: "Arial";'>g</text>
+<text xml:space='preserve' x='266.03' y='109.31' style='font-size: 12.00px; font-weight: bold; fill: #6A2C5A; font-family: "Arial";'>I <tspan style='font-family: "Symbol"; font-weight: normal;'>=</tspan></text>
+<text x='284.83' y='98.93' style='font-size: 12.00px;fill: #6A2C5A; font-family: "Arial";'>1</text>
+<text x='281.49' y='118.56' style='font-size: 12.00px;fill: #6A2C5A; font-family: "Arial";'>21</text>
+<polyline points='281.49,105.78 294.83,105.78 ' style='stroke-width: 0.75; stroke: #6A2C5A;' />
+<text x='294.83' y='109.31' style='font-size: 12.00px;fill: #6A2C5A; font-family: "Symbol";'> </text>
+<text x='315.55' y='108.85' style='font-size: 15.00px;fill: #6A2C5A; font-family: "Symbol";'>∑</text>
+<text xml:space='preserve' x='297.83' y='119.38' style='font-size: 8.40px; fill: #6A2C5A; font-family: "Arial";'>g<tspan style='font-family: "Symbol";'>∈</tspan>activating</text>
+<text x='345.61' y='109.31' style='font-size: 12.00px;fill: #6A2C5A; font-family: "Arial";'>b</text>
+<text x='352.28' y='111.48' style='font-size: 8.40px;fill: #6A2C5A; font-family: "Arial";'>g</text>
+<text x='359.16' y='109.31' style='font-size: 12.00px;fill: #6A2C5A; font-family: "Symbol";'>−</text>
+<text x='371.30' y='98.93' style='font-size: 12.00px;fill: #6A2C5A; font-family: "Arial";'>1</text>
+<text x='367.96' y='118.56' style='font-size: 12.00px;fill: #6A2C5A; font-family: "Arial";'>20</text>
+<polyline points='367.96,105.78 381.31,105.78 ' style='stroke-width: 0.75; stroke: #6A2C5A;' />
+<text x='381.31' y='109.31' style='font-size: 12.00px;fill: #6A2C5A; font-family: "Symbol";'> </text>
+<text x='406.70' y='108.85' style='font-size: 15.00px;fill: #6A2C5A; font-family: "Symbol";'>∑</text>
+<text xml:space='preserve' x='384.30' y='119.38' style='font-size: 8.40px; fill: #6A2C5A; font-family: "Arial";'>g<tspan style='font-family: "Symbol";'>∈</tspan>suppressive</text>
+<text x='441.44' y='109.31' style='font-size: 12.00px;fill: #6A2C5A; font-family: "Arial";'>b</text>
+<text x='448.11' y='111.48' style='font-size: 8.40px;fill: #6A2C5A; font-family: "Arial";'>g</text>
+<text xml:space='preserve' x='266.03' y='150.67' style='font-size: 12.00px; font-weight: bold; fill: #B2567E; font-family: "Arial";'>E <tspan style='font-family: "Symbol"; font-weight: normal;'>=</tspan></text>
+<text x='289.49' y='140.30' style='font-size: 12.00px;fill: #B2567E; font-family: "Arial";'>1</text>
+<text x='286.16' y='159.92' style='font-size: 12.00px;fill: #B2567E; font-family: "Arial";'>19</text>
+<polyline points='286.16,147.14 299.50,147.14 ' style='stroke-width: 0.75; stroke: #B2567E;' />
+<text x='299.50' y='150.67' style='font-size: 12.00px;fill: #B2567E; font-family: "Symbol";'> </text>
+<text x='316.40' y='150.22' style='font-size: 15.00px;fill: #B2567E; font-family: "Symbol";'>∑</text>
+<text xml:space='preserve' x='302.49' y='160.84' style='font-size: 8.40px; fill: #B2567E; font-family: "Arial";'>g<tspan style='font-family: "Symbol";'>∈</tspan>effector</text>
+<text x='342.65' y='150.67' style='font-size: 12.00px;fill: #B2567E; font-family: "Arial";'>b</text>
+<text x='349.32' y='152.85' style='font-size: 8.40px;fill: #B2567E; font-family: "Arial";'>g</text>
+<text x='356.20' y='150.67' style='font-size: 12.00px;fill: #B2567E; font-family: "Symbol";'>−</text>
+<text x='368.34' y='140.30' style='font-size: 12.00px;fill: #B2567E; font-family: "Arial";'>1</text>
+<text x='365.00' y='159.92' style='font-size: 12.00px;fill: #B2567E; font-family: "Arial";'>19</text>
+<polyline points='365.00,147.14 378.35,147.14 ' style='stroke-width: 0.75; stroke: #B2567E;' />
+<text x='378.35' y='150.67' style='font-size: 12.00px;fill: #B2567E; font-family: "Symbol";'> </text>
+<text x='401.64' y='150.22' style='font-size: 15.00px;fill: #B2567E; font-family: "Symbol";'>∑</text>
+<text xml:space='preserve' x='381.34' y='160.74' style='font-size: 8.40px; fill: #B2567E; font-family: "Arial";'>g<tspan style='font-family: "Symbol";'>∈</tspan>exhaustion</text>
+<text x='434.28' y='150.67' style='font-size: 12.00px;fill: #B2567E; font-family: "Arial";'>b</text>
+<text x='440.95' y='152.85' style='font-size: 8.40px;fill: #B2567E; font-family: "Arial";'>g</text>
+<text xml:space='preserve' x='268.62' y='177.76' style='font-size: 8.50px; font-family: "Arial";'>N = 21 / 21,20 / 19,19 genes.   S <tspan style='font-family: "Symbol";'>∈ </tspan><tspan style='font-size: 10.62px; font-family: "Symbol";'>[</tspan>0<tspan style='font-family: "Symbol";'>, </tspan>1<tspan style='font-size: 10.62px; font-family: "Symbol";'>]</tspan>;   I,<tspan style='font-family: "Symbol";'> </tspan>E <tspan style='font-family: "Symbol";'>∈ </tspan><tspan style='font-size: 10.62px; font-family: "Symbol";'>[</tspan><tspan style='font-family: "Symbol";'>−</tspan> 1<tspan style='font-family: "Symbol";'>, +</tspan> 1<tspan style='font-size: 10.62px; font-family: "Symbol";'>]</tspan></text>
+</g>
+</g>
+<!-- text joined by svg_join_text.py -->
+</svg>

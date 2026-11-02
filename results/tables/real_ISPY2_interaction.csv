@@ -1,0 +1,3 @@
+"scoring","interaction_p_continuous","interaction_p_mediansplit","AUC_Integration_pembro"
+"cohort_median",0.0255,0.0298,0.7772
+"locked_single_patient_LOO",0.0255,0.0298,0.7772

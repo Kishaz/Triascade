@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='518.40pt' height='309.60pt' viewBox='0 0 518.40 309.60'>
+<g class='svglite'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHw1MTguNDB8MC4wMHwzMDkuNjA='>
+    <rect x='0.00' y='0.00' width='518.40' height='309.60' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw1MTguNDB8MC4wMHwzMDkuNjA=)'>
+</g>
+<defs>
+  <clipPath id='cpNC4zMnw1MTQuMDh8NC4zMnwzMDUuMjg='>
+    <rect x='4.32' y='4.32' width='509.76' height='300.96' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpNC4zMnw1MTQuMDh8NC4zMnwzMDUuMjg=)'>
+<text x='32.64' y='26.84' style='font-size: 11.40px; font-weight: bold; font-family: "Helvetica";'>a</text>
+<rect x='32.64' y='43.33' width='103.84' height='33.44' style='stroke-width: 1.35; stroke: #4D4D4D; fill: #EFEFEF;' />
+<line x1='32.64' y1='76.77' x2='32.64' y2='43.33' style='stroke-width: 3.00; stroke: #4D4D4D;' />
+<text x='84.56' y='58.40' text-anchor='middle' style='font-size: 6.84px; font-family: "Helvetica";'>Systematic review of</text>
+<text x='84.56' y='66.61' text-anchor='middle' style='font-size: 6.84px; font-family: "Helvetica";'>ICB transcriptomic studies</text>
+<rect x='32.64' y='99.07' width='103.84' height='33.44' style='stroke-width: 1.35; stroke: #4D4D4D; fill: #EFEFEF;' />
+<line x1='32.64' y1='132.51' x2='32.64' y2='99.07' style='stroke-width: 3.00; stroke: #4D4D4D;' />
+<text x='84.56' y='114.13' text-anchor='middle' style='font-size: 6.84px; font-family: "Helvetica";'>254 curated signatures</text>
+<text x='84.56' y='122.34' text-anchor='middle' style='font-size: 6.84px; font-family: "Helvetica";'>(substrate)</text>
+<rect x='32.64' y='154.80' width='103.84' height='33.44' style='stroke-width: 1.35; stroke: #4D4D4D; fill: #EFEFEF;' />
+<line x1='32.64' y1='188.24' x2='32.64' y2='154.80' style='stroke-width: 3.00; stroke: #4D4D4D;' />
+<text x='84.56' y='169.87' text-anchor='middle' style='font-size: 6.84px; font-family: "Helvetica";'>Gene co-occurrence</text>
+<text x='84.56' y='178.08' text-anchor='middle' style='font-size: 6.84px; font-family: "Helvetica";'>graph</text>
+<rect x='32.64' y='210.53' width='103.84' height='33.44' style='stroke-width: 1.35; stroke: #4D4D4D; fill: #EFEFEF;' />
+<line x1='32.64' y1='243.97' x2='32.64' y2='210.53' style='stroke-width: 3.00; stroke: #4D4D4D;' />
+<text x='84.56' y='225.60' text-anchor='middle' style='font-size: 6.84px; font-family: "Helvetica";'>Program-blind Louvain</text>
+<text x='84.56' y='233.81' text-anchor='middle' style='font-size: 6.84px; font-family: "Helvetica";'>+ g:Profiler GO</text>
+<line x1='84.56' y1='76.77' x2='84.56' y2='99.07' style='stroke-width: 1.12;' />
+<polyline points='82.40,95.33 84.56,99.07 86.72,95.33 ' style='stroke-width: 1.12;' />
+<line x1='84.56' y1='132.51' x2='84.56' y2='154.80' style='stroke-width: 1.12;' />
+<polyline points='82.40,151.06 84.56,154.80 86.72,151.06 ' style='stroke-width: 1.12;' />
+<line x1='84.56' y1='188.24' x2='84.56' y2='210.53' style='stroke-width: 1.12;' />
+<polyline points='82.40,206.79 84.56,210.53 86.72,206.79 ' style='stroke-width: 1.12;' />
+<line x1='84.56' y1='243.97' x2='84.56' y2='271.84' style='stroke-width: 1.12;' />
+<polyline points='82.40,268.10 84.56,271.84 86.72,268.10 ' style='stroke-width: 1.12;' />
+<text x='84.56' y='281.93' text-anchor='middle' style='font-size: 6.96px; font-style: italic; font-family: "Helvetica";'>6 emergent modules</text>
+<text x='164.80' y='27.84' style='font-size: 11.40px; font-weight: bold; font-family: "Helvetica";'>b</text>
+<rect x='160.08' y='28.01' width='160.48' height='30.65' style='stroke-width: 1.35; stroke: #2E6FB0; fill: #E8F0F8;' />
+<line x1='160.08' y1='58.66' x2='160.08' y2='28.01' style='stroke-width: 3.00; stroke: #2E6FB0;' />
+<text x='240.32' y='39.09' text-anchor='middle' style='font-size: 7.20px; font-weight: bold; font-family: "Helvetica";'>M1 IFN / antigen-presentation</text>
+<text x='240.32' y='52.16' text-anchor='middle' style='font-size: 6.24px; font-family: "Helvetica";'>24 genes  +   defense response</text>
+<rect x='160.08' y='71.48' width='160.48' height='30.65' style='stroke-width: 1.35; stroke: #C9821E; fill: #FBEFD9;' />
+<line x1='160.08' y1='102.13' x2='160.08' y2='71.48' style='stroke-width: 3.00; stroke: #C9821E;' />
+<text x='240.32' y='82.56' text-anchor='middle' style='font-size: 7.20px; font-weight: bold; font-family: "Helvetica";'>M2 chemokine / trafficking</text>
+<text x='240.32' y='95.63' text-anchor='middle' style='font-size: 6.24px; font-family: "Helvetica";'>26 genes  +   inflammatory response</text>
+<rect x='160.08' y='114.95' width='160.48' height='30.65' style='stroke-width: 1.35; stroke: #C9821E; stroke-dasharray: 7.20,7.20; fill: #FBEFD9;' />
+<line x1='160.08' y1='145.60' x2='160.08' y2='114.95' style='stroke-width: 3.00; stroke: #C9821E;' />
+<text x='240.32' y='126.03' text-anchor='middle' style='font-size: 7.20px; font-weight: bold; font-family: "Helvetica";'>M3 Treg / checkpoint</text>
+<text x='240.32' y='139.07' text-anchor='middle' style='font-size: 6.24px; font-family: "Helvetica";'>12 genes  -   leukocyte regulation</text>
+<rect x='160.08' y='158.42' width='160.48' height='30.65' style='stroke-width: 1.35; stroke: #C9821E; stroke-dasharray: 7.20,7.20; fill: #FBEFD9;' />
+<line x1='160.08' y1='189.08' x2='160.08' y2='158.42' style='stroke-width: 3.00; stroke: #C9821E;' />
+<text x='240.32' y='170.21' text-anchor='middle' style='font-size: 7.20px; font-weight: bold; font-family: "Helvetica";'>M5 stromal / ECM</text>
+<text x='240.32' y='182.60' text-anchor='middle' style='font-size: 6.24px; font-family: "Helvetica";'>9 genes  -   ECM / coagulation</text>
+<rect x='160.08' y='201.89' width='160.48' height='30.65' style='stroke-width: 1.35; stroke: #C9821E; stroke-dasharray: 7.20,7.20; fill: #FBEFD9;' />
+<line x1='160.08' y1='232.55' x2='160.08' y2='201.89' style='stroke-width: 3.00; stroke: #C9821E;' />
+<text x='240.32' y='212.97' text-anchor='middle' style='font-size: 7.20px; font-weight: bold; font-family: "Helvetica";'>M6 angiogenic / CAF-TGFβ</text>
+<text x='240.32' y='226.02' text-anchor='middle' style='font-size: 6.24px; font-family: "Helvetica";'>10 genes  -   vasculature development</text>
+<rect x='160.08' y='245.37' width='160.48' height='30.65' style='stroke-width: 1.35; stroke: #A23B72; fill: #F3E3EC;' />
+<line x1='160.08' y1='276.02' x2='160.08' y2='245.37' style='stroke-width: 3.00; stroke: #A23B72;' />
+<text x='240.32' y='256.40' text-anchor='middle' style='font-size: 7.20px; font-weight: bold; font-family: "Helvetica";'>M4 cytotoxic effector</text>
+<text x='240.32' y='269.49' text-anchor='middle' style='font-size: 6.24px; font-family: "Helvetica";'>27 genes  +   lymphocyte cytotoxicity</text>
+<rect x='363.04' y='41.94' width='122.72' height='36.23' style='stroke-width: 1.35; stroke: #2E6FB0; fill: #E8F0F8;' />
+<line x1='363.04' y1='78.17' x2='363.04' y2='41.94' style='stroke-width: 3.00; stroke: #2E6FB0;' />
+<text x='424.40' y='53.85' text-anchor='middle' style='font-size: 9.84px; font-weight: bold;fill: #2E6FB0; font-family: "Helvetica";'>Sense</text>
+<text x='424.40' y='62.58' text-anchor='middle' style='font-size: 6.84px; font-family: "Helvetica";'>24 genes  (+)</text>
+<text x='424.40' y='70.79' text-anchor='middle' style='font-size: 6.84px; font-family: "Helvetica";'>antigen sensing / IFN</text>
+<rect x='363.04' y='118.57' width='122.72' height='72.45' style='stroke-width: 1.35; stroke: #C9821E; fill: #FBEFD9;' />
+<line x1='363.04' y1='191.03' x2='363.04' y2='118.57' style='stroke-width: 3.00; stroke: #C9821E;' />
+<text x='424.40' y='129.42' text-anchor='middle' style='font-size: 9.84px; font-weight: bold;fill: #C9821E; font-family: "Helvetica";'>Integration</text>
+<text x='424.40' y='153.22' text-anchor='middle' style='font-size: 6.84px; font-family: "Helvetica";'>57 genes</text>
+<text x='424.40' y='161.43' text-anchor='middle' style='font-size: 6.84px; font-family: "Helvetica";'>activating 26 (+)  -  suppressive 31 (-)</text>
+<text x='424.40' y='169.64' text-anchor='middle' style='font-size: 6.84px; font-family: "Helvetica";'>the rate-limiting, ICB-releasable step</text>
+<rect x='363.04' y='237.01' width='122.72' height='36.23' style='stroke-width: 1.35; stroke: #A23B72; fill: #F3E3EC;' />
+<line x1='363.04' y1='273.23' x2='363.04' y2='237.01' style='stroke-width: 3.00; stroke: #A23B72;' />
+<text x='424.40' y='248.83' text-anchor='middle' style='font-size: 9.84px; font-weight: bold;fill: #A23B72; font-family: "Helvetica";'>Execution</text>
+<text x='424.40' y='257.65' text-anchor='middle' style='font-size: 6.84px; font-family: "Helvetica";'>27 genes  (+)</text>
+<text x='424.40' y='265.86' text-anchor='middle' style='font-size: 6.84px; font-family: "Helvetica";'>cytotoxic killing</text>
+<line x1='320.56' y1='43.33' x2='363.04' y2='58.05' style='stroke-width: 1.12;' />
+<polyline points='358.80,58.86 363.04,58.05 360.21,54.78 ' style='stroke-width: 1.12;' />
+<line x1='320.56' y1='86.81' x2='363.04' y2='146.64' style='stroke-width: 1.12;' />
+<polyline points='359.11,144.84 363.04,146.64 362.64,142.34 ' style='stroke-width: 1.12;' />
+<line x1='320.56' y1='130.28' x2='363.04' y2='151.86' style='stroke-width: 1.12;' />
+<polyline points='358.73,152.09 363.04,151.86 360.68,148.24 ' style='stroke-width: 1.12;' />
+<line x1='320.56' y1='173.75' x2='363.04' y2='157.07' style='stroke-width: 1.12;' />
+<polyline points='360.35,160.45 363.04,157.07 358.77,156.43 ' style='stroke-width: 1.12;' />
+<line x1='320.56' y1='217.22' x2='363.04' y2='162.29' style='stroke-width: 1.12;' />
+<polyline points='362.46,166.57 363.04,162.29 359.04,163.93 ' style='stroke-width: 1.12;' />
+<line x1='320.56' y1='260.69' x2='363.04' y2='255.79' style='stroke-width: 1.12;' />
+<polyline points='359.57,258.36 363.04,255.79 359.08,254.07 ' style='stroke-width: 1.12;' />
+</g>
+</g>
+<!-- text joined by svg_join_text.py -->
+</svg>
