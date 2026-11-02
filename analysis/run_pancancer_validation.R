@@ -45,7 +45,10 @@ icb_eval <- function(E, y, cohort, cancer, drug) {
   cat(sprintf("  Integration CI: cohort %.3f[%.2f-%.2f]  single %.3f[%.2f-%.2f]\n", ci[1],ci[2],ci[3],cs[1],cs[2],cs[3]))
   cat("  NR limiting layer: "); print(table(factor(kl[y==0],c("cold","blocked","no-kill","intact"))))
   list(cohort=cohort,cancer=cancer,drug=drug,n=length(y),nR=sum(y),nNR=sum(y==0),cov=cov,
-       auc=A,int_ci=ci,int_ci_single=cs,nr_comp=table(factor(kl[y==0],c("cold","blocked","no-kill","intact"))))
+       auc=A,int_ci=ci,int_ci_single=cs,nr_comp=table(factor(kl[y==0],c("cold","blocked","no-kill","intact"))),
+       scores=data.frame(sample=as.character(sp$sample), y=y,
+                         integ_single=as.numeric(sp$Integration),
+                         integ_cohort=as.numeric(cm$Integration), row.names=NULL))
 }
 
 RES <- list()
