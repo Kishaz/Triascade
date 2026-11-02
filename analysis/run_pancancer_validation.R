@@ -47,8 +47,10 @@ icb_eval <- function(E, y, cohort, cancer, drug) {
   list(cohort=cohort,cancer=cancer,drug=drug,n=length(y),nR=sum(y),nNR=sum(y==0),cov=cov,
        auc=A,int_ci=ci,int_ci_single=cs,nr_comp=table(factor(kl[y==0],c("cold","blocked","no-kill","intact"))),
        scores=data.frame(sample=as.character(sp$sample), y=y,
-                         integ_single=as.numeric(sp$Integration),
-                         integ_cohort=as.numeric(cm$Integration), row.names=NULL))
+                         sens_single =as.numeric(sp$Sensory),     sens_cohort =as.numeric(cm$Sensory),
+                         integ_single=as.numeric(sp$Integration), integ_cohort=as.numeric(cm$Integration),
+                         exec_single =as.numeric(sp$Execution),   exec_cohort =as.numeric(cm$Execution),
+                         row.names=NULL))
 }
 
 RES <- list()

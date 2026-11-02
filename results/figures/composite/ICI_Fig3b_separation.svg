@@ -1179,7 +1179,6 @@
 <text transform='translate(405.63,272.54) rotate(-90)' text-anchor='end' style='font-size: 9.50px; font-family: "Arial";'>Esophageal · PERFECT trial (n=32)</text>
 <text transform='translate(428.98,272.54) rotate(-90)' text-anchor='end' style='font-size: 9.50px; font-family: "Arial";'>Pancreatic · PRINCE trial (n=38)</text>
 <text transform='translate(452.33,272.54) rotate(-90)' text-anchor='end' style='font-size: 9.50px; font-family: "Arial";'>Renal · Braun 2020 (n=172)</text>
-<line x1='51.96' y1='266.60' x2='51.96' y2='119.40' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
 <line x1='50.56' y1='264.23' x2='51.96' y2='264.23' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
 <text x='47.76' y='266.91' text-anchor='end' style='font-size: 7.50px; font-family: "Arial";'>-3</text>
 <line x1='50.56' y1='240.48' x2='51.96' y2='240.48' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
@@ -1194,6 +1193,7 @@
 <text x='47.76' y='148.20' text-anchor='end' style='font-size: 7.50px; font-family: "Arial";'>2</text>
 <line x1='50.56' y1='121.77' x2='51.96' y2='121.77' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
 <text x='47.76' y='124.45' text-anchor='end' style='font-size: 7.50px; font-family: "Arial";'>3</text>
+<line x1='51.96' y1='266.60' x2='51.96' y2='119.40' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
 <text transform='translate(33.71,193.00) rotate(-90)' text-anchor='middle' style='font-size: 11.00px; font-family: "Arial";'>Integration score  (z within cohort)</text>
 <circle cx='131.36' cy='41.05' r='3.98' style='stroke-width: 0.71; stroke: #6A2C5A; fill: #6A2C5A;' />
 <text x='137.20' y='44.62' style='font-size: 10.00px; font-family: "Arial";'>responder</text>

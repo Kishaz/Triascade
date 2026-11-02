@@ -15,8 +15,8 @@ ICI/
 │   ├── *.csv          panel definitions (ICI_98gene_panel.csv, module assignment, lock)
 │   └── svg_join_text.py   makes saved SVGs hand-editable (one text object per label)
 ├── results/
-│   ├── figures/       figure outputs — composite/ (full figs), panels/, edited/
-│   └── tables/        result tables (CSV)
+│   ├── figures/       figure outputs — composite/ (full figs), panels/, edited/, supplementary/
+│   └── tables/        result tables (CSV, incl. ICI_SuppTable_*)
 ├── manuscript/        CURRENT manuscript materials (study plan, panel lock, data requests)
 ├── review/            systematic-review / provenance tooling (separate sub-project)
 └── archive/           superseded snapshots & old deliverables (Oct-29 final, Aug figures)
@@ -35,10 +35,18 @@ From `analysis/`:
 Rscript make_fig1_full.R      # → results/figures/composite/ICI_Fig1_full.{png,svg}
 Rscript make_fig2_combined.R  # → results/figures/composite/ICI_Fig2.{png,svg}
 Rscript make_fig3_atlas.R     # → results/figures/composite/ICI_Fig3_atlas.{png,svg}   (Fig 3a: anatomy atlas)
-Rscript run_pancancer_extra.R # → analysis/pancancer_validation.rds   (15-cohort ICB validation)
+Rscript run_pancancer_extra.R # → analysis/pancancer_validation.rds   (16-cohort ICB validation; per-sample 3-layer scores)
 Rscript run_pooled_auc.R      # → results/tables/pooled_integration_auc.csv, pancancer_cohort_table.csv
-Rscript make_fig3b_auc.R      # → results/figures/composite/ICI_Fig3b_auc.{png,svg}  (Fig 3b: AUC forest)
+Rscript make_fig3b_auc.R      # → results/figures/composite/ICI_Fig3b_auc.{png,svg}  (forest, summary/supp)
+Rscript make_fig3b_separation.R # → Fig 3b (Integration) + SUPPLEMENTARY Sensory/Execution separation figures
+Rscript make_supp_tables.R    # → results/tables/ICI_SuppTable_layer_auc_by_cohort.csv (all 3 layers)
 ```
+
+**Fig 3b** is the responder-vs-non-responder violin separation for the **Integration** layer
+(`results/figures/composite/ICI_Fig3b_separation.{png,svg}`). The **same plot for the Sensory and
+Execution layers** is written to `results/figures/supplementary/` — these show Integration
+separates responders best (Sensory/Execution AUCs are markedly lower), the evidence that
+Integration is the discriminating layer. All three share one cohort order (Integration-AUC sorted).
 
 **Fig 3a** is a hand-tuned atlas: the committed SVG is the author's Inkscape-edited copy
 (`results/figures/composite/edits/` holds the backup). Re-running `make_fig3_atlas.R`
