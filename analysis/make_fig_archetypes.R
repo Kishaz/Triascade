@@ -47,7 +47,8 @@ pal <- setNames(unname(ACOL[ARCH]), unname(ALAB[ARCH]))
 p <- ggplot(alc, aes(y=n, axis1=Cancer, axis2=Archetype, axis3=Response)) +
   geom_alluvium(aes(fill=Archetype), width=0.20, alpha=0.78, colour=NA) +
   geom_stratum(width=0.20, fill="grey96", colour="grey45", linewidth=0.3) +
-  geom_text(stat="stratum", aes(label=after_stat(stratum)), family=PUB_FONT, size=(PT_BASE-3)/.pt, lineheight=0.9) +
+  geom_text(stat="stratum", aes(label=after_stat(stratum), angle=after_stat(ifelse(x > 1, 90, 0))),
+            family=PUB_FONT, size=(PT_BASE-3)/.pt, lineheight=0.9) +
   scale_fill_manual(values=pal, name=NULL) +
   scale_x_continuous(breaks=1:3, labels=c("Cancer type","Archetype","ICB response"),
                      expand=expansion(add=c(0.30,0.30)), position="top") +

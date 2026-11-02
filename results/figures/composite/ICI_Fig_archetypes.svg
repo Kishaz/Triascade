@@ -157,12 +157,12 @@
 <text x='80.58' y='197.30' text-anchor='middle' style='font-size: 7.00px; font-family: "Arial";'>Gastric</text>
 <text x='80.58' y='181.46' text-anchor='middle' style='font-size: 7.00px; font-family: "Arial";'>NSCLC</text>
 <text x='80.58' y='104.45' text-anchor='middle' style='font-size: 7.00px; font-family: "Arial";'>Urothelial</text>
-<text x='246.61' y='270.17' text-anchor='middle' style='font-size: 7.00px; font-family: "Arial";'>Desert / cold</text>
-<text x='246.61' y='199.82' text-anchor='middle' style='font-size: 7.00px; font-family: "Arial";'>Excluded</text>
-<text x='246.61' y='139.18' text-anchor='middle' style='font-size: 7.00px; font-family: "Arial";'>Execution-failed</text>
-<text x='246.61' y='71.34' text-anchor='middle' style='font-size: 7.00px; font-family: "Arial";'>Inflamed</text>
-<text x='412.64' y='214.03' text-anchor='middle' style='font-size: 7.00px; font-family: "Arial";'>Non-responder</text>
-<text x='412.64' y='75.84' text-anchor='middle' style='font-size: 7.00px; font-family: "Arial";'>Responder</text>
+<text transform='translate(249.12,267.67) rotate(-90)' text-anchor='middle' style='font-size: 7.00px; font-family: "Arial";'>Desert / cold</text>
+<text transform='translate(249.12,197.32) rotate(-90)' text-anchor='middle' style='font-size: 7.00px; font-family: "Arial";'>Excluded</text>
+<text transform='translate(249.12,136.68) rotate(-90)' text-anchor='middle' style='font-size: 7.00px; font-family: "Arial";'>Execution-failed</text>
+<text transform='translate(249.12,68.84) rotate(-90)' text-anchor='middle' style='font-size: 7.00px; font-family: "Arial";'>Inflamed</text>
+<text transform='translate(415.15,211.53) rotate(-90)' text-anchor='middle' style='font-size: 7.00px; font-family: "Arial";'>Non-responder</text>
+<text transform='translate(415.15,73.34) rotate(-90)' text-anchor='middle' style='font-size: 7.00px; font-family: "Arial";'>Responder</text>
 <text x='80.58' y='15.70' text-anchor='middle' style='font-size: 11.00px; font-weight: bold; font-family: "Arial";'>Cancer type</text>
 <text x='246.61' y='15.70' text-anchor='middle' style='font-size: 11.00px; font-weight: bold; font-family: "Arial";'>Archetype</text>
 <text x='412.64' y='15.70' text-anchor='middle' style='font-size: 11.00px; font-weight: bold; font-family: "Arial";'>ICB response</text>
