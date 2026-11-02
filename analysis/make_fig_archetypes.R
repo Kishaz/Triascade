@@ -74,7 +74,7 @@ pA <- ggplot() +
     annotate("segment", x=-0.08, xend=0, y=t, yend=t, linewidth=0.3, colour=RULE),
     annotate("text", x=-0.2, y=t, label=paste0(t*100), family=PUB_FONT, size=(PT_BASE-2.5)/.pt, colour=INK, hjust=1))) +
   annotate("text", x=-1.0, y=0.5, label="Patients (%)", angle=90, family=PUB_FONT, size=PT_AXIS_TITLE/.pt, colour=INK) +
-  coord_cartesian(xlim=c(-1.1, max(xpos)+0.6), ylim=c(-3.2, 1.4), clip="off") +
+  coord_cartesian(xlim=c(-1.1, max(xpos)+0.6), ylim=c(-2.75, 1.4), clip="off") +
   theme_void() + theme(legend.position="none",
         plot.background=element_rect(fill="white", colour=NA), plot.margin=margin(2,2,2,2,"mm"))
 
@@ -98,22 +98,20 @@ pB <- ggplot(alc, aes(y=n, axis1=Response, axis2=Archetype)) +
   scale_fill_manual(values=setNames(unname(ACOL[ARCH]), unname(ALAB[ARCH])), guide="none") +
   scale_x_continuous(breaks=1:2, labels=c("Response","Archetype"), expand=expansion(add=c(0.22,0.22))) +
   coord_flip(clip="off") +
-  labs(subtitle=sprintf("Archetype → response, validated cohorts pooled (absolute counts; base rate %.0f%%)", 100*base)) +
   theme_void(base_family=PUB_FONT) +
-  theme(plot.subtitle=element_text(size=PT_ANNOT, colour=MUTED, hjust=0.5),
-        plot.background=element_rect(fill="white", colour=NA), plot.margin=margin(1,3,2,3,"mm"))
+  theme(plot.background=element_rect(fill="white", colour=NA), plot.margin=margin(0,3,2,3,"mm"))
 
 ## shared archetype legend (built from pA's scale), placed under the combo
 leg <- cowplot::get_legend(pA + theme(legend.position="bottom") +
          guides(fill=guide_legend(nrow=1, override.aes=list(colour="white"))))
 
-combo <- (pA / pB) + plot_layout(heights=c(1.5, 1)) +
+combo <- (pA / pB) + plot_layout(heights=c(1.25, 1)) +
   plot_annotation(tag_levels="A") &
   theme(plot.tag=element_text(family=PUB_FONT, size=PT_PANEL_TAG, face=2, colour=INK))
 final <- cowplot::plot_grid(combo, leg, ncol=1, rel_heights=c(1, 0.05))
 
 save_fig2 <- function(){ dir.create("../results/figures/composite", showWarnings=FALSE, recursive=TRUE)
-  w<-FIG_W_DOUBLE*MM_TO_IN; h<-158*MM_TO_IN
+  w<-FIG_W_DOUBLE*MM_TO_IN; h<-146*MM_TO_IN
   ggsave("../results/figures/composite/ICI_Fig_archetypes.png", final, width=w, height=h, dpi=600,
          device=if(requireNamespace("ragg",quietly=TRUE)) ragg::agg_png else "png")
   ggsave("../results/figures/composite/ICI_Fig_archetypes.svg", final, width=w, height=h,
