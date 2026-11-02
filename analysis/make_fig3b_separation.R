@@ -61,7 +61,7 @@ meta <- do.call(rbind, lapply(ORDER, function(k){
              bucket=bucket[k]) }))
 
 RCOL <- PLUM; NRCOL <- SAND            # responder = plum, non-responder = sand (house two-group)
-ytop <- 3.1; yAUC <- 3.6; yband <- c(-4.2, 4.3); yHEAD <- yband[2]+0.5; yLEG <- yband[2]+1.3
+ytop <- 3.1; yAUC <- 3.6; yband <- c(-4.2, 4.3); yHEAD <- yband[2]+1.25; yLEG <- yband[2]+2.1
 
 ## ---- bucket background bands + headers -------------------------------------
 band <- function(ks, fill, lab){ xs <- xpos[ks]
@@ -77,14 +77,18 @@ p <- ggplot() +
   annotate("segment", x=0.2, xend=max(xpos)+0.8, y=0, yend=0,
            linewidth=0.3, linetype="22", colour=RULE)
 
-## patient clouds
-p <- p + geom_point(data=DF, aes(px, z, colour=resp), size=0.55, alpha=0.5, stroke=0) +
+## true violin plots (R vs NR dodged per cohort), faint points, median bar
+DF$vx <- DF$x + ifelse(DF$resp=="R", 0.21, -0.21)        # dodge centre for each violin
+p <- p +
+  geom_violin(data=DF, aes(x=vx, y=z, group=interaction(cohort,resp), fill=resp, colour=resp),
+              width=0.36, alpha=0.5, linewidth=0.3, trim=TRUE, scale="width") +
+  geom_point(data=DF, aes(px, z, colour=resp), size=0.3, alpha=0.25, stroke=0) +
+  scale_fill_manual(values=c(R=RCOL, NR=NRCOL), guide="none") +
   scale_colour_manual(values=c(R=RCOL, NR=NRCOL), guide="none")
 
-## median + IQR crossbars
+## median crossbar inside each violin
 p <- p +
-  geom_segment(data=agg, aes(x=xc-0.17, xend=xc+0.17, y=med, yend=med, colour=resp), linewidth=0.7) +
-  geom_segment(data=agg, aes(x=xc, xend=xc, y=q1, yend=q3, colour=resp), linewidth=0.4)
+  geom_segment(data=agg, aes(x=xc-0.18, xend=xc+0.18, y=med, yend=med, colour=resp), linewidth=0.7)
 
 ## AUC per cohort (bold where it clears chance meaningfully)
 p <- p + geom_text(data=meta, aes(x=x, y=yAUC, label=sprintf("%.2f", auc)),
