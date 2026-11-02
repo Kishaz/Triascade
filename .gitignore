@@ -25,3 +25,7 @@ analysis/data/
 # ── Separate sub-project: systematic-review tooling (its own git repo,
 #    large venv + corpora). Lives on disk, versioned on its own. ───────
 review/
+
+# ── Not tracked here (kept on disk): manuscript drafts & old snapshots ─
+manuscript/
+archive/

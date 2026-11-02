@@ -22,9 +22,11 @@ ICI/
 └── archive/           superseded snapshots & old deliverables (Oct-29 final, Aug figures)
 ```
 
-## Not under version control (large / regenerable)
+## Not under version control (local on disk only)
 Set in `.gitignore`:
 - `analysis/data/` — downloaded cohort data (~280 MB)
+- `manuscript/`, `archive/` — manuscript drafts and superseded snapshots (kept locally)
+- `review/` — systematic-review sub-project (its own git repo)
 - `**/.venv/`, `*.pdf`, `*.zip`, `*.pptx`, `*.gmt` — environments and large binaries
 
 ## Reproducing the figures
