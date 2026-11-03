@@ -29,7 +29,7 @@
 <rect x='0.00' y='0.00' width='493.23' height='334.49' style='stroke-width: 0.00; stroke: none; fill: #FFFFFF;' />
 <line x1='288.75' y1='285.33' x2='288.75' y2='42.25' style='stroke-width: 0.64; stroke: #4C1F41; stroke-dasharray: 2.00,2.00; stroke-linecap: butt;' />
 <text x='288.75' y='38.02' text-anchor='middle' style='font-size: 7.50px;fill: #4C1F41; font-family: "Arial";'>chance</text>
-<text x='27.44' y='50.07' style='font-size: 9.00px; font-weight: bold; font-family: "Arial";'>Pure PD-(L)1  — validated</text>
+<text x='27.44' y='50.07' style='font-size: 9.00px; font-weight: bold; font-family: "Arial";'>Validated  (anti-PD-1/PD-L1)</text>
 <line x1='318.83' y1='58.38' x2='362.11' y2='58.38' style='stroke-width: 1.07; stroke: #6A2C5A; stroke-linecap: butt;' />
 <circle cx='340.47' cy='58.38' r='2.70' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #6A2C5A;' />
 <text x='27.44' y='61.41' style='font-size: 8.50px; font-family: "Arial";'>Gide 2019</text>
@@ -89,13 +89,13 @@
 <text x='27.44' y='188.14' style='font-size: 8.50px; font-weight: bold;fill: #4C1F41; font-family: "Arial";'>Pooled (random effects)</text>
 <text x='133.21' y='187.78' style='font-size: 7.50px;fill: #8A7F71; font-family: "Arial";'>11 cohorts</text>
 <text x='371.18' y='187.78' style='font-size: 7.50px; font-weight: bold;fill: #4C1F41; font-family: "Arial";'>0.72  [0.66–0.78]   n=768</text>
-<text x='27.44' y='211.36' style='font-size: 9.00px; font-weight: bold; font-family: "Arial";'>CTLA-4 monotherapy</text>
+<text x='27.44' y='211.36' style='font-size: 9.00px; font-weight: bold; font-family: "Arial";'>CTLA-4</text>
 <line x1='285.52' y1='219.66' x2='340.74' y2='219.66' style='stroke-width: 1.07; stroke: #9C7A3E; stroke-linecap: butt;' />
 <circle cx='313.13' cy='219.66' r='2.70' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #9C7A3E;' />
 <text x='27.44' y='222.70' style='font-size: 8.50px; font-family: "Arial";'>Van Allen 2015</text>
 <text x='133.21' y='222.34' style='font-size: 7.50px;fill: #8A7F71; font-family: "Arial";'>melanoma</text>
 <text x='371.18' y='222.34' style='font-size: 7.50px; font-family: "Arial";'>0.66  [0.48–0.83]   n=42</text>
-<text x='27.44' y='245.92' style='font-size: 9.00px; font-weight: bold; font-family: "Arial";'>Non-ICB / cold tumours  — null</text>
+<text x='27.44' y='245.92' style='font-size: 9.00px; font-weight: bold; font-family: "Arial";'>Null  (cold / resistant)</text>
 <line x1='251.44' y1='254.22' x2='320.87' y2='254.22' style='stroke-width: 1.07; stroke: #8A7F71; stroke-linecap: butt;' />
 <circle cx='286.16' cy='254.22' r='2.70' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #8A7F71;' />
 <text x='27.44' y='257.26' style='font-size: 8.50px; font-family: "Arial";'>EAC (PERFECT)</text>
@@ -129,7 +129,7 @@
 <line x1='366.52' y1='289.94' x2='366.52' y2='292.01' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
 <text x='366.52' y='298.96' text-anchor='middle' style='font-size: 7.50px; font-family: "Arial";'>1.0</text>
 <text x='312.08' y='311.15' text-anchor='middle' style='font-size: 11.00px; font-family: "Arial";'>Single-patient Integration AUC</text>
-<text x='27.44' y='29.26' style='font-size: 12.00px; font-weight: bold; font-family: "Arial";'>B</text>
+<text x='27.44' y='29.26' style='font-size: 12.00px; font-weight: bold; font-family: "Arial";'>C</text>
 </g>
 </g>
 <!-- text joined by svg_join_text.py -->

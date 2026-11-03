@@ -41,12 +41,12 @@ POOL <- list(auc=ilg(yr), lo=ilg(yr-1.96*ser), hi=ilg(yr+1.96*ser),
 dw <- dw[order(-dw$auc),]                      # best AUC on top within works
 items <- list()
 add <- function(type, ...) items[[length(items)+1]] <<- c(list(type=type), list(...))
-add("header", text="Pure PD-(L)1  — validated")
+add("header", text="Validated  (anti-PD-1/PD-L1)")
 for(i in seq_len(nrow(dw))) add("cohort", r=dw[i,], col=PLUM)
 add("pooled")
-add("gap"); add("header", text="CTLA-4 monotherapy")
+add("gap"); add("header", text="CTLA-4")
 for(k in CTLA4) add("cohort", r=row_of(k), col=SAND_DEEP)
-add("gap"); add("header", text="Non-ICB / cold tumours  — null")
+add("gap"); add("header", text="Null  (cold / resistant)")
 for(k in NULLB) add("cohort", r=row_of(k), col=MUTED)
 
 ## y-coordinates (top rows get the highest y)
@@ -116,7 +116,7 @@ p <- p + annotate("text", x=(xlo+xhi)/2, y=axY-1.5,
 
 ## ---- panel tag + frame ------------------------------------------------------
 p <- p +
-  annotate("text", x=xL1, y=ytop+1.9, label="B", family=PUB_FONT,
+  annotate("text", x=xL1, y=ytop+1.9, label="C", family=PUB_FONT,
            size=PT_PANEL_TAG/.pt, fontface=2, hjust=0, colour=INK) +
   coord_cartesian(xlim=c(xL1, 1.62), ylim=c(axY-2.1, ytop+2.3), clip="off") +
   theme_void() +
