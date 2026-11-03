@@ -30,22 +30,24 @@ POOL$biom  <- factor(POOL$label, levels=rev(POOL$label[order(POOL$auc)]))   # be
 POOL$fillc <- ifelse(is_ici(POOL$label), PLUM, MUTED)
 pa <- ggplot(POOL, aes(auc, biom)) +
   geom_vline(xintercept=0.5, linetype="22", colour=RULE, linewidth=0.35) +
-  annotate("text", x=0.5, y=0.45, label="chance", family=PUB_FONT, size=(PT_BASE-3)/.pt,
+  annotate("text", x=0.5, y=0.5, label="chance", family=PUB_FONT, size=(PT_BASE-1)/.pt,
            colour=MUTED, vjust=1, hjust=0.5) +
-  geom_errorbarh(aes(xmin=lo, xmax=hi, colour=fillc), height=0, linewidth=0.7) +
-  geom_point(aes(colour=fillc), size=2.8) +
-  geom_text(data=~subset(.x, !is_ici(label)), aes(x=hi+0.004, label=sprintf("%.2f [%.2f–%.2f]", auc, lo, hi)),
-            family=PUB_FONT, size=(PT_BASE-1.5)/.pt, colour=INK, hjust=0, fontface=1) +
-  geom_text(data=~subset(.x, is_ici(label)), aes(x=hi+0.004, label=sprintf("%.2f [%.2f–%.2f]", auc, lo, hi)),
-            family=PUB_FONT, size=(PT_BASE-1.5)/.pt, colour=INK, hjust=0, fontface=2) +
+  geom_errorbarh(aes(xmin=lo, xmax=hi, colour=fillc), height=0.32, linewidth=1.2) +
+  geom_point(aes(colour=fillc), size=4.2) +
+  geom_text(data=~subset(.x, !is_ici(label)), aes(x=hi+0.006, label=sprintf("%.2f", auc)),
+            family=PUB_FONT, size=(PT_BASE+1.5)/.pt, colour=INK, hjust=0, fontface=1) +
+  geom_text(data=~subset(.x, is_ici(label)), aes(x=hi+0.006, label=sprintf("%.2f", auc)),
+            family=PUB_FONT, size=(PT_BASE+1.5)/.pt, colour=INK, hjust=0, fontface=2) +
   scale_colour_identity() +
   scale_x_continuous("Pooled AUC  (11 validated cohorts, random effects)",
-                     limits=c(0.48, 0.90), breaks=seq(0.5,0.8,0.1), expand=expansion(mult=0)) +
+                     limits=c(0.48, 0.84), breaks=seq(0.5,0.8,0.1), expand=expansion(mult=0)) +
   scale_y_discrete(expand=expansion(add=c(0.6,0.7))) +
   theme_publication(grid="x") +
   theme(axis.title.y=element_blank(),
-        axis.text.y=element_text(size=PT_BASE, colour=INK),
-        plot.tag=element_text(size=PT_PANEL_TAG, face="bold", family=PUB_FONT, colour=INK)) +
+        axis.title.x=element_text(size=PT_AXIS_TITLE+1.5, colour=INK),
+        axis.text.x=element_text(size=PT_BASE+1, colour=INK),
+        axis.text.y=element_text(size=PT_BASE+2.5, colour=INK),
+        plot.tag=element_text(size=PT_PANEL_TAG+2, face="bold", family=PUB_FONT, colour=INK)) +
   labs(tag="a")
 
 ## =============================================================================
@@ -61,22 +63,24 @@ PC$clab   <- factor(unname(labmap[as.character(PC$cohort)]), levels=unname(labma
 pb <- ggplot(PC, aes(clab, biom, fill=auc)) +
   geom_tile(colour="white", linewidth=1.1) +
   geom_text(data=~subset(.x, biom!="ICI Integration"), aes(label=sprintf("%.2f", auc), colour=auc>0.70),
-            family=PUB_FONT, size=(PT_BASE-1.5)/.pt, fontface=1) +
+            family=PUB_FONT, size=(PT_BASE+0.5)/.pt, fontface=1) +
   geom_text(data=~subset(.x, biom=="ICI Integration"), aes(label=sprintf("%.2f", auc), colour=auc>0.70),
-            family=PUB_FONT, size=(PT_BASE-1.5)/.pt, fontface=2) +
-  annotate("segment", x=0.4, xend=length(ord_k)+0.6, y=4.5, yend=4.5, colour=INK, linewidth=0.5) + # under ICI row
+            family=PUB_FONT, size=(PT_BASE+0.5)/.pt, fontface=2) +
+  annotate("segment", x=0.4, xend=length(ord_k)+0.6, y=4.5, yend=4.5, colour=INK, linewidth=0.6) + # under ICI row
   scale_fill_gradient(low="#F3EAF0", high=PLUM, limits=c(0.45,1), oob=scales::squish, name="AUC",
-                      breaks=c(0.5,0.75,1.0), guide=guide_colourbar(barheight=unit(22,"mm"), barwidth=unit(3,"mm"))) +
+                      breaks=c(0.5,0.75,1.0), guide=guide_colourbar(barheight=unit(26,"mm"), barwidth=unit(3.5,"mm"))) +
   scale_colour_manual(values=c(`TRUE`="white",`FALSE`=INK), guide="none") +
   scale_x_discrete(position="top", expand=expansion(add=0)) +
   scale_y_discrete(expand=expansion(add=0)) +
   coord_cartesian(clip="off") +
   theme_publication() +
   theme(axis.title=element_blank(), panel.border=element_blank(), panel.grid=element_blank(),
-        axis.text.x.top=element_text(angle=45, hjust=0, vjust=0, size=PT_BASE-1.5, colour=INK),
-        axis.text.y=element_text(size=PT_BASE, colour=INK),
+        axis.text.x.top=element_text(angle=45, hjust=0, vjust=0, size=PT_BASE+0.5, colour=INK),
+        axis.text.y=element_text(size=PT_BASE+2, colour=INK),
+        legend.title=element_text(size=PT_LEGEND+1.5, colour=INK),
+        legend.text=element_text(size=PT_LEGEND+1, colour=INK),
         axis.ticks=element_blank(), legend.position="right",
-        plot.tag=element_text(size=PT_PANEL_TAG, face="bold", family=PUB_FONT, colour=INK),
+        plot.tag=element_text(size=PT_PANEL_TAG+2, face="bold", family=PUB_FONT, colour=INK),
         plot.margin=margin(2,3,2,3,"mm")) +
   labs(tag="b")
 
