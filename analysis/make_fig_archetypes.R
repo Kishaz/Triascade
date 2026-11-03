@@ -48,14 +48,14 @@ p <- ggplot(alc, aes(y=n, axis1=Cancer, axis2=Archetype, axis3=Response)) +
   geom_alluvium(aes(fill=Archetype), width=0.24, alpha=0.78, colour=NA) +
   geom_stratum(width=0.24, fill="grey96", colour="grey45", linewidth=0.3) +
   ## vertical labels where the stratum is tall enough (archetype/response, and the
-  ## larger cancer strata); small cancer strata (NSCLC, Gastric) stay horizontal, left.
+  ## larger cancer strata); small cancer strata (NSCLC, Gastric) stay horizontal,
+  ## centred in their box. All labels centred (hjust 0.5).
   geom_text(stat="stratum", aes(label=after_stat(stratum),
-                                angle=after_stat(ifelse(x > 1 | count > 55, 90, 0)),
-                                hjust=after_stat(ifelse(x==1 & count <= 55, 1, 0.5))),
+                                angle=after_stat(ifelse(x > 1 | count > 55, 90, 0))),
             family=PUB_FONT, size=(PT_BASE-0.5)/.pt, colour=INK) +
   scale_fill_manual(values=pal, name=NULL) +
   scale_x_continuous(breaks=1:3, labels=c("Cancer type","Archetype","ICB response"),
-                     expand=expansion(add=c(0.34,0.30)), position="top") +
+                     expand=expansion(add=c(0.24,0.24)), position="top") +
   coord_cartesian(clip="off") +
   guides(fill=guide_legend(nrow=1, override.aes=list(colour="white"))) +
   theme_void(base_family=PUB_FONT) +
