@@ -36,7 +36,7 @@ p <- ggplot(agg, aes(bin, pct, fill=bin)) +
   geom_text(aes(label=sprintf("%.0f%%", pct), y=hi+3), family=PUB_FONT, size=(PT_BASE-0.5)/.pt, fontface=2, colour=INK) +
   geom_text(aes(label=sprintf("n=%d", n), y=2.5), family=PUB_FONT, size=(PT_BASE-2.5)/.pt, colour="white") +
   scale_fill_manual(values=fillcols, guide="none") +
-  scale_y_continuous("ICB response rate (%)", limits=c(0, max(agg$hi)+9), expand=expansion(mult=c(0,0))) +
+  scale_y_continuous("ICB response rate (%)", limits=c(0,100), breaks=seq(0,100,20), expand=expansion(mult=c(0,0.01))) +
   scale_x_discrete("Integration score (within-trial tertile)") +
   theme_publication(grid="y") +
   theme(plot.tag=element_text(size=PT_PANEL_TAG, face="bold", family=PUB_FONT, colour=INK)) +
