@@ -29,8 +29,8 @@ BADGE_DATA <- PLUM; BADGE_OTH <- "#6E6257"
 # status per site: "val" = validated (ICB response predicted), "null" = tested but
 # null (esophageal/pancreatic/renal), "none" = not studied here.
 LEG <- list(
-  c(1,"Brain","both","none"),    c(2,"Thyroid","both","none"), c(3,"Lung","both","val"),
-  c(4,"Esophagus","both","null"),c(5,"Gastric","both","val"),  c(6,"Liver","both","none"),
+  c(1,"Brain","both","none"),    c(2,"Thyroid","both","none"), c(3,"Esophagus","both","null"),
+  c(4,"Lung","both","val"),      c(5,"Gastric","both","val"),  c(6,"Liver","both","none"),
   c(7,"Pancreas","both","null"), c(8,"Kidney","both","null"),  c(9,"Colon","both","none"),
   c(10,"Bladder","both","val"),  c(11,"Skin (melanoma)","both","val"), c(12,"Breast","female","val"),
   c(13,"Ovary","female","none"), c(14,"Uterus","female","none"), c(15,"Prostate","male","none"), c(16,"Testis","male","none"))
@@ -43,9 +43,9 @@ addbadge <- function(x,y,num,data) BADGES[[length(BADGES)+1]] <<- list(x=x,y=y,n
 ## ---- shared viscera (placed identically on both figures), back -> front ----
 O <- function(num,file,f,dx,w,data=FALSE,bdx=0,bdy=0) list(num=num,file=file,f=f,dx=dx,w=w,data=data,bdx=bdx,bdy=bdy)
 shared <- list(
-  O(4 ,"esophagus_smart.png",0.42, 5.5, 2.4,FALSE, bdx=3.4,bdy=5),
+  O(3 ,"esophagus_smart.png",0.42, 5.5, 2.4,FALSE, bdx=3.4,bdy=5),
   O(7 ,"pancreas_smart.png" ,0.615,-1.0,15.0,FALSE, bdx=-2, bdy=-4),
-  O(3 ,"lungs_smart.png"    ,0.41, 0.0,18.0,TRUE , bdx=-5, bdy=1),
+  O(4 ,"lungs_smart.png"    ,0.41, 0.0,18.0,TRUE , bdx=-5, bdy=1),
   O(6 ,"liver_smart.png"    ,0.55,-8.0,16.0,FALSE, bdx=-5, bdy=2),
   O(5 ,"stomach_smart.png"  ,0.55, 7.0,13.0,FALSE, bdx=4,  bdy=3),
   O(9 ,"colon_smart.png"    ,0.72, 0.0,18.0,FALSE, bdx=-7, bdy=1),
