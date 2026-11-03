@@ -58,10 +58,12 @@ p <- ggplot(alc, aes(y=n, axis1=Cancer, axis2=Archetype, axis3=Response)) +
                      expand=expansion(add=c(0.24,0.24)), position="top") +
   coord_cartesian(clip="off") +
   guides(fill=guide_legend(nrow=1, override.aes=list(colour="white"))) +
+  labs(tag="D") +
   theme_void(base_family=PUB_FONT) +
   theme(axis.text.x.top=element_text(size=PT_AXIS_TITLE, colour=INK, face=2, margin=margin(b=2,t=1)),
         legend.position="bottom", legend.text=element_text(size=PT_LEGEND, colour=INK),
         legend.margin=margin(t=0), plot.margin=margin(2,5,2,5,"mm"),
+        plot.tag=element_text(size=PT_PANEL_TAG, face="bold", family=PUB_FONT, colour=INK),
         plot.background=element_rect(fill="white", colour=NA))
 
 dir.create("../results/figures/composite", showWarnings=FALSE, recursive=TRUE)
