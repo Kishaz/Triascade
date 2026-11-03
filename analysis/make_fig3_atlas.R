@@ -26,12 +26,15 @@ FEM  <- list(file="female_silhouette.png", cx=150, w=HH*603/1208)
 BADGE_DATA <- PLUM; BADGE_OTH <- "#6E6257"
 
 ## master legend (num, name, scope, scored-here) -------------------------------
+# status per site: "val" = validated (ICB response predicted), "null" = tested but
+# null (esophageal/pancreatic/renal), "none" = not studied here.
 LEG <- list(
-  c(1,"Brain","both",0),   c(2,"Thyroid","both",0), c(3,"Lung","both",1),
-  c(4,"Esophagus","both",0),c(5,"Gastric","both",0),c(6,"Liver","both",0),
-  c(7,"Pancreas","both",0), c(8,"Kidney","both",0), c(9,"Colon","both",0),
-  c(10,"Bladder","both",1), c(11,"Skin (melanoma)","both",1), c(12,"Breast","female",1),
-  c(13,"Ovary","female",0), c(14,"Uterus","female",0), c(15,"Prostate","male",0), c(16,"Testis","male",0))
+  c(1,"Brain","both","none"),    c(2,"Thyroid","both","none"), c(3,"Lung","both","val"),
+  c(4,"Esophagus","both","null"),c(5,"Gastric","both","val"),  c(6,"Liver","both","none"),
+  c(7,"Pancreas","both","null"), c(8,"Kidney","both","null"),  c(9,"Colon","both","none"),
+  c(10,"Bladder","both","val"),  c(11,"Skin (melanoma)","both","val"), c(12,"Breast","female","val"),
+  c(13,"Ovary","female","none"), c(14,"Uterus","female","none"), c(15,"Prostate","male","none"), c(16,"Testis","male","none"))
+STAT <- setNames(vapply(LEG, `[`, "", 4), vapply(LEG, `[`, "", 1))   # num -> status
 
 ## collect badges, draw on top at the end -------------------------------------
 BADGES <- list()
@@ -97,28 +100,42 @@ addbadge(FEM$cx+6,  61.0, 13, FALSE)   # ovary
 addbadge(FEM$cx-1,  59.0, 14, FALSE)   # uterus
 
 ## ---- draw all badges on top ----
-badge <- function(x,y,num,data) list(
-  annotate("point", x=x, y=y, size=5.0, colour=if(data) BADGE_DATA else BADGE_OTH),
-  annotate("point", x=x, y=y, size=5.0, shape=1, colour="white", stroke=0.5),
-  annotate("text",  x=x, y=y, label=num, family=PUB_FONT, size=6/.pt, fontface=2, colour="white"))
-for (b in BADGES) p <- p + badge(b$x, b$y, b$num, b$data)
+badge <- function(x,y,num){ s <- STAT[[as.character(num)]]
+  if (identical(s,"null"))        # hollow plum = tested but null
+    list(annotate("point", x=x, y=y, size=5.0, shape=21, fill="white", colour=PLUM, stroke=0.9),
+         annotate("text",  x=x, y=y, label=num, family=PUB_FONT, size=6/.pt, fontface=2, colour=PLUM))
+  else                            # filled: plum = validated, grey = not studied
+    list(annotate("point", x=x, y=y, size=5.0, colour=if(identical(s,"val")) BADGE_DATA else BADGE_OTH),
+         annotate("point", x=x, y=y, size=5.0, shape=1, colour="white", stroke=0.5),
+         annotate("text",  x=x, y=y, label=num, family=PUB_FONT, size=6/.pt, fontface=2, colour="white")) }
+for (b in BADGES) p <- p + badge(b$x, b$y, b$num)
 
 ## ---- titles, sex labels ----
 p <- p +
   annotate("text", x=2, y=163, label="A", family=PUB_FONT, size=PT_PANEL_TAG/.pt, fontface=2, hjust=0) +
-  annotate("text", x=100, y=162, label="Cancer sites across the body",
-           family=PUB_FONT, size=9/.pt, fontface=2, colour=INK, hjust=0.5) +
   annotate("text", x=MALE$cx, y=23, label="Male",   family=PUB_FONT, size=8/.pt, fontface=2, hjust=0.5, colour=INK) +
   annotate("text", x=FEM$cx,  y=23, label="Female", family=PUB_FONT, size=8/.pt, fontface=2, hjust=0.5, colour=INK)
 
 ## ---- key / legend (numbered), right column ----
 lx<-190; ly0<-152; dy<-7.2
 p <- p + annotate("text", x=lx-2, y=ly0+9, label="Key", family=PUB_FONT, size=11.5/.pt, fontface=2, hjust=0, colour=INK)
-for (i in seq_along(LEG)){ e<-LEG[[i]]; num<-as.integer(e[1]); nm<-e[2]; scope<-e[3]; data<-e[4]=="1"; y<-ly0-(i-1)*dy
+for (i in seq_along(LEG)){ e<-LEG[[i]]; num<-as.integer(e[1]); nm<-e[2]; scope<-e[3]; st<-e[4]; y<-ly0-(i-1)*dy
   suffix <- if(scope=="female") "  (female)" else if(scope=="male") "  (male)" else ""
-  p <- p + badge(lx, y, num, data) +
+  p <- p + badge(lx, y, num) +
     annotate("text", x=lx+6, y=y, label=paste0(nm, suffix),
-             family=PUB_FONT, size=9.5/.pt, fontface=if(data) 2 else 1, hjust=0, colour=INK) }
+             family=PUB_FONT, size=9.5/.pt, fontface=if(st=="val") 2 else 1, hjust=0, colour=INK) }
+
+## ---- status legend (below the key, in existing whitespace; no layout shift) ----
+lgy <- ly0 - length(LEG)*dy - 1.5
+p <- p +
+  annotate("point", x=lx, y=lgy,      size=5.0, colour=PLUM) +
+  annotate("point", x=lx, y=lgy,      size=5.0, shape=1, colour="white", stroke=0.5) +
+  annotate("text",  x=lx+6, y=lgy,      label="validated (response predicted)", family=PUB_FONT, size=8/.pt, hjust=0, colour=INK) +
+  annotate("point", x=lx, y=lgy-dy,   size=5.0, shape=21, fill="white", colour=PLUM, stroke=0.9) +
+  annotate("text",  x=lx+6, y=lgy-dy,   label="tested, null (no prediction)",   family=PUB_FONT, size=8/.pt, hjust=0, colour=INK) +
+  annotate("point", x=lx, y=lgy-2*dy, size=5.0, colour=BADGE_OTH) +
+  annotate("point", x=lx, y=lgy-2*dy, size=5.0, shape=1, colour="white", stroke=0.5) +
+  annotate("text",  x=lx+6, y=lgy-2*dy, label="not studied here",                family=PUB_FONT, size=8/.pt, hjust=0, colour=INK)
 
 ## ---- frame ----
 p <- p +
