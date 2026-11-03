@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='493.23pt' height='294.80pt' viewBox='0 0 493.23 294.80'>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='425.20pt' height='425.20pt' viewBox='0 0 425.20 425.20'>
 <g class='svglite'>
 <defs>
   <style type='text/css'><![CDATA[
@@ -21,54 +21,138 @@
 </defs>
 <rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
 <defs>
-  <clipPath id='cpMC4wMHw0OTMuMjN8MC4wMHwyOTQuODA='>
-    <rect x='0.00' y='0.00' width='493.23' height='294.80' />
+  <clipPath id='cpMC4wMHw0MjUuMjB8MC4wMHw0MjUuMjA='>
+    <rect x='0.00' y='0.00' width='425.20' height='425.20' />
   </clipPath>
 </defs>
-<g clip-path='url(#cpMC4wMHw0OTMuMjN8MC4wMHwyOTQuODA=)'>
+<g clip-path='url(#cpMC4wMHw0MjUuMjB8MC4wMHw0MjUuMjA=)'>
 </g>
 <defs>
-  <clipPath id='cpMC4wMHw0OTMuMjN8Mi4xMnwyOTIuNjg='>
-    <rect x='0.00' y='2.12' width='493.23' height='290.56' />
+  <clipPath id='cpMC44Nnw0MjQuMzN8MC4wMHw0MjUuMjA='>
+    <rect x='0.86' y='0.00' width='423.47' height='425.20' />
   </clipPath>
 </defs>
-<g clip-path='url(#cpMC4wMHw0OTMuMjN8Mi4xMnwyOTIuNjg=)'>
-<rect x='0.00' y='2.12' width='493.23' height='290.56' style='stroke-width: 0.00; stroke: none; fill: #FFFFFF;' />
+<g clip-path='url(#cpMC44Nnw0MjQuMzN8MC4wMHw0MjUuMjA=)'>
+<rect x='0.86' y='0.00' width='423.47' height='425.20' style='stroke-width: 0.97; stroke: none; fill: #FFFFFF;' />
 </g>
-<g clip-path='url(#cpMC4wMHw0OTMuMjN8MC4wMHwyOTQuODA=)'>
-<rect x='62.37' y='157.97' width='96.65' height='96.65' style='stroke-width: 4.69; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #DECBD8;' />
-<rect x='163.05' y='157.97' width='96.65' height='96.65' style='stroke-width: 4.69; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #D4BDCC;' />
-<rect x='62.37' y='57.29' width='96.65' height='96.65' style='stroke-width: 4.69; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #AB849F;' />
-<rect x='163.05' y='57.29' width='96.65' height='96.65' style='stroke-width: 4.69; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #7A426A;' />
-<text x='110.70' y='204.94' text-anchor='middle' style='font-size: 19.00px; font-weight: bold; font-family: "Arial";'>18%</text>
-<text x='211.38' y='204.94' text-anchor='middle' style='font-size: 19.00px; font-weight: bold; font-family: "Arial";'>21%</text>
-<text x='110.70' y='104.26' text-anchor='middle' style='font-size: 19.00px; font-weight: bold; font-family: "Arial";'>32%</text>
-<text x='211.38' y='104.26' text-anchor='middle' style='font-size: 19.00px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>46%</text>
-<text x='110.70' y='224.97' text-anchor='middle' style='font-size: 9.00px; font-family: "Arial";'>n = 303</text>
-<text x='211.38' y='224.97' text-anchor='middle' style='font-size: 9.00px; font-family: "Arial";'>n = 112</text>
-<text x='110.70' y='124.29' text-anchor='middle' style='font-size: 9.00px; font-family: "Arial";'>n = 85</text>
-<text x='211.38' y='124.29' text-anchor='middle' style='font-size: 9.00px;fill: #FFFFFF; font-family: "Arial";'>n = 268</text>
-<text x='161.04' y='35.05' text-anchor='middle' style='font-size: 11.00px; font-weight: bold; font-family: "Arial";'>T-cell-inflamed GEP  (established marker)</text>
-<text x='110.70' y='48.79' text-anchor='middle' style='font-size: 10.00px;fill: #8A7F71; font-family: "Arial";'>Low</text>
-<text x='211.38' y='48.79' text-anchor='middle' style='font-size: 10.00px;fill: #8A7F71; font-family: "Arial";'>High</text>
-<text transform='translate(40.13,155.96) rotate(-90)' text-anchor='middle' style='font-size: 11.00px; font-weight: bold; font-family: "Arial";'>ICI Integration score</text>
-<text transform='translate(53.86,206.30) rotate(-90)' text-anchor='middle' style='font-size: 10.00px;fill: #8A7F71; font-family: "Arial";'>Low</text>
-<text transform='translate(53.86,105.62) rotate(-90)' text-anchor='middle' style='font-size: 10.00px;fill: #8A7F71; font-family: "Arial";'>High</text>
-<line x1='271.78' y1='186.16' x2='271.78' y2='125.76' style='stroke-width: 1.92; stroke: #6A2C5A; stroke-linecap: butt;' />
-<polygon points='275.19,131.65 271.78,125.76 268.38,131.65 ' style='stroke-width: 1.92; stroke: #6A2C5A; stroke-linecap: butt; fill: #6A2C5A;' />
-<line x1='130.83' y1='262.68' x2='191.24' y2='262.68' style='stroke-width: 1.49; stroke: #9C7A3E; stroke-linecap: butt;' />
-<polygon points='186.33,265.52 191.24,262.68 186.33,259.85 ' style='stroke-width: 1.49; stroke: #9C7A3E; stroke-linecap: butt; fill: #9C7A3E;' />
-<text x='285.88' y='48.79' style='font-size: 10.00px; font-weight: bold; font-family: "Arial";'>How to read it</text>
-<circle cx='288.90' cy='77.43' r='4.62' style='stroke-width: 0.71; stroke: #6A2C5A; fill: #6A2C5A;' />
-<text x='297.96' y='80.82' style='font-size: 9.50px; font-family: "Arial";'>Down a column (same GEP, ICI differs):</text>
-<text x='297.96' y='101.97' style='font-size: 9.50px; font-weight: bold;fill: #6A2C5A; font-family: "Arial";'>GEP-high goes 21% → 46% as ICI rises</text>
-<text x='297.96' y='118.91' style='font-size: 9.00px;fill: #8A7F71; font-family: "Arial";'>→ ICI finds responders GEP alone misses</text>
-<circle cx='288.90' cy='159.99' r='4.62' style='stroke-width: 0.71; stroke: #9C7A3E; fill: #9C7A3E;' />
-<text x='297.96' y='163.38' style='font-size: 9.50px; font-family: "Arial";'>Across a row (same ICI, GEP differs):</text>
-<text x='297.96' y='184.52' style='font-size: 9.50px; font-weight: bold;fill: #9C7A3E; font-family: "Arial";'>ICI-low barely moves  18% → 21%</text>
-<text x='297.96' y='201.46' style='font-size: 9.00px;fill: #8A7F71; font-family: "Arial";'>→ GEP adds little once ICI is known</text>
-<text x='285.88' y='242.65' style='font-size: 9.00px; font-family: "Arial";'>Darker = higher response. The grid darkens</text>
-<text x='285.88' y='252.91' style='font-size: 9.00px; font-family: "Arial";'>going UP (ICI) more than going RIGHT (GEP).</text>
+<g clip-path='url(#cpMC4wMHw0MjUuMjB8MC4wMHw0MjUuMjA=)'>
+<rect x='52.89' y='108.63' width='72.71' height='72.71' style='stroke-width: 4.27; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #DECBD8;' />
+<rect x='128.63' y='108.63' width='72.71' height='72.71' style='stroke-width: 4.27; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #D4BDCC;' />
+<rect x='52.89' y='32.89' width='72.71' height='72.71' style='stroke-width: 4.27; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #AB849F;' />
+<rect x='128.63' y='32.89' width='72.71' height='72.71' style='stroke-width: 4.27; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #7A426A;' />
+<text x='89.25' y='143.38' text-anchor='middle' style='font-size: 15.00px; font-weight: bold; font-family: "Arial";'>18%</text>
+<text x='164.99' y='143.38' text-anchor='middle' style='font-size: 15.00px; font-weight: bold; font-family: "Arial";'>21%</text>
+<text x='89.25' y='67.64' text-anchor='middle' style='font-size: 15.00px; font-weight: bold; font-family: "Arial";'>32%</text>
+<text x='164.99' y='67.64' text-anchor='middle' style='font-size: 15.00px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>46%</text>
+<text x='89.25' y='162.13' text-anchor='middle' style='font-size: 8.00px; font-family: "Arial";'>n=303</text>
+<text x='164.99' y='162.13' text-anchor='middle' style='font-size: 8.00px; font-family: "Arial";'>n=112</text>
+<text x='89.25' y='86.40' text-anchor='middle' style='font-size: 8.00px; font-family: "Arial";'>n=85</text>
+<text x='164.99' y='86.40' text-anchor='middle' style='font-size: 8.00px;fill: #FFFFFF; font-family: "Arial";'>n=268</text>
+<line x1='208.91' y1='129.84' x2='208.91' y2='84.39' style='stroke-width: 1.71; stroke: #6A2C5A; stroke-linecap: butt;' />
+<polygon points='211.61,89.06 208.91,84.39 206.22,89.06 ' style='stroke-width: 1.71; stroke: #6A2C5A; stroke-linecap: butt; fill: #6A2C5A;' />
+<line x1='104.40' y1='188.91' x2='149.84' y2='188.91' style='stroke-width: 1.49; stroke: #9C7A3E; stroke-linecap: butt;' />
+<polygon points='145.67,191.32 149.84,188.91 145.67,186.50 ' style='stroke-width: 1.49; stroke: #9C7A3E; stroke-linecap: butt; fill: #9C7A3E;' />
+<rect x='52.89' y='315.13' width='72.71' height='72.71' style='stroke-width: 4.27; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #DFCDD9;' />
+<rect x='128.63' y='315.13' width='72.71' height='72.71' style='stroke-width: 4.27; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #D1B9C9;' />
+<rect x='52.89' y='239.40' width='72.71' height='72.71' style='stroke-width: 4.27; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #9C6F8E;' />
+<rect x='128.63' y='239.40' width='72.71' height='72.71' style='stroke-width: 4.27; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #7F486F;' />
+<text x='89.25' y='349.88' text-anchor='middle' style='font-size: 15.00px; font-weight: bold; font-family: "Arial";'>18%</text>
+<text x='164.99' y='349.88' text-anchor='middle' style='font-size: 15.00px; font-weight: bold; font-family: "Arial";'>21%</text>
+<text x='89.25' y='274.14' text-anchor='middle' style='font-size: 15.00px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>36%</text>
+<text x='164.99' y='274.14' text-anchor='middle' style='font-size: 15.00px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>44%</text>
+<text x='89.25' y='368.64' text-anchor='middle' style='font-size: 8.00px; font-family: "Arial";'>n=302</text>
+<text x='164.99' y='368.64' text-anchor='middle' style='font-size: 8.00px; font-family: "Arial";'>n=113</text>
+<text x='89.25' y='292.90' text-anchor='middle' style='font-size: 8.00px;fill: #FFFFFF; font-family: "Arial";'>n=86</text>
+<text x='164.99' y='292.90' text-anchor='middle' style='font-size: 8.00px;fill: #FFFFFF; font-family: "Arial";'>n=267</text>
+<line x1='208.91' y1='336.34' x2='208.91' y2='290.90' style='stroke-width: 1.71; stroke: #6A2C5A; stroke-linecap: butt;' />
+<polygon points='211.61,295.56 208.91,290.90 206.22,295.56 ' style='stroke-width: 1.71; stroke: #6A2C5A; stroke-linecap: butt; fill: #6A2C5A;' />
+<line x1='104.40' y1='395.42' x2='149.84' y2='395.42' style='stroke-width: 1.49; stroke: #9C7A3E; stroke-linecap: butt;' />
+<polygon points='145.67,397.83 149.84,395.42 145.67,393.01 ' style='stroke-width: 1.49; stroke: #9C7A3E; stroke-linecap: butt; fill: #9C7A3E;' />
+<rect x='244.10' y='108.63' width='72.71' height='72.71' style='stroke-width: 4.27; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #E2D1DC;' />
+<rect x='319.84' y='108.63' width='72.71' height='72.71' style='stroke-width: 4.27; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #C7AABD;' />
+<rect x='244.10' y='32.89' width='72.71' height='72.71' style='stroke-width: 4.27; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #A17693;' />
+<rect x='319.84' y='32.89' width='72.71' height='72.71' style='stroke-width: 4.27; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #7F486F;' />
+<text x='280.45' y='143.38' text-anchor='middle' style='font-size: 15.00px; font-weight: bold; font-family: "Arial";'>17%</text>
+<text x='356.19' y='143.38' text-anchor='middle' style='font-size: 15.00px; font-weight: bold; font-family: "Arial";'>24%</text>
+<text x='280.45' y='67.64' text-anchor='middle' style='font-size: 15.00px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>35%</text>
+<text x='356.19' y='67.64' text-anchor='middle' style='font-size: 15.00px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>44%</text>
+<text x='280.45' y='162.13' text-anchor='middle' style='font-size: 8.00px; font-family: "Arial";'>n=316</text>
+<text x='356.19' y='162.13' text-anchor='middle' style='font-size: 8.00px; font-family: "Arial";'>n=99</text>
+<text x='280.45' y='86.40' text-anchor='middle' style='font-size: 8.00px;fill: #FFFFFF; font-family: "Arial";'>n=72</text>
+<text x='356.19' y='86.40' text-anchor='middle' style='font-size: 8.00px;fill: #FFFFFF; font-family: "Arial";'>n=281</text>
+<line x1='400.12' y1='129.84' x2='400.12' y2='84.39' style='stroke-width: 1.71; stroke: #6A2C5A; stroke-linecap: butt;' />
+<polygon points='402.81,89.06 400.12,84.39 397.43,89.06 ' style='stroke-width: 1.71; stroke: #6A2C5A; stroke-linecap: butt; fill: #6A2C5A;' />
+<line x1='295.60' y1='188.91' x2='341.04' y2='188.91' style='stroke-width: 1.49; stroke: #9C7A3E; stroke-linecap: butt;' />
+<polygon points='336.87,191.32 341.04,188.91 336.87,186.50 ' style='stroke-width: 1.49; stroke: #9C7A3E; stroke-linecap: butt; fill: #9C7A3E;' />
+<rect x='244.10' y='315.13' width='72.71' height='72.71' style='stroke-width: 4.27; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #D8C3D1;' />
+<rect x='319.84' y='315.13' width='72.71' height='72.71' style='stroke-width: 4.27; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #E2D1DC;' />
+<rect x='244.10' y='239.40' width='72.71' height='72.71' style='stroke-width: 4.27; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #A17694;' />
+<rect x='319.84' y='239.40' width='72.71' height='72.71' style='stroke-width: 4.27; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #7A416A;' />
+<text x='280.45' y='349.88' text-anchor='middle' style='font-size: 15.00px; font-weight: bold; font-family: "Arial";'>19%</text>
+<text x='356.19' y='349.88' text-anchor='middle' style='font-size: 15.00px; font-weight: bold; font-family: "Arial";'>17%</text>
+<text x='280.45' y='274.14' text-anchor='middle' style='font-size: 15.00px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>35%</text>
+<text x='356.19' y='274.14' text-anchor='middle' style='font-size: 15.00px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>46%</text>
+<text x='280.45' y='368.64' text-anchor='middle' style='font-size: 8.00px; font-family: "Arial";'>n=278</text>
+<text x='356.19' y='368.64' text-anchor='middle' style='font-size: 8.00px; font-family: "Arial";'>n=137</text>
+<text x='280.45' y='292.90' text-anchor='middle' style='font-size: 8.00px;fill: #FFFFFF; font-family: "Arial";'>n=110</text>
+<text x='356.19' y='292.90' text-anchor='middle' style='font-size: 8.00px;fill: #FFFFFF; font-family: "Arial";'>n=243</text>
+<line x1='400.12' y1='336.34' x2='400.12' y2='290.90' style='stroke-width: 1.71; stroke: #6A2C5A; stroke-linecap: butt;' />
+<polygon points='402.81,295.56 400.12,290.90 397.43,295.56 ' style='stroke-width: 1.71; stroke: #6A2C5A; stroke-linecap: butt; fill: #6A2C5A;' />
+<line x1='295.60' y1='395.42' x2='341.04' y2='395.42' style='stroke-width: 1.49; stroke: #9C7A3E; stroke-linecap: butt;' />
+<polygon points='336.87,397.83 341.04,395.42 336.87,393.01 ' style='stroke-width: 1.49; stroke: #9C7A3E; stroke-linecap: butt; fill: #9C7A3E;' />
+</g>
+<defs>
+  <clipPath id='cpNDcuNTl8MjIxLjc5fDIxNS4wMXwyMzQuMTA='>
+    <rect x='47.59' y='215.01' width='174.20' height='19.09' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpNDcuNTl8MjIxLjc5fDIxNS4wMXwyMzQuMTA=)'>
+<text x='134.69' y='228.85' text-anchor='middle' style='font-size: 12.00px; font-weight: bold; font-family: "Arial";'>Cytolytic activity</text>
+</g>
+<g clip-path='url(#cpMC4wMHw0MjUuMjB8MC4wMHw0MjUuMjA=)'>
+</g>
+<defs>
+  <clipPath id='cpMjM4LjgwfDQxMi45OXwyMTUuMDF8MjM0LjEw'>
+    <rect x='238.80' y='215.01' width='174.20' height='19.09' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMjM4LjgwfDQxMi45OXwyMTUuMDF8MjM0LjEw)'>
+<text x='325.90' y='228.85' text-anchor='middle' style='font-size: 12.00px; font-weight: bold; font-family: "Arial";'>PD-L1 mRNA (CD274)</text>
+</g>
+<g clip-path='url(#cpMC4wMHw0MjUuMjB8MC4wMHw0MjUuMjA=)'>
+</g>
+<defs>
+  <clipPath id='cpNDcuNTl8MjIxLjc5fDguNTB8MjcuNTk='>
+    <rect x='47.59' y='8.50' width='174.20' height='19.09' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpNDcuNTl8MjIxLjc5fDguNTB8MjcuNTk=)'>
+<text x='134.69' y='22.35' text-anchor='middle' style='font-size: 12.00px; font-weight: bold; font-family: "Arial";'>T-cell-inflamed GEP</text>
+</g>
+<g clip-path='url(#cpMC4wMHw0MjUuMjB8MC4wMHw0MjUuMjA=)'>
+</g>
+<defs>
+  <clipPath id='cpMjM4LjgwfDQxMi45OXw4LjUwfDI3LjU5'>
+    <rect x='238.80' y='8.50' width='174.20' height='19.09' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMjM4LjgwfDQxMi45OXw4LjUwfDI3LjU5)'>
+<text x='325.90' y='22.35' text-anchor='middle' style='font-size: 12.00px; font-weight: bold; font-family: "Arial";'>IFN-γ signature</text>
+</g>
+<g clip-path='url(#cpMC4wMHw0MjUuMjB8MC4wMHw0MjUuMjA=)'>
+<polyline points='47.59,404.51 221.79,404.51 ' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
+<text x='89.25' y='414.37' text-anchor='middle' style='font-size: 11.00px; font-family: "Arial";'>Low</text>
+<text x='164.99' y='414.37' text-anchor='middle' style='font-size: 11.00px; font-family: "Arial";'>High</text>
+<polyline points='238.80,404.51 412.99,404.51 ' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
+<text x='280.45' y='414.37' text-anchor='middle' style='font-size: 11.00px; font-family: "Arial";'>Low</text>
+<text x='356.19' y='414.37' text-anchor='middle' style='font-size: 11.00px; font-family: "Arial";'>High</text>
+<polyline points='47.59,198.00 47.59,27.59 ' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
+<text x='45.60' y='148.92' text-anchor='end' style='font-size: 11.00px; font-family: "Arial";'>Low</text>
+<text x='45.60' y='73.18' text-anchor='end' style='font-size: 11.00px; font-family: "Arial";'>High</text>
+<polyline points='47.59,404.51 47.59,234.10 ' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
+<text x='45.60' y='355.43' text-anchor='end' style='font-size: 11.00px; font-family: "Arial";'>Low</text>
+<text x='45.60' y='279.69' text-anchor='end' style='font-size: 11.00px; font-family: "Arial";'>High</text>
+<text transform='translate(17.96,216.05) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-weight: bold; font-family: "Arial";'>ICI Integration score</text>
 </g>
 </g>
 <!-- text joined by svg_join_text.py -->
