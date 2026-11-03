@@ -32,7 +32,7 @@ pa <- ggplot(RT, aes(arm, pct, fill=integ)) +
   geom_col(position=position_dodge(width=0.72), width=0.62, colour="white", linewidth=0.3) +
   geom_errorbar(aes(ymin=lo, ymax=hi), position=position_dodge(width=0.72),
                 width=0.16, linewidth=0.45, colour=INK) +
-  geom_text(aes(label=sprintf("%.0f%%", pct), y=hi+3.5), position=position_dodge(width=0.72),
+  geom_text(aes(label=sprintf("%.0f%%", pct), y=hi+6), position=position_dodge(width=0.72),
             family=PUB_FONT, size=(PT_BASE-0.5)/.pt, fontface=2, colour=INK) +
   geom_text(aes(label=sprintf("%d/%d", k, n), y=4), position=position_dodge(width=0.72),
             family=PUB_FONT, size=(PT_BASE-3.5)/.pt, colour="white") +
@@ -46,6 +46,7 @@ pa <- ggplot(RT, aes(arm, pct, fill=integ)) +
   scale_x_discrete(NULL) +
   theme_publication(grid="y") +
   theme(axis.text=element_text(size=PT_BASE, colour=INK),
+        axis.title.y=element_text(size=PT_AXIS_TITLE, colour=INK, margin=margin(r=1)),
         strip.text=element_text(size=PT_BASE+0.5, face=2, colour=INK),
         legend.position="top", legend.justification="right", legend.box.spacing=unit(1,"mm"),
         legend.title=element_text(size=PT_BASE, colour=INK),
@@ -65,14 +66,12 @@ CC$side   <- ifelse(CC$AUC >= 0.5, "at/above chance", "below chance")
 pooled <- "Integration pooled AUC 0.72 [0.66–0.78]"   # from Fig 3 random-effects meta
 pb <- ggplot(CC, aes(AUC, cohort, colour=side)) +
   geom_vline(xintercept=0.5, linetype="22", colour=RULE, linewidth=0.4) +
-  geom_errorbarh(aes(xmin=lo, xmax=hi), height=0, linewidth=0.7) +
+  geom_errorbarh(aes(xmin=lo, xmax=hi), height=0.55, linewidth=0.7) +
   geom_point(size=2.7) +
-  geom_text(aes(label=sprintf("%.2f", AUC)), hjust=-0.35, vjust=0.5,
-            family=PUB_FONT, size=(PT_BASE-2.5)/.pt, colour=INK) +
   facet_grid(context~., scales="free_y", space="free_y", switch="y") +
   scale_colour_manual(values=c(`at/above chance`=PLUM, `below chance`=SAND_DEEP), guide="none") +
   scale_x_continuous("Integration single-patient AUC (ICB response)",
-                     limits=c(0,1.08), breaks=seq(0,1,0.25), expand=expansion(mult=0)) +
+                     limits=c(0,1.02), breaks=seq(0,1,0.25), expand=expansion(mult=0)) +
   scale_y_discrete(NULL) +
   theme_publication(grid="x") +
   theme(axis.text.y=element_text(size=PT_BASE-0.5, colour=INK),
