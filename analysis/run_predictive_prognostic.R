@@ -116,6 +116,30 @@ for (tr in unique(A$trial)){ cat("\n##", tr, "\n")
   print(A[A$trial==tr & A$scoring=="locked single-patient",
           c("layer","interaction_p","AUC_icb","AUC_ctrl","n_icb","n_ctrl")], row.names=FALSE) }
 
+# ---- (A3) POOLED continuous layer x arm across the TWO checkpoint trials -----
+# Max-power version: within-trial z of each cohort-median layer score, then one
+# trial-stratified logistic with a score x arm interaction. Confirms the discrete
+# per-trial result and pools I-SPY2 + GeparNuevo (n=348).
+patient_frame <- function(trial, E, y, arm){
+  cm <- score_cohort_median(E, PANEL); cm <- cm[match(colnames(E), cm$sample), ]
+  zt <- function(v) scale(v)[,1]
+  data.frame(trial=trial, y=y, arm=factor(arm, c("ctrl","icb")),
+             Sensory=zt(cm$Sensory), Integration=zt(cm$Integration), Execution=zt(cm$Execution)) }
+CKPT <- rbind(patient_frame("I-SPY2", ex[, el$.id], el$.pcr, el$.arm),
+              patient_frame("GeparNuevo", GE, gy, as.character(garm)))
+write.csv(CKPT, file.path(OUT,"ICI_predictive_checkpoint_patients.csv"), row.names=FALSE)
+cont_int <- function(L){
+  b <- glm(reformulate(c(L,"arm","trial"),"y"), binomial, CKPT)
+  f <- glm(reformulate(c(sprintf("%s*arm",L),"trial"),"y"), binomial, CKPT)
+  data.frame(layer=L, n=nrow(CKPT),
+             interaction_p = anova(b,f,test="LRT")[2,"Pr(>Chi)"],
+             OR_per_SD     = exp(coef(f)[sprintf("%s:armicb",L)]), row.names=NULL) }
+CI_CONT <- do.call(rbind, lapply(c("Sensory","Integration","Execution"), cont_int))
+CI_CONT[,c("interaction_p","OR_per_SD")] <- round(CI_CONT[,c("interaction_p","OR_per_SD")], 3)
+write.csv(CI_CONT, file.path(OUT,"ICI_predictive_interaction_continuous.csv"), row.names=FALSE)
+cat("\n## POOLED continuous (I-SPY2 + GeparNuevo, n=348), trial-stratified score x arm:\n")
+print(CI_CONT, row.names=FALSE)
+
 # ---- (B) cross-context specificity gradient (Integration single-patient) ----
 R <- readRDS("pancancer_validation.rds")
 cc <- do.call(rbind, lapply(names(R), function(k){ x <- R[[k]]

@@ -1,10 +1,11 @@
 # =============================================================================
 # Fig 5 — ICI is PREDICTIVE of checkpoint-blockade benefit, not merely prognostic.
 #  (a) Randomized interaction: pCR rate for Integration Low vs High within each
-#      arm of two randomized trials. The high-score advantage emerges under ICB
-#      (interaction p annotated); clean and significant in the well-powered
-#      I-SPY2, directionally consistent in GeparNuevo.
-#  (b) Cross-context specificity: Integration single-patient AUC by treatment
+#      arm of two randomized trials (per-trial median-split interaction p).
+#  (b) Pooled continuous confirmation: P(pCR) vs Integration score diverges
+#      between the ICB and control arms across both checkpoint trials (n=348,
+#      trial-stratified Integration x arm p=0.035, OR/SD 1.82).
+#  (c) Cross-context specificity: Integration single-patient AUC by treatment
 #      context across 16 cohorts. Works for checkpoint blockade, partial for the
 #      related CTLA-4 axis, and falls to/below chance for non-checkpoint
 #      immunotherapy and the ccRCC negative control.
@@ -14,6 +15,8 @@ suppressPackageStartupMessages({ library(ggplot2); library(patchwork) })
 source("ici_theme.R"); .pt <- 2.845276
 T  <- "../results/tables"
 RT <- read.csv(file.path(T,"ICI_predictive_interaction_rates.csv"), check.names=FALSE)
+CK <- read.csv(file.path(T,"ICI_predictive_checkpoint_patients.csv"), check.names=FALSE)
+CN <- read.csv(file.path(T,"ICI_predictive_interaction_continuous.csv"), check.names=FALSE)
 IA <- read.csv(file.path(T,"ICI_predictive_interaction.csv"), check.names=FALSE)
 CC <- read.csv(file.path(T,"ICI_predictive_crosscontext.csv"), check.names=FALSE)
 
@@ -80,14 +83,43 @@ pb <- ggplot(CC, aes(AUC, cohort, colour=side)) +
         strip.text.y.left=element_text(size=PT_BASE-1, face=2, colour=INK, angle=0, hjust=1),
         panel.spacing=unit(1.6,"mm"), plot.margin=margin(2,5,2,2,"mm"))
 
+## ---- panel b (new): pooled continuous interaction, logistic curves ----------
+CK$arm <- factor(CK$arm, c("ctrl","icb"))
+mC <- glm(y ~ Integration*arm + trial, binomial, CK)
+gx <- seq(min(CK$Integration), max(CK$Integration), length.out=80)
+gr <- expand.grid(Integration=gx, arm=factor(c("ctrl","icb"), c("ctrl","icb")), trial="I-SPY2")
+pr <- predict(mC, gr, type="link", se.fit=TRUE)
+gr$p  <- plogis(pr$fit); gr$lo <- plogis(pr$fit-1.96*pr$se.fit); gr$hi <- plogis(pr$fit+1.96*pr$se.fit)
+pint2 <- sprintf("Integration × arm\np = %.3f",
+                 CN$interaction_p[CN$layer=="Integration"])
+pc <- ggplot(gr, aes(Integration, p, colour=arm, fill=arm)) +
+  geom_ribbon(aes(ymin=lo, ymax=hi), alpha=0.14, colour=NA) +
+  geom_line(linewidth=1.1) +
+  geom_point(data=transform(CK, yv=ifelse(y==1, 0.97, 0.03)), aes(Integration, yv),
+             position=position_jitter(height=0.015, width=0), size=0.7, alpha=0.5, show.legend=FALSE) +
+  annotate("text", x=min(CK$Integration), y=0.97, hjust=0, vjust=1, lineheight=0.95,
+           family=PUB_FONT, size=(PT_BASE-1.5)/.pt, fontface=3, colour=INK, label=pint2) +
+  scale_colour_manual(values=c(ctrl=SAND_DEEP, icb=PLUM), name=NULL,
+                      labels=c("Control arm","ICB arm")) +
+  scale_fill_manual(values=c(ctrl=SAND_DEEP, icb=PLUM), guide="none") +
+  scale_y_continuous("P(pCR)", limits=c(0,1), breaks=seq(0,1,0.25), expand=expansion(mult=0)) +
+  scale_x_continuous("Integration score (z)", breaks=seq(-2,2,1), expand=expansion(mult=0.02)) +
+  theme_publication(grid="y") +
+  theme(axis.title=element_text(size=PT_AXIS_TITLE, colour=INK),
+        axis.text=element_text(size=PT_BASE, colour=INK),
+        legend.position="top", legend.justification="right", legend.box.spacing=unit(1,"mm"),
+        legend.text=element_text(size=PT_BASE-0.5, colour=INK),
+        plot.margin=margin(2,5,2,2,"mm"))
+
 tag_th <- theme(plot.tag=element_text(size=PT_PANEL_TAG, face="bold", family=PUB_FONT,
                                       colour=INK, hjust=0, vjust=1))
 pa <- pa + labs(tag="a") + tag_th
-pb <- pb + labs(tag="b") + tag_th
-# wrap panel a as its own element so its y-axis column is NOT stretched to match
-# panel b's long cohort labels -> keeps the "pCR rate (%)" title hugging the axis
-fig <- wrap_elements(full=pa) / pb + plot_layout(heights=c(1, 1.9)) &
-  theme(plot.margin=margin(2,2,2,2,"mm"))
+pc <- pc + labs(tag="b") + tag_th
+pb <- pb + labs(tag="c") + tag_th
+# wrap the top-row panels so their y-axis columns are not stretched to match
+# panel c's long cohort labels (keeps each y-title hugging its axis)
+top <- wrap_elements(full=pa) + wrap_elements(full=pc) + plot_layout(widths=c(1.3, 1))
+fig <- top / pb + plot_layout(heights=c(1, 1.55)) & theme(plot.margin=margin(2,2,2,2,"mm"))
 
-save_fig(fig, "ICI_Fig_predictive", width_mm=174, height_mm=172, dir="../results/figures/composite")
+save_fig(fig, "ICI_Fig_predictive", width_mm=174, height_mm=180, dir="../results/figures/composite")
 cat("done — predictive-vs-prognostic figure;", pooled, "\n")
