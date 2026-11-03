@@ -80,9 +80,14 @@ pb <- ggplot(CC, aes(AUC, cohort, colour=side)) +
         strip.text.y.left=element_text(size=PT_BASE-1, face=2, colour=INK, angle=0, hjust=1),
         panel.spacing=unit(1.6,"mm"), plot.margin=margin(2,5,2,2,"mm"))
 
-fig <- pa / pb + plot_layout(heights=c(1, 1.9)) +
-  plot_annotation(tag_levels="a", theme=theme(plot.margin=margin(2,2,2,2,"mm"))) &
-  theme(plot.tag=element_text(size=PT_PANEL_TAG, face="bold", family=PUB_FONT, colour=INK))
+tag_th <- theme(plot.tag=element_text(size=PT_PANEL_TAG, face="bold", family=PUB_FONT,
+                                      colour=INK, hjust=0, vjust=1))
+pa <- pa + labs(tag="a") + tag_th
+pb <- pb + labs(tag="b") + tag_th
+# wrap panel a as its own element so its y-axis column is NOT stretched to match
+# panel b's long cohort labels -> keeps the "pCR rate (%)" title hugging the axis
+fig <- wrap_elements(full=pa) / pb + plot_layout(heights=c(1, 1.9)) &
+  theme(plot.margin=margin(2,2,2,2,"mm"))
 
 save_fig(fig, "ICI_Fig_predictive", width_mm=174, height_mm=172, dir="../results/figures/composite")
 cat("done — predictive-vs-prognostic figure;", pooled, "\n")
