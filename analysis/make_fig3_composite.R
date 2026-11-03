@@ -12,8 +12,8 @@ rd <- function(f){ a<-readPNG(paste0(D,f,".png"))
 a <- rd("ICI_Fig3_atlas"); b <- rd("ICI_Fig3b_separation")
 cc<- rd("ICI_Fig3c_doseresponse"); dd<- rd("ICI_Fig_archetypes")
 
-W   <- 180; gap <- 3
-wL  <- 92; wR <- W-gap-wL                    # left col (a,b); right col (c,d) -- d a bit wider
+W   <- 234; gap <- 4                          # expanded (large full-page figure)
+wL  <- 120; wR <- W-gap-wL                    # left col (a,b); right col (c,d) -- d a bit wider
 row1<- max(wL/a$asp, wR/cc$asp)
 row2<- max(wL/b$asp, wR/dd$asp)
 H   <- row1 + gap + row2
