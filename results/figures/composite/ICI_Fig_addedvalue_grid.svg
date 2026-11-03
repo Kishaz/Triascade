@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='493.23pt' height='294.80pt' viewBox='0 0 493.23 294.80'>
+<g class='svglite'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHw0OTMuMjN8MC4wMHwyOTQuODA='>
+    <rect x='0.00' y='0.00' width='493.23' height='294.80' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw0OTMuMjN8MC4wMHwyOTQuODA=)'>
+</g>
+<defs>
+  <clipPath id='cpMC4wMHw0OTMuMjN8Mi4xMnwyOTIuNjg='>
+    <rect x='0.00' y='2.12' width='493.23' height='290.56' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw0OTMuMjN8Mi4xMnwyOTIuNjg=)'>
+<rect x='0.00' y='2.12' width='493.23' height='290.56' style='stroke-width: 0.00; stroke: none; fill: #FFFFFF;' />
+</g>
+<g clip-path='url(#cpMC4wMHw0OTMuMjN8MC4wMHwyOTQuODA=)'>
+<rect x='62.37' y='157.97' width='96.65' height='96.65' style='stroke-width: 4.69; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #DECBD8;' />
+<rect x='163.05' y='157.97' width='96.65' height='96.65' style='stroke-width: 4.69; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #D4BDCC;' />
+<rect x='62.37' y='57.29' width='96.65' height='96.65' style='stroke-width: 4.69; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #AB849F;' />
+<rect x='163.05' y='57.29' width='96.65' height='96.65' style='stroke-width: 4.69; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #7A426A;' />
+<text x='110.70' y='204.94' text-anchor='middle' style='font-size: 19.00px; font-weight: bold; font-family: "Arial";'>18%</text>
+<text x='211.38' y='204.94' text-anchor='middle' style='font-size: 19.00px; font-weight: bold; font-family: "Arial";'>21%</text>
+<text x='110.70' y='104.26' text-anchor='middle' style='font-size: 19.00px; font-weight: bold; font-family: "Arial";'>32%</text>
+<text x='211.38' y='104.26' text-anchor='middle' style='font-size: 19.00px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>46%</text>
+<text x='110.70' y='224.97' text-anchor='middle' style='font-size: 9.00px; font-family: "Arial";'>n = 303</text>
+<text x='211.38' y='224.97' text-anchor='middle' style='font-size: 9.00px; font-family: "Arial";'>n = 112</text>
+<text x='110.70' y='124.29' text-anchor='middle' style='font-size: 9.00px; font-family: "Arial";'>n = 85</text>
+<text x='211.38' y='124.29' text-anchor='middle' style='font-size: 9.00px;fill: #FFFFFF; font-family: "Arial";'>n = 268</text>
+<text x='161.04' y='35.05' text-anchor='middle' style='font-size: 11.00px; font-weight: bold; font-family: "Arial";'>T-cell-inflamed GEP  (established marker)</text>
+<text x='110.70' y='48.79' text-anchor='middle' style='font-size: 10.00px;fill: #8A7F71; font-family: "Arial";'>Low</text>
+<text x='211.38' y='48.79' text-anchor='middle' style='font-size: 10.00px;fill: #8A7F71; font-family: "Arial";'>High</text>
+<text transform='translate(40.13,155.96) rotate(-90)' text-anchor='middle' style='font-size: 11.00px; font-weight: bold; font-family: "Arial";'>ICI Integration score</text>
+<text transform='translate(53.86,206.30) rotate(-90)' text-anchor='middle' style='font-size: 10.00px;fill: #8A7F71; font-family: "Arial";'>Low</text>
+<text transform='translate(53.86,105.62) rotate(-90)' text-anchor='middle' style='font-size: 10.00px;fill: #8A7F71; font-family: "Arial";'>High</text>
+<line x1='271.78' y1='186.16' x2='271.78' y2='125.76' style='stroke-width: 1.92; stroke: #6A2C5A; stroke-linecap: butt;' />
+<polygon points='275.19,131.65 271.78,125.76 268.38,131.65 ' style='stroke-width: 1.92; stroke: #6A2C5A; stroke-linecap: butt; fill: #6A2C5A;' />
+<line x1='130.83' y1='262.68' x2='191.24' y2='262.68' style='stroke-width: 1.49; stroke: #9C7A3E; stroke-linecap: butt;' />
+<polygon points='186.33,265.52 191.24,262.68 186.33,259.85 ' style='stroke-width: 1.49; stroke: #9C7A3E; stroke-linecap: butt; fill: #9C7A3E;' />
+<text x='285.88' y='48.79' style='font-size: 10.00px; font-weight: bold; font-family: "Arial";'>How to read it</text>
+<circle cx='288.90' cy='77.43' r='4.62' style='stroke-width: 0.71; stroke: #6A2C5A; fill: #6A2C5A;' />
+<text x='297.96' y='80.82' style='font-size: 9.50px; font-family: "Arial";'>Down a column (same GEP, ICI differs):</text>
+<text x='297.96' y='101.97' style='font-size: 9.50px; font-weight: bold;fill: #6A2C5A; font-family: "Arial";'>GEP-high goes 21% → 46% as ICI rises</text>
+<text x='297.96' y='118.91' style='font-size: 9.00px;fill: #8A7F71; font-family: "Arial";'>→ ICI finds responders GEP alone misses</text>
+<circle cx='288.90' cy='159.99' r='4.62' style='stroke-width: 0.71; stroke: #9C7A3E; fill: #9C7A3E;' />
+<text x='297.96' y='163.38' style='font-size: 9.50px; font-family: "Arial";'>Across a row (same ICI, GEP differs):</text>
+<text x='297.96' y='184.52' style='font-size: 9.50px; font-weight: bold;fill: #9C7A3E; font-family: "Arial";'>ICI-low barely moves  18% → 21%</text>
+<text x='297.96' y='201.46' style='font-size: 9.00px;fill: #8A7F71; font-family: "Arial";'>→ GEP adds little once ICI is known</text>
+<text x='285.88' y='242.65' style='font-size: 9.00px; font-family: "Arial";'>Darker = higher response. The grid darkens</text>
+<text x='285.88' y='252.91' style='font-size: 9.00px; font-family: "Arial";'>going UP (ICI) more than going RIGHT (GEP).</text>
+</g>
+</g>
+<!-- text joined by svg_join_text.py -->
+</svg>
