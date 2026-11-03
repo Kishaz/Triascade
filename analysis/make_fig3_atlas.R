@@ -143,4 +143,7 @@ p <- p +
   theme_void() + theme(plot.background=element_rect(fill="white", colour=NA), plot.margin=margin(1,1,1,1,"mm"))
 
 save_fig(p, "ICI_Fig3_atlas", width_mm=174, height_mm=174*168/250, dir="../results/figures/composite")
+## group each badge (circle(s) + number) into a <g> so they move as one in Inkscape
+if (file.exists("svg_group_badges.py"))
+  system("python3 svg_group_badges.py ../results/figures/composite/ICI_Fig3_atlas.svg")
 cat("done\n")
