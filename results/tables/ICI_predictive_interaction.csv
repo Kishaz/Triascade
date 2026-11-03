@@ -1,0 +1,17 @@
+"trial","scoring","layer","n_icb","n_ctrl","interaction_p","AUC_icb","AUC_ctrl"
+"I-SPY2 (pembro vs pac)","cohort-median","Sensory",69,179,0.06,0.754,0.616
+"I-SPY2 (pembro vs pac)","cohort-median","Integration",69,179,0.026,0.777,0.59
+"I-SPY2 (pembro vs pac)","cohort-median","Execution",69,179,0.705,0.687,0.673
+"I-SPY2 (pembro vs pac)","cohort-median","Composite",69,179,0.037,0.804,0.653
+"I-SPY2 (pembro vs pac)","locked single-patient","Sensory",69,179,0.06,0.754,0.616
+"I-SPY2 (pembro vs pac)","locked single-patient","Integration",69,179,0.026,0.777,0.59
+"I-SPY2 (pembro vs pac)","locked single-patient","Execution",69,179,0.705,0.687,0.673
+"I-SPY2 (pembro vs pac)","locked single-patient","Composite",69,179,0.037,0.804,0.653
+"GeparNuevo (durva vs placebo)","cohort-median","Sensory",71,29,0.875,0.657,0.679
+"GeparNuevo (durva vs placebo)","cohort-median","Integration",71,29,0.853,0.702,0.737
+"GeparNuevo (durva vs placebo)","cohort-median","Execution",71,29,0.998,0.602,0.633
+"GeparNuevo (durva vs placebo)","cohort-median","Composite",71,29,0.856,0.697,0.675
+"GeparNuevo (durva vs placebo)","locked single-patient","Sensory",71,29,0.875,0.657,0.679
+"GeparNuevo (durva vs placebo)","locked single-patient","Integration",71,29,0.853,0.702,0.737
+"GeparNuevo (durva vs placebo)","locked single-patient","Execution",71,29,0.998,0.602,0.633
+"GeparNuevo (durva vs placebo)","locked single-patient","Composite",71,29,0.848,0.697,0.675
