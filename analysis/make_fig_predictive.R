@@ -118,8 +118,8 @@ pc <- pc + labs(tag="b") + tag_th
 pb <- pb + labs(tag="c") + tag_th
 # wrap the top-row panels so their y-axis columns are not stretched to match
 # panel c's long cohort labels (keeps each y-title hugging its axis)
-top <- wrap_elements(full=pa) + wrap_elements(full=pc) + plot_layout(widths=c(1.08, 1))
-fig <- top / pb + plot_layout(heights=c(1.35, 1.45)) & theme(plot.margin=margin(2,2,2,2,"mm"))
+top <- wrap_elements(full=pa) + wrap_elements(full=pc) + plot_layout(widths=c(0.95, 1.18))
+fig <- top / pb + plot_layout(heights=c(0.95, 1.6)) & theme(plot.margin=margin(2,2,2,2,"mm"))
 
-save_fig(fig, "ICI_Fig_predictive", width_mm=174, height_mm=204, dir="../results/figures/composite")
+save_fig(fig, "ICI_Fig_predictive", width_mm=174, height_mm=192, dir="../results/figures/composite")
 cat("done — predictive-vs-prognostic figure;", pooled, "\n")
