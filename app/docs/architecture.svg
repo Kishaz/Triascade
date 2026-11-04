@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="500" viewBox="0 0 1180 500"
+     font-family="Inter, 'Helvetica Neue', Arial, sans-serif">
+  <!-- CascadeScope architecture / data flow. Editable: all labels are live <text>. -->
+  <rect width="1180" height="500" fill="#ffffff"/>
+  <text x="28" y="40" font-size="22" font-weight="800"><tspan fill="#6A2C5A">CascadeScope</tspan><tspan fill="#555555" font-weight="600" font-size="16">  ·  how it works</tspan></text>
+
+  <!-- arrowhead marker -->
+  <defs>
+    <marker id="ah" markerWidth="10" markerHeight="10" refX="7" refY="3.2" orient="auto">
+      <path d="M0,0 L7,3.2 L0,6.4 Z" fill="#6A2C5A"/>
+    </marker>
+  </defs>
+
+  <!-- connectors -->
+  <line x1="262" y1="230" x2="298" y2="230" stroke="#6A2C5A" stroke-width="2.4" marker-end="url(#ah)"/>
+  <line x1="556" y1="230" x2="592" y2="230" stroke="#6A2C5A" stroke-width="2.4" marker-end="url(#ah)"/>
+  <line x1="850" y1="230" x2="886" y2="230" stroke="#6A2C5A" stroke-width="2.4" marker-end="url(#ah)"/>
+
+  <!-- ===== Box 1: Input ===== -->
+  <g>
+    <rect x="24" y="76" width="232" height="300" rx="14" fill="#ffffff" stroke="#6A2C5A" stroke-width="1.6"/>
+    <path d="M24,90 a14,14 0 0 1 14,-14 h204 a14,14 0 0 1 14,14 v24 h-232 z" fill="#6A2C5A"/>
+    <text x="40" y="100" font-size="15.5" font-weight="700" fill="#ffffff">1 · Input</text>
+    <text x="40" y="150" font-size="14.5" font-weight="700" fill="#000000">Tumor RNA-seq</text>
+    <text x="40" y="176" font-size="13.5" fill="#333333">TPM, log-TPM or counts</text>
+    <text x="40" y="198" font-size="13.5" fill="#333333">(linear data auto-log2)</text>
+    <text x="40" y="230" font-size="13.5" fill="#333333">gene × sample table</text>
+    <text x="40" y="252" font-size="13.5" fill="#333333">CSV · TSV · Excel</text>
+    <text x="40" y="300" font-size="13" fill="#777777">one patient = one column</text>
+    <text x="40" y="322" font-size="13" fill="#777777">(cohort-independent)</text>
+  </g>
+
+  <!-- ===== Box 2: Score ===== -->
+  <g>
+    <rect x="298" y="76" width="258" height="300" rx="14" fill="#ffffff" stroke="#6A2C5A" stroke-width="1.6"/>
+    <path d="M298,90 a14,14 0 0 1 14,-14 h230 a14,14 0 0 1 14,14 v24 h-258 z" fill="#6A2C5A"/>
+    <text x="314" y="100" font-size="15.5" font-weight="700" fill="#ffffff">2 · Score vs locked reference</text>
+    <text x="314" y="150" font-size="14.5" font-weight="700" fill="#000000">Frozen 98-gene reference</text>
+    <text x="314" y="176" font-size="13.5" fill="#333333">per-sample self-normalization</text>
+    <text x="314" y="198" font-size="13.5" fill="#333333">(platform / batch robust)</text>
+    <text x="314" y="230" font-size="13.5" fill="#333333">each gene scored vs its</text>
+    <text x="314" y="252" font-size="13.5" fill="#333333">frozen reference distribution</text>
+    <text x="314" y="300" font-size="13" fill="#777777">versioned registry:</text>
+    <text x="314" y="322" font-size="13" fill="#777777">references/*.rds (swappable)</text>
+  </g>
+
+  <!-- ===== Box 3: Cascade ===== -->
+  <g>
+    <rect x="592" y="76" width="258" height="300" rx="14" fill="#ffffff" stroke="#6A2C5A" stroke-width="1.6"/>
+    <path d="M592,90 a14,14 0 0 1 14,-14 h230 a14,14 0 0 1 14,14 v24 h-258 z" fill="#6A2C5A"/>
+    <text x="608" y="100" font-size="15.5" font-weight="700" fill="#ffffff">3 · Three-layer cascade</text>
+    <!-- mini gauge: three layer bars, lowest starred -->
+    <text x="608" y="150" font-size="13.5" font-weight="700" fill="#000000">Sensory</text>
+    <rect x="700" y="140" width="120" height="12" rx="6" fill="#E69F00"/>
+    <text x="608" y="182" font-size="13.5" font-weight="700" fill="#000000">Integration</text>
+    <rect x="700" y="172" width="78" height="12" rx="6" fill="#0072B2"/>
+    <text x="608" y="214" font-size="13.5" font-weight="700" fill="#000000">Execution</text>
+    <rect x="700" y="204" width="40" height="12" rx="6" fill="#CC79A7"/>
+    <text x="748" y="215" font-size="15" font-weight="700" fill="#000000">★</text>
+    <text x="608" y="250" font-size="13" fill="#333333">standardized score vs reference</text>
+    <text x="608" y="272" font-size="13" fill="#333333">(0 = median; ★ = lowest layer)</text>
+    <text x="608" y="312" font-size="13" fill="#777777">lowest layer names the archetype:</text>
+    <text x="608" y="334" font-size="13" fill="#777777">intact · cold · blocked · no-kill</text>
+  </g>
+
+  <!-- ===== Box 4: Read-outs ===== -->
+  <g>
+    <rect x="886" y="76" width="270" height="300" rx="14" fill="#ffffff" stroke="#6A2C5A" stroke-width="1.6"/>
+    <path d="M886,90 a14,14 0 0 1 14,-14 h242 a14,14 0 0 1 14,14 v24 h-270 z" fill="#6A2C5A"/>
+    <text x="902" y="100" font-size="15.5" font-weight="700" fill="#ffffff">4 · Read-outs</text>
+    <text x="902" y="146" font-size="13.8" font-weight="700" fill="#000000">Patient report</text>
+    <text x="902" y="166" font-size="12.8" fill="#333333">call · gauge · drill-down · biology</text>
+    <text x="902" y="200" font-size="13.8" font-weight="700" fill="#000000">Gene drivers</text>
+    <text x="902" y="220" font-size="12.8" fill="#333333">98-gene cascade tree / heatmaps</text>
+    <text x="902" y="254" font-size="13.8" font-weight="700" fill="#000000">Cohort explorer</text>
+    <text x="902" y="274" font-size="12.8" fill="#333333">archetypes · click a patient → report</text>
+    <text x="902" y="308" font-size="13.8" font-weight="700" fill="#000000">Downloads</text>
+    <text x="902" y="328" font-size="12.8" fill="#333333">PDF reports · scores (CSV/TSV/Excel)</text>
+  </g>
+
+  <!-- ===== footer band: cascade detail + RUO ===== -->
+  <line x1="24" y1="412" x2="1156" y2="412" stroke="#e5e5e5" stroke-width="1"/>
+  <text x="24" y="440" font-size="13" fill="#555555"><tspan font-weight="700" fill="#6A2C5A">Cascade detail:</tspan>  98 genes  →  5 sub-modules (antigen presentation / trafficking / stroma-Treg / effector / exhaustion)  →  3 layers.  Execution = shared CD8 T + NK cytotoxic genes.</text>
+  <text x="24" y="464" font-size="13" fill="#555555"><tspan font-weight="700" fill="#6A2C5A">Reproducible:</tspan>  the reference is frozen and versioned; scoring is deterministic and cohort-independent.  <tspan font-weight="700" fill="#9C7A3E">Research use only</tspan> — not a validated clinical test.</text>
+</svg>

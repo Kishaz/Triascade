@@ -35,9 +35,7 @@ PALETTES <- list(
     arch = c(intact="#440154", cold="#31688e", blocked="#35b779", `no-kill`="#fde725"),
     lay  = c(Sensory="#443983", Integration="#21918c", Execution="#7ad151")))
 DEF <- PALETTES[[1]]
-GENE_DIV <- c(low="#2166AC", mid="#F7F7F7", high="#B2182B")   # diverging: below / at / above reference
-BAND <- 0.674                                                # typical range = middle 50% of reference (SD units)
-FLOOR_T <- -0.5                                              # a layer below this is flagged as the lowest layer
+BAND <- 0.674                                                # typical range = middle 50% of the reference (SD units)
 
 # ---- contrast helpers (WCAG relative luminance) -----------------------------
 # ink(bg): the higher-contrast of black/white for text on a colour.
@@ -606,9 +604,8 @@ server <- function(input, output, session) {
   output$n_pat  <- renderText({ req(res()); res()$n_samples })
   output$cov    <- renderText({ req(res()); sprintf("%d / %d genes", res()$coverage, res()$n_panel) })
   output$intact <- renderText({ req(res()); s<-res()$scores; sprintf("%d of %d (%.0f%%)", sum(s$archetype=="intact"), nrow(s), 100*mean(s$archetype=="intact")) })
-  # ggplotly() measures text on the current graphics device; on macOS that is
-  # quartz, which errors ("invalid quartz() device size") in odd contexts and then
-  # stays broken process-wide. Measure on a null PDF device.
+  # ggplotly() measures text on the active graphics device; measure on a throwaway
+  # null PDF device so text sizing is stable regardless of the display device.
   base_theme <- function(p){
     grDevices::pdf(NULL); on.exit(grDevices::dev.off(), add=TRUE)
     ggplotly(p, tooltip="text") |>

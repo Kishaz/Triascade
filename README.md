@@ -4,6 +4,18 @@ A transcriptomic, three-layer (**Sensory / Integration / Execution**) immune-che
 (ICB) response biomarker built on the legacy 98-gene panel, being repackaged as a
 single-patient-scorable, pre-treatment clinical tool.
 
+## CascadeScope — the app
+
+**[`app/`](app/) is the self-contained [CascadeScope](app/README.md) tool**: an R/Shiny app that
+scores tumor RNA against the frozen ICI reference, one patient at a time, and reads it out
+(patient report, 98-gene cascade view, cohort explorer). It runs locally and ships its own frozen
+reference and example data — see **[`app/README.md`](app/README.md)** for install, run, and
+reproducibility.
+
+```bash
+cd app && Rscript run.R      # installs deps if needed, launches CascadeScope
+```
+
 ## Repository layout
 
 ```

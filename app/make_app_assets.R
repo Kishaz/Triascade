@@ -1,7 +1,10 @@
-# Build shipped assets for the ICI scoring app (run once, from project root):
+# Provenance / build script for the shipped CascadeScope assets. NOT required to
+# run the app (the app ships the frozen reference and example below). Rebuilding
+# needs the reference cohort expression matrix and the panel definition, which are
+# NOT distributed, plus Bioconductor's org.Hs.eg.db. Run once, from the project root:
 #   Rscript app/make_app_assets.R
-#   -> app/ici_reference.rds   (frozen locked reference + panel)
-#   -> app/example_cohort.csv  (a realistic example upload)
+#   -> app/references/ICI_v1.rds   (frozen locked reference + panel + metadata)
+#   -> app/example_cohort.csv      (example upload: public IMvigor210 subset)
 suppressPackageStartupMessages({ library(data.table) })
 source("analysis/ici_locked_reference.R"); source("app/score_cohort.R")
 PANEL <- load_panel("analysis/ICI_98gene_panel.csv")
