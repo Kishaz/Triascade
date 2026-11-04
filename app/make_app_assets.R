@@ -3,7 +3,7 @@
 #   -> app/ici_reference.rds   (frozen locked reference + panel)
 #   -> app/example_cohort.csv  (a realistic example upload)
 suppressPackageStartupMessages({ library(data.table) })
-source("analysis/ici_locked_reference.R")
+source("analysis/ici_locked_reference.R"); source("app/score_cohort.R")
 PANEL <- load_panel("analysis/ICI_98gene_panel.csv")
 PG <- unique(toupper(unlist(PANEL)))
 
@@ -25,8 +25,14 @@ mp <- mp[!(mp$syn %in% names(which(table(mp$syn) > 1))), ]   # drop ambiguous sy
 alias_map <- setNames(mp$canon, mp$syn)
 cat(sprintf("alias/Ensembl map: %d synonyms -> %d panel genes\n", length(alias_map), length(unique(alias_map))))
 
+## reference sub-module score distribution (for the per-patient drill-down) -----
+SMref <- submod_scores(refmat, REF)
+submod_stats <- data.frame(submodule=colnames(SMref), mean=colMeans(SMref, na.rm=TRUE),
+                           sd=apply(SMref, 2, sd, na.rm=TRUE), row.names=NULL)
+cat("submodule stats:", paste(submod_stats$submodule, collapse=", "), "\n")
+
 dir.create("app/references", showWarnings=FALSE, recursive=TRUE)
-saveRDS(list(ref=REF, panel=PANEL, panel_genes=PG, alias_map=alias_map,
+saveRDS(list(ref=REF, panel=PANEL, panel_genes=PG, alias_map=alias_map, submod_stats=submod_stats,
              version="ICI panel v1", panel_version="v1", n_genes=length(PG),
              layers=names(PANEL), n_ref=ncol(refmat),
              ref_label="NeoTRIP breast baseline (n=241)", built=Sys.Date()),

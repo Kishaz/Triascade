@@ -88,6 +88,41 @@ build_gauge <- function(p, lay = DEF$lay){
           axis.text.y=element_text(face=2), axis.title.x=element_text(colour="black"),
           axis.line.x=element_line(colour="black", linewidth=0.3))
 }
+# ---- per-patient cascade drill-down (sub-module decomposition) --------------
+SM_ORD   <- c("SENSORY","INTPOS","INTNEG","EXECPOS","EXECNEG")
+SM_LAB   <- c(SENSORY="Antigen presentation / IFN", INTPOS="T-cell trafficking",
+              INTNEG="Stroma / Treg suppression", EXECPOS="Cytotoxic effector", EXECNEG="Exhaustion / checkpoint")
+SM_LAYER <- c(SENSORY="Sensory", INTPOS="Integration", INTNEG="Integration", EXECPOS="Execution", EXECNEG="Execution")
+SM_SIGN  <- c(SENSORY="+", INTPOS="+", INTNEG="−", EXECPOS="+", EXECNEG="−")
+ordinal <- function(n){ s <- if (n%%100 %in% 11:13) "th" else c("th","st","nd","rd","th","th","th","th","th","th")[n%%10 + 1]; paste0(n, s) }
+drill_text <- function(smz, floor_layer){
+  if (is.null(smz) || floor_layer=="none") return("All three layers intact: no single limiting sub-module.")
+  subs <- SM_ORD[SM_LAYER[SM_ORD]==floor_layer]
+  pct <- round(pnorm(as.numeric(smz[subs]))*100); names(pct) <- subs
+  unfav <- ifelse(SM_SIGN[subs]=="+", 50-pct, pct-50); w <- subs[which.max(unfav)]
+  sprintf("%s is limited by %s %s (%s percentile vs reference).", floor_layer,
+          if (SM_SIGN[w]=="+") "low" else "high", SM_LAB[w], ordinal(pct[w]))
+}
+build_drilldown <- function(smz, floor_layer, lay = DEF$lay){
+  d <- data.frame(sm=SM_ORD, z=as.numeric(smz[SM_ORD]))
+  d$pct <- round(pnorm(d$z)*100); d$layer <- SM_LAYER[d$sm]; d$sign <- SM_SIGN[d$sm]
+  d$lab <- sprintf("%s (%s)", SM_LAB[d$sm], d$sign); d$fill <- unname(lay[d$layer])
+  d$unfav <- ifelse(d$sign=="+", 50-d$pct, d$pct-50)
+  d$driver <- d$layer==floor_layer & d$layer!="none" &
+              d$unfav==ave(d$unfav, d$layer, FUN=max) & d$unfav>0
+  d$lab <- factor(d$lab, levels=rev(d$lab))
+  ggplot(d, aes(pct, lab)) +
+    geom_vline(xintercept=50, colour="black", linewidth=0.4) +
+    geom_segment(aes(x=0, xend=pct, yend=lab), colour=d$fill, linewidth=3) +
+    geom_point(aes(x=pct), colour=d$fill, size=6.5) +
+    geom_point(data=d[d$driver,,drop=FALSE], aes(x=pct), shape=21, size=8, stroke=1.3, colour="black", fill=NA) +
+    geom_text(aes(x=pct, label=pct), colour="white", fontface=2, size=3) +
+    scale_x_continuous("Percentile vs reference  (50 = median)", limits=c(0,100), breaks=c(0,25,50,75,100)) +
+    scale_y_discrete(NULL) + theme_minimal(base_size=12) +
+    theme(panel.grid=element_blank(), axis.text=element_text(colour="black"),
+          axis.text.y=element_text(face=2), axis.title.x=element_text(colour="black"),
+          axis.line.x=element_line(colour="black", linewidth=0.3))
+}
 build_archetype_bar <- function(scores, arch = DEF$arch){
   tab <- as.data.frame(table(factor(scores$archetype, names(arch)))); names(tab)<-c("archetype","n")
   tab <- tab[tab$n>0,]; tab$pct <- round(100*tab$n/sum(tab$n))
@@ -108,7 +143,7 @@ build_layer_violin <- function(scores, lay = DEF$lay){
     theme_minimal(base_size=13) + theme(panel.grid=element_blank(),
       axis.text=element_text(colour="black"), axis.title=element_text(colour="black"))
 }
-build_report <- function(p, a, cov, np, arch = DEF$arch, lay = DEF$lay){
+build_report <- function(p, a, cov, np, arch = DEF$arch, lay = DEF$lay, smz = NULL){
   wrap <- function(s,w=104) paste(strwrap(s,w), collapse="\n"); ar <- p$archetype
   tp <- function() ggplot()+xlim(0,1)+ylim(0,1)+theme_void()
   top <- tp() +
@@ -122,6 +157,12 @@ build_report <- function(p, a, cov, np, arch = DEF$arch, lay = DEF$lay){
     annotate("text",x=0,y=0.33,hjust=0,vjust=1,label=sprintf("Scored with %s (%d genes)  |  reference %s  |  coverage %d/%d  |  %s",
              a$version,a$n_genes,a$ref_label,cov,np,as.character(a$built)),size=3,colour="black")+
     annotate("text",x=0,y=0.2,hjust=0,vjust=1,label=wrap(RUO,110),size=2.9,colour="black",lineheight=0.95)
+  if (!is.null(smz)) {
+    dd <- build_drilldown(smz, p$floor_layer, lay) +
+          ggtitle("Cascade drill-down: limiting sub-module") +
+          theme(plot.title = element_text(face=2, size=11, colour="black"))
+    return(top / build_gauge(p, lay) / dd / bottom + plot_layout(heights=c(1.0,1.0,1.25,1.3)))
+  }
   top / build_gauge(p, lay) / bottom + plot_layout(heights=c(1.05,1.0,1.2))
 }
 build_cohort_report <- function(scores, a, cov, np, arch = DEF$arch, lay = DEF$lay){
@@ -169,7 +210,12 @@ ui <- page_navbar(
       plotOutput("gauge", height = "220px"),
       div(style="font-size:0.78rem;color:#000000;margin-top:2px", GAUGE_CAP),
       uiOutput("rep_bio"), uiOutput("rep_stamp"),
-      div(style="font-size:0.72rem;color:#000000;border-top:1px solid #000000;padding-top:8px;margin-top:6px", RUO))),
+      div(style="font-size:0.72rem;color:#000000;border-top:1px solid #000000;padding-top:8px;margin-top:6px", RUO)),
+    card(card_header("Cascade drill-down: which sub-module limits the floor"),
+      plotOutput("drill", height = "250px"),
+      uiOutput("drill_text"),
+      div(style="font-size:0.74rem;color:#000000;margin-top:4px",
+          "Activating programs (+): higher is better. Suppressive programs (−): lower is better. The ringed point is the sub-module driving the rate-limiting layer."))),
 
   nav_panel("Cohort explorer",
     layout_columns(fill = FALSE,
@@ -198,6 +244,8 @@ server <- function(input, output, session) {
   res <- reactive({ req(raw(), assets()); score_uploaded(raw(), assets()) })
   observeEvent(res(), { updateSelectInput(session, "patient", choices = res()$scores$sample) })
   patient <- reactive({ req(res(), input$patient); s<-res()$scores; s[s$sample==input$patient, ][1, ] })
+  psub <- reactive({ req(res(), input$patient); sm<-res()$submod
+                     if (is.null(sm) || !(input$patient %in% rownames(sm))) return(NULL); sm[input$patient, ] })
 
   output$dl_template <- downloadHandler(
     filename = function() "ICI_input_template.csv",
@@ -228,10 +276,13 @@ server <- function(input, output, session) {
         sprintf("Scored with %s (%d genes)  ·  reference %s  ·  coverage %d/%d  ·  %s",
                 a$version, a$n_genes, a$ref_label, res()$coverage, res()$n_panel, as.character(a$built))) })
   output$gauge <- renderPlot({ req(patient()); build_gauge(patient(), pal()$lay) }, res=108)
+  output$drill <- renderPlot({ req(psub()); build_drilldown(psub(), patient()$floor_layer, pal()$lay) }, res=108)
+  output$drill_text <- renderUI({ req(psub()); div(style="font-size:0.86rem;color:#000000;margin-top:6px",
+      tags$b("Floor driver.  "), drill_text(psub(), patient()$floor_layer)) })
   output$dl_pdf <- downloadHandler(
     filename = function() sprintf("ICI_report_%s.pdf", gsub("[^A-Za-z0-9]", "", patient()$sample)),
-    content = function(f){ req(patient()); ggsave(f, build_report(patient(), assets(), res()$coverage, res()$n_panel, pal()$arch, pal()$lay),
-                                                  width = 8.27, height = 8.8, device = "pdf") })
+    content = function(f){ req(patient()); ggsave(f, build_report(patient(), assets(), res()$coverage, res()$n_panel, pal()$arch, pal()$lay, psub()),
+                                                  width = 8.27, height = if (is.null(psub())) 8.8 else 10.6, device = "pdf") })
 
   output$donut <- renderPlotly({ req(res()); s<-res()$scores; arch<-pal()$arch
     tab <- as.data.frame(table(factor(s$archetype, names(arch)))); names(tab)<-c("a","n"); tab<-tab[tab$n>0,]
