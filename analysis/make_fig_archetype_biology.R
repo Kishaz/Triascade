@@ -103,13 +103,64 @@ pc <- ggplot(PC, aes(arch, frac, fill=phenotype)) +
         legend.position="top", legend.justification="left", legend.box.spacing=unit(1,"mm"),
         legend.text=element_text(size=PT_BASE-1, colour=INK), plot.margin=margin(2,2,2,2,"mm"))
 
+## ---- panel d: flagship ORTHOGONAL driver — TGF-beta/stromal exclusion -------
+# genes outside the 98-gene panel; explains the Integration ("blocked") floor
+PG <- unique(toupper(unlist(PANEL)))
+tgfb_g <- setdiff(toupper(c("ACTA2","ACTG2","ADAM12","CNN1","COL4A1","COL5A1","COL5A2","COL6A3",
+  "COMP","CTGF","FAP","FBN1","FN1","LRRC15","POSTN","PDGFRB","TAGLN","TGFB1","TGFBR2","VCAN",
+  "THBS2","SPARC")), PG)
+DD <- data.frame(arch=arch, tgfb=sub(tgfb_g))
+pbl <- wilcox.test(DD$tgfb[arch=="blocked"], DD$tgfb[arch!="blocked"])$p.value
+pd_ <- ggplot(DD, aes(arch, tgfb, fill=arch=="blocked")) +
+  geom_hline(yintercept=0, colour=RULE, linewidth=0.3) +
+  geom_boxplot(outlier.size=0.4, linewidth=0.3, width=0.62, colour=INK) +
+  annotate("text", x=2, y=2.5, label=sprintf("blocked vs rest\np = %.0e", pbl), hjust=0.5, vjust=1,
+           family=PUB_FONT, fontface=3, size=(PT_BASE-2)/.pt, colour=INK, lineheight=0.95) +
+  scale_fill_manual(values=c(`TRUE`=PLUM, `FALSE`="#EFE7DD"), guide="none") +
+  scale_y_continuous("TGF-β / stroma (orthogonal z)", limits=c(-1.6,2.7), breaks=seq(-1,2,1)) +
+  scale_x_discrete(NULL) +
+  theme_publication(grid="y") +
+  theme(axis.text.x=element_text(size=PT_BASE-0.5, colour=INK, angle=20, hjust=1),
+        axis.text.y=element_text(size=PT_BASE, colour=INK),
+        axis.title.y=element_text(size=PT_AXIS_TITLE-0.5, colour=INK, margin=margin(r=1)),
+        plot.margin=margin(2,3,2,2,"mm"))
+
+## ---- panel e: no-kill REFINEMENT — two actionable flavours ------------------
+nk <- arch=="no-kill"
+effM <- SM[,"Effector (+)"]; exhM <- SM[,"Exhaustion (−)"]
+tex_g <- setdiff(c("LAYN","TNFRSF9","TOX","CXCL13"), PG); tex <- sub(tex_g)
+flav <- ifelse(effM[nk] < median(effM), "effector-absent", "primed-but-exhausted")
+NK <- rbind(
+  data.frame(flavour=flav, feature="Effector (+)",     z=effM[nk]),
+  data.frame(flavour=flav, feature="Exhaustion (−)", z=exhM[nk]),   # higher = more exhaustion expressed
+  data.frame(flavour=flav, feature="Term-exhaustion\n(LAYN/TNFRSF9)", z=tex[nk]))
+NK$feature <- factor(NK$feature, levels=c("Effector (+)","Exhaustion (−)","Term-exhaustion\n(LAYN/TNFRSF9)"))
+AGG <- aggregate(z~flavour+feature, NK, median)
+ptex <- wilcox.test(tex[nk]~flav)$p.value
+nlab <- sprintf("%s (n=%d)", c("effector-absent","primed-but-exhausted"), c(sum(flav=="effector-absent"),sum(flav=="primed-but-exhausted")))
+AGG$flavour <- factor(AGG$flavour, c("effector-absent","primed-but-exhausted"), nlab)
+pe <- ggplot(AGG, aes(feature, z, fill=flavour)) +
+  geom_hline(yintercept=0, colour=RULE, linewidth=0.3) +
+  geom_col(position=position_dodge(width=0.72), width=0.64, colour="white", linewidth=0.3) +
+  annotate("text", x=3, y=0.95, label=sprintf("p = %.0e", ptex), hjust=0.5, vjust=1,
+           family=PUB_FONT, fontface=3, size=(PT_BASE-2.5)/.pt, colour=INK) +
+  scale_fill_manual(values=setNames(c(SAND, PLUM), nlab), name=NULL) +
+  scale_y_continuous("median z", limits=c(-0.7,1.0), breaks=seq(-0.5,1,0.5)) +
+  scale_x_discrete(NULL) +
+  theme_publication(grid="y") +
+  theme(axis.text.x=element_text(size=PT_BASE-1.5, colour=INK, lineheight=0.9),
+        axis.text.y=element_text(size=PT_BASE, colour=INK),
+        axis.title.y=element_text(size=PT_AXIS_TITLE-0.5, colour=INK, margin=margin(r=1)),
+        legend.position="top", legend.justification="left", legend.box.spacing=unit(0.5,"mm"),
+        legend.text=element_text(size=PT_BASE-1.5, colour=INK), plot.margin=margin(2,2,2,2,"mm"))
+
 tag_th <- theme(plot.tag=element_text(size=PT_PANEL_TAG, face="bold", family=PUB_FONT, colour=INK, hjust=0, vjust=1))
-pa <- pa + labs(tag="a") + tag_th
-pb <- pb + labs(tag="b") + tag_th
-pc <- pc + labs(tag="c") + tag_th
-bottom <- wrap_elements(full=pb) + wrap_elements(full=pc) + plot_layout(widths=c(1.5, 1))
-fig <- wrap_elements(full=pa) / bottom + plot_layout(heights=c(1, 1.25)) &
+pa <- pa + labs(tag="a") + tag_th; pb <- pb + labs(tag="b") + tag_th; pc <- pc + labs(tag="c") + tag_th
+pd_ <- pd_ + labs(tag="d") + tag_th; pe <- pe + labs(tag="e") + tag_th
+row2 <- wrap_elements(full=pb) + wrap_elements(full=pc) + plot_layout(widths=c(1.5, 1))
+row3 <- wrap_elements(full=pd_) + wrap_elements(full=pe) + plot_layout(widths=c(1, 1.25))
+fig <- wrap_elements(full=pa) / row2 / row3 + plot_layout(heights=c(0.9, 1.15, 1.0)) &
   theme(plot.margin=margin(2,2,2,2,"mm"))
-save_fig(fig, "ICI_Fig_archetype_biology", width_mm=174, height_mm=140, dir="../results/figures/composite")
+save_fig(fig, "ICI_Fig_archetype_biology", width_mm=174, height_mm=200, dir="../results/figures/composite")
 cat("exemplars (sample | archetype):\n"); for(a in levels(arch)) cat(sprintf("  %-8s %s\n", a, colnames(E)[ex[a]]))
 cat("done — panels a (exemplars) + b (floor decomposition)\n")
