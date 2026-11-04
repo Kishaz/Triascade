@@ -12,10 +12,13 @@ nt <- as.data.frame(fread("analysis/data/NeoTRIP_expr.txt.gz"))
 rownames(nt) <- toupper(nt$HGNC_approved_symbol)
 refmat <- as.matrix(nt[, grep("_Baseline$", colnames(nt)), drop=FALSE])
 REF <- fit_locked_reference(refmat, PANEL, "ICI_locked_v1")
+dir.create("app/references", showWarnings=FALSE, recursive=TRUE)
 saveRDS(list(ref=REF, panel=PANEL, panel_genes=PG,
-             n_ref=ncol(refmat), ref_label="NeoTRIP breast baseline (n=241)",
-             built=Sys.Date()), "app/ici_reference.rds")
-cat(sprintf("froze reference: %d panel genes, %d reference samples -> app/ici_reference.rds\n",
+             version="ICI panel v1", panel_version="v1", n_genes=length(PG),
+             layers=names(PANEL), n_ref=ncol(refmat),
+             ref_label="NeoTRIP breast baseline (n=241)", built=Sys.Date()),
+        "app/references/ICI_v1.rds")
+cat(sprintf("froze reference 'ICI panel v1': %d panel genes, %d reference samples -> app/references/ICI_v1.rds\n",
             length(PG), ncol(refmat)))
 
 ## 2. example cohort (IMvigor210 subset: all panel genes + random extras, realistic upload) ----
