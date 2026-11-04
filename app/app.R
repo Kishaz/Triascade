@@ -339,10 +339,14 @@ chips <- function(items, col){
 
 about_tab <- nav_panel(title = tagList(icon("circle-info"), " About"), value = "about",
   layout_columns(col_widths = c(8,4),
-    card(card_header("What CascadeScope is"),
+    card(card_header("CascadeScope and the Immune Cascade Index"),
       markdown(paste(
-        "**CascadeScope** scores a tumor's RNA against a locked **Immune Cascade Index (ICI)** reference and tells you,",
-        "for one patient at a time, **which stage of the anti-tumor immune response is weakest**.",
+        "**CascadeScope** is the software; the **Immune Cascade Index (ICI)** is the method it implements.",
+        "",
+        "- **Immune Cascade Index (ICI)** is the *science*: the 98-gene, three-layer framework for reading the anti-tumor immune response, developed and validated in the manuscript.",
+        "- **CascadeScope** is the *software*: it computes and visualizes the ICI for one patient at a time. The method can evolve independently; the tool is the interface built around it.",
+        "",
+        "CascadeScope scores a tumor's RNA against a locked ICI reference and shows, for one patient, **which stage of the anti-tumor immune response reads weakest**.",
         "",
         "The ICI reads the response as a three-stage **cascade**, from sensing to killing, and scores each stage against the reference:",
         "",
