@@ -81,6 +81,45 @@ build_report <- function(p, a, cov, np){
   top / build_gauge(p) / bottom + plot_layout(heights=c(1.05,1.0,1.2))
 }
 
+# ---- cohort-level helpers (shared by display + PDF) -------------------------
+build_archetype_bar <- function(scores){
+  tab <- as.data.frame(table(factor(scores$archetype, names(ARCHCOL)))); names(tab)<-c("archetype","n")
+  tab <- tab[tab$n>0,]; tab$pct <- round(100*tab$n/sum(tab$n))
+  tab$archetype <- factor(tab$archetype, levels=rev(names(ARCHCOL)[names(ARCHCOL) %in% as.character(tab$archetype)]))
+  ggplot(tab, aes(n, archetype, fill=archetype)) + geom_col(width=0.7) +
+    geom_text(aes(label=sprintf("%d  (%d%%)", n, pct)), hjust=-0.1, colour="black", fontface=2, size=4.2) +
+    scale_fill_manual(values=ARCHCOL, guide="none") +
+    scale_x_continuous("patients", expand=expansion(mult=c(0,0.34))) + scale_y_discrete(NULL) +
+    theme_minimal(base_size=13) + theme(panel.grid=element_blank(),
+      axis.text=element_text(colour="black", face=2), axis.title=element_text(colour="black"))
+}
+build_layer_violin <- function(scores){
+  L <- do.call(rbind, lapply(c("Sensory","Integration","Execution"), function(l) data.frame(layer=l, z=scores[[l]])))
+  L$layer <- factor(L$layer, c("Sensory","Integration","Execution"))
+  ggplot(L, aes(layer, z, fill=layer)) + geom_hline(yintercept=0, colour="black", linewidth=0.3) +
+    geom_violin(colour=NA, alpha=0.4, scale="width") + geom_jitter(width=0.1, size=0.6, alpha=0.5, colour="#4C1F41") +
+    scale_fill_manual(values=LAYCOL, guide="none") + labs(x=NULL, y="score (z vs reference)") +
+    theme_minimal(base_size=13) + theme(panel.grid=element_blank(),
+      axis.text=element_text(colour="black"), axis.title=element_text(colour="black"))
+}
+build_cohort_report <- function(scores, a, cov, np){
+  wrap <- function(s,w=120) paste(strwrap(s,w), collapse="\n")
+  n<-nrow(scores); tab<-table(factor(scores$archetype, names(ARCHCOL))); pct<-round(100*as.numeric(tab)/n)
+  medz <- sapply(c("Sensory","Integration","Execution"), function(l) median(scores[[l]]))
+  arch_line <- paste(sprintf("%s %d (%d%%)", names(tab), as.numeric(tab), pct)[as.numeric(tab)>0], collapse="     ")
+  top <- ggplot()+xlim(0,1)+ylim(0,1)+theme_void()+
+    annotate("text",x=0,y=0.95,hjust=0,vjust=1,label="Immune Cascade Index: cohort report",fontface=2,size=6.3,colour="#6A2C5A")+
+    annotate("text",x=0,y=0.6,hjust=0,vjust=1,size=3.7,colour="black",
+      label=sprintf("%d patients   |   coverage %d/%d panel genes   |   %s (%d genes)   |   reference %s", n, cov, np, a$version, a$n_genes, a$ref_label))+
+    annotate("text",x=0,y=0.34,hjust=0,vjust=1,size=3.7,colour="black", label=paste("Archetype breakdown:   ", arch_line))+
+    annotate("text",x=0,y=0.1,hjust=0,vjust=1,size=3.7,colour="black",
+      label=sprintf("Median layer scores (z):   Sensory %.2f    Integration %.2f    Execution %.2f", medz[1], medz[2], medz[3]))
+  bottom <- ggplot()+xlim(0,1)+ylim(0,1)+theme_void()+
+    annotate("text",x=0,y=0.85,hjust=0,vjust=1,size=2.9,colour="black", label=sprintf("%s  |  %s", a$version, as.character(a$built)))+
+    annotate("text",x=0,y=0.5,hjust=0,vjust=1,size=2.9,colour="black",lineheight=0.95,label=wrap(RUO))
+  top / (build_archetype_bar(scores) | build_layer_violin(scores)) / bottom + plot_layout(heights=c(0.9,1.3,0.5))
+}
+
 ui <- page_navbar(
   title = tagList(span("ICI", style="font-weight:700;color:#6A2C5A"),
                   span("  ·  Immune Cascade Index", style="font-weight:500")),
@@ -112,9 +151,11 @@ ui <- page_navbar(
       value_box("Patients scored", textOutput("n_pat", inline = TRUE), theme = "primary"),
       value_box("Panel coverage", textOutput("cov", inline = TRUE), theme = value_box_theme(bg="#9C7A3E", fg="white")),
       value_box("Cascade-intact", textOutput("intact", inline = TRUE), theme = value_box_theme(bg="#C9A66B", fg="#000000"))),
-    layout_columns(col_widths = c(6,6),
-      card(full_screen=TRUE, card_header("Cohort distribution: the three layer scores"), plotlyOutput("cohort", height="320px")),
-      card(full_screen=TRUE, card_header("Per-patient profiles (hover for detail)"), plotlyOutput("patients", height="320px"))),
+    div(style="margin:2px 0 8px 0", downloadButton("dl_cohort", "Download cohort report (PDF)", class = "btn-primary btn-sm")),
+    layout_columns(col_widths = c(5,7),
+      card(full_screen=TRUE, card_header("Archetype proportions"), plotlyOutput("donut", height="300px")),
+      card(full_screen=TRUE, card_header("Cohort distribution: the three layer scores"), plotlyOutput("cohort", height="300px"))),
+    card(full_screen=TRUE, card_header("Per-patient profiles (hover for detail)"), plotlyOutput("patients", height="300px")),
     card(full_screen=TRUE, card_header("Per-patient scores"), DTOutput("tbl")))
 )
 
@@ -156,6 +197,20 @@ server <- function(input, output, session) {
     content = function(f){ req(patient()); ggsave(f, build_report(patient(), assets(), res()$coverage, res()$n_panel),
                                                   width = 8.27, height = 8.8, device = "pdf") })
 
+  output$donut <- renderPlotly({ req(res()); s<-res()$scores
+    tab <- as.data.frame(table(factor(s$archetype, names(ARCHCOL)))); names(tab)<-c("a","n"); tab<-tab[tab$n>0,]
+    plot_ly(tab, labels=~a, values=~n, type="pie", hole=0.58, sort=FALSE,
+            marker=list(colors=unname(ARCHCOL[as.character(tab$a)]), line=list(color="#ffffff", width=2)),
+            textinfo="label+percent", textfont=list(color="black", size=14),
+            hovertemplate="%{label}: %{value} patients (%{percent})<extra></extra>") |>
+      layout(showlegend=FALSE, margin=list(t=12,b=12,l=12,r=12),
+             font=list(color="black", family="Inter, system-ui, Arial, sans-serif")) |>
+      config(displayModeBar=FALSE) })
+  output$dl_cohort <- downloadHandler(
+    filename = function() sprintf("ICI_cohort_report_%s.pdf", Sys.Date()),
+    content = function(f){ req(res()); ggsave(f, build_cohort_report(res()$scores, assets(), res()$coverage, res()$n_panel),
+                                              width = 10, height = 8, device = "pdf") })
+
   long <- reactive({ req(res()); s<-res()$scores
     L <- do.call(rbind, lapply(c("Sensory","Integration","Execution"), function(l)
       data.frame(sample=s$sample, layer=l, z=s[[l]], archetype=s$archetype, floor=s$floor_layer)))
@@ -173,11 +228,11 @@ server <- function(input, output, session) {
       geom_violin(colour=NA, alpha=0.35, scale="width") +
       geom_jitter(aes(text=tt), width=0.12, height=0, size=0.9, alpha=0.65, colour="#4C1F41") +
       scale_fill_manual(values=LAYCOL, guide="none") + labs(x=NULL, y="score (z)") +
-      theme_minimal(base_size=12) + theme(panel.grid.minor=element_blank(), axis.text=element_text(colour="black"), axis.title=element_text(colour="black")); base_theme(p) })
+      theme_minimal(base_size=12) + theme(panel.grid=element_blank(), axis.text=element_text(colour="black"), axis.title=element_text(colour="black")); base_theme(p) })
   output$patients <- renderPlotly({ L<-long()
     p <- ggplot(L, aes(z, layer, colour=archetype, text=tt)) + geom_vline(xintercept=0, colour="black", linewidth=0.3) +
       geom_jitter(width=0, height=0.26, size=1.7, alpha=0.85) + scale_colour_manual(values=ARCHCOL, name=NULL) +
-      labs(x="score (z vs reference)", y=NULL) + theme_minimal(base_size=12) + theme(panel.grid.minor=element_blank(), axis.text=element_text(colour="black"), axis.title=element_text(colour="black"))
+      labs(x="score (z vs reference)", y=NULL) + theme_minimal(base_size=12) + theme(panel.grid=element_blank(), axis.text=element_text(colour="black"), axis.title=element_text(colour="black"))
     base_theme(p) |> layout(legend=list(orientation="h", y=1.14, x=0.5, xanchor="center"), margin=list(t=40,l=76,b=44,r=16)) })
   output$tbl <- renderDT({ req(res()); s<-res()$scores
     d <- data.frame(Patient=s$sample, Sensory=round(s$Sensory,2), Integration=round(s$Integration,2),
