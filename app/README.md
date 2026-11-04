@@ -157,6 +157,11 @@ If you use CascadeScope or the ICI, please cite the manuscript (citation to be a
 
 Released under the [MIT License](LICENSE). The bundled example data is a public IMvigor210 subset.
 
+## Authors
+
+- Samuel Mwamburi
+- [@deepabedi](https://github.com/deepabedi)
+
 ## Research use only
 
 CascadeScope is an **investigational** research tool. It is **not** a validated clinical test, does
