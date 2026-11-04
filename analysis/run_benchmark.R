@@ -57,6 +57,6 @@ for(i in seq_len(nrow(POOL))) cat(sprintf("  %-22s %.3f [%.3f-%.3f]  I2=%2.0f%%\
   POOL$label[i], POOL$auc[i], POOL$lo[i], POOL$hi[i], POOL$I2[i]))
 cat("\n=== ICI vs competitor: per-cohort wins (dAUC>0) / ties / losses ===\n")
 for(b in names(paircol)){ d<-PAIR[PAIR$comp==b,]
-  cat(sprintf("  ICI vs %-6s  win %2d  loss %2d  (mean dAUC %+.3f, %d/%d cohorts favour ICI)\n",
+  cat(sprintf("  ICI vs %-6s  win %2d  loss %2d  (mean dAUC %+.3f, %d/%d cohorts favor ICI)\n",
     b, sum(d$dAUC>0), sum(d$dAUC<0), mean(d$dAUC), sum(d$dAUC>0), nrow(d))) }
 cat("\ndone — benchmark tables written\n")

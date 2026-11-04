@@ -6,7 +6,7 @@
 #       is ICB(pembro)-arm NRs.
 #   (B) threshold geometry - with 3 z-scored layers + FLOOR, how much cascade-intact
 #       is expected by construction? Sweep FLOOR.
-#   (C) borderline - are cascade-intact tumours just above the floor (near-misses)?
+#   (C) borderline - are cascade-intact tumors just above the floor (near-misses)?
 # =====================================================================
 suppressPackageStartupMessages({ library(data.table) })
 asg <- read.csv("ICI_98_module_assignment.csv", stringsAsFactors = FALSE); asg$gene <- toupper(asg$gene)
@@ -63,8 +63,8 @@ for (f in c(0, -0.25, -0.5, -0.75, -1)) {
   exp_indep <- (1-pnorm(f))^3   # 3 independent standard-normal layers
   cat(sprintf("  FLOOR=%+.2f : observed intact %.0f%% | expected if 3 indep layers %.0f%%\n", f, 100*obs, 100*exp_indep)) }
 
-cat("\n=== (C) borderline: how deep below the floor are the limiting tumours? ===\n")
+cat("\n=== (C) borderline: how deep below the floor are the limiting tumors? ===\n")
 cat(sprintf("cascade-intact min-layer z: median %.2f (all sit just above the %.2f floor)\n", median(minz[intact]), FLOOR))
-cat(sprintf("limiting tumours min-layer z: median %.2f (clearly deficient)\n", median(minz[!intact])))
+cat(sprintf("limiting tumors min-layer z: median %.2f (clearly deficient)\n", median(minz[!intact])))
 near <- intact & minz < (FLOOR+0.25)
 cat(sprintf("cascade-intact within 0.25 SD of the floor (near-miss): %d of %d (%.0f%%)\n", sum(near), sum(intact), 100*mean(near[intact])))
