@@ -1,87 +1,86 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-     width="1400" height="1520" viewBox="0 0 1400 1520"
+     width="1480" height="2130" viewBox="0 0 1480 2130"
      font-family="Helvetica, Arial, sans-serif">
-  <!-- CascadeScope method + results poster. Figure-1 house style; high-contrast palette;
-       American English; no em-dashes. Panel text is live <text> (editable); plots are linked images. -->
-  <rect width="1400" height="1520" fill="#ffffff"/>
+  <!-- CascadeScope method + results poster. Reuses manuscript Figure 1 panels B and C;
+       house palette; American English; no em-dashes. Panel text is live; plots/panels are linked images. -->
+  <rect width="1480" height="2130" fill="#ffffff"/>
 
-  <!-- ===================== header ===================== -->
+  <!-- header -->
   <text x="28" y="44" font-size="30" font-weight="700"><tspan fill="#6A2C5A">CascadeScope</tspan><tspan fill="#000000" font-size="20" font-weight="400">&#160;&#160;reading the anti-tumor immune cascade, one patient at a time</tspan></text>
 
-  <!-- ===================== 1. the three layers ===================== -->
-  <text x="28" y="92" font-size="19" font-weight="700" fill="#000000">1&#160;&#160;The three-layer cascade we read</text>
+  <!-- ===================== 1. the cascade (Figure 1 panel C) ===================== -->
+  <text x="28" y="84" font-size="19" font-weight="700" fill="#000000">1&#160;&#160;The immune cascade we read</text>
+  <image xlink:href="fig1c.png" x="24" y="98" width="1432" height="548"/>
 
-  <!-- Sensory -->
-  <rect x="24" y="104" width="1352" height="92" rx="7" fill="#FBEAD9" stroke="#D95F02" stroke-width="2"/>
-  <text x="46" y="142" font-size="21" font-weight="700" fill="#D95F02">SENSORY</text>
-  <text x="46" y="170" font-size="15" font-style="italic" fill="#000000">Is the tumor seen?</text>
-  <text x="330" y="150" font-size="15"><tspan font-weight="700" fill="#000000">+ Antigen presentation / IFN</tspan><tspan fill="#000000">&#160;&#160;(21 genes)</tspan></text>
-  <text x="330" y="176" font-size="14.5" fill="#000000">CXCL9, STAT1, B2M, HLA-A, TAP1, PSMB8, IRF1, IFNG, JAK1</text>
+  <!-- ===================== 2. from the panel to the patient ===================== -->
+  <text x="28" y="678" font-size="19" font-weight="700" fill="#000000">2&#160;&#160;From the 98-gene panel to a patient call</text>
 
-  <!-- Integration -->
-  <rect x="24" y="202" width="1352" height="92" rx="7" fill="#E1EEF6" stroke="#1F78B4" stroke-width="2"/>
-  <text x="46" y="240" font-size="21" font-weight="700" fill="#1F78B4">INTEGRATION</text>
-  <text x="46" y="268" font-size="15" font-style="italic" fill="#000000">Do immune cells get in?</text>
-  <text x="330" y="240" font-size="15"><tspan font-weight="700" fill="#000000">+ Trafficking / adhesion</tspan><tspan fill="#000000">&#160;(21):&#160;&#160;CCL5, CXCR3, ICAM1, CCL19, CD40</tspan></text>
-  <text x="330" y="268" font-size="15"><tspan font-weight="700" fill="#000000">&#8722; Stroma / Treg exclusion</tspan><tspan fill="#000000">&#160;(20):&#160;&#160;TGFB1, FAP, COL1A1, VEGFA, MMP9</tspan></text>
+  <!-- left: Figure 1 panel B (modules -> layers) -->
+  <image xlink:href="fig1b.png" x="24" y="694" width="700" height="556"/>
 
-  <!-- Execution -->
-  <rect x="24" y="300" width="1352" height="92" rx="7" fill="#EAE2F0" stroke="#6A51A3" stroke-width="2"/>
-  <text x="46" y="338" font-size="21" font-weight="700" fill="#6A51A3">EXECUTION</text>
-  <text x="46" y="366" font-size="15" font-style="italic" fill="#000000">Do they kill?</text>
-  <text x="330" y="338" font-size="15"><tspan font-weight="700" fill="#000000">+ Cytotoxic effector, CD8 T &amp; NK</tspan><tspan fill="#000000">&#160;(19):&#160;&#160;GZMB, PRF1, GNLY, NKG7, CD8A</tspan></text>
-  <text x="330" y="366" font-size="15"><tspan font-weight="700" fill="#000000">&#8722; Exhaustion / checkpoint</tspan><tspan fill="#000000">&#160;(19):&#160;&#160;PD-1, CTLA4, LAG3, TIGIT, TOX</tspan></text>
+  <!-- pipeline connectors -->
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#000000"/></marker>
+  </defs>
+  <line x1="1102" y1="872" x2="1102" y2="890" stroke="#000000" stroke-width="2.4" marker-end="url(#ah)"/>
+  <line x1="1102" y1="1108" x2="1102" y2="1126" stroke="#000000" stroke-width="2.4" marker-end="url(#ah)"/>
 
-  <!-- ===================== 2. formula + 3. archetypes ===================== -->
-  <!-- Box 2: how we score it -->
-  <rect x="24" y="424" width="690" height="250" rx="7" fill="#F3EDF2" stroke="#6A2C5A" stroke-width="2"/>
-  <text x="44" y="456" font-size="19" font-weight="700" fill="#000000">2&#160;&#160;How we score it</text>
-  <text x="44" y="488" font-size="14.5" fill="#000000">Self-normalize each sample across the panel genes.</text>
-  <text x="44" y="512" font-size="14.5" fill="#000000">A gene is <tspan font-weight="700">ON</tspan> if it is at or above the frozen reference median.</text>
-  <rect x="44" y="528" width="650" height="34" rx="5" fill="#ffffff" stroke="#cccccc" stroke-width="1"/>
-  <text x="58" y="551" font-size="15" font-weight="700" fill="#000000">layer score = (activating genes ON) &#8722; (suppressive genes ON)</text>
-  <rect x="44" y="572" width="650" height="34" rx="5" fill="#ffffff" stroke="#cccccc" stroke-width="1"/>
-  <text x="58" y="595" font-size="15" font-weight="700" fill="#000000">z = (layer score &#8722; reference mean) / reference SD</text>
-  <text x="44" y="636" font-size="14.5" fill="#000000">The <tspan font-weight="700">lowest layer</tspan> (when z &lt; &#8722;0.5) names the archetype.</text>
-  <text x="44" y="660" font-size="13.5" fill="#555555">Scored one patient at a time, independent of any cohort.</text>
+  <!-- a. input data -->
+  <rect x="748" y="694" width="708" height="176" rx="7" fill="#F3EDF2" stroke="#6A2C5A" stroke-width="2"/>
+  <text x="768" y="724" font-size="17" font-weight="700" fill="#000000">a&#160;&#160;Your data (the input)</text>
+  <!-- mini gene x sample table -->
+  <rect x="768" y="736" width="278" height="24" fill="#EDE2EA" stroke="#cccccc" stroke-width="1"/>
+  <rect x="768" y="760" width="278" height="72" fill="#ffffff" stroke="#cccccc" stroke-width="1"/>
+  <line x1="872" y1="736" x2="872" y2="832" stroke="#cccccc"/><line x1="930" y1="736" x2="930" y2="832" stroke="#cccccc"/><line x1="988" y1="736" x2="988" y2="832" stroke="#cccccc"/>
+  <line x1="768" y1="760" x2="1046" y2="760" stroke="#cccccc"/><line x1="768" y1="784" x2="1046" y2="784" stroke="#cccccc"/><line x1="768" y1="808" x2="1046" y2="808" stroke="#cccccc"/>
+  <text x="776" y="753" font-size="13" font-weight="700" fill="#000000">gene</text><text x="889" y="753" font-size="13" font-weight="700" fill="#000000">S1</text><text x="947" y="753" font-size="13" font-weight="700" fill="#000000">S2</text><text x="1005" y="753" font-size="13" font-weight="700" fill="#000000">S3</text>
+  <text x="776" y="777" font-size="13" fill="#000000">CXCL9</text><text x="889" y="777" font-size="13" fill="#000000">2.4</text><text x="947" y="777" font-size="13" fill="#000000">0.1</text><text x="1005" y="777" font-size="13" fill="#000000">3.1</text>
+  <text x="776" y="801" font-size="13" fill="#000000">TGFB1</text><text x="889" y="801" font-size="13" fill="#000000">0.3</text><text x="947" y="801" font-size="13" fill="#000000">2.8</text><text x="1005" y="801" font-size="13" fill="#000000">0.2</text>
+  <text x="776" y="825" font-size="13" fill="#000000">GZMB</text><text x="889" y="825" font-size="13" fill="#000000">3.0</text><text x="947" y="825" font-size="13" fill="#000000">0.2</text><text x="1005" y="825" font-size="13" fill="#000000">2.6</text>
+  <text x="1076" y="760" font-size="14" fill="#000000">Tumor RNA-seq (TPM / log / counts).</text>
+  <text x="1076" y="784" font-size="14" fill="#000000">gene &#215; sample table:</text>
+  <text x="1076" y="806" font-size="14" fill="#000000">CSV / TSV / Excel.</text>
+  <text x="1076" y="828" font-size="14" font-weight="700" fill="#000000">one patient = one column.</text>
 
-  <!-- Box 3: the four archetypes -->
-  <rect x="730" y="424" width="646" height="250" rx="7" fill="#F3EDF2" stroke="#6A2C5A" stroke-width="2"/>
-  <text x="750" y="456" font-size="19" font-weight="700" fill="#000000">3&#160;&#160;The four archetypes</text>
-  <rect x="752" y="476" width="22" height="22" rx="4" fill="#1B9E77"/>
-  <text x="784" y="493" font-size="15"><tspan font-weight="700" fill="#000000">Immune-engaged</tspan><tspan fill="#000000">&#160;&#160;inflamed / hot.  No single lowest layer.</tspan></text>
-  <rect x="752" y="520" width="22" height="22" rx="4" fill="#1F78B4"/>
-  <text x="784" y="537" font-size="15"><tspan font-weight="700" fill="#000000">Cold</tspan><tspan fill="#000000">&#160;&#160;immune-desert.  Lowest layer: Sensory.</tspan></text>
-  <rect x="752" y="564" width="22" height="22" rx="4" fill="#E6550D"/>
-  <text x="784" y="581" font-size="15"><tspan font-weight="700" fill="#000000">Blocked</tspan><tspan fill="#000000">&#160;&#160;immune-excluded.  Lowest layer: Integration.</tspan></text>
-  <rect x="752" y="608" width="22" height="22" rx="4" fill="#6A51A3"/>
-  <text x="784" y="625" font-size="15"><tspan font-weight="700" fill="#000000">No-kill</tspan><tspan fill="#000000">&#160;&#160;inflamed-dysfunctional.  Lowest layer: Execution.</tspan></text>
-  <text x="752" y="660" font-size="13.5" fill="#555555">The archetype is the lowest layer; colors match the plots below.</text>
+  <!-- b. score vs frozen reference -->
+  <rect x="748" y="890" width="708" height="216" rx="7" fill="#F3EDF2" stroke="#6A2C5A" stroke-width="2"/>
+  <text x="768" y="920" font-size="17" font-weight="700" fill="#000000">b&#160;&#160;Score each gene against a frozen reference</text>
+  <text x="768" y="946" font-size="14" fill="#000000">Self-normalize the sample; a gene is <tspan font-weight="700">ON</tspan> if at or above the frozen reference median.</text>
+  <rect x="768" y="958" width="668" height="32" rx="5" fill="#ffffff" stroke="#cccccc"/>
+  <text x="782" y="980" font-size="15" font-weight="700" fill="#000000">layer score = (activating genes ON) &#8722; (suppressive genes ON)</text>
+  <rect x="768" y="998" width="668" height="32" rx="5" fill="#ffffff" stroke="#cccccc"/>
+  <text x="782" y="1020" font-size="15" font-weight="700" fill="#000000">z = (layer score &#8722; reference mean) / reference SD</text>
+  <text x="768" y="1058" font-size="14" fill="#000000">Standardized versus the reference population (0 = median, SD units).</text>
+  <text x="768" y="1082" font-size="13.5" fill="#555555">Scored one patient at a time, independent of any cohort.</text>
 
-  <!-- ===================== 4. results (real app outputs) ===================== -->
-  <text x="28" y="716" font-size="19" font-weight="700" fill="#000000">4&#160;&#160;What CascadeScope produces&#160;&#160;<tspan font-weight="400" font-size="16">(example cohort, n = 60)</tspan></text>
+  <!-- c. archetype call -->
+  <rect x="748" y="1126" width="708" height="124" rx="7" fill="#F3EDF2" stroke="#6A2C5A" stroke-width="2"/>
+  <text x="768" y="1154" font-size="16" font-weight="700" fill="#000000">c&#160;&#160;Call the archetype: the lowest layer (z &lt; &#8722;0.5)</text>
+  <rect x="768" y="1172" width="18" height="18" rx="3" fill="#2E7D32"/><text x="794" y="1187" font-size="14.5"><tspan font-weight="700" fill="#000000">Immune-engaged</tspan><tspan fill="#000000">&#160;&#160;(hot)</tspan></text>
+  <rect x="1098" y="1172" width="18" height="18" rx="3" fill="#9C7A3E"/><text x="1124" y="1187" font-size="14.5"><tspan font-weight="700" fill="#000000">Cold</tspan><tspan fill="#000000">&#160;&#160;(Sensory)</tspan></text>
+  <rect x="768" y="1206" width="18" height="18" rx="3" fill="#6A2C5A"/><text x="794" y="1221" font-size="14.5"><tspan font-weight="700" fill="#000000">Blocked</tspan><tspan fill="#000000">&#160;&#160;(Integration)</tspan></text>
+  <rect x="1098" y="1206" width="18" height="18" rx="3" fill="#B2567E"/><text x="1124" y="1221" font-size="14.5"><tspan font-weight="700" fill="#000000">No-kill</tspan><tspan fill="#000000">&#160;&#160;(Execution)</tspan></text>
 
-  <!-- (1,1) Patient gauge -->
-  <rect x="24" y="732" width="664" height="352" rx="8" fill="#ffffff" stroke="#6A2C5A" stroke-width="2"/>
-  <text x="44" y="762" font-size="16" font-weight="700" fill="#000000">Patient report: three-layer gauge</text>
-  <image xlink:href="fig_gauge.png" x="40" y="800" width="632" height="234"/>
+  <!-- ===================== 3. results (real app outputs, house palette) ===================== -->
+  <text x="28" y="1286" font-size="19" font-weight="700" fill="#000000">3&#160;&#160;What CascadeScope produces&#160;&#160;<tspan font-weight="400" font-size="16">(example cohort, n = 60)</tspan></text>
 
-  <!-- (1,2) Gene drivers tree -->
-  <rect x="712" y="732" width="664" height="352" rx="8" fill="#ffffff" stroke="#6A2C5A" stroke-width="2"/>
-  <text x="732" y="762" font-size="16" font-weight="700" fill="#000000">Gene drivers: per-patient cascade tree</text>
-  <image xlink:href="fig_tree.png" x="728" y="796" width="632" height="244"/>
+  <rect x="24" y="1302" width="704" height="378" rx="8" fill="#ffffff" stroke="#6A2C5A" stroke-width="2"/>
+  <text x="44" y="1332" font-size="16" font-weight="700" fill="#000000">Patient report: three-layer gauge</text>
+  <image xlink:href="fig_gauge.png" x="40" y="1377" width="672" height="249"/>
 
-  <!-- (2,1) Cohort donut -->
-  <rect x="24" y="1100" width="664" height="352" rx="8" fill="#ffffff" stroke="#6A2C5A" stroke-width="2"/>
-  <text x="44" y="1130" font-size="16" font-weight="700" fill="#000000">Cohort explorer: archetype mix</text>
-  <image xlink:href="fig_donut.png" x="56" y="1145" width="600" height="291"/>
+  <rect x="752" y="1302" width="704" height="378" rx="8" fill="#ffffff" stroke="#6A2C5A" stroke-width="2"/>
+  <text x="772" y="1332" font-size="16" font-weight="700" fill="#000000">Gene drivers: per-patient cascade tree</text>
+  <image xlink:href="fig_tree.png" x="768" y="1372" width="672" height="259"/>
 
-  <!-- (2,2) Cohort beeswarm -->
-  <rect x="712" y="1100" width="664" height="352" rx="8" fill="#ffffff" stroke="#6A2C5A" stroke-width="2"/>
-  <text x="732" y="1130" font-size="16" font-weight="700" fill="#000000">Cohort explorer: per-patient layer scores</text>
-  <image xlink:href="fig_beeswarm.png" x="730" y="1162" width="628" height="262"/>
+  <rect x="24" y="1704" width="704" height="378" rx="8" fill="#ffffff" stroke="#6A2C5A" stroke-width="2"/>
+  <text x="44" y="1734" font-size="16" font-weight="700" fill="#000000">Cohort explorer: archetype mix</text>
+  <image xlink:href="fig_donut.png" x="56" y="1741" width="640" height="310"/>
 
-  <!-- ===================== footer ===================== -->
-  <line x1="24" y1="1486" x2="1376" y2="1486" stroke="#e5e5e5" stroke-width="1"/>
-  <text x="24" y="1506" font-size="13.5" fill="#000000"><tspan font-weight="700" fill="#6A2C5A">Reproducible:</tspan> frozen, versioned 98-gene reference; deterministic, cohort-independent scoring.&#160;&#160;&#160;<tspan font-weight="700" fill="#9C7A3E">Research use only</tspan>, not a validated clinical test.</text>
+  <rect x="752" y="1704" width="704" height="378" rx="8" fill="#ffffff" stroke="#6A2C5A" stroke-width="2"/>
+  <text x="772" y="1734" font-size="16" font-weight="700" fill="#000000">Cohort explorer: per-patient layer scores</text>
+  <image xlink:href="fig_beeswarm.png" x="768" y="1764" width="672" height="280"/>
+
+  <!-- footer -->
+  <line x1="24" y1="2102" x2="1456" y2="2102" stroke="#e5e5e5" stroke-width="1"/>
+  <text x="24" y="2122" font-size="13.5" fill="#000000"><tspan font-weight="700" fill="#6A2C5A">Reproducible:</tspan> frozen, versioned 98-gene reference; deterministic, cohort-independent scoring.&#160;&#160;&#160;<tspan font-weight="700" fill="#9C7A3E">Research use only</tspan>, not a validated clinical test.</text>
 </svg>
