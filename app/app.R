@@ -1,11 +1,14 @@
 # =============================================================================
-# ICI scorer - Shiny app. Score tumour RNA against a locked Immune Cascade Index
-# reference (single-patient, selfnorm, cohort-independent).
-#   * Patient report  : one-patient clinical read-out + PDF export
-#   * Cohort explorer : archetype proportions, distributions, beeswarm + PDF report
+# CascadeScope - score tumor RNA against a locked Immune Cascade Index (ICI)
+# reference (single-patient, selfnorm, cohort-independent). One consistent scale
+# throughout: the STANDARDIZED SCORE vs the reference population (0 = reference
+# median, in SD units; left of the typical-range band = rate-limiting).
+#   * Patient report  : one-patient read-out (call, gauge, drill-down) + PDF
+#   * Gene drivers     : how all 98 panel genes scored for the selected patient
+#   * Cohort explorer  : archetype proportions, distributions, click-through beeswarm
+#   * About            : what the tool is, the cascade model, the scale, RUO
 # Input: RNA-seq (TPM / log-TPM / counts) as CSV, TSV or Excel (gene x sample;
-# first column = gene symbol). Reference registry: app/references/*.rds (versioned,
-# swappable). User-selectable colour palette (colour-blind-safe options).
+# first column = gene symbol). Reference registry: app/references/*.rds.
 # Run: shiny::runApp("app")
 # =============================================================================
 library(shiny); library(bslib); library(plotly); library(DT); library(ggplot2); library(patchwork); library(readxl)
@@ -32,26 +35,48 @@ PALETTES <- list(
     arch = c(intact="#440154", cold="#31688e", blocked="#35b779", `no-kill`="#fde725"),
     lay  = c(Sensory="#443983", Integration="#21918c", Execution="#7ad151")))
 DEF <- PALETTES[[1]]
+GENE_DIV <- c(low="#2166AC", mid="#F7F7F7", high="#B2182B")   # diverging: below / at / above reference
+BAND <- 0.674                                                # typical range = middle 50% of reference (SD units)
+FLOOR_T <- -0.5                                              # a layer below this is the rate-limiting step
+
+# ---- contrast helpers (WCAG relative luminance) -----------------------------
+# ink(bg): the higher-contrast of black/white for text on a colour.
+# onwhite(hex): darken a hue just enough to read sharply on a white background.
+.lum1 <- function(v){ f <- function(c) ifelse(c <= 0.03928, c/12.92, ((c+0.055)/1.055)^2.4)
+  w <- f(v); 0.2126*w[1] + 0.7152*w[2] + 0.0722*w[3] }
+ink <- function(bg){ L <- .lum1(grDevices::col2rgb(bg)[,1]/255)
+  if ((L+0.05)/0.05 >= 1.05/(L+0.05)) "#000000" else "#ffffff" }
+onwhite <- function(hex, target = 4.5){ v <- grDevices::col2rgb(hex)[,1]/255
+  for (f in seq(1, 0, by = -0.02)){ cc <- v*f
+    if (1.05/(.lum1(cc)+0.05) >= target) return(grDevices::rgb(cc[1],cc[2],cc[3])) }
+  "#000000" }
 
 SANS <- font_collection("Inter", "system-ui", "Helvetica Neue", "Arial", "sans-serif")
 app_theme <- bs_theme(version = 5, bg = "#ffffff", fg = "#000000", primary = "#6A2C5A",
   secondary = "#9C7A3E", base_font = SANS, heading_font = SANS, "border-radius" = "0.65rem")
 
+# ---- interpretation text -----------------------------------------------------
+GLOSS <- c(intact="inflamed / hot", cold="immune-desert", blocked="immune-excluded", `no-kill`="inflamed-dysfunctional")
 CALL <- list(
-  intact  = list(t="Immune-engaged (inflamed / hot): all three layers intact",
-    s="All three cascade layers are intact relative to the reference, a profile consistent with checkpoint-blockade benefit. If this tumor does not respond, resistance likely lies outside the measured immune cascade."),
-  cold    = list(t="Cold (immune-desert): Sensory is the limiting step",
-    s="Antigen presentation and IFN signaling are the rate-limiting layer: the tumor is immunologically cold. Checkpoint blockade alone is unlikely to engage an absent T-cell response."),
-  blocked = list(t="Blocked (immune-excluded): Integration is the limiting step",
+  intact  = list(short="Immune-engaged", t="Immune-engaged (inflamed / hot): all three layers intact",
+    s="All three cascade layers are within or above the typical range of the reference, a profile consistent with checkpoint-blockade benefit. If this tumor does not respond, resistance likely lies outside the measured immune cascade."),
+  cold    = list(short="Cold", t="Cold (immune-desert): Sensory is the limiting step",
+    s="Antigen presentation and IFN signaling are the rate-limiting layer: the tumor is immunologically cold. Checkpoint blockade alone is unlikely to engage an anti-tumor immune response that is largely absent."),
+  blocked = list(short="Blocked", t="Blocked (immune-excluded): Integration is the limiting step",
     s="T-cell trafficking and infiltration are the limiting layer, a pattern consistent with stromal or TGF-beta mediated exclusion. Checkpoint blockade alone is unlikely to overcome exclusion."),
-  `no-kill`= list(t="No-kill (inflamed-dysfunctional): Execution is the limiting step",
-    s="A T-cell compartment is present but cytotoxic effector output is the limiting layer (effector-deficient or exhausted)."))
-BIO <- list(
-  intact  = "No single limiting layer. If non-responsive, consider non-cascade escape (antigen loss, B2M or MHC defects, non-immune resistance).",
-  cold    = "Mechanistic rationale (investigational): priming strategies such as antigen-presentation or IFN induction, innate agonists, or radiation and vaccine combinations.",
-  blocked = "Mechanistic rationale (investigational): exclusion-targeting such as anti-TGF-beta, anti-angiogenic, or stroma-directed combinations.",
-  `no-kill`= "Mechanistic rationale (investigational): effector support or exhaustion reversal, for example LAG3, TIM-3 or TIGIT combinations, or cytokine support.")
-GAUGE_CAP <- "Each bar is the patient's score for that layer as a percentile of the reference population (50 = median; shaded band = typical middle 50%). The lowest layer is the rate-limiting step."
+  `no-kill`= list(short="No-kill", t="No-kill (inflamed-dysfunctional): Execution is the limiting step",
+    s="Immune cells have reached the tumor, but cytotoxic effector output — the shared killing program of CD8 T cells and NK cells — is the limiting layer (effector-deficient or exhausted)."))
+BIO_LEAD <- list(
+  intact  = "No single limiting layer. If the tumor is non-responsive, look outside the cascade.",
+  cold    = "Priming is the gap: the immune response is not being started.",
+  blocked = "Entry is the gap: immune cells are held at the margin and kept out of the tumor.",
+  `no-kill`= "Killing is the gap: cytotoxic lymphocytes (CD8 T and NK cells) are present but their killing output is low.")
+BIO_CHIPS <- list(
+  intact  = c("Antigen loss / B2M / MHC defects", "Non-immune resistance", "Confirm with PD-L1 / TMB / MSI"),
+  cold    = c("Antigen-presentation / IFN induction", "Innate agonists (STING / TLR)", "Radiation + ICB", "Vaccine combinations"),
+  blocked = c("Anti-TGF-β", "Anti-angiogenic", "Stroma-directed combinations"),
+  `no-kill`= c("LAG-3", "TIM-3", "TIGIT", "Effector cytokine support"))
+GAUGE_CAP <- "Each bar is the patient's standardized score for that layer versus the reference population (0 = reference median, in SD units; shaded band = typical range, the middle 50% of the reference). The lowest layer, starred, is the rate-limiting step."
 RUO <- "Research use only. Investigational biomarker; not a validated clinical test. Does not replace approved biomarkers (PD-L1, TMB, MSI) or clinical judgment. Mechanistic rationale is hypothesis-generating, not a treatment recommendation."
 
 # ---- multi-format reader (CSV / TSV / Excel) --------------------------------
@@ -68,61 +93,161 @@ read_expr_file <- function(path, name){
   df
 }
 
-# ---- plot builders (take colour vectors) ------------------------------------
-build_gauge <- function(p, lay = DEF$lay){
-  L <- c("Sensory","Integration","Execution"); z <- c(p$Sensory,p$Integration,p$Execution)
-  g <- data.frame(layer=factor(L, levels=rev(L)), pct=round(pnorm(z)*100))
-  g$floor <- as.character(g$layer)==p$floor_layer; g$fill <- unname(lay[as.character(g$layer)])
-  fy <- which(rev(L)==p$floor_layer)
-  ggplot(g, aes(pct, layer)) +
-    annotate("rect", xmin=25, xmax=75, ymin=0.4, ymax=3.6, fill="#F1EADF") +
-    geom_vline(xintercept=50, colour="black", linewidth=0.4) +
-    geom_segment(aes(x=0, xend=pct, yend=layer), colour=g$fill, linewidth=3) +
-    geom_point(aes(x=pct), colour=g$fill, size=7) +
-    geom_point(data=g[g$floor,], aes(x=pct), shape=21, size=8.4, stroke=1.3, colour="black", fill=NA) +
-    geom_text(aes(x=pct, label=pct), colour="white", fontface=2, size=3.3) +
-    { if(length(fy)) annotate("text", x=50, y=fy-0.42, label="rate-limiting step", colour="black", fontface=2, size=3.5) } +
-    scale_x_continuous("Percentile vs reference population  (50 = median)", limits=c(0,100), breaks=c(0,25,50,75,100)) +
-    scale_y_discrete(NULL) + theme_minimal(base_size=13) +
-    theme(panel.grid=element_blank(), axis.text=element_text(colour="black"),
-          axis.text.y=element_text(face=2), axis.title.x=element_text(colour="black"),
-          axis.line.x=element_line(colour="black", linewidth=0.3))
-}
-# ---- per-patient cascade drill-down (sub-module decomposition) --------------
+# ---- sub-module metadata ----------------------------------------------------
 SM_ORD   <- c("SENSORY","INTPOS","INTNEG","EXECPOS","EXECNEG")
 SM_LAB   <- c(SENSORY="Antigen presentation / IFN", INTPOS="T-cell trafficking",
               INTNEG="Stroma / Treg suppression", EXECPOS="Cytotoxic effector", EXECNEG="Exhaustion / checkpoint")
 SM_LAYER <- c(SENSORY="Sensory", INTPOS="Integration", INTNEG="Integration", EXECPOS="Execution", EXECNEG="Execution")
 SM_SIGN  <- c(SENSORY="+", INTPOS="+", INTNEG="−", EXECPOS="+", EXECNEG="−")
-ordinal <- function(n){ s <- if (n%%100 %in% 11:13) "th" else c("th","st","nd","rd","th","th","th","th","th","th")[n%%10 + 1]; paste0(n, s) }
+LANE_LAB <- c(SENSORY="Sensory", INTPOS="Integration (+)", INTNEG="Integration (−)",
+              EXECPOS="Execution (+)", EXECNEG="Execution (−)")
+SM_SHORT <- c(SENSORY="Sensory +", INTPOS="Trafficking +", INTNEG="Stroma/Treg −",
+              EXECPOS="Effector +", EXECNEG="Exhaustion −")
+CASC_LOW <- "#9C7A3E"; CASC_MID <- "#F2ECE0"; CASC_HIGH <- "#6A2C5A"   # gold -> cream -> plum
+
+# ---- gauge: three layer standardized scores (diverging) ---------------------
+build_gauge <- function(p, lay = DEF$lay){
+  L <- c("Sensory","Integration","Execution"); z <- c(p$Sensory,p$Integration,p$Execution)
+  g <- data.frame(layer=factor(L, levels=rev(L)), z=z)
+  g$floor <- as.character(g$layer)==p$floor_layer; g$fill <- unname(lay[as.character(g$layer)])
+  lim <- max(2.2, max(abs(z),na.rm=TRUE)+0.85); fl <- g[g$floor,,drop=FALSE]
+  g$lx <- g$z + ifelse(g$z>=0, 0.15, -0.15); g$hj <- ifelse(g$z>=0, 0, 1)  # labels sit just outside each dot
+  pl <- ggplot(g, aes(z, layer)) +
+    annotate("rect", xmin=-BAND, xmax=BAND, ymin=0.4, ymax=3.6, fill="#F1EADF") +
+    geom_vline(xintercept=0, colour="black", linewidth=0.4) +
+    geom_segment(aes(x=0, xend=z, yend=layer), colour=g$fill, linewidth=3) +
+    geom_point(aes(x=z), colour=g$fill, size=7) +
+    geom_text(aes(x=lx, label=sprintf("%+.1f", z), hjust=hj), colour="black", fontface=2, size=3.6)
+  if (nrow(fl)) pl <- pl +
+    geom_point(data=fl, aes(x=z, shape="Rate-limiting step (lowest layer)"), colour="black", size=4.4, stroke=1.3) +
+    scale_shape_manual(name=NULL, values=c("Rate-limiting step (lowest layer)"=8))
+  pl +
+    scale_x_continuous("Standardized score vs reference  (0 = median)",
+                       limits=c(-lim,lim), breaks=seq(-2,2,1)) +
+    scale_y_discrete(NULL) + theme_minimal(base_size=13) +
+    theme(panel.grid=element_blank(), axis.text=element_text(colour="black"),
+          axis.text.y=element_text(face=2, size=14), axis.title.x=element_text(colour="black"),
+          axis.line.x=element_line(colour="black", linewidth=0.3),
+          legend.position="bottom", legend.margin=margin(t=-2,b=0),
+          legend.text=element_text(colour="black", size=12.5),
+          legend.key.size=unit(1.2, "lines"))
+}
+
+# ---- per-patient cascade drill-down (sub-module decomposition) --------------
 drill_text <- function(smz, floor_layer){
-  if (is.null(smz) || floor_layer=="none") return("All three layers intact: no single limiting sub-module.")
+  if (is.null(smz) || floor_layer=="none") return("All three layers are within the typical range: no single limiting sub-module.")
   subs <- SM_ORD[SM_LAYER[SM_ORD]==floor_layer]
-  pct <- round(pnorm(as.numeric(smz[subs]))*100); names(pct) <- subs
-  unfav <- ifelse(SM_SIGN[subs]=="+", 50-pct, pct-50); w <- subs[which.max(unfav)]
-  sprintf("%s is limited by %s %s (%s percentile vs reference).", floor_layer,
-          if (SM_SIGN[w]=="+") "low" else "high", SM_LAB[w], ordinal(pct[w]))
+  z <- as.numeric(smz[subs]); names(z) <- subs
+  unfav <- ifelse(SM_SIGN[subs]=="+", -z, z); w <- subs[which.max(unfav)]
+  sprintf("%s is limited by %s %s (standardized score %+.2f vs reference).", floor_layer,
+          if (SM_SIGN[w]=="+") "low" else "high", SM_LAB[w], z[w])
 }
 build_drilldown <- function(smz, floor_layer, lay = DEF$lay){
   d <- data.frame(sm=SM_ORD, z=as.numeric(smz[SM_ORD]))
-  d$pct <- round(pnorm(d$z)*100); d$layer <- SM_LAYER[d$sm]; d$sign <- SM_SIGN[d$sm]
+  d$layer <- SM_LAYER[d$sm]; d$sign <- SM_SIGN[d$sm]
   d$lab <- sprintf("%s (%s)", SM_LAB[d$sm], d$sign); d$fill <- unname(lay[d$layer])
-  d$unfav <- ifelse(d$sign=="+", 50-d$pct, d$pct-50)
-  d$driver <- d$layer==floor_layer & d$layer!="none" &
-              d$unfav==ave(d$unfav, d$layer, FUN=max) & d$unfav>0
-  d$lab <- factor(d$lab, levels=rev(d$lab))
-  ggplot(d, aes(pct, lab)) +
-    geom_vline(xintercept=50, colour="black", linewidth=0.4) +
-    geom_segment(aes(x=0, xend=pct, yend=lab), colour=d$fill, linewidth=3) +
-    geom_point(aes(x=pct), colour=d$fill, size=6.5) +
-    geom_point(data=d[d$driver,,drop=FALSE], aes(x=pct), shape=21, size=8, stroke=1.3, colour="black", fill=NA) +
-    geom_text(aes(x=pct, label=pct), colour="white", fontface=2, size=3) +
-    scale_x_continuous("Percentile vs reference  (50 = median)", limits=c(0,100), breaks=c(0,25,50,75,100)) +
+  d$unfav <- ifelse(d$sign=="+", -d$z, d$z)
+  d$driver <- d$layer==floor_layer & floor_layer!="none" & d$unfav==ave(d$unfav, d$layer, FUN=max) & d$unfav>0
+  d$lab <- factor(d$lab, levels=rev(d$lab)); lim <- max(1.5, max(abs(d$z),na.rm=TRUE)+0.3)
+  ggplot(d, aes(z, lab)) +
+    annotate("rect", xmin=-BAND, xmax=BAND, ymin=0.4, ymax=5.6, fill="#F1EADF") +
+    geom_vline(xintercept=0, colour="black", linewidth=0.4) +
+    geom_segment(aes(x=0, xend=z, yend=lab), colour=d$fill, linewidth=3) +
+    geom_point(aes(x=z), colour=d$fill, size=6.5) +
+    geom_point(data=d[d$driver,,drop=FALSE], aes(x=z), shape=21, size=8, stroke=1.3, colour="black", fill=NA) +
+    scale_x_continuous("Standardized score vs reference  (0 = median)", limits=c(-lim,lim), breaks=seq(-2,2,1)) +
     scale_y_discrete(NULL) + theme_minimal(base_size=12) +
     theme(panel.grid=element_blank(), axis.text=element_text(colour="black"),
           axis.text.y=element_text(face=2), axis.title.x=element_text(colour="black"),
           axis.line.x=element_line(colour="black", linewidth=0.3))
 }
+
+# ---- gene drivers: barcode (all layers) / labeled heatmap (one layer) -------
+build_gene_heat <- function(df){
+  df <- df[order(df$module_ord, df$dev),]
+  df$gene <- factor(df$gene, levels=unique(df$gene))
+  df$col  <- factor(SM_SHORT[df$module], levels=SM_SHORT[SM_ORD[SM_ORD %in% df$module]])
+  lim <- max(0.6, max(abs(df$dev), na.rm=TRUE))
+  ggplot(df, aes(col, gene)) +
+    geom_tile(aes(fill=dev, colour=factor(on)), width=0.9, height=0.92, linewidth=0.5) +
+    scale_fill_gradient2(low=CASC_LOW, mid=CASC_MID, high=CASC_HIGH, midpoint=0, limits=c(-lim,lim),
+                         name="z vs reference") +
+    scale_colour_manual(values=c(`0`="#D9D9D9", `1`="black"), guide="none") +
+    scale_x_discrete(NULL, position="top") + scale_y_discrete(NULL) +
+    guides(fill=guide_colourbar(barwidth=unit(7,"lines"), barheight=unit(0.7,"lines"), title.position="top")) +
+    theme_minimal(base_size=12) +
+    theme(panel.grid=element_blank(), axis.text=element_text(colour="black"),
+          axis.text.x=element_text(face=2, size=12.5), axis.text.y=element_text(size=9.5),
+          panel.border=element_rect(colour="black", fill=NA, linewidth=1),
+          plot.margin=margin(6,14,6,14),
+          legend.position="bottom", legend.title=element_text(colour="black", size=11.5, face=2),
+          legend.text=element_text(colour="black", size=10.5))
+}
+
+# ---- per-patient cascade tree (top-down): gene panel -> sub-modules -> layers -
+build_cascade_tree <- function(df, p, smz, lay = DEF$lay){
+  if (is.null(smz)) smz <- setNames(rep(NA_real_, length(SM_ORD)), SM_ORD)
+  mods <- SM_ORD[SM_ORD %in% df$module]
+  df <- df[order(match(df$module, SM_ORD)), ]
+  gap <- 4; xc <- 0; centers <- numeric(0); df$x <- NA_real_
+  for (m in mods){ rows <- which(df$module==m); n <- length(rows)
+    df$x[rows] <- xc + seq_len(n); centers[m] <- xc + (n+1)/2; xc <- xc + n + gap }
+  df$cx <- unname(centers[df$module])
+  lyr_x <- c(Sensory=unname(centers["SENSORY"]),
+             Integration=mean(centers[c("INTPOS","INTNEG")]),
+             Execution=mean(centers[c("EXECPOS","EXECNEG")]))
+  gy <- 10; sy <- 5.5; ly <- 1          # gene row (top) / sub-module row / layer row (bottom)
+  snode <- data.frame(x=unname(centers[mods]), y=sy, z=as.numeric(smz[mods]),
+                      sign=unname(SM_SIGN[mods]), layer=unname(SM_LAYER[mods]),
+                      lab=unname(SM_SHORT[mods]), stringsAsFactors=FALSE)
+  lnode <- data.frame(layer=c("Sensory","Integration","Execution"),
+                      x=unname(lyr_x[c("Sensory","Integration","Execution")]), y=ly,
+                      z=c(p$Sensory,p$Integration,p$Execution), letter=c("S","I","E"),
+                      stringsAsFactors=FALSE)
+  lnode$lab <- sprintf("%s  %+.2f", lnode$layer, lnode$z)
+  e2 <- data.frame(x=snode$x, xend=unname(lyr_x[snode$layer]), y=sy, yend=ly,
+                   col=ifelse(snode$sign=="+", CASC_HIGH, CASC_LOW), lwd=1.4 + 1.8*pmin(1.2, abs(snode$z)))
+  e1 <- data.frame(x=df$x, xend=df$cx, y=gy, yend=sy, dev=df$dev, on=df$on)
+  lim <- max(1, max(abs(c(df$dev, snode$z, lnode$z)), na.rm=TRUE)); xr <- range(df$x)
+  lfill <- scales::gradient_n_pal(c(CASC_LOW, CASC_MID, CASC_HIGH))(pmax(0, pmin(1, (lnode$z + lim)/(2*lim))))
+  lletter <- vapply(lfill, ink, character(1))   # S/I/E letter colour contrasts its node
+  ggplot() +
+    geom_segment(data=e2, aes(x=x,xend=xend,y=y,yend=yend), colour=e2$col, linewidth=e2$lwd, lineend="round") +
+    geom_segment(data=e1[e1$on==0,,drop=FALSE], aes(x=x,xend=xend,y=y,yend=yend, colour=dev), linewidth=0.25, alpha=0.30) +
+    geom_segment(data=e1[e1$on==1,,drop=FALSE], aes(x=x,xend=xend,y=y,yend=yend, colour=dev), linewidth=0.35, alpha=0.85) +
+    geom_point(data=df, aes(x=x, y=gy, colour=dev, shape=factor(on)), size=3.6, stroke=1.1) +
+    geom_text(data=df, aes(x=x, y=gy+0.5, label=gene), angle=90, hjust=0, vjust=0.5, size=3, colour="black") +
+    geom_point(data=snode, aes(x=x, y=y, colour=z), size=9) +
+    geom_label(data=snode, aes(x=x, y=y+1.3, label=lab), fontface=2, size=3.5, colour="black",
+               fill="white", linewidth=0, label.padding=unit(0.1,"lines")) +
+    geom_point(data=lnode, aes(x=x, y=y, colour=z), size=17) +
+    geom_text(data=lnode, aes(x=x, y=y, label=letter), colour=lletter, fontface=2, size=5.4) +
+    geom_label(data=lnode, aes(x=x, y=y-1.5, label=lab), fontface=2, size=4.3, colour="black",
+               fill="white", linewidth=0, label.padding=unit(0.12,"lines")) +
+    scale_colour_gradient2(low=CASC_LOW, mid=CASC_MID, high=CASC_HIGH, midpoint=0, limits=c(-lim,lim),
+                           na.value="#BBBBBB", name="Standardized score (z) vs reference") +
+    scale_shape_manual(values=c(`0`=0, `1`=15),
+                       labels=c(`0`="off  (< ref median)", `1`="on  (≥ ref median)"), name=NULL) +
+    scale_x_continuous(limits=c(xr[1]-1.5, xr[2]+1.5)) +
+    scale_y_continuous(limits=c(ly-2.8, gy+6.8)) +
+    coord_cartesian(clip="off") +
+    guides(colour=guide_colourbar(order=1, barwidth=unit(13,"lines"), barheight=unit(0.85,"lines"), title.position="top"),
+           shape=guide_legend(order=2, override.aes=list(size=5.5))) +
+    theme_void(base_size=13) +
+    theme(legend.position="bottom", legend.box="horizontal", legend.spacing.x=unit(0.6,"lines"),
+          plot.margin=margin(8,12,8,12),
+          legend.title=element_text(colour="black", size=13, face=2),
+          legend.text=element_text(colour="black", size=12.5))
+}
+# ---- three layer heatmaps side by side, each on its OWN scale -----------------
+build_layer_heatmaps <- function(df){
+  ps <- lapply(c("Sensory","Integration","Execution"), function(L){
+    build_gene_heat(df[df$layer==L,,drop=FALSE]) +
+      ggtitle(L) + theme(plot.title=element_text(face=2, size=15, hjust=0.5, colour="black")) })
+  ps[[1]] | ps[[2]] | ps[[3]]
+}
+
+# ---- cohort plot builders ---------------------------------------------------
 build_archetype_bar <- function(scores, arch = DEF$arch){
   tab <- as.data.frame(table(factor(scores$archetype, names(arch)))); names(tab)<-c("archetype","n")
   tab <- tab[tab$n>0,]; tab$pct <- round(100*tab$n/sum(tab$n))
@@ -139,32 +264,44 @@ build_layer_violin <- function(scores, lay = DEF$lay){
   L$layer <- factor(L$layer, c("Sensory","Integration","Execution"))
   ggplot(L, aes(layer, z, fill=layer)) + geom_hline(yintercept=0, colour="black", linewidth=0.3) +
     geom_violin(colour=NA, alpha=0.45, scale="width") + geom_jitter(width=0.1, size=0.6, alpha=0.55, colour="black") +
-    scale_fill_manual(values=lay, guide="none") + labs(x=NULL, y="score (z vs reference)") +
+    scale_fill_manual(values=lay, guide="none") + labs(x=NULL, y="standardized score vs reference") +
     theme_minimal(base_size=13) + theme(panel.grid=element_blank(),
-      axis.text=element_text(colour="black"), axis.title=element_text(colour="black"))
+      axis.text=element_text(colour="black"), axis.text.x=element_text(face=2, size=13),
+      axis.title=element_text(colour="black"))
 }
+# cohort violin for the live (plotly) view, with hover text
+build_layer_violin_jit <- function(L, lay){
+  ggplot(L, aes(layer, z, fill=layer)) + geom_hline(yintercept=0, colour="black", linewidth=0.3) +
+    geom_violin(colour=NA, alpha=0.35, scale="width") +
+    geom_jitter(aes(text=tt), width=0.12, height=0, size=0.9, alpha=0.65, colour="black") +
+    scale_fill_manual(values=lay, guide="none") + labs(x=NULL, y="standardized score") +
+    theme_minimal(base_size=12) + theme(panel.grid=element_blank(), axis.text=element_text(colour="black"),
+      axis.text.x=element_text(face=2, size=13), axis.title=element_text(colour="black"))
+}
+
+# ---- PDF reports ------------------------------------------------------------
 build_report <- function(p, a, cov, np, arch = DEF$arch, lay = DEF$lay, smz = NULL, study = NULL){
   wrap <- function(s,w=104) paste(strwrap(s,w), collapse="\n"); ar <- p$archetype
   tp <- function() ggplot()+xlim(0,1)+ylim(0,1)+theme_void()
-  lz <- c(Sensory=p$Sensory, Integration=p$Integration, Execution=p$Execution)
-  readout <- paste(sprintf("%s %s pct (z %+.2f)", names(lz), vapply(round(pnorm(lz)*100), ordinal, character(1)), lz), collapse="    ·    ")
+  readout <- sprintf("Sensory %+.2f      ·      Integration %+.2f      ·      Execution %+.2f        (standardized vs reference; 0 = median)",
+                     p$Sensory, p$Integration, p$Execution)
   hdr <- if (!is.null(study) && nzchar(study)) sprintf("Study: %s        Generated: %s", study, Sys.Date()) else sprintf("Generated: %s", Sys.Date())
   drv <- if (!is.null(smz)) drill_text(smz, p$floor_layer) else NULL
   top <- tp() +
-    annotate("text",x=0,y=0.98,hjust=0,vjust=1,label="Immune Cascade Index: patient report",fontface=2,size=5.9,colour="#6A2C5A")+
+    annotate("text",x=0,y=0.98,hjust=0,vjust=1,label="CascadeScope: patient report",fontface=2,size=5.9,colour="#6A2C5A")+
     annotate("text",x=0,y=0.82,hjust=0,vjust=1,label=hdr,size=3.2,colour="black")+
     annotate("text",x=0,y=0.70,hjust=0,vjust=1,label=sprintf("Patient: %s",p$sample),fontface=2,size=3.9,colour="black")+
     annotate("text",x=0,y=0.55,hjust=0,vjust=1,label="RESULT",fontface=2,size=3.0,colour="#6A2C5A")+
-    annotate("text",x=0,y=0.47,hjust=0,vjust=1,label=CALL[[ar]]$t,fontface=2,size=4.2,colour=unname(arch[ar]))+
+    annotate("text",x=0,y=0.47,hjust=0,vjust=1,label=CALL[[ar]]$t,fontface=2,size=4.2,colour=onwhite(unname(arch[ar])))+
     annotate("text",x=0,y=0.33,hjust=0,vjust=1,label=wrap(paste0("What this means: ",CALL[[ar]]$s),88),size=3.2,colour="black",lineheight=0.95)+
     annotate("text",x=0,y=0.08,hjust=0,vjust=1,label=wrap(paste0("Layer scores:  ",readout),92),size=2.95,colour="black",lineheight=0.95)
   bottom <- tp() +
     (if (!is.null(drv)) annotate("text",x=0,y=0.98,hjust=0,vjust=1,label=wrap(paste0("Rate-limiting step: ",drv),84),fontface=2,size=3.3,colour="black")) +
-    annotate("text",x=0,y=0.80,hjust=0,vjust=1,label=wrap(BIO[[ar]],92),size=3.1,colour="black",lineheight=0.95)+
-    annotate("text",x=0,y=0.56,hjust=0,vjust=1,label=wrap(GAUGE_CAP,100),size=2.9,colour="black",lineheight=0.95)+
-    annotate("text",x=0,y=0.34,hjust=0,vjust=1,label=wrap(sprintf("Method: scored with %s (%d genes); reference %s; per-sample self-normalization; panel coverage %d/%d; reference built %s.",
+    annotate("text",x=0,y=0.80,hjust=0,vjust=1,label=wrap(paste0("Limiting-layer biology (investigational): ",BIO_LEAD[[ar]],"  Directions: ",paste(BIO_CHIPS[[ar]],collapse=", "),"."),92),size=3.0,colour="black",lineheight=0.95)+
+    annotate("text",x=0,y=0.52,hjust=0,vjust=1,label=wrap(GAUGE_CAP,100),size=2.9,colour="black",lineheight=0.95)+
+    annotate("text",x=0,y=0.30,hjust=0,vjust=1,label=wrap(sprintf("Method: scored with %s (%d genes); reference %s; per-sample self-normalization; panel coverage %d/%d; reference built %s.",
              a$version,a$n_genes,a$ref_label,cov,np,as.character(a$built)),104),size=2.85,colour="black",lineheight=0.95)+
-    annotate("text",x=0,y=0.15,hjust=0,vjust=1,label=wrap(RUO,104),size=2.8,colour="black",lineheight=0.95)
+    annotate("text",x=0,y=0.13,hjust=0,vjust=1,label=wrap(RUO,104),size=2.8,colour="black",lineheight=0.95)
   if (!is.null(smz)) {
     dd <- build_drilldown(smz, p$floor_layer, lay) +
           ggtitle("Cascade drill-down: limiting sub-module") +
@@ -180,30 +317,86 @@ build_cohort_report <- function(scores, a, cov, np, arch = DEF$arch, lay = DEF$l
   arch_line <- paste(sprintf("%s %d (%d%%)", names(tab), as.numeric(tab), pct)[as.numeric(tab)>0], collapse="     ")
   hdr <- if (!is.null(study) && nzchar(study)) sprintf("Study: %s        Generated: %s", study, Sys.Date()) else sprintf("Generated: %s", Sys.Date())
   top <- ggplot()+xlim(0,1)+ylim(0,1)+theme_void()+
-    annotate("text",x=0,y=0.96,hjust=0,vjust=1,label="Immune Cascade Index: cohort report",fontface=2,size=6.0,colour="#6A2C5A")+
+    annotate("text",x=0,y=0.96,hjust=0,vjust=1,label="CascadeScope: cohort report",fontface=2,size=6.0,colour="#6A2C5A")+
     annotate("text",x=0,y=0.76,hjust=0,vjust=1,size=3.5,colour="black",label=hdr)+
     annotate("text",x=0,y=0.56,hjust=0,vjust=1,size=3.5,colour="black",
       label=sprintf("%d patients   |   coverage %d/%d panel genes   |   %s (%d genes)   |   reference %s", n, cov, np, a$version, a$n_genes, a$ref_label))+
     annotate("text",x=0,y=0.36,hjust=0,vjust=1,size=3.5,colour="black", label=paste("Archetype breakdown:   ", arch_line))+
     annotate("text",x=0,y=0.16,hjust=0,vjust=1,size=3.5,colour="black",
-      label=sprintf("Median layer scores (z):   Sensory %.2f    Integration %.2f    Execution %.2f", medz[1], medz[2], medz[3]))
+      label=sprintf("Median layer scores (standardized vs reference):   Sensory %+.2f    Integration %+.2f    Execution %+.2f", medz[1], medz[2], medz[3]))
   bottom <- ggplot()+xlim(0,1)+ylim(0,1)+theme_void()+
     annotate("text",x=0,y=0.85,hjust=0,vjust=1,size=2.9,colour="black", label=sprintf("%s  |  %s", a$version, as.character(a$built)))+
     annotate("text",x=0,y=0.5,hjust=0,vjust=1,size=2.9,colour="black",lineheight=0.95,label=wrap(RUO))
   top / (build_archetype_bar(scores, arch) | build_layer_violin(scores, lay)) / bottom + plot_layout(heights=c(0.9,1.3,0.5))
 }
 
+# ---- small UI helpers -------------------------------------------------------
+chips <- function(items, col){
+  div(style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px",
+      lapply(items, function(x) span(x, style=sprintf(
+        "display:inline-block;padding:3px 11px;border:1px solid %s;border-radius:999px;font-size:0.82rem;color:#000;background:%s22", col, col))))
+}
+
+about_tab <- nav_panel(title = tagList(icon("circle-info"), " About"), value = "about",
+  layout_columns(col_widths = c(8,4),
+    card(card_header("What CascadeScope is"),
+      markdown(paste(
+        "**CascadeScope** scores a tumor's RNA against a locked **Immune Cascade Index (ICI)** reference and tells you,",
+        "for one patient at a time, **which stage of the anti-tumor immune response is weakest**.",
+        "",
+        "The ICI reads the response as a three-stage **cascade**, from sensing to killing, and scores each stage against the reference:",
+        "",
+        "1. **Sensory** - antigen presentation and IFN signaling (is the tumor being *seen*?)",
+        "2. **Integration** - T-cell trafficking and infiltration vs stromal / Treg exclusion (do immune cells *get in*?)",
+        "3. **Execution** - cytotoxic effector output vs exhaustion / checkpoints (do the cells that got in *kill*?)",
+        "",
+        "**Execution** measures the shared cytotoxic machinery of **CD8 T cells and NK cells** (granzymes, perforin, granulysin, NKG7): it reflects their combined killing output and does not separate the two lineages.",
+        "",
+        "The **lowest** layer relative to the reference is flagged as the **rate-limiting step** - the stage most likely to be holding the response back.",
+        sep="\n")),
+      card_header("One scale throughout"),
+      markdown(paste(
+        "Every score - layers, sub-modules and individual genes - is shown as a **standardized score versus the reference population**:",
+        "",
+        "- **0** = the reference median.",
+        "- Units are **standard deviations** of the reference.",
+        "- The **shaded band** on each gauge is the *typical range* (middle 50% of the reference).",
+        "- A layer **left of the band** is flagged as the rate-limiting step.",
+        "",
+        "Genes are colored by the same idea: <span style='color:#6A2C5A'>**plum = above the reference**</span>,",
+        "<span style='color:#9C7A3E'>**gold = below**</span>. A filled square (black outline) marks a gene the score counts as \"on\".",
+        sep="\n"))),
+    card(card_header("The four archetypes"),
+      tags$table(class="table table-sm", style="font-size:0.85rem",
+        tags$thead(tags$tr(tags$th("Call"), tags$th("Phenotype"), tags$th("Limiting layer"))),
+        tags$tbody(
+          tags$tr(tags$td(tags$b("Immune-engaged")), tags$td("inflamed / hot"), tags$td("none")),
+          tags$tr(tags$td(tags$b("Cold")), tags$td("immune-desert"), tags$td("Sensory")),
+          tags$tr(tags$td(tags$b("Blocked")), tags$td("immune-excluded"), tags$td("Integration")),
+          tags$tr(tags$td(tags$b("No-kill")), tags$td("inflamed-dysfunctional"), tags$td("Execution")))),
+      card_header("Panel & input"),
+      markdown(paste(
+        "- **98-gene panel**, locked reference (versioned; swappable).",
+        "- Input: **RNA-seq** (TPM, log-TPM or counts), gene × sample, as CSV / TSV / Excel.",
+        "- A single patient is just a one-sample file; scoring is **cohort-independent**.",
+        sep="\n")),
+      div(style="font-size:0.74rem;color:#000;border-top:1px solid #000;padding-top:8px;margin-top:4px", RUO))))
+
 ui <- page_navbar(
-  title = tagList(span("ICI", style="font-weight:700;color:#6A2C5A"),
-                  span("  ·  Immune Cascade Index", style="font-weight:500")),
+  id = "nav",
+  title = tagList(span("CascadeScope", style="font-weight:800;color:#6A2C5A;letter-spacing:.3px"),
+                  span("  ·  Immune Cascade Index", style="font-weight:500;color:#333")),
   theme = app_theme, fillable = FALSE,
-  sidebar = sidebar(width = 330, open = "open",
+  header = tags$script(HTML(
+    "document.addEventListener('shown.bs.collapse', function(){ setTimeout(function(){ window.dispatchEvent(new Event('resize')); }, 50); });")),
+  sidebar = sidebar(width = 335, open = "open",
     selectInput("refver", "Panel / reference", choices = ref_choices, width = "100%"),
     markdown("Score tumor **RNA-seq** (TPM, log-TPM or counts) against the selected locked reference. Upload a **gene × sample** table (**CSV, TSV or Excel**; first column = gene symbol); a single patient is just one sample."),
     fileInput("file", NULL, accept = c(".csv",".tsv",".txt",".xlsx",".xls"), buttonLabel = "Browse…", placeholder = "CSV / TSV / Excel"),
     div(style="margin-top:-8px;margin-bottom:8px;font-size:0.74rem;color:#000000",
         "Unsure of the format? ", downloadLink("dl_template", "Download an input template")),
     actionButton("example", "Load example cohort", class = "btn-outline-secondary btn-sm", width = "100%"),
+    selectInput("patient", "Selected patient", choices = NULL, width = "100%"),
     textInput("study", "Study / cohort label (optional)", width = "100%", placeholder = "e.g. KEYNOTE-052 baseline"),
     div(style="margin-top:-8px;margin-bottom:8px;font-size:0.72rem;color:#000000",
         "Tags every report and download so you can tell runs apart."),
@@ -213,37 +406,68 @@ ui <- page_navbar(
     downloadButton("dl", "Download scores", class = "btn-primary btn-sm"),
     div(style="margin-top:auto;font-size:0.72rem;color:#000000", textOutput("reflab"))),
 
-  nav_panel("Patient report",
-    layout_columns(col_widths = c(5,7), fill = FALSE,
-      card(selectInput("patient", "Patient", choices = NULL, width = "100%"),
-           downloadButton("dl_pdf", "Download report (PDF)", class = "btn-primary btn-sm")),
-      value_box("Overall read", textOutput("vb_call", inline = TRUE), theme = "primary")),
-    card(card_header(textOutput("rep_hdr")),
+  nav_panel(title = tagList(icon("user-check"), " Patient report"), value = "patient",
+    card(
+      card_header(div(style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap",
+        div(textOutput("rep_hdr", inline = TRUE), style="font-weight:600"),
+        uiOutput("rep_floor_badge"))),
       uiOutput("rep_call"),
-      plotOutput("gauge", height = "220px"),
+      plotOutput("gauge", height = "230px"),
       uiOutput("rep_readout"),
-      div(style="font-size:0.78rem;color:#000000;margin-top:2px", GAUGE_CAP),
-      uiOutput("rep_bio"), uiOutput("rep_stamp"),
-      div(style="font-size:0.72rem;color:#000000;border-top:1px solid #000000;padding-top:8px;margin-top:6px", RUO)),
-    card(card_header("Cascade drill-down: which sub-module limits the floor"),
-      plotOutput("drill", height = "250px"),
-      uiOutput("drill_text"),
-      div(style="font-size:0.74rem;color:#000000;margin-top:4px",
-          "Activating programs (+): higher is better. Suppressive programs (−): lower is better. The ringed point is the sub-module driving the rate-limiting layer."))),
+      div(style="display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-top:4px",
+        div(style="font-size:0.76rem;color:#000000;max-width:72%", GAUGE_CAP),
+        downloadButton("dl_pdf", "Download report (PDF)", class = "btn-primary btn-sm"))),
+    accordion(id = "acc", open = c("meaning","biology"),
+      accordion_panel("What this result means", value = "meaning",
+        uiOutput("rep_meaning")),
+      accordion_panel("Limiting-layer biology & investigational directions", value = "biology",
+        uiOutput("rep_bio")),
+      accordion_panel("Cascade drill-down: which sub-module limits the floor", value = "drill",
+        plotOutput("drill", height = "230px"),
+        uiOutput("drill_text"),
+        div(style="font-size:0.74rem;color:#000000;margin-top:4px",
+            "Activating programs (+): higher is better. Suppressive programs (−): lower is better. The ringed point is the sub-module driving the rate-limiting layer.")),
+      accordion_panel("Gene drivers: how all 98 panel genes scored", value = "genes",
+        div(style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:4px",
+          div(style="min-width:260px", selectInput("gene_layer", "Show", width="100%",
+              choices = c("Cascade tree (all layers)"="tree","Layer heatmaps (compare, own scale)"="heat"))),
+          div(style="font-size:0.82rem;color:#000000",
+              "Genes feed sub-modules, which feed the three layers. Node & gene colour = standardized score vs reference (",
+              tags$b(style=sprintf("color:%s", CASC_LOW), "gold = low"), ", ",
+              tags$b(style=sprintf("color:%s", CASC_HIGH), "plum = high"),
+              "); filled square = gene “on” (≥ reference median), open square = “off”.")),
+        card(full_screen = TRUE,
+          div(style="overflow-x:auto", plotOutput("gene_plot", width = "1850px", height = "720px"))),
+        div(style="font-size:0.78rem;color:#000000;margin-top:4px",
+            tags$b("Cascade tree:"), " top row = the 98-gene panel; thick edges from sub-module to layer are ",
+            tags$b(style=sprintf("color:%s", CASC_HIGH), "plum = activating (+)"), ", ",
+            tags$b(style=sprintf("color:%s", CASC_LOW), "gold = suppressive (−)"),
+            "; the layer node shows its standardized score. ",
+            tags$b("Layer heatmaps:"), " the three layers side by side, each on its own colour scale for head-to-head comparison. Use the expand control at the panel's top-right for a full-screen view.")),
+      accordion_panel("Method, reference & disclaimer", value = "method",
+        uiOutput("rep_stamp"),
+        div(style="font-size:0.74rem;color:#000000;border-top:1px solid #000000;padding-top:8px;margin-top:6px", RUO)))),
 
-  nav_panel("Cohort explorer",
+  nav_panel(title = tagList(icon("chart-column"), " Cohort explorer"), value = "cohort",
     layout_columns(fill = FALSE,
       value_box("Patients scored", textOutput("n_pat", inline = TRUE), theme = "primary"),
-      value_box("Panel coverage", textOutput("cov", inline = TRUE), theme = value_box_theme(bg="#9C7A3E", fg="white")),
+      value_box("Panel coverage", textOutput("cov", inline = TRUE), theme = value_box_theme(bg="#9C7A3E", fg=ink("#9C7A3E"))),
       value_box("Cascade-intact", textOutput("intact", inline = TRUE), theme = value_box_theme(bg="#C9A66B", fg="#000000"))),
     div(style="margin:2px 0 8px 0", downloadButton("dl_cohort", "Download cohort report (PDF)", class = "btn-primary btn-sm")),
     layout_columns(col_widths = c(5,7),
       card(full_screen=TRUE, card_header("Archetype proportions"), plotlyOutput("donut", height="300px"),
-           div(style="font-size:0.72rem;color:#000000",
-               "Canonical phenotypes: cold = immune-desert  ·  blocked = immune-excluded  ·  no-kill = inflamed-dysfunctional  ·  intact = inflamed / hot.")),
+           div(style="font-size:0.78rem;color:#000000",
+               div(tags$b("Canonical phenotypes:")),
+               div(tags$b("cold"), " = immune-desert  ·  ", tags$b("blocked"), " = immune-excluded  ·  ",
+                   tags$b("no-kill"), " = inflamed-dysfunctional  ·  ", tags$b("intact"), " = inflamed / hot."))),
       card(full_screen=TRUE, card_header("Cohort distribution: the three layer scores"), plotlyOutput("cohort", height="300px"))),
-    card(full_screen=TRUE, card_header("Per-patient profiles (hover for detail)"), plotlyOutput("patients", height="300px")),
-    card(full_screen=TRUE, card_header("Per-patient scores"), DTOutput("tbl")))
+    card(full_screen=TRUE, card_header("Per-patient profiles"),
+      div(style="font-size:0.8rem;color:#000000;margin-bottom:4px",
+          tags$b("Tip:"), " click a point — or a table row below — to open that patient's report."),
+      plotlyOutput("patients", height="300px")),
+    card(full_screen=TRUE, card_header("Per-patient scores (click a row to open the report)"), DTOutput("tbl"))),
+
+  about_tab
 )
 
 server <- function(input, output, session) {
@@ -265,6 +489,23 @@ server <- function(input, output, session) {
   psub <- reactive({ req(res(), input$patient); sm<-res()$submod
                      if (is.null(sm) || !(input$patient %in% rownames(sm))) return(NULL); sm[input$patient, ] })
 
+  # per-patient gene drivers (one row per module x present gene)
+  gene_df <- reactive({ gd <- res()$gene; req(gd, input$patient); PANEL <- assets()$ref$PANEL
+    s <- input$patient; if (!(s %in% colnames(gd$dev))) return(NULL)
+    dv <- gd$dev[, s]; onv <- gd$on[, s]
+    rows <- do.call(rbind, lapply(SM_ORD, function(m){
+      g <- intersect(toupper(PANEL[[m]]), rownames(gd$dev)); if (!length(g)) return(NULL)
+      data.frame(module=m, module_ord=match(m,SM_ORD), gene=g, dev=as.numeric(dv[g]),
+                 on=as.integer(onv[g]), stringsAsFactors=FALSE) }))
+    rows$layer <- unname(SM_LAYER[rows$module]); rows$sign <- unname(SM_SIGN[rows$module])
+    rows$lane  <- unname(LANE_LAB[rows$module]); rows$module_name <- unname(SM_LAB[rows$module])
+    rows$contrib <- ifelse(rows$sign=="+", ifelse(rows$on==1,"supports this layer","below reference"),
+                           ifelse(rows$on==1,"suppresses this layer","not suppressing"))
+    rows$tt <- sprintf("<b>%s</b><br>%s (%s)<br>vs reference: %+.2f<br>call: %s<br>%s",
+        rows$gene, rows$module_name, ifelse(rows$sign=="+","activating","suppressive"),
+        rows$dev, ifelse(rows$on==1,"on","off"), rows$contrib)
+    rows })
+
   output$dl_template <- downloadHandler(
     filename = function() "ICI_input_template.csv",
     content = function(f){ pg <- assets()$panel_genes
@@ -282,26 +523,33 @@ server <- function(input, output, session) {
       if (res()$logged) div(style="font-size:0.72rem;color:#000000","Input looked linear; log2 applied."),
       if (pct<75) div(style="font-size:0.72rem;color:#8a0017","Low coverage; interpret with caution.")) })
 
-  output$vb_call <- renderText({ req(patient()); CALL[[patient()$archetype]]$t })
+  # ---- Patient report ----
+  output$rep_floor_badge <- renderUI({ req(patient()); p<-patient(); col<-unname(pal()$arch[p$archetype])
+    lab <- if (p$floor_layer=="none") "All three layers intact" else sprintf("Rate-limiting step: %s ★", p$floor_layer)
+    span(lab, style=sprintf("display:inline-block;padding:4px 13px;border-radius:999px;font-weight:700;font-size:0.9rem;color:%s;background:%s", ink(col), col)) })
   output$rep_hdr <- renderText({ req(patient()); st<-studylab()
-    if (nzchar(st)) sprintf("ICI report: %s  ·  %s", patient()$sample, st) else sprintf("ICI report: %s", patient()$sample) })
+    if (nzchar(st)) sprintf("Patient %s  ·  %s", patient()$sample, st) else sprintf("Patient %s", patient()$sample) })
   output$rep_readout <- renderUI({ req(patient()); p<-patient()
-    lz<-c(Sensory=p$Sensory,Integration=p$Integration,Execution=p$Execution)
-    txt <- paste(sprintf("%s %s pct (z %+.2f)", names(lz), vapply(round(pnorm(lz)*100), ordinal, character(1)), lz), collapse="    ·    ")
-    div(style="font-size:0.8rem;color:#000000;margin-top:2px", tags$b("Layer scores: "), txt) })
+    txt <- sprintf("Sensory %+.2f  ·  Integration %+.2f  ·  Execution %+.2f", p$Sensory, p$Integration, p$Execution)
+    div(style="font-size:0.84rem;color:#000000;margin-top:4px", tags$b("Layer scores: "), txt,
+        span(style="color:#000000", "  (standardized vs reference; 0 = median)")) })
   output$rep_call <- renderUI({ req(patient()); a<-patient()$archetype
-    div(div(style=sprintf("font-size:1.15rem;font-weight:700;color:%s",pal()$arch[a]), CALL[[a]]$t),
-        div(style="font-size:0.92rem;margin-top:3px;color:#000000", CALL[[a]]$s)) })
-  output$rep_bio <- renderUI({ req(patient()); div(style="margin-top:8px;font-size:0.86rem;color:#000000",
-      tags$b("Limiting-layer biology.  "), BIO[[patient()$archetype]]) })
+    div(div(style=sprintf("font-size:1.2rem;font-weight:800;color:%s", onwhite(unname(pal()$arch[a]))), CALL[[a]]$t)) })
+  output$rep_meaning <- renderUI({ req(patient()); div(style="font-size:0.92rem;color:#000000", CALL[[patient()$archetype]]$s) })
+  output$rep_bio <- renderUI({ req(patient()); a<-patient()$archetype; col<-unname(pal()$arch[a])
+    tagList(
+      div(style="font-size:0.92rem;color:#000000", tags$b(BIO_LEAD[[a]])),
+      div(style="font-size:0.78rem;color:#000000;margin-top:6px",
+          if (a=="intact") "If this tumor is non-responsive, check:" else "Investigational directions (hypothesis-generating, not a recommendation):"),
+      chips(BIO_CHIPS[[a]], col)) })
   output$rep_stamp <- renderUI({ req(res()); a<-assets(); st<-studylab()
     pre <- if (nzchar(st)) sprintf("Study: %s  ·  ", st) else ""
-    div(style="margin-top:8px;font-size:0.72rem;color:#000000",
+    div(style="font-size:0.74rem;color:#000000",
         sprintf("%sGenerated %s  ·  Scored with %s (%d genes)  ·  reference %s  ·  per-sample self-normalization  ·  coverage %d/%d  ·  reference built %s",
                 pre, Sys.Date(), a$version, a$n_genes, a$ref_label, res()$coverage, res()$n_panel, as.character(a$built))) })
   output$gauge <- renderPlot({ req(patient()); build_gauge(patient(), pal()$lay) }, res=108)
   output$drill <- renderPlot({ req(psub()); build_drilldown(psub(), patient()$floor_layer, pal()$lay) }, res=108)
-  output$drill_text <- renderUI({ req(psub()); div(style="font-size:0.86rem;color:#000000;margin-top:6px",
+  output$drill_text <- renderUI({ req(psub()); div(style="font-size:0.88rem;color:#000000;margin-top:6px",
       tags$b("Floor driver.  "), drill_text(psub(), patient()$floor_layer)) })
   output$dl_pdf <- downloadHandler(
     filename = function(){ base <- gsub("[^A-Za-z0-9]", "", patient()$sample); sl <- study_slug()
@@ -309,11 +557,17 @@ server <- function(input, output, session) {
     content = function(f){ req(patient()); ggsave(f, build_report(patient(), assets(), res()$coverage, res()$n_panel, pal()$arch, pal()$lay, psub(), studylab()),
                                                   width = 8.27, height = if (is.null(psub())) 9.6 else 11.69, device = "pdf") })
 
+  # ---- Gene drivers (in the patient report) ----
+  output$gene_plot <- renderPlot({ df <- gene_df(); req(df); v <- input$gene_layer %||% "tree"
+    if (v=="heat") build_layer_heatmaps(df)
+    else build_cascade_tree(df, patient(), psub(), pal()$lay) }, res = 108)
+
+  # ---- Cohort explorer ----
   output$donut <- renderPlotly({ req(res()); s<-res()$scores; arch<-pal()$arch
     tab <- as.data.frame(table(factor(s$archetype, names(arch)))); names(tab)<-c("a","n"); tab<-tab[tab$n>0,]
     plot_ly(tab, labels=~a, values=~n, type="pie", hole=0.58, sort=FALSE,
             marker=list(colors=unname(arch[as.character(tab$a)]), line=list(color="#ffffff", width=2)),
-            textinfo="label+percent", textfont=list(color="black", size=14),
+            textinfo="label+percent", textfont=list(color=vapply(unname(arch[as.character(tab$a)]), ink, character(1)), size=16),
             hovertemplate="%{label}: %{value} patients (%{percent})<extra></extra>") |>
       layout(showlegend=FALSE, margin=list(t=12,b=12,l=12,r=12),
              font=list(color="black", family="Inter, system-ui, Arial, sans-serif")) |> config(displayModeBar=FALSE) })
@@ -326,30 +580,39 @@ server <- function(input, output, session) {
     L <- do.call(rbind, lapply(c("Sensory","Integration","Execution"), function(l)
       data.frame(sample=s$sample, layer=l, z=s[[l]], archetype=s$archetype, floor=s$floor_layer)))
     L$layer <- factor(L$layer, c("Sensory","Integration","Execution"))
-    L$tt <- sprintf("<b>%s</b><br>S %.2f · I %.2f · E %.2f<br>floor: %s · %s",
+    L$tt <- sprintf("<b>%s</b><br>S %+.2f · I %+.2f · E %+.2f<br>floor: %s · %s",
       L$sample, s$Sensory[match(L$sample,s$sample)], s$Integration[match(L$sample,s$sample)],
-      s$Execution[match(L$sample,s$sample)], L$floor, L$archetype); L })
+      s$Execution[match(L$sample,s$sample)], L$floor, L$archetype)
+    set.seed(1); L$jit <- runif(nrow(L), -0.26, 0.26); L })
   output$n_pat  <- renderText({ req(res()); res()$n_samples })
   output$cov    <- renderText({ req(res()); sprintf("%d / %d genes", res()$coverage, res()$n_panel) })
   output$intact <- renderText({ req(res()); s<-res()$scores; sprintf("%d of %d (%.0f%%)", sum(s$archetype=="intact"), nrow(s), 100*mean(s$archetype=="intact")) })
   # ggplotly() measures text on the current graphics device; on macOS that is
-  # quartz, which errors ("invalid quartz() device size") in a headless/odd-size
-  # context and then stays broken process-wide. Measure on a null PDF device.
+  # quartz, which errors ("invalid quartz() device size") in odd contexts and then
+  # stays broken process-wide. Measure on a null PDF device.
   base_theme <- function(p){
     grDevices::pdf(NULL); on.exit(grDevices::dev.off(), add=TRUE)
     ggplotly(p, tooltip="text") |>
       layout(font=list(family="Inter, system-ui, Arial, sans-serif", color="black"), margin=list(t=24,l=64,b=48,r=16)) |> config(displayModeBar=FALSE)
   }
   output$cohort <- renderPlotly({ base_theme(build_layer_violin_jit(long(), pal()$lay)) })
-  output$patients <- renderPlotly({ L<-long()
-    p <- ggplot(L, aes(z, layer, colour=archetype, text=tt)) + geom_vline(xintercept=0, colour="black", linewidth=0.3) +
-      geom_jitter(width=0, height=0.26, size=1.7, alpha=0.85) + scale_colour_manual(values=pal()$arch, name=NULL) +
-      labs(x="score (z vs reference)", y=NULL) + theme_minimal(base_size=12) + theme(panel.grid=element_blank(), axis.text=element_text(colour="black"), axis.title=element_text(colour="black"))
-    base_theme(p) |> layout(legend=list(orientation="h", y=1.14, x=0.5, xanchor="center"), margin=list(t=40,l=76,b=44,r=16)) })
+  output$patients <- renderPlotly({ req(res()); L<-long(); arch<-pal()$arch
+    L$yj <- as.integer(L$layer) + L$jit
+    plot_ly(L, x=~z, y=~yj, type="scatter", mode="markers", source="beeswarm",
+            color=~archetype, colors=arch, customdata=~sample, text=~tt, hoverinfo="text",
+            marker=list(size=11, line=list(width=1.4, color="#ffffff"))) |>
+      layout(shapes=list(list(type="line", x0=0, x1=0, y0=0.5, y1=3.5, line=list(color="black", width=1))),
+             xaxis=list(title=list(text="standardized score vs reference (0 = median)", font=list(size=14)), zeroline=FALSE),
+             yaxis=list(tickvals=c(1,2,3), ticktext=c("<b>Sensory</b>","<b>Integration</b>","<b>Execution</b>"),
+                        tickfont=list(size=15, color="black"), title="", range=c(0.4,3.6)),
+             legend=list(orientation="h", y=1.17, x=0.5, xanchor="center", font=list(size=15, color="black"), itemsizing="constant"),
+             font=list(color="black", family="Inter, system-ui, Arial, sans-serif"),
+             margin=list(t=44,l=100,b=48,r=16)) |>
+      config(displayModeBar=FALSE) |> event_register("plotly_click") })
   output$tbl <- renderDT({ req(res()); s<-res()$scores; arch<-pal()$arch
     d <- data.frame(Patient=s$sample, Sensory=round(s$Sensory,2), Integration=round(s$Integration,2),
       Execution=round(s$Execution,2), Floor=s$floor_layer, Archetype=s$archetype)
-    datatable(d, rownames=FALSE, options=list(pageLength=8, dom="tp"), class="compact stripe") |>
+    datatable(d, rownames=FALSE, selection="single", options=list(pageLength=8, dom="tp"), class="compact stripe row-border hover") |>
       formatStyle("Archetype", backgroundColor=styleEqual(names(arch), paste0(arch,"33"))) })
   output$dl <- downloadHandler(
     filename = function(){ ext <- switch(input$dl_format %||% "CSV", CSV="csv", TSV="tsv", Excel="xlsx"); sl <- study_slug()
@@ -359,15 +622,13 @@ server <- function(input, output, session) {
       if (fmt=="Excel") openxlsx::write.xlsx(s, f)
       else if (fmt=="TSV") write.table(s, f, sep="\t", row.names=FALSE, quote=FALSE)
       else write.csv(s, f, row.names=FALSE) })
-}
 
-# cohort violin for the live (plotly) view, with hover text
-build_layer_violin_jit <- function(L, lay){
-  ggplot(L, aes(layer, z, fill=layer)) + geom_hline(yintercept=0, colour="black", linewidth=0.3) +
-    geom_violin(colour=NA, alpha=0.35, scale="width") +
-    geom_jitter(aes(text=tt), width=0.12, height=0, size=0.9, alpha=0.65, colour="black") +
-    scale_fill_manual(values=lay, guide="none") + labs(x=NULL, y="score (z)") +
-    theme_minimal(base_size=12) + theme(panel.grid=element_blank(), axis.text=element_text(colour="black"), axis.title=element_text(colour="black"))
+  # ---- click-through: beeswarm point or table row -> that patient's report ----
+  go_to_patient <- function(s){ req(s); updateSelectInput(session, "patient", selected = s); bslib::nav_select("nav", "patient") }
+  observeEvent(event_data("plotly_click", source="beeswarm"), {
+    e <- event_data("plotly_click", source="beeswarm"); if (!is.null(e$customdata)) go_to_patient(e$customdata) })
+  observeEvent(input$tbl_rows_selected, { r <- input$tbl_rows_selected; req(r, res())
+    go_to_patient(res()$scores$sample[r]) })
 }
 
 shinyApp(ui, server)
