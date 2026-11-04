@@ -212,6 +212,7 @@ server <- function(input, output, session) {
   output$qc <- renderUI({ req(res()); cov<-res()$coverage; np<-res()$n_panel; pct<-round(100*cov/np)
     col <- if (pct>=90) "#1b5e20" else if (pct>=75) "#8a4b00" else "#8a0017"
     tagList(div(style=sprintf("font-size:0.8rem;color:%s;font-weight:600",col), sprintf("Coverage %d%%  (%d/%d panel genes)",pct,cov,np)),
+      if ((res()$mapped %||% 0) > 0) div(style="font-size:0.72rem;color:#000000", sprintf("%d gene(s) matched via alias / Ensembl mapping.", res()$mapped)),
       if (res()$logged) div(style="font-size:0.72rem;color:#000000","Input looked linear; log2 applied."),
       if (pct<75) div(style="font-size:0.72rem;color:#8a0017","Low coverage; interpret with caution.")) })
 

@@ -12,8 +12,21 @@ nt <- as.data.frame(fread("analysis/data/NeoTRIP_expr.txt.gz"))
 rownames(nt) <- toupper(nt$HGNC_approved_symbol)
 refmat <- as.matrix(nt[, grep("_Baseline$", colnames(nt)), drop=FALSE])
 REF <- fit_locked_reference(refmat, PANEL, "ICI_locked_v1")
+
+## alias / Ensembl -> canonical-symbol map for the panel genes (org.Hs.eg.db) ----
+suppressMessages(library(org.Hs.eg.db))
+eg <- AnnotationDbi::mapIds(org.Hs.eg.db, PG, "ENTREZID", "SYMBOL"); eg <- eg[!is.na(eg)]
+al <- AnnotationDbi::mapIds(org.Hs.eg.db, eg, "ALIAS",   "ENTREZID", multiVals="list")
+en <- AnnotationDbi::mapIds(org.Hs.eg.db, eg, "ENSEMBL", "ENTREZID", multiVals="list")
+mp <- do.call(rbind, lapply(names(eg), function(sym){ e<-eg[[sym]]
+  syns <- unique(toupper(c(sym, unlist(al[[e]]), unlist(en[[e]])))); syns <- syns[!is.na(syns) & syns!=""]
+  data.frame(syn=syns, canon=sym, row.names=NULL) }))
+mp <- mp[!(mp$syn %in% names(which(table(mp$syn) > 1))), ]   # drop ambiguous synonyms
+alias_map <- setNames(mp$canon, mp$syn)
+cat(sprintf("alias/Ensembl map: %d synonyms -> %d panel genes\n", length(alias_map), length(unique(alias_map))))
+
 dir.create("app/references", showWarnings=FALSE, recursive=TRUE)
-saveRDS(list(ref=REF, panel=PANEL, panel_genes=PG,
+saveRDS(list(ref=REF, panel=PANEL, panel_genes=PG, alias_map=alias_map,
              version="ICI panel v1", panel_version="v1", n_genes=length(PG),
              layers=names(PANEL), n_ref=ncol(refmat),
              ref_label="NeoTRIP breast baseline (n=241)", built=Sys.Date()),
