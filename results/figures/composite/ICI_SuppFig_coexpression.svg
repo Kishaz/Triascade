@@ -12329,10 +12329,10 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMTEuMzR8NDgxLjg5fDI4NS4xNHwzMDYuMTQ=)'>
-<circle cx='233.78' cy='291.44' r='3.63' style='stroke-width: 0.43; stroke: #FFFFFF; fill: #6A2C5A;' />
-<text x='242.34' y='294.66' style='font-size: 9.00px; font-family: "Arial";'>activating (+)</text>
-<circle cx='233.78' cy='299.84' r='3.63' style='stroke-width: 0.43; stroke: #FFFFFF; fill: #9C7A3E;' />
-<text x='242.34' y='303.06' style='font-size: 9.00px; font-family: "Arial";'>suppressive (−)</text>
+<circle cx='203.84' cy='295.64' r='3.63' style='stroke-width: 0.43; stroke: #FFFFFF; fill: #6A2C5A;' />
+<circle cx='272.28' cy='295.64' r='3.63' style='stroke-width: 0.43; stroke: #FFFFFF; fill: #9C7A3E;' />
+<text x='216.67' y='298.68' style='font-size: 8.50px; font-family: "Arial";'>activating (+)</text>
+<text x='285.11' y='298.68' style='font-size: 8.50px; font-family: "Arial";'>suppressive (−)</text>
 </g>
 <g clip-path='url(#cpMC4wMHw0OTMuMjN8MC4wMHwzMTcuNDg=)'>
 </g>
