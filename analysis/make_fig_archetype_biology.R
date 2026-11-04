@@ -94,7 +94,7 @@ pc <- ggplot(PC, aes(arch, frac, fill=phenotype)) +
   annotate("text", x=0.5, y=1.07, hjust=0, vjust=0, family=PUB_FONT, fontface=3,
            size=(PT_BASE-1.5)/.pt, colour=INK, label=sprintf("χ² p = %.0e", chip)) +
   scale_fill_manual(values=c(desert=SAND, excluded=ROSE, inflamed=PLUM), name=NULL) +
-  scale_y_continuous("fraction of tumours", limits=c(0,1.12), breaks=seq(0,1,0.5), expand=expansion(mult=0)) +
+  scale_y_continuous("fraction of tumors", limits=c(0,1.12), breaks=seq(0,1,0.5), expand=expansion(mult=0)) +
   scale_x_discrete(NULL) +
   theme_publication(grid="y") +
   theme(axis.text.x=element_text(size=PT_BASE-0.5, colour=INK, angle=20, hjust=1),

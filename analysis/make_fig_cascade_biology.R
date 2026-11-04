@@ -67,7 +67,7 @@ pb <- ggplot(PB, aes(pattern, observed, fill=type)) +
   geom_col(width=0.72, colour="white", linewidth=0.3) +
   geom_errorbar(aes(ymin=expected, ymax=expected), width=0.52, colour=INK, linewidth=0.55) +
   scale_fill_manual(values=c(`forward-concordant`=PLUM, discordant=SAND_DEEP), name=NULL) +
-  scale_y_continuous("tumours", expand=expansion(mult=c(0,0.08))) +
+  scale_y_continuous("tumors", expand=expansion(mult=c(0,0.08))) +
   scale_x_discrete("S / I / E high-low pattern") +
   theme_publication(grid="y") +
   theme(axis.text.x=element_text(size=PT_BASE-1, colour=INK, family="mono"),
