@@ -63,7 +63,7 @@ CALL <- list(
   blocked = list(short="Blocked", t="Blocked (immune-excluded): Integration is the lowest layer",
     s="T-cell trafficking and infiltration are the lowest-scoring layer, a pattern consistent with stromal or TGF-beta mediated exclusion. Checkpoint blockade alone is unlikely to overcome exclusion."),
   `no-kill`= list(short="No-kill", t="No-kill (inflamed-dysfunctional): Execution is the lowest layer",
-    s="Immune cells have reached the tumor, but cytotoxic effector output — the shared killing program of CD8 T cells and NK cells — is the lowest layer (effector-deficient or exhausted)."))
+    s="Immune cells have reached the tumor, but cytotoxic effector output (the shared killing program of CD8 T cells and NK cells) is the lowest layer (effector-deficient or exhausted)."))
 BIO_LEAD <- list(
   intact  = "No layer stands out as low; all three are within range of the reference. If the tumor is non-responsive, look outside the cascade.",
   cold    = "Priming is the gap: the immune response is not being started.",
@@ -480,7 +480,7 @@ ui <- page_navbar(
       card(full_screen=TRUE, card_header("Cohort distribution: the three layer scores"), plotlyOutput("cohort", height="300px"))),
     card(full_screen=TRUE, card_header("Per-patient profiles"),
       div(style="font-size:0.8rem;color:#000000;margin-bottom:4px",
-          tags$b("Tip:"), " click a point — or a table row below — to open that patient's report."),
+          tags$b("Tip:"), " click a point, or a table row below, to open that patient's report."),
       plotlyOutput("patients", height="300px")),
     card(full_screen=TRUE, card_header("Per-patient scores (click a row to open the report)"), DTOutput("tbl"))),
 
