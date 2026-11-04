@@ -395,13 +395,12 @@ ui <- page_navbar(
     div(style="line-height:1.06",
       div(style="font-weight:800;font-size:1.15rem;letter-spacing:.2px",
           HTML('<span style="color:#6A2C5A">Cascade</span><span style="color:#9C7A3E">Scope</span>')),
-      div(span("Immune Cascade Index", class="cs-ici", style="color:#6A2C5A;font-size:0.98rem;font-weight:600")),
-      div("Find the step that stalls.", style="font-size:0.6rem;color:#777777;letter-spacing:.2px;margin-top:1px"))),
+      div("Immune Cascade Index", style="font-size:0.74rem;font-weight:600;color:#6A2C5A;letter-spacing:.3px"),
+      div("See where immunity stalls.", style="font-size:0.62rem;color:#777777;margin-top:1px"))),
   theme = app_theme, fillable = FALSE,
   header = tagList(
     tags$head(
-      tags$link(rel="icon", type="image/svg+xml", href="icon.svg"),
-      tags$style(HTML(".cs-ici{font-family:'Snell Roundhand','Apple Chancery','Segoe Script','Brush Script MT',cursive;font-style:italic;}"))),
+      tags$link(rel="icon", type="image/svg+xml", href="icon.svg")),
     tags$script(HTML(
       "document.addEventListener('shown.bs.collapse', function(){ setTimeout(function(){ window.dispatchEvent(new Event('resize')); }, 50); });"))),
   sidebar = sidebar(width = 335, open = "open",

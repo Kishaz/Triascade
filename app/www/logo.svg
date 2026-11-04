@@ -1,16 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="460" height="152" viewBox="0 0 460 152"
+<svg xmlns="http://www.w3.org/2000/svg" width="470" height="150" viewBox="0 0 470 150"
      font-family="Inter, 'Helvetica Neue', Arial, sans-serif">
   <!-- CascadeScope lockup. Fading-cascade mark with the lowest ("rate-limiting") step in gold;
-       wordmark in plum/gold; "Immune Cascade Index" set in calligraphy; tagline below.
-       Text is kept as live <text> (editable in Inkscape/Illustrator); no textLength. -->
-  <g transform="translate(18,34)">
+       wordmark in plum/gold; descriptor + tagline in a clean medium-weight sans.
+       All text kept as live <text> (editable in Inkscape/Illustrator); no textLength. -->
+  <g transform="translate(18,33)">
     <rect width="84" height="84" rx="19" fill="#6A2C5A"/>
     <rect x="20" y="22" width="44" height="10" rx="5" fill="#ffffff"/>
     <rect x="20" y="37" width="32" height="10" rx="5" fill="#ffffff" fill-opacity="0.82"/>
     <rect x="20" y="52" width="21" height="10" rx="5" fill="#E8B54B"/>
   </g>
-  <text x="118" y="62" font-size="38" font-weight="800"><tspan fill="#6A2C5A">Cascade</tspan><tspan fill="#9C7A3E">Scope</tspan></text>
-  <text x="120" y="98" font-size="27" font-style="italic" fill="#6A2C5A"
-        font-family="'Snell Roundhand','Apple Chancery','Segoe Script','Brush Script MT',cursive">Immune Cascade Index</text>
-  <text x="121" y="124" font-size="14.5" fill="#777777">Find the step that stalls.</text>
+  <text x="118" y="60" font-size="38" font-weight="800"><tspan fill="#6A2C5A">Cascade</tspan><tspan fill="#9C7A3E">Scope</tspan></text>
+  <text x="120" y="90" font-size="16" font-weight="600" letter-spacing="0.4" fill="#6A2C5A">Immune Cascade Index</text>
+  <text x="120" y="114" font-size="14" font-weight="400" fill="#777777">See where immunity stalls.</text>
 </svg>
