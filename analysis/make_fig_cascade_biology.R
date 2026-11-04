@@ -41,13 +41,10 @@ pa <- ggplot(PA, aes(x,y)) +
   coord_cartesian(xlim=c(-3,3), ylim=c(-3,3)) +
   scale_x_continuous("layer score (z)", breaks=seq(-2,2,2)) +
   scale_y_continuous("layer score (z)", breaks=seq(-2,2,2)) +
-  labs(subtitle=sprintf("Near-independent axes · mean shared variance %.0f%%  (%.0f%% of each layer is independent)",
-                        100*mean(rr^2), indep)) +
   theme_publication(grid="both") +
   theme(axis.text=element_text(size=PT_BASE-1, colour=INK),
         axis.title=element_text(size=PT_AXIS_TITLE-0.5, colour=INK),
         strip.text=element_text(size=PT_BASE-0.5, face=2, colour=INK),
-        plot.subtitle=element_text(size=PT_BASE-0.5, face=2, colour=PLUM, hjust=0.5),
         panel.spacing=unit(3,"mm"), plot.margin=margin(2,3,1,2,"mm"))
 
 ## ---- (b) cascade staircase -------------------------------------------------
@@ -69,9 +66,6 @@ chip <- chisq.test(PB$observed, p=PB$expected/sum(PB$expected))$p.value
 pb <- ggplot(PB, aes(pattern, observed, fill=type)) +
   geom_col(width=0.72, colour="white", linewidth=0.3) +
   geom_errorbar(aes(ymin=expected, ymax=expected), width=0.52, colour=INK, linewidth=0.55) +
-  annotate("text", x=0.6, y=max(PB$observed)*1.06, hjust=0, vjust=1, family=PUB_FONT, fontface=3,
-           size=(PT_BASE-1.5)/.pt, colour=INK,
-           label=sprintf("concordant 65%% vs 52%% expected\nχ² p = %.0e   (― = expected if independent)", chip)) +
   scale_fill_manual(values=c(`forward-concordant`=PLUM, discordant=SAND_DEEP), name=NULL) +
   scale_y_continuous("tumours", expand=expansion(mult=c(0,0.08))) +
   scale_x_discrete("S / I / E high-low pattern") +
@@ -95,9 +89,6 @@ pc <- ggplot(PC, aes(factor(nhigh), pct, fill=nhigh)) +
   geom_col(width=0.68, colour="white", linewidth=0.3) +
   geom_errorbar(aes(ymin=lo, ymax=hi), width=0.18, linewidth=0.45, colour=INK) +
   geom_text(aes(label=sprintf("%.0f%%", pct), y=hi+2.5), family=PUB_FONT, size=(PT_BASE-0.5)/.pt, fontface=2, colour=INK) +
-  geom_text(aes(label=sprintf("%d/%d",k,n), y=2.5), family=PUB_FONT, size=(PT_BASE-3)/.pt, colour="white") +
-  annotate("text", x=0.6, y=max(PC$hi)*1.12, hjust=0, vjust=1, family=PUB_FONT, fontface=3,
-           size=(PT_BASE-1.5)/.pt, colour=INK, label=sprintf("OR %.2f per intact layer\np = %.0e", orT, pT)) +
   scale_fill_gradient(low="#E7D7E2", high=PLUM, guide="none") +
   scale_y_continuous("ICB response rate (%)", limits=c(0,NA), expand=expansion(mult=c(0,0.12))) +
   scale_x_discrete("number of intact (high) layers") +
