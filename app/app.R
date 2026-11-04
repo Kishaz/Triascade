@@ -150,6 +150,8 @@ ui <- page_navbar(
     selectInput("refver", "Panel / reference", choices = ref_choices, width = "100%"),
     markdown("Score tumour **RNA-seq** (TPM, log-TPM or counts) against the selected locked reference. Upload a **gene × sample** table (**CSV, TSV or Excel**; first column = gene symbol); a single patient is just one sample."),
     fileInput("file", NULL, accept = c(".csv",".tsv",".txt",".xlsx",".xls"), buttonLabel = "Browse…", placeholder = "CSV / TSV / Excel"),
+    div(style="margin-top:-8px;margin-bottom:8px;font-size:0.74rem;color:#000000",
+        "Unsure of the format? ", downloadLink("dl_template", "Download an input template")),
     actionButton("example", "Load example cohort", class = "btn-outline-secondary btn-sm", width = "100%"),
     selectInput("palette", "Colour palette", choices = names(PALETTES), width = "100%"),
     hr(), uiOutput("qc"), hr(),
@@ -197,6 +199,15 @@ server <- function(input, output, session) {
   observeEvent(res(), { updateSelectInput(session, "patient", choices = res()$scores$sample) })
   patient <- reactive({ req(res(), input$patient); s<-res()$scores; s[s$sample==input$patient, ][1, ] })
 
+  output$dl_template <- downloadHandler(
+    filename = function() "ICI_input_template.csv",
+    content = function(f){ pg <- assets()$panel_genes
+      ex <- tryCatch(read.csv("example_cohort.csv", row.names=1, check.names=FALSE), error=function(e) NULL)
+      if (!is.null(ex)) { rn<-toupper(rownames(ex)); g<-intersect(pg, rn)
+        m <- ex[match(g, rn), seq_len(min(3,ncol(ex))), drop=FALSE]
+        out <- data.frame(gene=g, round(m,3), check.names=FALSE); names(out)[-1] <- paste0("Sample", seq_len(ncol(out)-1))
+      } else out <- data.frame(gene=pg, Sample1=NA, Sample2=NA, Sample3=NA)
+      write.csv(out, f, row.names=FALSE) })
   output$reflab <- renderText({ sprintf("Reference cohort: %s", assets()$ref_label) })
   output$qc <- renderUI({ req(res()); cov<-res()$coverage; np<-res()$n_panel; pct<-round(100*cov/np)
     col <- if (pct>=90) "#1b5e20" else if (pct>=75) "#8a4b00" else "#8a0017"
