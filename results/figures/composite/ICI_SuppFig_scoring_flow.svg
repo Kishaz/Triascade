@@ -931,10 +931,10 @@
 <text x='298.92' y='119.31' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>CXCR3</text>
 <text x='298.92' y='146.60' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>VEGFA</text>
 <text x='298.91' y='158.57' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>TGFB1</text>
-<text x='298.92' y='165.75' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>COL1A1</text>
+<text x='298.92' y='165.76' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>COL1A1</text>
 <text x='298.91' y='175.33' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>FAP</text>
 <text x='298.91' y='200.23' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>GZMB</text>
-<text x='298.91' y='209.81' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>PRF1</text>
+<text x='298.91' y='209.80' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>PRF1</text>
 <text x='298.91' y='214.59' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>NKG7</text>
 <text x='298.92' y='226.56' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>CD8A</text>
 <text x='298.92' y='246.67' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>PDCD1</text>
@@ -1942,7 +1942,7 @@
 <line x1='300.72' y1='455.97' x2='311.73' y2='455.97' style='stroke-width: 0.26; stroke: #8A7F71;' />
 <line x1='300.71' y1='465.54' x2='311.73' y2='465.54' style='stroke-width: 0.26; stroke: #8A7F71;' />
 <line x1='300.71' y1='490.44' x2='311.73' y2='490.44' style='stroke-width: 0.26; stroke: #8A7F71;' />
-<line x1='300.71' y1='500.02' x2='311.73' y2='500.02' style='stroke-width: 0.26; stroke: #8A7F71;' />
+<line x1='300.71' y1='500.01' x2='311.73' y2='500.01' style='stroke-width: 0.26; stroke: #8A7F71;' />
 <line x1='300.71' y1='504.80' x2='311.73' y2='504.80' style='stroke-width: 0.26; stroke: #8A7F71;' />
 <line x1='300.72' y1='516.77' x2='311.73' y2='516.77' style='stroke-width: 0.26; stroke: #8A7F71;' />
 <line x1='300.72' y1='536.88' x2='311.73' y2='536.88' style='stroke-width: 0.26; stroke: #8A7F71;' />
@@ -2111,23 +2111,22 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpNS42N3w0ODcuNTZ8NTg5LjI0fDYyOS4yOQ==)'>
-<text x='27.57' y='600.16' style='font-size: 8.50px; font-weight: bold; font-family: "Arial";'>Gene / layer z:</text>
-<circle cx='110.81' cy='597.13' r='2.70' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #9C7A3E;' />
-<circle cx='125.27' cy='597.13' r='2.70' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #C8B38F;' />
-<circle cx='139.72' cy='597.13' r='2.70' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #F4ECE0;' />
-<circle cx='154.18' cy='597.13' r='2.70' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #AF8C9D;' />
-<circle cx='168.64' cy='597.13' r='2.70' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #6A2C5A;' />
-<text x='104.24' y='599.98' text-anchor='end' style='font-size: 8.00px; font-family: "Arial";'>low</text>
-<text x='189.66' y='599.98' style='font-size: 8.00px; font-family: "Arial";'>high</text>
-<rect x='257.93' y='595.30' width='3.66' height='3.66' style='stroke-width: 0.28; stroke: #8A7F71; fill: #6A2C5A;' />
-<text x='268.52' y='599.98' style='font-size: 8.00px; font-family: "Arial";'>≥ ref median (on)</text>
-<rect x='30.13' y='610.47' width='3.66' height='3.66' style='stroke-width: 0.28; stroke: #8A7F71; fill: #FBF7F0;' />
-<text x='40.72' y='615.16' style='font-size: 8.00px; font-family: "Arial";'>&lt; ref median (off)</text>
-<line x1='154.62' y1='612.30' x2='176.52' y2='612.30' style='stroke-width: 1.71; stroke: #6A2C5A; stroke-linecap: butt;' />
-<text x='180.90' y='615.16' style='font-size: 8.00px; font-family: "Arial";'>activating (+)</text>
-<line x1='259.76' y1='612.30' x2='281.66' y2='612.30' style='stroke-width: 1.71; stroke: #9C7A3E; stroke-linecap: butt;' />
-<text x='286.04' y='615.16' style='font-size: 8.00px; font-family: "Arial";'>suppressive (−)</text>
-<text x='31.95' y='628.81' style='font-size: 8.00px; font-family: "Arial";'>number beside each layer = its score (Sensory 0–1; Integration, Execution −1…+1); lowest layer = the floor / rate-limiting step</text>
+<text x='27.57' y='602.18' style='font-size: 8.50px; font-weight: bold; font-family: "Arial";'>Gene / layer z:</text>
+<circle cx='110.81' cy='599.15' r='2.70' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #9C7A3E;' />
+<circle cx='125.27' cy='599.15' r='2.70' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #C8B38F;' />
+<circle cx='139.72' cy='599.15' r='2.70' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #F4ECE0;' />
+<circle cx='154.18' cy='599.15' r='2.70' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #AF8C9D;' />
+<circle cx='168.64' cy='599.15' r='2.70' style='stroke-width: 0.71; stroke: #FFFFFF; fill: #6A2C5A;' />
+<text x='104.24' y='602.01' text-anchor='end' style='font-size: 8.00px; font-family: "Arial";'>low</text>
+<text x='189.66' y='602.01' style='font-size: 8.00px; font-family: "Arial";'>high</text>
+<rect x='257.93' y='597.32' width='3.66' height='3.66' style='stroke-width: 0.28; stroke: #8A7F71; fill: #6A2C5A;' />
+<text x='268.52' y='602.01' style='font-size: 8.00px; font-family: "Arial";'>≥ ref median (on)</text>
+<rect x='30.13' y='617.55' width='3.66' height='3.66' style='stroke-width: 0.28; stroke: #8A7F71; fill: #FBF7F0;' />
+<text x='40.72' y='622.24' style='font-size: 8.00px; font-family: "Arial";'>&lt; ref median (off)</text>
+<line x1='154.62' y1='619.38' x2='176.52' y2='619.38' style='stroke-width: 1.71; stroke: #6A2C5A; stroke-linecap: butt;' />
+<text x='180.90' y='622.24' style='font-size: 8.00px; font-family: "Arial";'>activating (+)</text>
+<line x1='259.76' y1='619.38' x2='281.66' y2='619.38' style='stroke-width: 1.71; stroke: #9C7A3E; stroke-linecap: butt;' />
+<text x='286.04' y='622.24' style='font-size: 8.00px; font-family: "Arial";'>suppressive (−)</text>
 </g>
 <g clip-path='url(#cpMC4wMHw0OTMuMjN8MC4wMHw2MzQuOTY=)'>
 </g>

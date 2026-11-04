@@ -95,7 +95,7 @@ pB  <- draw_patient(P["blocked"],"N2", "blocked non-responder")
 pK  <- draw_patient(P["nokill"], "N3", "no-kill non-responder")
 
 ## ---- shared legend ---------------------------------------------------------
-leg <- ggplot() + xlim(0,10) + ylim(0,2.4) + theme_void() +
+leg <- ggplot() + xlim(0,10) + ylim(0.6,2.4) + theme_void() +
   # z gradient swatches
   annotate("text", x=0, y=2, label="Gene / layer z:", hjust=0, family=PUB_FONT, size=(PT_BASE-1.5)/.pt, fontface=2, colour=INK) +
   annotate("point", x=1.9+(0:4)*0.33, y=2, shape=21, size=2.2, colour="white",
@@ -112,9 +112,6 @@ leg <- ggplot() + xlim(0,10) + ylim(0,2.4) + theme_void() +
   annotate("text", x=3.5, y=1, label="activating (+)", hjust=0, family=PUB_FONT, size=(PT_BASE-2)/.pt, colour=INK) +
   annotate("segment", x=5.3, xend=5.8, y=1, yend=1, colour=SAND_DEEP, linewidth=0.8) +
   annotate("text", x=5.9, y=1, label="suppressive (−)", hjust=0, family=PUB_FONT, size=(PT_BASE-2)/.pt, colour=INK) +
-  # layer score note
-  annotate("text", x=0.1, y=0.1, label="number beside each layer = its score (Sensory 0–1; Integration, Execution −1…+1); lowest layer = the floor / rate-limiting step",
-           hjust=0, family=PUB_FONT, size=(PT_BASE-2)/.pt, colour=INK) +
   theme(plot.margin=margin(1,2,1,2,"mm"))
 
 tag_th <- theme(plot.tag=element_text(size=PT_PANEL_TAG, face="bold", family=PUB_FONT, colour=INK, hjust=0, vjust=1))
