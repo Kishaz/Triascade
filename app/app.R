@@ -385,18 +385,19 @@ about_tab <- nav_panel(title = tagList(icon("circle-info"), " About"), value = "
 ui <- page_navbar(
   id = "nav",
   window_title = "CascadeScope",
-  title = div(style="display:flex;align-items:center;gap:10px",
+  title = div(style="display:flex;align-items:center;gap:9px",
     HTML('<svg width="38" height="38" viewBox="0 0 120 120" style="display:block;flex:none">
       <rect width="120" height="120" rx="26" fill="#6A2C5A"/>
       <rect x="28" y="32" width="64" height="14" rx="7" fill="#ffffff"/>
       <rect x="28" y="54" width="46" height="14" rx="7" fill="#ffffff" fill-opacity="0.82"/>
       <rect x="28" y="76" width="30" height="14" rx="7" fill="#E8B54B"/>
     </svg>'),
-    div(style="line-height:1.06",
+    div(style="width:2px;align-self:stretch;margin:4px 0;background:#6A2C5A;border-radius:1px;opacity:.55"),
+    div(style="line-height:1.12",
       div(style="font-weight:800;font-size:1.15rem;letter-spacing:.2px",
           HTML('<span style="color:#6A2C5A">Cascade</span><span style="color:#9C7A3E">Scope</span>')),
-      div("Immune Cascade Index", style="font-size:0.74rem;font-weight:600;color:#6A2C5A;letter-spacing:.3px"),
-      div("See where immunity stalls.", style="font-size:0.62rem;color:#777777;margin-top:1px"))),
+      div("Immune Cascade Index", style="font-size:0.74rem;font-weight:600;color:#777777;letter-spacing:.3px"),
+      div("See where immunity stalls.", style="font-size:0.62rem;font-style:italic;color:#6A2C5A"))),
   theme = app_theme, fillable = FALSE,
   header = tagList(
     tags$head(

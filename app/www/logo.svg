@@ -1,15 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="470" height="150" viewBox="0 0 470 150"
+<svg xmlns="http://www.w3.org/2000/svg" width="470" height="140" viewBox="0 0 470 140"
      font-family="Inter, 'Helvetica Neue', Arial, sans-serif">
   <!-- CascadeScope lockup. Fading-cascade mark with the lowest ("rate-limiting") step in gold;
-       wordmark in plum/gold; descriptor + tagline in a clean medium-weight sans.
+       a thin rule separates mark from wordmark. Descriptor in grey, tagline in plum.
        All text kept as live <text> (editable in Inkscape/Illustrator); no textLength. -->
-  <g transform="translate(18,33)">
+  <g transform="translate(18,30)">
     <rect width="84" height="84" rx="19" fill="#6A2C5A"/>
     <rect x="20" y="22" width="44" height="10" rx="5" fill="#ffffff"/>
     <rect x="20" y="37" width="32" height="10" rx="5" fill="#ffffff" fill-opacity="0.82"/>
     <rect x="20" y="52" width="21" height="10" rx="5" fill="#E8B54B"/>
   </g>
-  <text x="118" y="60" font-size="38" font-weight="800"><tspan fill="#6A2C5A">Cascade</tspan><tspan fill="#9C7A3E">Scope</tspan></text>
-  <text x="120" y="90" font-size="16" font-weight="600" letter-spacing="0.4" fill="#6A2C5A">Immune Cascade Index</text>
-  <text x="120" y="114" font-size="14" font-weight="400" fill="#777777">See where immunity stalls.</text>
+  <line x1="113" y1="36" x2="113" y2="112" stroke="#6A2C5A" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+  <text x="126" y="54" font-size="37" font-weight="800"><tspan fill="#6A2C5A">Cascade</tspan><tspan fill="#9C7A3E">Scope</tspan></text>
+  <text x="128" y="82" font-size="16" font-weight="600" letter-spacing="0.4" fill="#777777">Immune Cascade Index</text>
+  <text x="128" y="104" font-size="14" font-weight="400" font-style="italic" fill="#6A2C5A">See where immunity stalls.</text>
 </svg>
