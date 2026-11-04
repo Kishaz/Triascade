@@ -9,7 +9,6 @@
     <rect x="18" y="48" width="19" height="9" rx="4.5" fill="#ffffff" fill-opacity="0.56"/>
   </g>
   <text x="110" y="62" font-size="38" font-weight="800"><tspan fill="#6A2C5A">Cascade</tspan><tspan fill="#9C7A3E">Scope</tspan></text>
-  <text x="112" y="105" font-size="32" font-style="italic" fill="#6A2C5A"
-        font-family="'Snell Roundhand','Apple Chancery','Segoe Script','Brush Script MT',cursive">ICI</text>
-  <text x="214" y="104" font-size="15" fill="#555555">Immune Cascade Index</text>
+  <text x="112" y="104" font-size="29" font-style="italic" fill="#6A2C5A"
+        font-family="'Snell Roundhand','Apple Chancery','Segoe Script','Brush Script MT',cursive">Immune Cascade Index</text>
 </svg>

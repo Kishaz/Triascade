@@ -395,8 +395,7 @@ ui <- page_navbar(
     div(style="line-height:1.08",
       div(style="font-weight:800;font-size:1.18rem;letter-spacing:.2px",
           HTML('<span style="color:#6A2C5A">Cascade</span><span style="color:#9C7A3E">Scope</span>')),
-      div(span("ICI", class="cs-ici", style="color:#6A2C5A;font-size:1.28rem;font-weight:600;margin-right:7px"),
-          span("Immune Cascade Index", style="font-size:0.66rem;color:#555555;font-weight:500;letter-spacing:.3px")))),
+      div(span("Immune Cascade Index", class="cs-ici", style="color:#6A2C5A;font-size:1.0rem;font-weight:600")))),
   theme = app_theme, fillable = FALSE,
   header = tagList(
     tags$head(
