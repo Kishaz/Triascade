@@ -2,7 +2,7 @@
 # CascadeScope - score tumor RNA against a locked Immune Cascade Index (ICI)
 # reference (single-patient, selfnorm, cohort-independent). One consistent scale
 # throughout: the STANDARDIZED SCORE vs the reference population (0 = reference
-# median, in SD units; left of the typical-range band = rate-limiting).
+# median, in SD units; left of the typical-range band = lowest layer).
 #   * Patient report  : one-patient read-out (call, gauge, drill-down) + PDF
 #   * Gene drivers     : how all 98 panel genes scored for the selected patient
 #   * Cohort explorer  : archetype proportions, distributions, click-through beeswarm
@@ -37,7 +37,7 @@ PALETTES <- list(
 DEF <- PALETTES[[1]]
 GENE_DIV <- c(low="#2166AC", mid="#F7F7F7", high="#B2182B")   # diverging: below / at / above reference
 BAND <- 0.674                                                # typical range = middle 50% of reference (SD units)
-FLOOR_T <- -0.5                                              # a layer below this is the rate-limiting step
+FLOOR_T <- -0.5                                              # a layer below this is flagged as the lowest layer
 
 # ---- contrast helpers (WCAG relative luminance) -----------------------------
 # ink(bg): the higher-contrast of black/white for text on a colour.
@@ -60,14 +60,14 @@ GLOSS <- c(intact="inflamed / hot", cold="immune-desert", blocked="immune-exclud
 CALL <- list(
   intact  = list(short="Immune-engaged", t="Immune-engaged (inflamed / hot): all three layers intact",
     s="All three cascade layers are within or above the typical range of the reference, a profile consistent with checkpoint-blockade benefit. If this tumor does not respond, resistance likely lies outside the measured immune cascade."),
-  cold    = list(short="Cold", t="Cold (immune-desert): Sensory is the limiting step",
-    s="Antigen presentation and IFN signaling are the rate-limiting layer: the tumor is immunologically cold. Checkpoint blockade alone is unlikely to engage an anti-tumor immune response that is largely absent."),
-  blocked = list(short="Blocked", t="Blocked (immune-excluded): Integration is the limiting step",
-    s="T-cell trafficking and infiltration are the limiting layer, a pattern consistent with stromal or TGF-beta mediated exclusion. Checkpoint blockade alone is unlikely to overcome exclusion."),
-  `no-kill`= list(short="No-kill", t="No-kill (inflamed-dysfunctional): Execution is the limiting step",
-    s="Immune cells have reached the tumor, but cytotoxic effector output — the shared killing program of CD8 T cells and NK cells — is the limiting layer (effector-deficient or exhausted)."))
+  cold    = list(short="Cold", t="Cold (immune-desert): Sensory is the lowest layer",
+    s="Antigen presentation and IFN signaling are the lowest-scoring layer: the tumor is immunologically cold. Checkpoint blockade alone is unlikely to engage an anti-tumor immune response that is largely absent."),
+  blocked = list(short="Blocked", t="Blocked (immune-excluded): Integration is the lowest layer",
+    s="T-cell trafficking and infiltration are the lowest-scoring layer, a pattern consistent with stromal or TGF-beta mediated exclusion. Checkpoint blockade alone is unlikely to overcome exclusion."),
+  `no-kill`= list(short="No-kill", t="No-kill (inflamed-dysfunctional): Execution is the lowest layer",
+    s="Immune cells have reached the tumor, but cytotoxic effector output — the shared killing program of CD8 T cells and NK cells — is the lowest layer (effector-deficient or exhausted)."))
 BIO_LEAD <- list(
-  intact  = "No single limiting layer. If the tumor is non-responsive, look outside the cascade.",
+  intact  = "No layer stands out as low; all three are within range of the reference. If the tumor is non-responsive, look outside the cascade.",
   cold    = "Priming is the gap: the immune response is not being started.",
   blocked = "Entry is the gap: immune cells are held at the margin and kept out of the tumor.",
   `no-kill`= "Killing is the gap: cytotoxic lymphocytes (CD8 T and NK cells) are present but their killing output is low.")
@@ -76,7 +76,7 @@ BIO_CHIPS <- list(
   cold    = c("Antigen-presentation / IFN induction", "Innate agonists (STING / TLR)", "Radiation + ICB", "Vaccine combinations"),
   blocked = c("Anti-TGF-β", "Anti-angiogenic", "Stroma-directed combinations"),
   `no-kill`= c("LAG-3", "TIM-3", "TIGIT", "Effector cytokine support"))
-GAUGE_CAP <- "Each bar is the patient's standardized score for that layer versus the reference population (0 = reference median, in SD units; shaded band = typical range, the middle 50% of the reference). The lowest layer, starred, is the rate-limiting step."
+GAUGE_CAP <- "Each bar is the patient's standardized score for that layer versus the reference population (0 = reference median, in SD units; shaded band = typical range, the middle 50% of the reference). The lowest layer versus the reference is starred."
 RUO <- "Research use only. Investigational biomarker; not a validated clinical test. Does not replace approved biomarkers (PD-L1, TMB, MSI) or clinical judgment. Mechanistic rationale is hypothesis-generating, not a treatment recommendation."
 
 # ---- multi-format reader (CSV / TSV / Excel) --------------------------------
@@ -119,8 +119,8 @@ build_gauge <- function(p, lay = DEF$lay){
     geom_point(aes(x=z), colour=g$fill, size=7) +
     geom_text(aes(x=lx, label=sprintf("%+.1f", z), hjust=hj), colour="black", fontface=2, size=3.6)
   if (nrow(fl)) pl <- pl +
-    geom_point(data=fl, aes(x=z, shape="Rate-limiting step (lowest layer)"), colour="black", size=4.4, stroke=1.3) +
-    scale_shape_manual(name=NULL, values=c("Rate-limiting step (lowest layer)"=8))
+    geom_point(data=fl, aes(x=z, shape="Lowest layer (below typical range)"), colour="black", size=4.4, stroke=1.3) +
+    scale_shape_manual(name=NULL, values=c("Lowest layer (below typical range)"=8))
   pl +
     scale_x_continuous("Standardized score vs reference  (0 = median)",
                        limits=c(-lim,lim), breaks=seq(-2,2,1)) +
@@ -135,11 +135,11 @@ build_gauge <- function(p, lay = DEF$lay){
 
 # ---- per-patient cascade drill-down (sub-module decomposition) --------------
 drill_text <- function(smz, floor_layer){
-  if (is.null(smz) || floor_layer=="none") return("All three layers are within the typical range: no single limiting sub-module.")
+  if (is.null(smz) || floor_layer=="none") return("All three layers are within the typical range; no sub-module stands out.")
   subs <- SM_ORD[SM_LAYER[SM_ORD]==floor_layer]
   z <- as.numeric(smz[subs]); names(z) <- subs
   unfav <- ifelse(SM_SIGN[subs]=="+", -z, z); w <- subs[which.max(unfav)]
-  sprintf("%s is limited by %s %s (standardized score %+.2f vs reference).", floor_layer,
+  sprintf("In the %s layer, %s %s is furthest from the reference (standardized score %+.2f).", floor_layer,
           if (SM_SIGN[w]=="+") "low" else "high", SM_LAB[w], z[w])
 }
 build_drilldown <- function(smz, floor_layer, lay = DEF$lay){
@@ -296,15 +296,15 @@ build_report <- function(p, a, cov, np, arch = DEF$arch, lay = DEF$lay, smz = NU
     annotate("text",x=0,y=0.33,hjust=0,vjust=1,label=wrap(paste0("What this means: ",CALL[[ar]]$s),88),size=3.2,colour="black",lineheight=0.95)+
     annotate("text",x=0,y=0.08,hjust=0,vjust=1,label=wrap(paste0("Layer scores:  ",readout),92),size=2.95,colour="black",lineheight=0.95)
   bottom <- tp() +
-    (if (!is.null(drv)) annotate("text",x=0,y=0.98,hjust=0,vjust=1,label=wrap(paste0("Rate-limiting step: ",drv),84),fontface=2,size=3.3,colour="black")) +
-    annotate("text",x=0,y=0.80,hjust=0,vjust=1,label=wrap(paste0("Limiting-layer biology (investigational): ",BIO_LEAD[[ar]],"  Directions: ",paste(BIO_CHIPS[[ar]],collapse=", "),"."),92),size=3.0,colour="black",lineheight=0.95)+
+    (if (!is.null(drv)) annotate("text",x=0,y=0.98,hjust=0,vjust=1,label=wrap(drv,84),fontface=2,size=3.3,colour="black")) +
+    annotate("text",x=0,y=0.80,hjust=0,vjust=1,label=wrap(paste0("Lowest-layer biology (investigational): ",BIO_LEAD[[ar]],"  Directions: ",paste(BIO_CHIPS[[ar]],collapse=", "),"."),92),size=3.0,colour="black",lineheight=0.95)+
     annotate("text",x=0,y=0.52,hjust=0,vjust=1,label=wrap(GAUGE_CAP,100),size=2.9,colour="black",lineheight=0.95)+
     annotate("text",x=0,y=0.30,hjust=0,vjust=1,label=wrap(sprintf("Method: scored with %s (%d genes); reference %s; per-sample self-normalization; panel coverage %d/%d; reference built %s.",
              a$version,a$n_genes,a$ref_label,cov,np,as.character(a$built)),104),size=2.85,colour="black",lineheight=0.95)+
     annotate("text",x=0,y=0.13,hjust=0,vjust=1,label=wrap(RUO,104),size=2.8,colour="black",lineheight=0.95)
   if (!is.null(smz)) {
     dd <- build_drilldown(smz, p$floor_layer, lay) +
-          ggtitle("Cascade drill-down: limiting sub-module") +
+          ggtitle("Cascade drill-down: sub-modules of the lowest layer") +
           theme(plot.title = element_text(face=2, size=11, colour="black"))
     return(top / build_gauge(p, lay) / dd / bottom + plot_layout(heights=c(1.5,1.0,1.2,1.55)))
   }
@@ -352,7 +352,7 @@ about_tab <- nav_panel(title = tagList(icon("circle-info"), " About"), value = "
         "",
         "**Execution** measures the shared cytotoxic machinery of **CD8 T cells and NK cells** (granzymes, perforin, granulysin, NKG7): it reflects their combined killing output and does not separate the two lineages.",
         "",
-        "The **lowest** layer relative to the reference is flagged as the **rate-limiting step** - the stage most likely to be holding the response back.",
+        "The **lowest** layer relative to the reference is flagged for attention - the stage that reads weakest versus the reference population. (It marks where the cascade score is lowest, not a proven causal bottleneck.)",
         sep="\n")),
       card_header("One scale throughout"),
       markdown(paste(
@@ -361,7 +361,7 @@ about_tab <- nav_panel(title = tagList(icon("circle-info"), " About"), value = "
         "- **0** = the reference median.",
         "- Units are **standard deviations** of the reference.",
         "- The **shaded band** on each gauge is the *typical range* (middle 50% of the reference).",
-        "- A layer **left of the band** is flagged as the rate-limiting step.",
+        "- The layer **left of the band** is flagged as the lowest versus the reference.",
         "",
         "Genes are colored by the same idea: <span style='color:#6A2C5A'>**plum = above the reference**</span>,",
         "<span style='color:#9C7A3E'>**gold = below**</span>. A filled square (black outline) marks a gene the score counts as \"on\".",
@@ -435,13 +435,13 @@ ui <- page_navbar(
     accordion(id = "acc", open = c("meaning","biology"),
       accordion_panel("What this result means", value = "meaning",
         uiOutput("rep_meaning")),
-      accordion_panel("Limiting-layer biology & investigational directions", value = "biology",
+      accordion_panel("Lowest-layer biology & investigational directions", value = "biology",
         uiOutput("rep_bio")),
-      accordion_panel("Cascade drill-down: which sub-module limits the floor", value = "drill",
+      accordion_panel("Cascade drill-down: sub-modules within the lowest layer", value = "drill",
         plotOutput("drill", height = "230px"),
         uiOutput("drill_text"),
         div(style="font-size:0.74rem;color:#000000;margin-top:4px",
-            "Activating programs (+): higher is better. Suppressive programs (−): lower is better. The ringed point is the sub-module driving the rate-limiting layer.")),
+            "Activating programs (+): higher is better. Suppressive programs (−): lower is better. The ringed point is the sub-module furthest from the reference in the lowest layer.")),
       accordion_panel("Gene drivers: how all 98 panel genes scored", value = "genes",
         div(style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:4px",
           div(style="min-width:260px", selectInput("gene_layer", "Show", width="100%",
@@ -540,7 +540,7 @@ server <- function(input, output, session) {
 
   # ---- Patient report ----
   output$rep_floor_badge <- renderUI({ req(patient()); p<-patient(); col<-unname(pal()$arch[p$archetype])
-    lab <- if (p$floor_layer=="none") "All three layers intact" else sprintf("Rate-limiting step: %s ★", p$floor_layer)
+    lab <- if (p$floor_layer=="none") "All three layers intact" else sprintf("Lowest layer: %s ★", p$floor_layer)
     span(lab, style=sprintf("display:inline-block;padding:4px 13px;border-radius:999px;font-weight:700;font-size:0.9rem;color:%s;background:%s", ink(col), col)) })
   output$rep_hdr <- renderText({ req(patient()); st<-studylab()
     if (nzchar(st)) sprintf("Patient %s  ·  %s", patient()$sample, st) else sprintf("Patient %s", patient()$sample) })
@@ -565,7 +565,7 @@ server <- function(input, output, session) {
   output$gauge <- renderPlot({ req(patient()); build_gauge(patient(), pal()$lay) }, res=108)
   output$drill <- renderPlot({ req(psub()); build_drilldown(psub(), patient()$floor_layer, pal()$lay) }, res=108)
   output$drill_text <- renderUI({ req(psub()); div(style="font-size:0.88rem;color:#000000;margin-top:6px",
-      tags$b("Floor driver.  "), drill_text(psub(), patient()$floor_layer)) })
+      drill_text(psub(), patient()$floor_layer)) })
   output$dl_pdf <- downloadHandler(
     filename = function(){ base <- gsub("[^A-Za-z0-9]", "", patient()$sample); sl <- study_slug()
       if (nzchar(sl)) sprintf("ICI_report_%s_%s.pdf", sl, base) else sprintf("ICI_report_%s.pdf", base) },
@@ -595,7 +595,7 @@ server <- function(input, output, session) {
     L <- do.call(rbind, lapply(c("Sensory","Integration","Execution"), function(l)
       data.frame(sample=s$sample, layer=l, z=s[[l]], archetype=s$archetype, floor=s$floor_layer)))
     L$layer <- factor(L$layer, c("Sensory","Integration","Execution"))
-    L$tt <- sprintf("<b>%s</b><br>S %+.2f · I %+.2f · E %+.2f<br>floor: %s · %s",
+    L$tt <- sprintf("<b>%s</b><br>S %+.2f · I %+.2f · E %+.2f<br>lowest: %s · %s",
       L$sample, s$Sensory[match(L$sample,s$sample)], s$Integration[match(L$sample,s$sample)],
       s$Execution[match(L$sample,s$sample)], L$floor, L$archetype)
     set.seed(1); L$jit <- runif(nrow(L), -0.26, 0.26); L })
