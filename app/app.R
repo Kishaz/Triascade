@@ -19,7 +19,7 @@ ref_choices <- setNames(ref_files, vapply(ref_files, function(f){ m<-readRDS(f)
 
 # ---- colour palettes (archetype + layer); user-selectable --------------------
 PALETTES <- list(
-  "Okabe-Ito (colour-blind safe)" = list(
+  "Okabe-Ito (color-blind safe)" = list(
     arch = c(intact="#009E73", cold="#0072B2", blocked="#D55E00", `no-kill`="#CC79A7"),
     lay  = c(Sensory="#E69F00", Integration="#0072B2", Execution="#CC79A7")),
   "House (plum / sand)" = list(
@@ -38,13 +38,13 @@ app_theme <- bs_theme(version = 5, bg = "#ffffff", fg = "#000000", primary = "#6
   secondary = "#9C7A3E", base_font = SANS, heading_font = SANS, "border-radius" = "0.65rem")
 
 CALL <- list(
-  intact  = list(t="Immune-engaged: all three layers intact",
-    s="All three cascade layers are intact relative to the reference, a profile consistent with checkpoint-blockade benefit. If this tumour does not respond, resistance likely lies outside the measured immune cascade."),
-  cold    = list(t="Cold: Sensory is the limiting step",
-    s="Antigen presentation and IFN signalling are the rate-limiting layer: the tumour is immunologically cold. Checkpoint blockade alone is unlikely to engage an absent T-cell response."),
-  blocked = list(t="Blocked: Integration is the limiting step",
+  intact  = list(t="Immune-engaged (inflamed / hot): all three layers intact",
+    s="All three cascade layers are intact relative to the reference, a profile consistent with checkpoint-blockade benefit. If this tumor does not respond, resistance likely lies outside the measured immune cascade."),
+  cold    = list(t="Cold (immune-desert): Sensory is the limiting step",
+    s="Antigen presentation and IFN signaling are the rate-limiting layer: the tumor is immunologically cold. Checkpoint blockade alone is unlikely to engage an absent T-cell response."),
+  blocked = list(t="Blocked (immune-excluded): Integration is the limiting step",
     s="T-cell trafficking and infiltration are the limiting layer, a pattern consistent with stromal or TGF-beta mediated exclusion. Checkpoint blockade alone is unlikely to overcome exclusion."),
-  `no-kill`= list(t="No-kill: Execution is the limiting step",
+  `no-kill`= list(t="No-kill (inflamed-dysfunctional): Execution is the limiting step",
     s="A T-cell compartment is present but cytotoxic effector output is the limiting layer (effector-deficient or exhausted)."))
 BIO <- list(
   intact  = "No single limiting layer. If non-responsive, consider non-cascade escape (antigen loss, B2M or MHC defects, non-immune resistance).",
@@ -52,7 +52,7 @@ BIO <- list(
   blocked = "Mechanistic rationale (investigational): exclusion-targeting such as anti-TGF-beta, anti-angiogenic, or stroma-directed combinations.",
   `no-kill`= "Mechanistic rationale (investigational): effector support or exhaustion reversal, for example LAG3, TIM-3 or TIGIT combinations, or cytokine support.")
 GAUGE_CAP <- "Each bar is the patient's score for that layer as a percentile of the reference population (50 = median; shaded band = typical middle 50%). The lowest layer is the rate-limiting step."
-RUO <- "Research use only. Investigational biomarker; not a validated clinical test. Does not replace approved biomarkers (PD-L1, TMB, MSI) or clinical judgement. Mechanistic rationale is hypothesis-generating, not a treatment recommendation."
+RUO <- "Research use only. Investigational biomarker; not a validated clinical test. Does not replace approved biomarkers (PD-L1, TMB, MSI) or clinical judgment. Mechanistic rationale is hypothesis-generating, not a treatment recommendation."
 
 # ---- multi-format reader (CSV / TSV / Excel) --------------------------------
 read_expr_file <- function(path, name){
@@ -143,39 +143,49 @@ build_layer_violin <- function(scores, lay = DEF$lay){
     theme_minimal(base_size=13) + theme(panel.grid=element_blank(),
       axis.text=element_text(colour="black"), axis.title=element_text(colour="black"))
 }
-build_report <- function(p, a, cov, np, arch = DEF$arch, lay = DEF$lay, smz = NULL){
+build_report <- function(p, a, cov, np, arch = DEF$arch, lay = DEF$lay, smz = NULL, study = NULL){
   wrap <- function(s,w=104) paste(strwrap(s,w), collapse="\n"); ar <- p$archetype
   tp <- function() ggplot()+xlim(0,1)+ylim(0,1)+theme_void()
+  lz <- c(Sensory=p$Sensory, Integration=p$Integration, Execution=p$Execution)
+  readout <- paste(sprintf("%s %s pct (z %+.2f)", names(lz), vapply(round(pnorm(lz)*100), ordinal, character(1)), lz), collapse="    ·    ")
+  hdr <- if (!is.null(study) && nzchar(study)) sprintf("Study: %s        Generated: %s", study, Sys.Date()) else sprintf("Generated: %s", Sys.Date())
+  drv <- if (!is.null(smz)) drill_text(smz, p$floor_layer) else NULL
   top <- tp() +
-    annotate("text",x=0,y=0.97,hjust=0,vjust=1,label="Immune Cascade Index: patient report",fontface=2,size=6.3,colour="#6A2C5A")+
-    annotate("text",x=0,y=0.72,hjust=0,vjust=1,label=sprintf("Patient: %s",p$sample),size=4.3,colour="black")+
-    annotate("text",x=0,y=0.5,hjust=0,vjust=1,label=CALL[[ar]]$t,fontface=2,size=5.3,colour=unname(arch[ar]))+
-    annotate("text",x=0,y=0.32,hjust=0,vjust=1,label=wrap(CALL[[ar]]$s),size=3.8,colour="black",lineheight=0.95)
+    annotate("text",x=0,y=0.98,hjust=0,vjust=1,label="Immune Cascade Index: patient report",fontface=2,size=5.9,colour="#6A2C5A")+
+    annotate("text",x=0,y=0.82,hjust=0,vjust=1,label=hdr,size=3.2,colour="black")+
+    annotate("text",x=0,y=0.70,hjust=0,vjust=1,label=sprintf("Patient: %s",p$sample),fontface=2,size=3.9,colour="black")+
+    annotate("text",x=0,y=0.55,hjust=0,vjust=1,label="RESULT",fontface=2,size=3.0,colour="#6A2C5A")+
+    annotate("text",x=0,y=0.47,hjust=0,vjust=1,label=CALL[[ar]]$t,fontface=2,size=4.2,colour=unname(arch[ar]))+
+    annotate("text",x=0,y=0.33,hjust=0,vjust=1,label=wrap(paste0("What this means: ",CALL[[ar]]$s),88),size=3.2,colour="black",lineheight=0.95)+
+    annotate("text",x=0,y=0.08,hjust=0,vjust=1,label=wrap(paste0("Layer scores:  ",readout),92),size=2.95,colour="black",lineheight=0.95)
   bottom <- tp() +
-    annotate("text",x=0,y=0.97,hjust=0,vjust=1,label=wrap(paste0("Limiting-layer biology: ",BIO[[ar]])),size=3.7,colour="black",lineheight=0.95)+
-    annotate("text",x=0,y=0.63,hjust=0,vjust=1,label=wrap(GAUGE_CAP),size=3.3,colour="black",lineheight=0.95)+
-    annotate("text",x=0,y=0.33,hjust=0,vjust=1,label=sprintf("Scored with %s (%d genes)  |  reference %s  |  coverage %d/%d  |  %s",
-             a$version,a$n_genes,a$ref_label,cov,np,as.character(a$built)),size=3,colour="black")+
-    annotate("text",x=0,y=0.2,hjust=0,vjust=1,label=wrap(RUO,110),size=2.9,colour="black",lineheight=0.95)
+    (if (!is.null(drv)) annotate("text",x=0,y=0.98,hjust=0,vjust=1,label=wrap(paste0("Rate-limiting step: ",drv),84),fontface=2,size=3.3,colour="black")) +
+    annotate("text",x=0,y=0.80,hjust=0,vjust=1,label=wrap(BIO[[ar]],92),size=3.1,colour="black",lineheight=0.95)+
+    annotate("text",x=0,y=0.56,hjust=0,vjust=1,label=wrap(GAUGE_CAP,100),size=2.9,colour="black",lineheight=0.95)+
+    annotate("text",x=0,y=0.34,hjust=0,vjust=1,label=wrap(sprintf("Method: scored with %s (%d genes); reference %s; per-sample self-normalization; panel coverage %d/%d; reference built %s.",
+             a$version,a$n_genes,a$ref_label,cov,np,as.character(a$built)),104),size=2.85,colour="black",lineheight=0.95)+
+    annotate("text",x=0,y=0.15,hjust=0,vjust=1,label=wrap(RUO,104),size=2.8,colour="black",lineheight=0.95)
   if (!is.null(smz)) {
     dd <- build_drilldown(smz, p$floor_layer, lay) +
           ggtitle("Cascade drill-down: limiting sub-module") +
           theme(plot.title = element_text(face=2, size=11, colour="black"))
-    return(top / build_gauge(p, lay) / dd / bottom + plot_layout(heights=c(1.0,1.0,1.25,1.3)))
+    return(top / build_gauge(p, lay) / dd / bottom + plot_layout(heights=c(1.5,1.0,1.2,1.55)))
   }
-  top / build_gauge(p, lay) / bottom + plot_layout(heights=c(1.05,1.0,1.2))
+  top / build_gauge(p, lay) / bottom + plot_layout(heights=c(1.5,1.0,1.5))
 }
-build_cohort_report <- function(scores, a, cov, np, arch = DEF$arch, lay = DEF$lay){
+build_cohort_report <- function(scores, a, cov, np, arch = DEF$arch, lay = DEF$lay, study = NULL){
   wrap <- function(s,w=120) paste(strwrap(s,w), collapse="\n")
   n<-nrow(scores); tab<-table(factor(scores$archetype, names(arch))); pct<-round(100*as.numeric(tab)/n)
   medz <- sapply(c("Sensory","Integration","Execution"), function(l) median(scores[[l]]))
   arch_line <- paste(sprintf("%s %d (%d%%)", names(tab), as.numeric(tab), pct)[as.numeric(tab)>0], collapse="     ")
+  hdr <- if (!is.null(study) && nzchar(study)) sprintf("Study: %s        Generated: %s", study, Sys.Date()) else sprintf("Generated: %s", Sys.Date())
   top <- ggplot()+xlim(0,1)+ylim(0,1)+theme_void()+
-    annotate("text",x=0,y=0.95,hjust=0,vjust=1,label="Immune Cascade Index: cohort report",fontface=2,size=6.3,colour="#6A2C5A")+
-    annotate("text",x=0,y=0.6,hjust=0,vjust=1,size=3.7,colour="black",
+    annotate("text",x=0,y=0.96,hjust=0,vjust=1,label="Immune Cascade Index: cohort report",fontface=2,size=6.0,colour="#6A2C5A")+
+    annotate("text",x=0,y=0.76,hjust=0,vjust=1,size=3.5,colour="black",label=hdr)+
+    annotate("text",x=0,y=0.56,hjust=0,vjust=1,size=3.5,colour="black",
       label=sprintf("%d patients   |   coverage %d/%d panel genes   |   %s (%d genes)   |   reference %s", n, cov, np, a$version, a$n_genes, a$ref_label))+
-    annotate("text",x=0,y=0.34,hjust=0,vjust=1,size=3.7,colour="black", label=paste("Archetype breakdown:   ", arch_line))+
-    annotate("text",x=0,y=0.1,hjust=0,vjust=1,size=3.7,colour="black",
+    annotate("text",x=0,y=0.36,hjust=0,vjust=1,size=3.5,colour="black", label=paste("Archetype breakdown:   ", arch_line))+
+    annotate("text",x=0,y=0.16,hjust=0,vjust=1,size=3.5,colour="black",
       label=sprintf("Median layer scores (z):   Sensory %.2f    Integration %.2f    Execution %.2f", medz[1], medz[2], medz[3]))
   bottom <- ggplot()+xlim(0,1)+ylim(0,1)+theme_void()+
     annotate("text",x=0,y=0.85,hjust=0,vjust=1,size=2.9,colour="black", label=sprintf("%s  |  %s", a$version, as.character(a$built)))+
@@ -189,11 +199,14 @@ ui <- page_navbar(
   theme = app_theme, fillable = FALSE,
   sidebar = sidebar(width = 330, open = "open",
     selectInput("refver", "Panel / reference", choices = ref_choices, width = "100%"),
-    markdown("Score tumour **RNA-seq** (TPM, log-TPM or counts) against the selected locked reference. Upload a **gene × sample** table (**CSV, TSV or Excel**; first column = gene symbol); a single patient is just one sample."),
+    markdown("Score tumor **RNA-seq** (TPM, log-TPM or counts) against the selected locked reference. Upload a **gene × sample** table (**CSV, TSV or Excel**; first column = gene symbol); a single patient is just one sample."),
     fileInput("file", NULL, accept = c(".csv",".tsv",".txt",".xlsx",".xls"), buttonLabel = "Browse…", placeholder = "CSV / TSV / Excel"),
     div(style="margin-top:-8px;margin-bottom:8px;font-size:0.74rem;color:#000000",
         "Unsure of the format? ", downloadLink("dl_template", "Download an input template")),
     actionButton("example", "Load example cohort", class = "btn-outline-secondary btn-sm", width = "100%"),
+    textInput("study", "Study / cohort label (optional)", width = "100%", placeholder = "e.g. KEYNOTE-052 baseline"),
+    div(style="margin-top:-8px;margin-bottom:8px;font-size:0.72rem;color:#000000",
+        "Tags every report and download so you can tell runs apart."),
     selectInput("palette", "Colour palette", choices = names(PALETTES), width = "100%"),
     hr(), uiOutput("qc"), hr(),
     selectInput("dl_format", "Scores download format", choices = c("CSV","TSV","Excel"), width = "100%"),
@@ -208,6 +221,7 @@ ui <- page_navbar(
     card(card_header(textOutput("rep_hdr")),
       uiOutput("rep_call"),
       plotOutput("gauge", height = "220px"),
+      uiOutput("rep_readout"),
       div(style="font-size:0.78rem;color:#000000;margin-top:2px", GAUGE_CAP),
       uiOutput("rep_bio"), uiOutput("rep_stamp"),
       div(style="font-size:0.72rem;color:#000000;border-top:1px solid #000000;padding-top:8px;margin-top:6px", RUO)),
@@ -224,7 +238,9 @@ ui <- page_navbar(
       value_box("Cascade-intact", textOutput("intact", inline = TRUE), theme = value_box_theme(bg="#C9A66B", fg="#000000"))),
     div(style="margin:2px 0 8px 0", downloadButton("dl_cohort", "Download cohort report (PDF)", class = "btn-primary btn-sm")),
     layout_columns(col_widths = c(5,7),
-      card(full_screen=TRUE, card_header("Archetype proportions"), plotlyOutput("donut", height="300px")),
+      card(full_screen=TRUE, card_header("Archetype proportions"), plotlyOutput("donut", height="300px"),
+           div(style="font-size:0.72rem;color:#000000",
+               "Canonical phenotypes: cold = immune-desert  ·  blocked = immune-excluded  ·  no-kill = inflamed-dysfunctional  ·  intact = inflamed / hot.")),
       card(full_screen=TRUE, card_header("Cohort distribution: the three layer scores"), plotlyOutput("cohort", height="300px"))),
     card(full_screen=TRUE, card_header("Per-patient profiles (hover for detail)"), plotlyOutput("patients", height="300px")),
     card(full_screen=TRUE, card_header("Per-patient scores"), DTOutput("tbl")))
@@ -233,6 +249,8 @@ ui <- page_navbar(
 server <- function(input, output, session) {
   assets <- reactive({ req(input$refver); readRDS(input$refver) })
   pal <- reactive({ PALETTES[[input$palette %||% names(PALETTES)[1]]] })
+  studylab <- reactive({ s <- input$study; if (is.null(s)) "" else trimws(s) })
+  study_slug <- function(){ sl <- gsub("[^A-Za-z0-9]+","_", studylab()); sl <- gsub("^_+|_+$","",sl); sl }
   raw <- reactiveVal(NULL)
   load_file <- function(path, name) {
     df <- tryCatch(read_expr_file(path, name), error = function(e) NULL)
@@ -265,24 +283,31 @@ server <- function(input, output, session) {
       if (pct<75) div(style="font-size:0.72rem;color:#8a0017","Low coverage; interpret with caution.")) })
 
   output$vb_call <- renderText({ req(patient()); CALL[[patient()$archetype]]$t })
-  output$rep_hdr <- renderText({ req(patient()); sprintf("ICI report: %s", patient()$sample) })
+  output$rep_hdr <- renderText({ req(patient()); st<-studylab()
+    if (nzchar(st)) sprintf("ICI report: %s  ·  %s", patient()$sample, st) else sprintf("ICI report: %s", patient()$sample) })
+  output$rep_readout <- renderUI({ req(patient()); p<-patient()
+    lz<-c(Sensory=p$Sensory,Integration=p$Integration,Execution=p$Execution)
+    txt <- paste(sprintf("%s %s pct (z %+.2f)", names(lz), vapply(round(pnorm(lz)*100), ordinal, character(1)), lz), collapse="    ·    ")
+    div(style="font-size:0.8rem;color:#000000;margin-top:2px", tags$b("Layer scores: "), txt) })
   output$rep_call <- renderUI({ req(patient()); a<-patient()$archetype
     div(div(style=sprintf("font-size:1.15rem;font-weight:700;color:%s",pal()$arch[a]), CALL[[a]]$t),
         div(style="font-size:0.92rem;margin-top:3px;color:#000000", CALL[[a]]$s)) })
   output$rep_bio <- renderUI({ req(patient()); div(style="margin-top:8px;font-size:0.86rem;color:#000000",
       tags$b("Limiting-layer biology.  "), BIO[[patient()$archetype]]) })
-  output$rep_stamp <- renderUI({ req(res()); a<-assets()
+  output$rep_stamp <- renderUI({ req(res()); a<-assets(); st<-studylab()
+    pre <- if (nzchar(st)) sprintf("Study: %s  ·  ", st) else ""
     div(style="margin-top:8px;font-size:0.72rem;color:#000000",
-        sprintf("Scored with %s (%d genes)  ·  reference %s  ·  coverage %d/%d  ·  %s",
-                a$version, a$n_genes, a$ref_label, res()$coverage, res()$n_panel, as.character(a$built))) })
+        sprintf("%sGenerated %s  ·  Scored with %s (%d genes)  ·  reference %s  ·  per-sample self-normalization  ·  coverage %d/%d  ·  reference built %s",
+                pre, Sys.Date(), a$version, a$n_genes, a$ref_label, res()$coverage, res()$n_panel, as.character(a$built))) })
   output$gauge <- renderPlot({ req(patient()); build_gauge(patient(), pal()$lay) }, res=108)
   output$drill <- renderPlot({ req(psub()); build_drilldown(psub(), patient()$floor_layer, pal()$lay) }, res=108)
   output$drill_text <- renderUI({ req(psub()); div(style="font-size:0.86rem;color:#000000;margin-top:6px",
       tags$b("Floor driver.  "), drill_text(psub(), patient()$floor_layer)) })
   output$dl_pdf <- downloadHandler(
-    filename = function() sprintf("ICI_report_%s.pdf", gsub("[^A-Za-z0-9]", "", patient()$sample)),
-    content = function(f){ req(patient()); ggsave(f, build_report(patient(), assets(), res()$coverage, res()$n_panel, pal()$arch, pal()$lay, psub()),
-                                                  width = 8.27, height = if (is.null(psub())) 8.8 else 10.6, device = "pdf") })
+    filename = function(){ base <- gsub("[^A-Za-z0-9]", "", patient()$sample); sl <- study_slug()
+      if (nzchar(sl)) sprintf("ICI_report_%s_%s.pdf", sl, base) else sprintf("ICI_report_%s.pdf", base) },
+    content = function(f){ req(patient()); ggsave(f, build_report(patient(), assets(), res()$coverage, res()$n_panel, pal()$arch, pal()$lay, psub(), studylab()),
+                                                  width = 8.27, height = if (is.null(psub())) 9.6 else 11.69, device = "pdf") })
 
   output$donut <- renderPlotly({ req(res()); s<-res()$scores; arch<-pal()$arch
     tab <- as.data.frame(table(factor(s$archetype, names(arch)))); names(tab)<-c("a","n"); tab<-tab[tab$n>0,]
@@ -293,8 +318,8 @@ server <- function(input, output, session) {
       layout(showlegend=FALSE, margin=list(t=12,b=12,l=12,r=12),
              font=list(color="black", family="Inter, system-ui, Arial, sans-serif")) |> config(displayModeBar=FALSE) })
   output$dl_cohort <- downloadHandler(
-    filename = function() sprintf("ICI_cohort_report_%s.pdf", Sys.Date()),
-    content = function(f){ req(res()); ggsave(f, build_cohort_report(res()$scores, assets(), res()$coverage, res()$n_panel, pal()$arch, pal()$lay),
+    filename = function(){ sl <- study_slug(); if (nzchar(sl)) sprintf("ICI_cohort_report_%s_%s.pdf", sl, Sys.Date()) else sprintf("ICI_cohort_report_%s.pdf", Sys.Date()) },
+    content = function(f){ req(res()); ggsave(f, build_cohort_report(res()$scores, assets(), res()$coverage, res()$n_panel, pal()$arch, pal()$lay, studylab()),
                                               width = 10, height = 8, device = "pdf") })
 
   long <- reactive({ req(res()); s<-res()$scores
@@ -321,9 +346,10 @@ server <- function(input, output, session) {
     datatable(d, rownames=FALSE, options=list(pageLength=8, dom="tp"), class="compact stripe") |>
       formatStyle("Archetype", backgroundColor=styleEqual(names(arch), paste0(arch,"33"))) })
   output$dl <- downloadHandler(
-    filename = function(){ ext <- switch(input$dl_format %||% "CSV", CSV="csv", TSV="tsv", Excel="xlsx")
-                           sprintf("ICI_scores_%s.%s", Sys.Date(), ext) },
-    content = function(f){ req(res()); s<-res()$scores; fmt<-input$dl_format %||% "CSV"
+    filename = function(){ ext <- switch(input$dl_format %||% "CSV", CSV="csv", TSV="tsv", Excel="xlsx"); sl <- study_slug()
+                           if (nzchar(sl)) sprintf("ICI_scores_%s_%s.%s", sl, Sys.Date(), ext) else sprintf("ICI_scores_%s.%s", Sys.Date(), ext) },
+    content = function(f){ req(res()); s<-res()$scores; fmt<-input$dl_format %||% "CSV"; st<-studylab()
+      if (nzchar(st)) s <- cbind(study=st, s)
       if (fmt=="Excel") openxlsx::write.xlsx(s, f)
       else if (fmt=="TSV") write.table(s, f, sep="\t", row.names=FALSE, quote=FALSE)
       else write.csv(s, f, row.names=FALSE) })
