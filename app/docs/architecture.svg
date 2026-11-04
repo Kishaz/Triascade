@@ -26,7 +26,7 @@
   <line x1="1102" y1="1108" x2="1102" y2="1126" stroke="#000000" stroke-width="2.4" marker-end="url(#ah)"/>
 
   <!-- a. input data -->
-  <rect x="748" y="694" width="708" height="176" rx="7" fill="#F3EDF2" stroke="#6A2C5A" stroke-width="2"/>
+  <rect x="748" y="694" width="708" height="176" rx="7" fill="#F3EDF2" stroke="#000000" stroke-width="2"/>
   <text x="768" y="724" font-size="17" font-weight="700" fill="#000000">a&#160;&#160;Your data (the input)</text>
   <!-- mini gene x sample table -->
   <rect x="768" y="736" width="278" height="24" fill="#EDE2EA" stroke="#cccccc" stroke-width="1"/>
@@ -43,7 +43,7 @@
   <text x="1076" y="828" font-size="14" font-weight="700" fill="#000000">one patient = one column.</text>
 
   <!-- b. score vs frozen reference -->
-  <rect x="748" y="890" width="708" height="216" rx="7" fill="#F3EDF2" stroke="#6A2C5A" stroke-width="2"/>
+  <rect x="748" y="890" width="708" height="216" rx="7" fill="#F3EDF2" stroke="#000000" stroke-width="2"/>
   <text x="768" y="920" font-size="17" font-weight="700" fill="#000000">b&#160;&#160;Score each gene against a frozen reference</text>
   <text x="768" y="946" font-size="14" fill="#000000">Self-normalize the sample; a gene is <tspan font-weight="700">ON</tspan> if at or above the frozen reference median.</text>
   <rect x="768" y="958" width="668" height="32" rx="5" fill="#ffffff" stroke="#cccccc"/>
@@ -54,29 +54,37 @@
   <text x="768" y="1082" font-size="13.5" fill="#555555">Scored one patient at a time, independent of any cohort.</text>
 
   <!-- c. archetype call -->
-  <rect x="748" y="1126" width="708" height="124" rx="7" fill="#F3EDF2" stroke="#6A2C5A" stroke-width="2"/>
-  <text x="768" y="1154" font-size="16" font-weight="700" fill="#000000">c&#160;&#160;Call the archetype: the lowest layer (z &lt; &#8722;0.5)</text>
-  <rect x="768" y="1172" width="18" height="18" rx="3" fill="#2E7D32"/><text x="794" y="1187" font-size="14.5"><tspan font-weight="700" fill="#000000">Immune-engaged</tspan><tspan fill="#000000">&#160;&#160;(hot)</tspan></text>
-  <rect x="1098" y="1172" width="18" height="18" rx="3" fill="#9C7A3E"/><text x="1124" y="1187" font-size="14.5"><tspan font-weight="700" fill="#000000">Cold</tspan><tspan fill="#000000">&#160;&#160;(Sensory)</tspan></text>
-  <rect x="768" y="1206" width="18" height="18" rx="3" fill="#6A2C5A"/><text x="794" y="1221" font-size="14.5"><tspan font-weight="700" fill="#000000">Blocked</tspan><tspan fill="#000000">&#160;&#160;(Integration)</tspan></text>
-  <rect x="1098" y="1206" width="18" height="18" rx="3" fill="#B2567E"/><text x="1124" y="1221" font-size="14.5"><tspan font-weight="700" fill="#000000">No-kill</tspan><tspan fill="#000000">&#160;&#160;(Execution)</tspan></text>
+  <rect x="748" y="1126" width="708" height="124" rx="7" fill="#F3EDF2" stroke="#000000" stroke-width="2"/>
+  <text x="768" y="1150" font-size="15" font-weight="700" fill="#000000">c&#160;&#160;Call the archetype (the lowest layer names it)</text>
+  <rect x="768" y="1161" width="15" height="15" rx="3" fill="#2E7D32"/>
+  <text x="792" y="1173" font-size="14" font-weight="700" fill="#000000">S+ I+ E+</text>
+  <text x="884" y="1173" font-size="14" fill="#000000"><tspan>&#8594;&#160;</tspan><tspan font-weight="700">Immune-engaged</tspan> (hot)</text>
+  <rect x="768" y="1183" width="15" height="15" rx="3" fill="#9C7A3E"/>
+  <text x="792" y="1195" font-size="14" font-weight="700" fill="#000000">S&#8722;</text>
+  <text x="884" y="1195" font-size="14" fill="#000000"><tspan>&#8594;&#160;</tspan><tspan font-weight="700">Cold</tspan> (Sensory lowest)</text>
+  <rect x="768" y="1205" width="15" height="15" rx="3" fill="#6A2C5A"/>
+  <text x="792" y="1217" font-size="14" font-weight="700" fill="#000000">I&#8722;</text>
+  <text x="884" y="1217" font-size="14" fill="#000000"><tspan>&#8594;&#160;</tspan><tspan font-weight="700">Blocked</tspan> (Integration lowest)</text>
+  <rect x="768" y="1227" width="15" height="15" rx="3" fill="#B2567E"/>
+  <text x="792" y="1239" font-size="14" font-weight="700" fill="#000000">E&#8722;</text>
+  <text x="884" y="1239" font-size="14" fill="#000000"><tspan>&#8594;&#160;</tspan><tspan font-weight="700">No-kill</tspan> (Execution lowest)</text>
 
   <!-- ===================== 3. results (real app outputs, house palette) ===================== -->
   <text x="28" y="1286" font-size="19" font-weight="700" fill="#000000">3&#160;&#160;What CascadeScope produces&#160;&#160;<tspan font-weight="400" font-size="16">(example cohort, n = 60)</tspan></text>
 
-  <rect x="24" y="1302" width="704" height="378" rx="8" fill="#ffffff" stroke="#6A2C5A" stroke-width="2"/>
+  <rect x="24" y="1302" width="704" height="378" rx="8" fill="#ffffff" stroke="#000000" stroke-width="2"/>
   <text x="44" y="1332" font-size="16" font-weight="700" fill="#000000">Patient report: three-layer gauge</text>
   <image xlink:href="fig_gauge.png" x="40" y="1377" width="672" height="249"/>
 
-  <rect x="752" y="1302" width="704" height="378" rx="8" fill="#ffffff" stroke="#6A2C5A" stroke-width="2"/>
+  <rect x="752" y="1302" width="704" height="378" rx="8" fill="#ffffff" stroke="#000000" stroke-width="2"/>
   <text x="772" y="1332" font-size="16" font-weight="700" fill="#000000">Gene drivers: per-patient cascade tree</text>
   <image xlink:href="fig_tree.png" x="768" y="1372" width="672" height="259"/>
 
-  <rect x="24" y="1704" width="704" height="378" rx="8" fill="#ffffff" stroke="#6A2C5A" stroke-width="2"/>
+  <rect x="24" y="1704" width="704" height="378" rx="8" fill="#ffffff" stroke="#000000" stroke-width="2"/>
   <text x="44" y="1734" font-size="16" font-weight="700" fill="#000000">Cohort explorer: archetype mix</text>
   <image xlink:href="fig_donut.png" x="56" y="1741" width="640" height="310"/>
 
-  <rect x="752" y="1704" width="704" height="378" rx="8" fill="#ffffff" stroke="#6A2C5A" stroke-width="2"/>
+  <rect x="752" y="1704" width="704" height="378" rx="8" fill="#ffffff" stroke="#000000" stroke-width="2"/>
   <text x="772" y="1734" font-size="16" font-weight="700" fill="#000000">Cohort explorer: per-patient layer scores</text>
   <image xlink:href="fig_beeswarm.png" x="768" y="1764" width="672" height="280"/>
 
