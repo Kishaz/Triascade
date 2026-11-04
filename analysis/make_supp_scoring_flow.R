@@ -66,14 +66,14 @@ draw_patient <- function(samp, pid, sub){
               segment.size=0.12, segment.colour=MUTED, min.segment.length=0, box.padding=0.02,
               point.padding=0, max.overlaps=Inf, xlim=c(NA, x_gene-0.1)) +
     geom_point(data=SN, aes(x_sm,y,fill=v), shape=21, size=2.8, stroke=0.25, colour="white") +
-    geom_text(data=SN, aes(x_sm+0.12,y,label=lab), hjust=0, family=PUB_FONT, size=5/.pt, colour=INK, fontface=2) +
+    geom_text(data=SN, aes(x_sm, y+2.4, label=lab), hjust=0.5, vjust=0, family=PUB_FONT, size=5/.pt, colour=INK, fontface=2) +
     geom_point(data=LN, aes(x_lay,y,fill=z), shape=21, size=5.2, stroke=0.25, colour="white") +
     geom_text(data=LN, aes(x_lay,y,label=substr(layer,1,1)), family=PUB_FONT, size=5/.pt, fontface=2,
               colour=ifelse(abs(LN$z)>0.8,"white",INK)) +
     geom_text(data=LN, aes(x_lay+0.38,y,label=scorelab), hjust=0, family=PUB_FONT, size=5/.pt, fontface=2, colour=INK) +
-    scale_fill_gradient2(low=SAND_DEEP, mid="#FBF7F0", high=PLUM, midpoint=0, limits=c(-3,3), oob=scales::squish, guide="none") +
-    scale_colour_gradient2(low=SAND_DEEP, mid="#E8DFD3", high=PLUM, midpoint=0, limits=c(-3,3), oob=scales::squish, guide="none") +
-    scale_alpha_continuous(range=c(0.1,0.65), guide="none") +
+    scale_fill_gradient2(low=SAND_DEEP, mid="#F4ECE0", high=PLUM, midpoint=0, limits=c(-1.8,1.8), oob=scales::squish, guide="none") +
+    scale_colour_gradient2(low=SAND_DEEP, mid="#DCCFBE", high=PLUM, midpoint=0, limits=c(-1.8,1.8), oob=scales::squish, guide="none") +
+    scale_alpha_continuous(range=c(0.22,0.9), guide="none") +
     scale_x_continuous(limits=c(-1.7, 6.4)) + scale_y_continuous(expand=expansion(add=c(1.5,3))) +
     labs(title=sprintf("%s · %s", pid, sub)) +
     theme_void() +
@@ -99,7 +99,7 @@ leg <- ggplot() + xlim(0,10) + ylim(0,2.4) + theme_void() +
   # z gradient swatches
   annotate("text", x=0, y=2, label="Gene / layer z:", hjust=0, family=PUB_FONT, size=(PT_BASE-1.5)/.pt, fontface=2, colour=INK) +
   annotate("point", x=1.9+(0:4)*0.33, y=2, shape=21, size=2.2, colour="white",
-           fill=colorRampPalette(c(SAND_DEEP,"#FBF7F0",PLUM))(5)) +
+           fill=colorRampPalette(c(SAND_DEEP,"#F4ECE0",PLUM))(5)) +
   annotate("text", x=1.75, y=2, label="low", hjust=1, family=PUB_FONT, size=(PT_BASE-2)/.pt, colour=INK) +
   annotate("text", x=3.7, y=2, label="high", hjust=0, family=PUB_FONT, size=(PT_BASE-2)/.pt, colour=INK) +
   # indicator
