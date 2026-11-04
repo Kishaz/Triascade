@@ -1,0 +1,9 @@
+"pattern","type","observed","expected"
+"000","forward-concordant",214,132.6
+"100","forward-concordant",68,107
+"110","forward-concordant",93,91.2
+"111","forward-concordant",121,66
+"010","discordant",69,113.1
+"001","discordant",73,97.5
+"011","discordant",70,82.7
+"101","discordant",60,77.8
