@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='493.23pt' height='425.20pt' viewBox='0 0 493.23 425.20'>
+<g class='svglite'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHw0OTMuMjN8MC4wMHw0MjUuMjA='>
+    <rect x='0.00' y='0.00' width='493.23' height='425.20' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw0OTMuMjN8MC4wMHw0MjUuMjA=)'>
+<rect x='0.00' y='0.00' width='493.23' height='425.20' style='stroke-width: 0.00; stroke: none;' />
+<text x='101.10' y='34.74' text-anchor='middle' style='font-size: 12.00px; font-weight: bold;fill: #9C7A3E; font-family: "Arial";'>Sensory</text>
+<text x='246.61' y='34.74' text-anchor='middle' style='font-size: 12.00px; font-weight: bold;fill: #6A2C5A; font-family: "Arial";'>Integration</text>
+<text x='392.13' y='34.74' text-anchor='middle' style='font-size: 12.00px; font-weight: bold;fill: #B2567E; font-family: "Arial";'>Execution</text>
+<line x1='34.96' y1='40.69' x2='167.24' y2='40.69' style='stroke-width: 2.35; stroke: #9C7A3E; stroke-linecap: butt;' />
+<line x1='180.47' y1='40.69' x2='312.76' y2='40.69' style='stroke-width: 2.35; stroke: #6A2C5A; stroke-linecap: butt;' />
+<line x1='325.98' y1='40.69' x2='458.27' y2='40.69' style='stroke-width: 2.35; stroke: #B2567E; stroke-linecap: butt;' />
+<rect x='34.96' y='53.86' width='132.28' height='143.38' style='stroke-width: 0.64; stroke: #CCCCCC; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
+<rect x='180.47' y='53.86' width='132.28' height='143.38' style='stroke-width: 0.64; stroke: #CCCCCC; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
+<rect x='180.47' y='207.48' width='132.28' height='99.49' style='stroke-width: 0.64; stroke: #CCCCCC; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
+<rect x='180.47' y='317.21' width='132.28' height='84.86' style='stroke-width: 0.64; stroke: #CCCCCC; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
+<rect x='325.98' y='53.86' width='132.28' height='143.38' style='stroke-width: 0.64; stroke: #CCCCCC; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
+<rect x='325.98' y='207.48' width='132.28' height='143.38' style='stroke-width: 0.64; stroke: #CCCCCC; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
+<rect x='34.96' y='53.86' width='132.28' height='33.65' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #C9A66B;' />
+<rect x='180.47' y='53.86' width='132.28' height='33.65' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #6A2C5A;' />
+<rect x='180.47' y='207.48' width='132.28' height='33.65' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #8A6D30;' />
+<rect x='180.47' y='317.21' width='132.28' height='33.65' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #E79FC4;' />
+<rect x='325.98' y='53.86' width='132.28' height='33.65' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #C44E6E;' />
+<rect x='325.98' y='207.48' width='132.28' height='33.65' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #2B1C33;' />
+<text x='40.25' y='70.90' style='font-size: 8.50px; font-weight: bold; font-family: "Arial";'>M1  IFN / antigen-pres.</text>
+<text x='185.76' y='70.90' style='font-size: 8.50px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>M2  chemokine / traffic.</text>
+<text x='185.76' y='224.52' style='font-size: 8.50px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>M3  stromal / ECM</text>
+<text x='185.76' y='334.25' style='font-size: 8.50px; font-weight: bold; font-family: "Arial";'>M4  angiogenic / CAF</text>
+<text x='331.28' y='70.90' style='font-size: 8.50px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>M5  cytotoxic effector</text>
+<text x='331.28' y='224.52' style='font-size: 8.50px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>M6  checkpoint / exhaust.</text>
+<text x='40.25' y='83.73' style='font-size: 7.00px; font-style: italic; font-family: "Arial";'>activating  ·  +  ·  21 genes</text>
+<text x='185.76' y='83.73' style='font-size: 7.00px; font-style: italic;fill: #FFFFFF; font-family: "Arial";'>activating  ·  +  ·  21 genes</text>
+<text x='185.76' y='237.35' style='font-size: 7.00px; font-style: italic;fill: #FFFFFF; font-family: "Arial";'>suppressive  ·  −  ·  11 genes</text>
+<text x='185.76' y='347.08' style='font-size: 7.00px; font-style: italic; font-family: "Arial";'>suppressive  ·  −  ·  9 genes</text>
+<text x='331.28' y='83.73' style='font-size: 7.00px; font-style: italic;fill: #FFFFFF; font-family: "Arial";'>activating  ·  +  ·  19 genes</text>
+<text x='331.28' y='237.35' style='font-size: 7.00px; font-style: italic;fill: #FFFFFF; font-family: "Arial";'>suppressive  ·  −  ·  19 genes</text>
+<text x='40.25' y='96.53' style='font-size: 7.50px; font-family: "Arial";'>B2M, HLA-A, HLA-B</text>
+<text x='40.25' y='105.08' style='font-size: 7.50px; font-family: "Arial";'>HLA-C, HLA-E, HLA-F</text>
+<text x='40.25' y='113.63' style='font-size: 7.50px; font-family: "Arial";'>HLA-G, IFNG, IFNGR1</text>
+<text x='40.25' y='122.18' style='font-size: 7.50px; font-family: "Arial";'>IFNGR2, IRF1, JAK1</text>
+<text x='40.25' y='130.73' style='font-size: 7.50px; font-family: "Arial";'>JAK2, PSMB10, PSMB8</text>
+<text x='40.25' y='139.28' style='font-size: 7.50px; font-family: "Arial";'>PSMB9, STAT1, STAT2</text>
+<text x='40.25' y='147.83' style='font-size: 7.50px; font-family: "Arial";'>TAP1, TAP2, TAPBP</text>
+<text x='185.76' y='96.53' style='font-size: 7.50px; font-family: "Arial";'>BATF3, CCL19, CCL21</text>
+<text x='185.76' y='105.08' style='font-size: 7.50px; font-family: "Arial";'>CCL4, CCL5, CCR5</text>
+<text x='185.76' y='113.63' style='font-size: 7.50px; font-family: "Arial";'>CCR7, CD40, CD80</text>
+<text x='185.76' y='122.18' style='font-size: 7.50px; font-family: "Arial";'>CD86, CR2, CXCL10</text>
+<text x='185.76' y='130.73' style='font-size: 7.50px; font-family: "Arial";'>CXCL11, CXCL13, CXCL9</text>
+<text x='185.76' y='139.28' style='font-size: 7.50px; font-family: "Arial";'>CXCR3, ICAM1, IRF8</text>
+<text x='185.76' y='147.83' style='font-size: 7.50px; font-family: "Arial";'>MADCAM1, TNFRSF17, VCAM1</text>
+<text x='185.76' y='250.15' style='font-size: 7.50px; font-family: "Arial";'>ACTA2, COL1A1, COL1A2</text>
+<text x='185.76' y='258.70' style='font-size: 7.50px; font-family: "Arial";'>COL3A1, COL4A1, CXCL12</text>
+<text x='185.76' y='267.25' style='font-size: 7.50px; font-family: "Arial";'>FAP, FN1, MMP14</text>
+<text x='185.76' y='275.80' style='font-size: 7.50px; font-family: "Arial";'>MMP2, MMP9</text>
+<text x='185.76' y='359.88' style='font-size: 7.50px; font-family: "Arial";'>EDNRB, FLT1, KDR</text>
+<text x='185.76' y='368.43' style='font-size: 7.50px; font-family: "Arial";'>TGFB1, TGFB2, TGFB3</text>
+<text x='185.76' y='376.98' style='font-size: 7.50px; font-family: "Arial";'>VEGFA, VEGFB, VEGFC</text>
+<text x='331.28' y='96.53' style='font-size: 7.50px; font-family: "Arial";'>CD8A, CD8B, EOMES</text>
+<text x='331.28' y='105.08' style='font-size: 7.50px; font-family: "Arial";'>FASLG, GNLY, GZMA</text>
+<text x='331.28' y='113.63' style='font-size: 7.50px; font-family: "Arial";'>GZMB, GZMH, GZMK</text>
+<text x='331.28' y='122.18' style='font-size: 7.50px; font-family: "Arial";'>GZMM, IFNG, IL12A</text>
+<text x='331.28' y='130.73' style='font-size: 7.50px; font-family: "Arial";'>IL2, LTA, NKG7</text>
+<text x='331.28' y='139.28' style='font-size: 7.50px; font-family: "Arial";'>PRF1, RUNX3, TBX21</text>
+<text x='331.28' y='147.83' style='font-size: 7.50px; font-family: "Arial";'>TNF</text>
+<text x='331.28' y='250.15' style='font-size: 7.50px; font-family: "Arial";'>BTLA, CD160, CD244</text>
+<text x='331.28' y='258.70' style='font-size: 7.50px; font-family: "Arial";'>CD274, CTLA4, ENTPD1</text>
+<text x='331.28' y='267.25' style='font-size: 7.50px; font-family: "Arial";'>HAVCR2, IDO1, IL10</text>
+<text x='331.28' y='275.80' style='font-size: 7.50px; font-family: "Arial";'>LAG3, NR4A1, NR4A2</text>
+<text x='331.28' y='284.35' style='font-size: 7.50px; font-family: "Arial";'>NR4A3, PDCD1, PDCD1LG2</text>
+<text x='331.28' y='292.90' style='font-size: 7.50px; font-family: "Arial";'>TGFB1, TIGIT, TOX</text>
+<text x='331.28' y='301.45' style='font-size: 7.50px; font-family: "Arial";'>VSIR</text>
+</g>
+</g>
+<!-- text joined by svg_join_text.py -->
+</svg>
