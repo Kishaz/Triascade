@@ -1,40 +1,52 @@
-# ICI scorer — Shiny app (MVP)
+# ICI scorer — Shiny app
 
-Score any cohort's gene-expression table against the locked 98-gene **Immune
-Cascade Index** reference, one patient at a time (platform-agnostic, cohort-
-independent), and explore the three layer scores at cohort and patient level.
+Score tumour RNA-seq against a locked **Immune Cascade Index** reference, one
+patient at a time (platform-agnostic, cohort-independent), and read it out at
+patient or cohort level. Runs locally — your data never leaves the machine.
 
 ## Run
 
 ```r
-# from the project root
-shiny::runApp("app")
+shiny::runApp("app")   # from the project root
 ```
 
-Requires: `shiny`, `bslib`, `plotly`, `DT`, `ggplot2` (and `data.table` for asset
-building). Runs locally — your data never leaves the machine.
+Requires: `shiny`, `bslib`, `plotly`, `DT`, `ggplot2` (+ `data.table` to rebuild assets).
 
-## Use
+## Two views
 
-1. **Load example cohort** (ships with the app) or **Browse** to a CSV.
-2. Input format: a **gene × sample** table, first column = gene symbol, remaining
-   columns = samples (TPM / log-TPM / counts — linear data is auto-log2'd).
-3. Read the **coverage** QC (how many of the 98 panel genes were found), the
-   **cohort distribution** of the 3 layer scores, and the **per-patient**
-   beeswarm (hover a point for that patient's scores, floor layer and archetype).
-4. **Download scores** as CSV.
+- **Patient report** (clinician): a plain-language call, a 3-layer percentile
+  gauge with the rate-limiting layer flagged, the limiting-layer biological
+  rationale (investigational), a version stamp, and a research-use-only footer.
+- **Cohort explorer** (trial / biomarker teams): distributions of the three
+  layer scores and a per-patient beeswarm (hover for detail) + table + CSV.
+
+## Input
+
+RNA-seq expression — **TPM, log-TPM or counts** (linear data is auto-log2'd),
+from whole-transcriptome or FFPE-compatible targeted RNA-seq. Provide a
+**gene × sample** CSV: first column = gene symbol, remaining columns = samples.
+A single patient is simply a one-sample file. Coverage of the 98 panel genes is
+reported and flagged if low.
+
+## Future-proof by design
+
+References live in **`app/references/*.rds`**, each self-describing (version,
+gene count, reference cohort). The app lists them in the **Panel / reference**
+selector; drop in a new one — an expanded gene panel (v2…), or a reference built
+on a newer platform — and it appears automatically, with **no code change**.
+Every report is stamped with the panel version used.
 
 ## Files
 
-- `app.R` — the Shiny app (UI + server).
+- `app.R` — UI + server (two tabs, reference registry).
 - `ici_locked_reference.R` — scoring engine (frozen-reference single-patient scoring).
-- `score_cohort.R` — preprocessing + scoring wrapper (`score_uploaded()`).
-- `ici_reference.rds` — the frozen locked reference (per-gene distributions + panel).
+- `score_cohort.R` — preprocessing + `score_uploaded()`.
+- `references/ICI_v1.rds` — frozen locked reference (per-gene distributions + panel + metadata).
 - `example_cohort.csv` — example upload (IMvigor210 subset).
-- `make_app_assets.R` — rebuilds `ici_reference.rds` + `example_cohort.csv` (run once from project root).
+- `make_app_assets.R` — rebuild the reference(s) + example (run once from project root).
 
-## MVP scope / to extend later
+## To extend later
 
-Single CSV format, one locked reference, three views. Planned: more input formats
-(Excel, counts matrices, NanoString), richer gene-ID mapping, batch/QC panel,
-per-patient cascade-profile drill-down, and the biological "floor explanation".
+More input adapters (Excel, counts matrices, other RNA assays), richer gene-ID
+mapping (alias/Ensembl), a batch/QC panel, PDF export of the patient report, and
+the per-patient cascade-profile drill-down.
