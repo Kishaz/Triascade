@@ -142,7 +142,8 @@ app/
 ├── www/                    logo + favicon (icon.svg/png, logo.svg/png)
 ├── docs/architecture.svg   the "how it works" schematic (editable) + .png
 ├── README.md               this file
-└── SHARING.md              how to share a running copy with colleagues (static bundle / shinyapps.io)
+├── SHARING.md              how to share a running copy with colleagues (static bundle / shinyapps.io)
+└── LICENSE                 MIT License
 ```
 
 ## Sharing
@@ -153,7 +154,8 @@ see [`SHARING.md`](SHARING.md).
 ## Citing & license
 
 If you use CascadeScope or the ICI, please cite the manuscript (citation to be added on publication).
-A license has not yet been chosen; please add one before public distribution.
+
+Released under the [MIT License](LICENSE). The bundled example data is a public IMvigor210 subset.
 
 ## Research use only
 
