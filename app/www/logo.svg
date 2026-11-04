@@ -1,14 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="440" height="132" viewBox="0 0 440 132"
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="152" viewBox="0 0 460 152"
      font-family="Inter, 'Helvetica Neue', Arial, sans-serif">
-  <!-- CascadeScope lockup: fading-cascade mark + wordmark + calligraphic ICI (Immune Cascade Index).
-       Text is kept as live <text> (editable in Inkscape/Illustrator); no textLength, one object per label. -->
-  <g transform="translate(18,28)">
-    <rect width="76" height="76" rx="17" fill="#6A2C5A"/>
-    <rect x="18" y="20" width="40" height="9" rx="4.5" fill="#ffffff"/>
-    <rect x="18" y="34" width="29" height="9" rx="4.5" fill="#ffffff" fill-opacity="0.78"/>
-    <rect x="18" y="48" width="19" height="9" rx="4.5" fill="#ffffff" fill-opacity="0.56"/>
+  <!-- CascadeScope lockup. Fading-cascade mark with the lowest ("rate-limiting") step in gold;
+       wordmark in plum/gold; "Immune Cascade Index" set in calligraphy; tagline below.
+       Text is kept as live <text> (editable in Inkscape/Illustrator); no textLength. -->
+  <g transform="translate(18,34)">
+    <rect width="84" height="84" rx="19" fill="#6A2C5A"/>
+    <rect x="20" y="22" width="44" height="10" rx="5" fill="#ffffff"/>
+    <rect x="20" y="37" width="32" height="10" rx="5" fill="#ffffff" fill-opacity="0.82"/>
+    <rect x="20" y="52" width="21" height="10" rx="5" fill="#E8B54B"/>
   </g>
-  <text x="110" y="62" font-size="38" font-weight="800"><tspan fill="#6A2C5A">Cascade</tspan><tspan fill="#9C7A3E">Scope</tspan></text>
-  <text x="112" y="104" font-size="29" font-style="italic" fill="#6A2C5A"
+  <text x="118" y="62" font-size="38" font-weight="800"><tspan fill="#6A2C5A">Cascade</tspan><tspan fill="#9C7A3E">Scope</tspan></text>
+  <text x="120" y="98" font-size="27" font-style="italic" fill="#6A2C5A"
         font-family="'Snell Roundhand','Apple Chancery','Segoe Script','Brush Script MT',cursive">Immune Cascade Index</text>
+  <text x="121" y="124" font-size="14.5" fill="#777777">Find the step that stalls.</text>
 </svg>

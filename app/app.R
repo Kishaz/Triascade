@@ -386,16 +386,17 @@ ui <- page_navbar(
   id = "nav",
   window_title = "CascadeScope",
   title = div(style="display:flex;align-items:center;gap:10px",
-    HTML('<svg width="36" height="36" viewBox="0 0 120 120" style="display:block;flex:none">
+    HTML('<svg width="38" height="38" viewBox="0 0 120 120" style="display:block;flex:none">
       <rect width="120" height="120" rx="26" fill="#6A2C5A"/>
       <rect x="28" y="32" width="64" height="14" rx="7" fill="#ffffff"/>
-      <rect x="28" y="54" width="46" height="14" rx="7" fill="#ffffff" fill-opacity="0.78"/>
-      <rect x="28" y="76" width="30" height="14" rx="7" fill="#ffffff" fill-opacity="0.56"/>
+      <rect x="28" y="54" width="46" height="14" rx="7" fill="#ffffff" fill-opacity="0.82"/>
+      <rect x="28" y="76" width="30" height="14" rx="7" fill="#E8B54B"/>
     </svg>'),
-    div(style="line-height:1.08",
-      div(style="font-weight:800;font-size:1.18rem;letter-spacing:.2px",
+    div(style="line-height:1.06",
+      div(style="font-weight:800;font-size:1.15rem;letter-spacing:.2px",
           HTML('<span style="color:#6A2C5A">Cascade</span><span style="color:#9C7A3E">Scope</span>')),
-      div(span("Immune Cascade Index", class="cs-ici", style="color:#6A2C5A;font-size:1.0rem;font-weight:600")))),
+      div(span("Immune Cascade Index", class="cs-ici", style="color:#6A2C5A;font-size:0.98rem;font-weight:600")),
+      div("Find the step that stalls.", style="font-size:0.6rem;color:#777777;letter-spacing:.2px;margin-top:1px"))),
   theme = app_theme, fillable = FALSE,
   header = tagList(
     tags$head(
