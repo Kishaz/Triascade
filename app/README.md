@@ -24,9 +24,17 @@ Requires: `shiny`, `bslib`, `plotly`, `DT`, `ggplot2` (+ `data.table` to rebuild
 
 RNA-seq expression — **TPM, log-TPM or counts** (linear data is auto-log2'd),
 from whole-transcriptome or FFPE-compatible targeted RNA-seq. Provide a
-**gene × sample** CSV: first column = gene symbol, remaining columns = samples.
-A single patient is simply a one-sample file. Coverage of the 98 panel genes is
-reported and flagged if low.
+**gene × sample** table as **CSV, TSV or Excel** (.xlsx/.xls): first column =
+gene symbol, remaining columns = samples (delimiter is auto-detected for text
+files). A single patient is simply a one-sample file. Coverage of the 98 panel
+genes is reported and flagged if low.
+
+## Options
+
+- **Colour palette** (sidebar): Okabe-Ito colour-blind-safe (default), House
+  (plum/sand), High contrast, or Viridis — applied across all plots, the donut,
+  the table, and both PDF reports.
+- **Scores download format**: CSV, TSV or Excel (.xlsx). Reports are PDF.
 
 ## Future-proof by design
 
