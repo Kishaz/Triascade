@@ -154,7 +154,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpNTEuODN8MTUyLjI2fDIyLjQ2fDUwLjA1)'>
-<text x='102.04' y='34.23' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: "Arial";'>Cold</text>
+<text x='102.04' y='34.23' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: "Arial";'>P1 · Cold</text>
 <text x='102.04' y='45.06' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: "Arial";'>(Sensory floor)</text>
 </g>
 <g clip-path='url(#cpMC4wMHw0OTMuMjN8MC4wMHw1NjYuOTM=)'>
@@ -169,7 +169,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMTYwLjc2fDI2MS4xOXwyMi40Nnw1MC4wNQ==)'>
-<text x='210.98' y='34.23' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: "Arial";'>Blocked</text>
+<text x='210.98' y='34.23' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: "Arial";'>P2 · Blocked</text>
 <text x='210.98' y='45.06' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: "Arial";'>(Integration floor)</text>
 </g>
 <g clip-path='url(#cpMC4wMHw0OTMuMjN8MC4wMHw1NjYuOTM=)'>
@@ -184,7 +184,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMjY5LjY5fDM3MC4xMnwyMi40Nnw1MC4wNQ==)'>
-<text x='319.91' y='34.23' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: "Arial";'>No-kill</text>
+<text x='319.91' y='34.23' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: "Arial";'>P3 · No-kill</text>
 <text x='319.91' y='45.06' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: "Arial";'>(Execution floor)</text>
 </g>
 <g clip-path='url(#cpMC4wMHw0OTMuMjN8MC4wMHw1NjYuOTM=)'>
@@ -199,7 +199,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMzc4LjYzfDQ3OS4wNnwyMi40Nnw1MC4wNQ==)'>
-<text x='428.84' y='34.23' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: "Arial";'>Intact</text>
+<text x='428.84' y='34.23' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: "Arial";'>P4 · Intact</text>
 <text x='428.84' y='45.06' text-anchor='middle' style='font-size: 9.50px; font-weight: bold; font-family: "Arial";'>(no floor)</text>
 </g>
 <g clip-path='url(#cpMC4wMHw0OTMuMjN8MC4wMHw1NjYuOTM=)'>

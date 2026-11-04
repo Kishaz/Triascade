@@ -22,8 +22,8 @@ ti <- cbind(Sensory=S, Integration=I, Execution=X)
 wmin <- colnames(ti)[apply(ti,1,which.min)]; mz <- apply(ti,1,min)
 arch <- factor(ifelse(mz>=-0.5,"intact",ifelse(wmin=="Sensory","cold",
          ifelse(wmin=="Integration","blocked","no-kill"))), c("cold","blocked","no-kill","intact"))
-ALAB <- c(cold="Cold\n(Sensory floor)", blocked="Blocked\n(Integration floor)",
-          `no-kill`="No-kill\n(Execution floor)", intact="Intact\n(no floor)")
+ALAB <- c(cold="P1 · Cold\n(Sensory floor)", blocked="P2 · Blocked\n(Integration floor)",
+          `no-kill`="P3 · No-kill\n(Execution floor)", intact="P4 · Intact\n(no floor)")
 AWHY <- c(cold="luminal/UroA immune-cold", blocked="TGF-β / stromal exclusion",
           `no-kill`="effector deficit", intact="inflamed yet resistant")
 
@@ -162,5 +162,9 @@ row3 <- wrap_elements(full=pd_) + wrap_elements(full=pe) + plot_layout(widths=c(
 fig <- wrap_elements(full=pa) / row2 / row3 + plot_layout(heights=c(0.9, 1.15, 1.0)) &
   theme(plot.margin=margin(2,2,2,2,"mm"))
 save_fig(fig, "ICI_Fig_archetype_biology", width_mm=174, height_mm=200, dir="../results/figures/composite")
-cat("exemplars (sample | archetype):\n"); for(a in levels(arch)) cat(sprintf("  %-8s %s\n", a, colnames(E)[ex[a]]))
-cat("done — panels a (exemplars) + b (floor decomposition)\n")
+pn <- setNames(paste0("P",seq_along(levels(arch))), levels(arch))
+cat("exemplar patient map (panel a):\n")
+for(a in levels(arch)) cat(sprintf("  %s = %-8s sample %s\n", pn[a], a, colnames(E)[ex[a]]))
+write.csv(data.frame(patient=pn[levels(arch)], archetype=levels(arch), sample=colnames(E)[ex[levels(arch)]],
+          row.names=NULL), "../results/tables/ICI_archetype_exemplars.csv", row.names=FALSE)
+cat("done — 5-panel archetype biology figure\n")
