@@ -384,11 +384,26 @@ about_tab <- nav_panel(title = tagList(icon("circle-info"), " About"), value = "
 
 ui <- page_navbar(
   id = "nav",
-  title = tagList(span("CascadeScope", style="font-weight:800;color:#6A2C5A;letter-spacing:.3px"),
-                  span("  ·  Immune Cascade Index", style="font-weight:500;color:#333")),
+  window_title = "CascadeScope",
+  title = div(style="display:flex;align-items:center;gap:10px",
+    HTML('<svg width="36" height="36" viewBox="0 0 120 120" style="display:block;flex:none">
+      <rect width="120" height="120" rx="26" fill="#6A2C5A"/>
+      <rect x="28" y="32" width="64" height="14" rx="7" fill="#ffffff"/>
+      <rect x="28" y="54" width="46" height="14" rx="7" fill="#ffffff" fill-opacity="0.78"/>
+      <rect x="28" y="76" width="30" height="14" rx="7" fill="#ffffff" fill-opacity="0.56"/>
+    </svg>'),
+    div(style="line-height:1.08",
+      div(style="font-weight:800;font-size:1.18rem;letter-spacing:.2px",
+          HTML('<span style="color:#6A2C5A">Cascade</span><span style="color:#9C7A3E">Scope</span>')),
+      div(span("ICI", class="cs-ici", style="color:#6A2C5A;font-size:1.28rem;font-weight:600;margin-right:7px"),
+          span("Immune Cascade Index", style="font-size:0.66rem;color:#555555;font-weight:500;letter-spacing:.3px")))),
   theme = app_theme, fillable = FALSE,
-  header = tags$script(HTML(
-    "document.addEventListener('shown.bs.collapse', function(){ setTimeout(function(){ window.dispatchEvent(new Event('resize')); }, 50); });")),
+  header = tagList(
+    tags$head(
+      tags$link(rel="icon", type="image/svg+xml", href="icon.svg"),
+      tags$style(HTML(".cs-ici{font-family:'Snell Roundhand','Apple Chancery','Segoe Script','Brush Script MT',cursive;font-style:italic;}"))),
+    tags$script(HTML(
+      "document.addEventListener('shown.bs.collapse', function(){ setTimeout(function(){ window.dispatchEvent(new Event('resize')); }, 50); });"))),
   sidebar = sidebar(width = 335, open = "open",
     selectInput("refver", "Panel / reference", choices = ref_choices, width = "100%"),
     markdown("Score tumor **RNA-seq** (TPM, log-TPM or counts) against the selected locked reference. Upload a **gene × sample** table (**CSV, TSV or Excel**; first column = gene symbol); a single patient is just one sample."),
