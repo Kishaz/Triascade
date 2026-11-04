@@ -27,7 +27,7 @@
 
   <!-- a. input data -->
   <rect x="748" y="694" width="708" height="176" rx="7" fill="#F3EDF2" stroke="#000000" stroke-width="2"/>
-  <text x="768" y="724" font-size="17" font-weight="700" fill="#000000">a&#160;&#160;Your data (the input)</text>
+  <text x="768" y="724" font-size="16" font-weight="700" fill="#000000">a&#160;&#160;Your data (the input)</text>
   <!-- mini gene x sample table -->
   <rect x="768" y="736" width="278" height="24" fill="#EDE2EA" stroke="#cccccc" stroke-width="1"/>
   <rect x="768" y="760" width="278" height="72" fill="#ffffff" stroke="#cccccc" stroke-width="1"/>
@@ -44,30 +44,30 @@
 
   <!-- b. score vs frozen reference -->
   <rect x="748" y="890" width="708" height="216" rx="7" fill="#F3EDF2" stroke="#000000" stroke-width="2"/>
-  <text x="768" y="920" font-size="17" font-weight="700" fill="#000000">b&#160;&#160;Score each gene against a frozen reference</text>
+  <text x="768" y="920" font-size="16" font-weight="700" fill="#000000">b&#160;&#160;Score each gene against a frozen reference</text>
   <text x="768" y="946" font-size="14" fill="#000000">Self-normalize the sample; a gene is <tspan font-weight="700">ON</tspan> if at or above the frozen reference median.</text>
   <rect x="768" y="958" width="668" height="32" rx="5" fill="#ffffff" stroke="#cccccc"/>
   <text x="782" y="980" font-size="15" font-weight="700" fill="#000000">layer score = (activating genes ON) &#8722; (suppressive genes ON)</text>
   <rect x="768" y="998" width="668" height="32" rx="5" fill="#ffffff" stroke="#cccccc"/>
   <text x="782" y="1020" font-size="15" font-weight="700" fill="#000000">z = (layer score &#8722; reference mean) / reference SD</text>
   <text x="768" y="1058" font-size="14" fill="#000000">Standardized versus the reference population (0 = median, SD units).</text>
-  <text x="768" y="1082" font-size="13.5" fill="#555555">Scored one patient at a time, independent of any cohort.</text>
+  <text x="768" y="1082" font-size="13.5" fill="#000000">Scored one patient at a time, independent of any cohort.</text>
 
   <!-- c. archetype call -->
   <rect x="748" y="1126" width="708" height="124" rx="7" fill="#F3EDF2" stroke="#000000" stroke-width="2"/>
-  <text x="768" y="1150" font-size="15" font-weight="700" fill="#000000">c&#160;&#160;Call the archetype (the lowest layer names it)</text>
+  <text x="768" y="1150" font-size="16" font-weight="700" fill="#000000">c&#160;&#160;Call the archetype (the lowest layer names it)</text>
   <rect x="768" y="1161" width="15" height="15" rx="3" fill="#2E7D32"/>
   <text x="792" y="1173" font-size="14" font-weight="700" fill="#000000">S+ I+ E+</text>
-  <text x="884" y="1173" font-size="14" fill="#000000"><tspan>&#8594;&#160;</tspan><tspan font-weight="700">Immune-engaged</tspan> (hot)</text>
+  <text x="890" y="1173" font-size="14" fill="#000000"><tspan>&#8594;&#160;</tspan><tspan font-weight="700">Immune-engaged</tspan> (hot)</text>
   <rect x="768" y="1183" width="15" height="15" rx="3" fill="#9C7A3E"/>
-  <text x="792" y="1195" font-size="14" font-weight="700" fill="#000000">S&#8722;</text>
-  <text x="884" y="1195" font-size="14" fill="#000000"><tspan>&#8594;&#160;</tspan><tspan font-weight="700">Cold</tspan> (Sensory lowest)</text>
+  <text x="792" y="1195" font-size="14" font-weight="700" fill="#000000">S&#8722; I+ E+</text>
+  <text x="890" y="1195" font-size="14" fill="#000000"><tspan>&#8594;&#160;</tspan><tspan font-weight="700">Cold</tspan> (Sensory lowest)</text>
   <rect x="768" y="1205" width="15" height="15" rx="3" fill="#6A2C5A"/>
-  <text x="792" y="1217" font-size="14" font-weight="700" fill="#000000">I&#8722;</text>
-  <text x="884" y="1217" font-size="14" fill="#000000"><tspan>&#8594;&#160;</tspan><tspan font-weight="700">Blocked</tspan> (Integration lowest)</text>
+  <text x="792" y="1217" font-size="14" font-weight="700" fill="#000000">S+ I&#8722; E+</text>
+  <text x="890" y="1217" font-size="14" fill="#000000"><tspan>&#8594;&#160;</tspan><tspan font-weight="700">Blocked</tspan> (Integration lowest)</text>
   <rect x="768" y="1227" width="15" height="15" rx="3" fill="#B2567E"/>
-  <text x="792" y="1239" font-size="14" font-weight="700" fill="#000000">E&#8722;</text>
-  <text x="884" y="1239" font-size="14" fill="#000000"><tspan>&#8594;&#160;</tspan><tspan font-weight="700">No-kill</tspan> (Execution lowest)</text>
+  <text x="792" y="1239" font-size="14" font-weight="700" fill="#000000">S+ I+ E&#8722;</text>
+  <text x="890" y="1239" font-size="14" fill="#000000"><tspan>&#8594;&#160;</tspan><tspan font-weight="700">No-kill</tspan> (Execution lowest)</text>
 
   <!-- ===================== 3. results (real app outputs, house palette) ===================== -->
   <text x="28" y="1286" font-size="19" font-weight="700" fill="#000000">3&#160;&#160;What CascadeScope produces&#160;&#160;<tspan font-weight="400" font-size="16">(example cohort, n = 60)</tspan></text>
