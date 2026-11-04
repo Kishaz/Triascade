@@ -332,8 +332,14 @@ server <- function(input, output, session) {
   output$n_pat  <- renderText({ req(res()); res()$n_samples })
   output$cov    <- renderText({ req(res()); sprintf("%d / %d genes", res()$coverage, res()$n_panel) })
   output$intact <- renderText({ req(res()); s<-res()$scores; sprintf("%d of %d (%.0f%%)", sum(s$archetype=="intact"), nrow(s), 100*mean(s$archetype=="intact")) })
-  base_theme <- function(p) ggplotly(p, tooltip="text") |>
-    layout(font=list(family="Inter, system-ui, Arial, sans-serif", color="black"), margin=list(t=24,l=64,b=48,r=16)) |> config(displayModeBar=FALSE)
+  # ggplotly() measures text on the current graphics device; on macOS that is
+  # quartz, which errors ("invalid quartz() device size") in a headless/odd-size
+  # context and then stays broken process-wide. Measure on a null PDF device.
+  base_theme <- function(p){
+    grDevices::pdf(NULL); on.exit(grDevices::dev.off(), add=TRUE)
+    ggplotly(p, tooltip="text") |>
+      layout(font=list(family="Inter, system-ui, Arial, sans-serif", color="black"), margin=list(t=24,l=64,b=48,r=16)) |> config(displayModeBar=FALSE)
+  }
   output$cohort <- renderPlotly({ base_theme(build_layer_violin_jit(long(), pal()$lay)) })
   output$patients <- renderPlotly({ L<-long()
     p <- ggplot(L, aes(z, layer, colour=archetype, text=tt)) + geom_vline(xintercept=0, colour="black", linewidth=0.3) +
