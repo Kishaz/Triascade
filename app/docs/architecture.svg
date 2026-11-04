@@ -1,94 +1,670 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-     width="1480" height="2130" viewBox="0 0 1480 2130"
-     font-family="Helvetica, Arial, sans-serif">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1480"
+   height="2130"
+   viewBox="0 0 1480 2130"
+   font-family="Helvetica, Arial, sans-serif"
+   version="1.1"
+   id="svg52"
+   sodipodi:docname="architecture.svg"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview52"
+     pagecolor="#ffffff"
+     bordercolor="#cccccc"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="1"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:export-bgcolor="#ffffffff"
+     inkscape:zoom="0.76"
+     inkscape:cx="959.21053"
+     inkscape:cy="1365.1316"
+     inkscape:window-width="2560"
+     inkscape:window-height="1440"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg52" />
   <!-- CascadeScope method + results poster. Reuses manuscript Figure 1 panels B and C;
        house palette; American English; no em-dashes. Panel text is live; plots/panels are linked images. -->
-  <rect width="1480" height="2130" fill="#ffffff"/>
-
+  <rect
+     width="1480"
+     height="1924.7368"
+     fill="#ffffff"
+     id="rect1"
+     x="0"
+     y="0"
+     style="stroke-width:0.950595"
+     inkscape:export-filename="architecture.png"
+     inkscape:export-xdpi="600"
+     inkscape:export-ydpi="600" />
+  <rect
+     x="23.931801"
+     y="1539.9318"
+     width="704.13641"
+     height="328.13638"
+     rx="8.0015497"
+     fill="#ffffff"
+     stroke="#000000"
+     stroke-width="1.8636"
+     id="rect49" />
+  <image
+     xlink:href="fig1c.png"
+     x="24"
+     y="48"
+     width="1432"
+     height="548"
+     id="image3" />
   <!-- header -->
-  <text x="28" y="44" font-size="30" font-weight="700"><tspan fill="#6A2C5A">CascadeScope</tspan><tspan fill="#000000" font-size="20" font-weight="400">&#160;&#160;reading the anti-tumor immune cascade, one patient at a time</tspan></text>
-
+  <text
+     x="28"
+     y="44"
+     font-size="30"
+     font-weight="700"
+     id="text2"><tspan
+       fill="#6A2C5A"
+       id="tspan1">CascadeScope</tspan><tspan
+       fill="#000000"
+       font-size="20"
+       font-weight="400"
+       id="tspan2">  reading the anti-tumor immune cascade, one patient at a time</tspan></text>
   <!-- ===================== 1. the cascade (Figure 1 panel C) ===================== -->
-  <text x="28" y="84" font-size="19" font-weight="700" fill="#000000">1&#160;&#160;The immune cascade we read</text>
-  <image xlink:href="fig1c.png" x="24" y="98" width="1432" height="548"/>
-
+  <text
+     x="28"
+     y="84"
+     font-size="19"
+     font-weight="700"
+     fill="#000000"
+     id="text3">1  The immune cascade we read</text>
   <!-- ===================== 2. from the panel to the patient ===================== -->
-  <text x="28" y="678" font-size="19" font-weight="700" fill="#000000">2&#160;&#160;From the 98-gene panel to a patient call</text>
-
+  <text
+     x="28"
+     y="596"
+     font-size="19px"
+     font-weight="700"
+     fill="#000000"
+     id="text4">2  From the 98-gene panel to a patient call</text>
   <!-- left: Figure 1 panel B (modules -> layers) -->
-  <image xlink:href="fig1b.png" x="24" y="694" width="700" height="556"/>
-
+  <image
+     xlink:href="fig1b.png"
+     x="24"
+     y="612"
+     width="700"
+     height="556"
+     id="image4" />
   <!-- pipeline connectors -->
-  <defs>
-    <marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#000000"/></marker>
+  <defs
+     id="defs4">
+    <marker
+       id="ah"
+       markerWidth="9"
+       markerHeight="9"
+       refX="6"
+       refY="3"
+       orient="auto">
+      <path
+         d="M0,0 L6,3 L0,6 Z"
+         fill="#000000"
+         id="path4" />
+    </marker>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath52">
+      <rect
+         style="fill:#7a5195;fill-opacity:0.158273;stroke:#000000;stroke-width:2.28"
+         id="rect53"
+         width="696.05261"
+         height="288.1579"
+         x="753.94739"
+         y="1252.6316" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath54">
+      <rect
+         style="fill:#7a5195;fill-opacity:0.158273;stroke:#000000;stroke-width:1.99157"
+         id="rect55"
+         width="512.13055"
+         height="281.86737"
+         x="140.64526"
+         y="1572.2242" />
+    </clipPath>
   </defs>
-  <line x1="1102" y1="872" x2="1102" y2="890" stroke="#000000" stroke-width="2.4" marker-end="url(#ah)"/>
-  <line x1="1102" y1="1108" x2="1102" y2="1126" stroke="#000000" stroke-width="2.4" marker-end="url(#ah)"/>
-
+  <line
+     x1="1102"
+     y1="790"
+     x2="1102"
+     y2="808"
+     stroke="#000000"
+     stroke-width="2.4"
+     marker-end="url(#ah)"
+     id="line4" />
+  <line
+     x1="1102"
+     y1="1026"
+     x2="1102"
+     y2="1044"
+     stroke="#000000"
+     stroke-width="2.4"
+     marker-end="url(#ah)"
+     id="line5" />
   <!-- a. input data -->
-  <rect x="748" y="694" width="708" height="176" rx="7" fill="#F3EDF2" stroke="#000000" stroke-width="2"/>
-  <text x="768" y="724" font-size="16" font-weight="700" fill="#000000">a&#160;&#160;Your data (the input)</text>
+  <rect
+     x="748"
+     y="612"
+     width="708"
+     height="176"
+     rx="7"
+     fill="#f3edf2"
+     stroke="#000000"
+     stroke-width="2"
+     id="rect5" />
+  <text
+     x="768"
+     y="642"
+     font-size="16px"
+     font-weight="700"
+     fill="#000000"
+     id="text5">a  Your data (the input)</text>
   <!-- mini gene x sample table -->
-  <rect x="768" y="736" width="278" height="24" fill="#EDE2EA" stroke="#cccccc" stroke-width="1"/>
-  <rect x="768" y="760" width="278" height="72" fill="#ffffff" stroke="#cccccc" stroke-width="1"/>
-  <line x1="872" y1="736" x2="872" y2="832" stroke="#cccccc"/><line x1="930" y1="736" x2="930" y2="832" stroke="#cccccc"/><line x1="988" y1="736" x2="988" y2="832" stroke="#cccccc"/>
-  <line x1="768" y1="760" x2="1046" y2="760" stroke="#cccccc"/><line x1="768" y1="784" x2="1046" y2="784" stroke="#cccccc"/><line x1="768" y1="808" x2="1046" y2="808" stroke="#cccccc"/>
-  <text x="776" y="753" font-size="13" font-weight="700" fill="#000000">gene</text><text x="889" y="753" font-size="13" font-weight="700" fill="#000000">S1</text><text x="947" y="753" font-size="13" font-weight="700" fill="#000000">S2</text><text x="1005" y="753" font-size="13" font-weight="700" fill="#000000">S3</text>
-  <text x="776" y="777" font-size="13" fill="#000000">CXCL9</text><text x="889" y="777" font-size="13" fill="#000000">2.4</text><text x="947" y="777" font-size="13" fill="#000000">0.1</text><text x="1005" y="777" font-size="13" fill="#000000">3.1</text>
-  <text x="776" y="801" font-size="13" fill="#000000">TGFB1</text><text x="889" y="801" font-size="13" fill="#000000">0.3</text><text x="947" y="801" font-size="13" fill="#000000">2.8</text><text x="1005" y="801" font-size="13" fill="#000000">0.2</text>
-  <text x="776" y="825" font-size="13" fill="#000000">GZMB</text><text x="889" y="825" font-size="13" fill="#000000">3.0</text><text x="947" y="825" font-size="13" fill="#000000">0.2</text><text x="1005" y="825" font-size="13" fill="#000000">2.6</text>
-  <text x="1076" y="760" font-size="14" fill="#000000">Tumor RNA-seq (TPM / log / counts).</text>
-  <text x="1076" y="784" font-size="14" fill="#000000">gene &#215; sample table:</text>
-  <text x="1076" y="806" font-size="14" fill="#000000">CSV / TSV / Excel.</text>
-  <text x="1076" y="828" font-size="14" font-weight="700" fill="#000000">one patient = one column.</text>
-
+  <rect
+     x="768"
+     y="654"
+     width="278"
+     height="24"
+     fill="#ede2ea"
+     stroke="#cccccc"
+     stroke-width="1"
+     id="rect6" />
+  <rect
+     x="768"
+     y="678"
+     width="278"
+     height="72"
+     fill="#ffffff"
+     stroke="#cccccc"
+     stroke-width="1"
+     id="rect7" />
+  <line
+     x1="872"
+     y1="654"
+     x2="872"
+     y2="750"
+     stroke="#cccccc"
+     id="line7" />
+  <line
+     x1="930"
+     y1="654"
+     x2="930"
+     y2="750"
+     stroke="#cccccc"
+     id="line8" />
+  <line
+     x1="988"
+     y1="654"
+     x2="988"
+     y2="750"
+     stroke="#cccccc"
+     id="line9" />
+  <line
+     x1="768"
+     y1="678"
+     x2="1046"
+     y2="678"
+     stroke="#cccccc"
+     id="line10" />
+  <line
+     x1="768"
+     y1="702"
+     x2="1046"
+     y2="702"
+     stroke="#cccccc"
+     id="line11" />
+  <line
+     x1="768"
+     y1="726"
+     x2="1046"
+     y2="726"
+     stroke="#cccccc"
+     id="line12" />
+  <text
+     x="776"
+     y="671"
+     font-size="13px"
+     font-weight="700"
+     fill="#000000"
+     id="text12">gene</text>
+  <text
+     x="889"
+     y="671"
+     font-size="13px"
+     font-weight="700"
+     fill="#000000"
+     id="text13">S1</text>
+  <text
+     x="947"
+     y="671"
+     font-size="13px"
+     font-weight="700"
+     fill="#000000"
+     id="text14">S2</text>
+  <text
+     x="1005"
+     y="671"
+     font-size="13px"
+     font-weight="700"
+     fill="#000000"
+     id="text15">S3</text>
+  <text
+     x="776"
+     y="695"
+     font-size="13px"
+     fill="#000000"
+     id="text16">CXCL9</text>
+  <text
+     x="889"
+     y="695"
+     font-size="13px"
+     fill="#000000"
+     id="text17">2.4</text>
+  <text
+     x="947"
+     y="695"
+     font-size="13px"
+     fill="#000000"
+     id="text18">0.1</text>
+  <text
+     x="1005"
+     y="695"
+     font-size="13px"
+     fill="#000000"
+     id="text19">3.1</text>
+  <text
+     x="776"
+     y="719"
+     font-size="13px"
+     fill="#000000"
+     id="text20">TGFB1</text>
+  <text
+     x="889"
+     y="719"
+     font-size="13px"
+     fill="#000000"
+     id="text21">0.3</text>
+  <text
+     x="947"
+     y="719"
+     font-size="13px"
+     fill="#000000"
+     id="text22">2.8</text>
+  <text
+     x="1005"
+     y="719"
+     font-size="13px"
+     fill="#000000"
+     id="text23">0.2</text>
+  <text
+     x="776"
+     y="743"
+     font-size="13px"
+     fill="#000000"
+     id="text24">GZMB</text>
+  <text
+     x="889"
+     y="743"
+     font-size="13px"
+     fill="#000000"
+     id="text25">3.0</text>
+  <text
+     x="947"
+     y="743"
+     font-size="13px"
+     fill="#000000"
+     id="text26">0.2</text>
+  <text
+     x="1005"
+     y="743"
+     font-size="13px"
+     fill="#000000"
+     id="text27">2.6</text>
+  <text
+     x="1076"
+     y="678"
+     font-size="14px"
+     fill="#000000"
+     id="text28">Tumor RNA-seq (TPM / log / counts).</text>
+  <text
+     x="1076"
+     y="702"
+     font-size="14px"
+     fill="#000000"
+     id="text29">gene × sample table:</text>
+  <text
+     x="1076"
+     y="724"
+     font-size="14px"
+     fill="#000000"
+     id="text30">CSV / TSV / Excel.</text>
+  <text
+     x="1076"
+     y="746"
+     font-size="14px"
+     font-weight="700"
+     fill="#000000"
+     id="text31">one patient = one column.</text>
   <!-- b. score vs frozen reference -->
-  <rect x="748" y="890" width="708" height="216" rx="7" fill="#F3EDF2" stroke="#000000" stroke-width="2"/>
-  <text x="768" y="920" font-size="16" font-weight="700" fill="#000000">b&#160;&#160;Score each gene against a frozen reference</text>
-  <text x="768" y="946" font-size="14" fill="#000000">Self-normalize the sample; a gene is <tspan font-weight="700">ON</tspan> if at or above the frozen reference median.</text>
-  <rect x="768" y="958" width="668" height="32" rx="5" fill="#ffffff" stroke="#cccccc"/>
-  <text x="782" y="980" font-size="15" font-weight="700" fill="#000000">layer score = (activating genes ON) &#8722; (suppressive genes ON)</text>
-  <rect x="768" y="998" width="668" height="32" rx="5" fill="#ffffff" stroke="#cccccc"/>
-  <text x="782" y="1020" font-size="15" font-weight="700" fill="#000000">z = (layer score &#8722; reference mean) / reference SD</text>
-  <text x="768" y="1058" font-size="14" fill="#000000">Standardized versus the reference population (0 = median, SD units).</text>
-  <text x="768" y="1082" font-size="13.5" fill="#000000">Scored one patient at a time, independent of any cohort.</text>
-
+  <rect
+     x="748"
+     y="808"
+     width="708"
+     height="216"
+     rx="7"
+     fill="#f3edf2"
+     stroke="#000000"
+     stroke-width="2"
+     id="rect31" />
+  <text
+     x="768"
+     y="838"
+     font-size="16px"
+     font-weight="700"
+     fill="#000000"
+     id="text32">b  Score each gene against a frozen reference</text>
+  <text
+     x="768"
+     y="864"
+     font-size="14px"
+     fill="#000000"
+     id="text33">Self-normalize the sample; a gene is <tspan
+   font-weight="700"
+   id="tspan32">ON</tspan> if at or above the frozen reference median.</text>
+  <rect
+     x="768"
+     y="876"
+     width="668"
+     height="32"
+     rx="5"
+     fill="#ffffff"
+     stroke="#cccccc"
+     id="rect33" />
+  <text
+     x="782"
+     y="898"
+     font-size="15px"
+     font-weight="700"
+     fill="#000000"
+     id="text34">layer score = (activating genes ON) − (suppressive genes ON)</text>
+  <rect
+     x="768"
+     y="916"
+     width="668"
+     height="32"
+     rx="5"
+     fill="#ffffff"
+     stroke="#cccccc"
+     id="rect34" />
+  <text
+     x="782"
+     y="938"
+     font-size="15px"
+     font-weight="700"
+     fill="#000000"
+     id="text35">z = (layer score − reference mean) / reference SD</text>
+  <text
+     x="768"
+     y="976"
+     font-size="14px"
+     fill="#000000"
+     id="text36">Standardized versus the reference population (0 = median, SD units).</text>
+  <text
+     x="768"
+     y="1000"
+     font-size="13.5px"
+     fill="#000000"
+     id="text37">Scored one patient at a time, independent of any cohort.</text>
   <!-- c. archetype call -->
-  <rect x="748" y="1126" width="708" height="124" rx="7" fill="#F3EDF2" stroke="#000000" stroke-width="2"/>
-  <text x="768" y="1150" font-size="16" font-weight="700" fill="#000000">c&#160;&#160;Call the archetype (the lowest layer names it)</text>
-  <rect x="768" y="1161" width="15" height="15" rx="3" fill="#2E7D32"/>
-  <text x="792" y="1173" font-size="14" font-weight="700" fill="#000000">S+ I+ E+</text>
-  <text x="890" y="1173" font-size="14" fill="#000000"><tspan>&#8594;&#160;</tspan><tspan font-weight="700">Immune-engaged</tspan> (hot)</text>
-  <rect x="768" y="1183" width="15" height="15" rx="3" fill="#9C7A3E"/>
-  <text x="792" y="1195" font-size="14" font-weight="700" fill="#000000">S&#8722; I+ E+</text>
-  <text x="890" y="1195" font-size="14" fill="#000000"><tspan>&#8594;&#160;</tspan><tspan font-weight="700">Cold</tspan> (Sensory lowest)</text>
-  <rect x="768" y="1205" width="15" height="15" rx="3" fill="#6A2C5A"/>
-  <text x="792" y="1217" font-size="14" font-weight="700" fill="#000000">S+ I&#8722; E+</text>
-  <text x="890" y="1217" font-size="14" fill="#000000"><tspan>&#8594;&#160;</tspan><tspan font-weight="700">Blocked</tspan> (Integration lowest)</text>
-  <rect x="768" y="1227" width="15" height="15" rx="3" fill="#B2567E"/>
-  <text x="792" y="1239" font-size="14" font-weight="700" fill="#000000">S+ I+ E&#8722;</text>
-  <text x="890" y="1239" font-size="14" fill="#000000"><tspan>&#8594;&#160;</tspan><tspan font-weight="700">No-kill</tspan> (Execution lowest)</text>
-
+  <rect
+     x="748"
+     y="1044"
+     width="708"
+     height="124"
+     rx="7"
+     fill="#f3edf2"
+     stroke="#000000"
+     stroke-width="2"
+     id="rect37" />
+  <text
+     x="768"
+     y="1068"
+     font-size="16px"
+     font-weight="700"
+     fill="#000000"
+     id="text38">c  Call the archetype (the lowest layer names it)</text>
+  <rect
+     x="768"
+     y="1079"
+     width="15"
+     height="15"
+     rx="3"
+     fill="#2e7d32"
+     id="rect38" />
+  <text
+     x="792"
+     y="1091"
+     font-size="14px"
+     font-weight="700"
+     fill="#000000"
+     id="text39">S+ I+ E+</text>
+  <text
+     x="890"
+     y="1091"
+     font-size="14px"
+     fill="#000000"
+     id="text40"><tspan
+   id="tspan39">→ </tspan><tspan
+   font-weight="700"
+   id="tspan40">Immune-engaged</tspan> (hot)</text>
+  <rect
+     x="768"
+     y="1101"
+     width="15"
+     height="15"
+     rx="3"
+     fill="#9c7a3e"
+     id="rect40" />
+  <text
+     x="792"
+     y="1113"
+     font-size="14px"
+     font-weight="700"
+     fill="#000000"
+     id="text41">S− I+ E+</text>
+  <text
+     x="890"
+     y="1113"
+     font-size="14px"
+     fill="#000000"
+     id="text42"><tspan
+   id="tspan41">→ </tspan><tspan
+   font-weight="700"
+   id="tspan42">Cold</tspan> (Sensory lowest)</text>
+  <rect
+     x="768"
+     y="1123"
+     width="15"
+     height="15"
+     rx="3"
+     fill="#6a2c5a"
+     id="rect42" />
+  <text
+     x="792"
+     y="1135"
+     font-size="14px"
+     font-weight="700"
+     fill="#000000"
+     id="text43">S+ I− E+</text>
+  <text
+     x="890"
+     y="1135"
+     font-size="14px"
+     fill="#000000"
+     id="text44"><tspan
+   id="tspan43">→ </tspan><tspan
+   font-weight="700"
+   id="tspan44">Blocked</tspan> (Integration lowest)</text>
+  <rect
+     x="768"
+     y="1145"
+     width="15"
+     height="15"
+     rx="3"
+     fill="#b2567e"
+     id="rect44" />
+  <text
+     x="792"
+     y="1157"
+     font-size="14px"
+     font-weight="700"
+     fill="#000000"
+     id="text45">S+ I+ E−</text>
+  <text
+     x="890"
+     y="1157"
+     font-size="14px"
+     fill="#000000"
+     id="text46"><tspan
+   id="tspan45">→ </tspan><tspan
+   font-weight="700"
+   id="tspan46">No-kill</tspan> (Execution lowest)</text>
   <!-- ===================== 3. results (real app outputs, house palette) ===================== -->
-  <text x="28" y="1286" font-size="19" font-weight="700" fill="#000000">3&#160;&#160;What CascadeScope produces&#160;&#160;<tspan font-weight="400" font-size="16">(example cohort, n = 60)</tspan></text>
-
-  <rect x="24" y="1302" width="704" height="378" rx="8" fill="#ffffff" stroke="#000000" stroke-width="2"/>
-  <text x="44" y="1332" font-size="16" font-weight="700" fill="#000000">Patient report: three-layer gauge</text>
-  <image xlink:href="fig_gauge.png" x="40" y="1377" width="672" height="249"/>
-
-  <rect x="752" y="1302" width="704" height="378" rx="8" fill="#ffffff" stroke="#000000" stroke-width="2"/>
-  <text x="772" y="1332" font-size="16" font-weight="700" fill="#000000">Gene drivers: per-patient cascade tree</text>
-  <image xlink:href="fig_tree.png" x="768" y="1372" width="672" height="259"/>
-
-  <rect x="24" y="1704" width="704" height="378" rx="8" fill="#ffffff" stroke="#000000" stroke-width="2"/>
-  <text x="44" y="1734" font-size="16" font-weight="700" fill="#000000">Cohort explorer: archetype mix</text>
-  <image xlink:href="fig_donut.png" x="56" y="1741" width="640" height="310"/>
-
-  <rect x="752" y="1704" width="704" height="378" rx="8" fill="#ffffff" stroke="#000000" stroke-width="2"/>
-  <text x="772" y="1734" font-size="16" font-weight="700" fill="#000000">Cohort explorer: per-patient layer scores</text>
-  <image xlink:href="fig_beeswarm.png" x="768" y="1764" width="672" height="280"/>
-
+  <text
+     x="28"
+     y="1198"
+     font-size="19px"
+     font-weight="700"
+     fill="#000000"
+     id="text47">3  What CascadeScope produces  <tspan
+   font-weight="400"
+   font-size="16px"
+   id="tspan47">(example cohort, n = 60)</tspan></text>
+  <rect
+     x="23.907293"
+     y="1213.9073"
+     width="704.18542"
+     height="311.08014"
+     rx="8.0021067"
+     fill="#ffffff"
+     stroke="#000000"
+     stroke-width="1.81459"
+     id="rect47" />
+  <text
+     x="44"
+     y="1244"
+     font-size="16px"
+     font-weight="700"
+     fill="#000000"
+     id="text48"
+     style="-inkscape-font-specification:'Sans, Bold';font-family:Sans;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:18.6667px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000">Patient report: three-layer gauge</text>
+  <image
+     xlink:href="fig_gauge.png"
+     x="40"
+     y="1261"
+     width="672"
+     height="249"
+     id="image48" />
+  <rect
+     x="751.90924"
+     y="1213.9092"
+     width="704.18164"
+     height="312.39212"
+     rx="8.0020638"
+     fill="#ffffff"
+     stroke="#000000"
+     stroke-width="1.8184"
+     id="rect48" />
+  <image
+     xlink:href="fig_tree.png"
+     x="721.94739"
+     y="1252.5582"
+     width="753.57892"
+     height="290.44189"
+     id="image49"
+     clip-path="url(#clipPath52)"
+     transform="translate(4,-38)" />
+  <text
+     x="772"
+     y="1244"
+     font-size="16px"
+     font-weight="700"
+     fill="#000000"
+     id="text49"
+     style="-inkscape-font-specification:'Sans, Bold';font-family:Sans;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:18.6667px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000">Gene drivers: per-patient cascade tree</text>
+  <image
+     xlink:href="fig_donut.png"
+     x="34.947369"
+     y="1545"
+     width="684.73682"
+     height="331.6694"
+     id="image50"
+     clip-path="url(#clipPath54)" />
+  <text
+     x="44"
+     y="1570"
+     font-size="16px"
+     font-weight="700"
+     fill="#000000"
+     id="text50"
+     style="-inkscape-font-specification:'Sans, Bold';font-family:Sans;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:18.6667px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000">Cohort explorer: archetype mix</text>
+  <rect
+     x="751.93182"
+     y="1539.9318"
+     width="704.13641"
+     height="328.13638"
+     rx="8.0015497"
+     fill="#ffffff"
+     stroke="#000000"
+     stroke-width="1.8636"
+     id="rect50" />
+  <image
+     xlink:href="fig_beeswarm.png"
+     x="768"
+     y="1568"
+     width="672"
+     height="280"
+     id="image51" />
+  <text
+     x="772"
+     y="1570"
+     font-size="16px"
+     font-weight="700"
+     fill="#000000"
+     id="text51"
+     style="-inkscape-font-specification:'Sans, Bold';font-family:Sans;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:18.6667px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000">Cohort explorer: per-patient layer scores</text>
   <!-- footer -->
-  <line x1="24" y1="2102" x2="1456" y2="2102" stroke="#e5e5e5" stroke-width="1"/>
-  <text x="24" y="2122" font-size="13.5" fill="#000000"><tspan font-weight="700" fill="#6A2C5A">Reproducible:</tspan> frozen, versioned 98-gene reference; deterministic, cohort-independent scoring.&#160;&#160;&#160;<tspan font-weight="700" fill="#9C7A3E">Research use only</tspan>, not a validated clinical test.</text>
+  <line
+     x1="24"
+     y1="1882"
+     x2="1456"
+     y2="1882"
+     stroke="#e5e5e5"
+     stroke-width="1"
+     id="line51" />
+  <text
+     x="24"
+     y="1902"
+     font-size="13.5px"
+     fill="#000000"
+     id="text52"
+     style="font-size:13.5px;fill:#000000"><tspan
+       font-weight="700"
+       fill="#6a2c5a"
+       id="tspan51"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:18.6667px;font-family:Helvetica, Arial, sans-serif;-inkscape-font-specification:'Helvetica, Arial, sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Reproducible: frozen, versioned 98-gene reference; deterministic, cohort-independent scoring.   Research use only, not a validated clinical test.</tspan></text>
 </svg>

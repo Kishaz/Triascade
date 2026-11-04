@@ -13,6 +13,10 @@
 
 ---
 
+<p align="center">
+  <img src="docs/architecture.png" alt="How CascadeScope works: the three-layer immune cascade, the scoring formula, the four archetypes, and the app's patient and cohort outputs" width="1000">
+</p>
+
 ## What this is
 
 **CascadeScope** is the software; the **Immune Cascade Index (ICI)** is the method it implements.
@@ -38,9 +42,7 @@ flagged for attention (it marks where the cascade reads weakest, **not** a prove
 
 ## How it works
 
-<p align="center">
-  <img src="docs/architecture.png" alt="How CascadeScope works: the three-layer cascade, the scoring formula, the four archetypes, and the app outputs" width="1000">
-</p>
+The overview figure at the top walks through it end to end:
 
 1. **Input:** a tumor RNA-seq gene × sample table (TPM, log-TPM, or counts).
 2. **Score:** each gene is self-normalized within the sample and compared to a **frozen 98-gene
