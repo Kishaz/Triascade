@@ -74,7 +74,7 @@ BIO_CHIPS <- list(
   cold    = c("Antigen-presentation / IFN induction", "Innate agonists (STING / TLR)", "Radiation + ICB", "Vaccine combinations"),
   blocked = c("Anti-TGF-β", "Anti-angiogenic", "Stroma-directed combinations"),
   `no-kill`= c("LAG-3", "TIM-3", "TIGIT", "Effector cytokine support"))
-GAUGE_CAP <- "Each bar is the patient's standardized score for that layer versus the reference population (0 = reference median, in SD units; shaded band = typical range, the middle 50% of the reference). The lowest layer versus the reference is starred."
+GAUGE_CAP <- "Each bar is the patient's standardized score for that layer versus the reference population (0 = reference median, in SD units; shaded band = typical range, the middle 50% of the reference). The starred layer is the patient's relative weakest layer within the analyzed cohort (for a single uploaded sample, versus the reference)."
 RUO <- "Research use only. Investigational biomarker; not a validated clinical test. Does not replace approved biomarkers (PD-L1, TMB, MSI) or clinical judgment. Mechanistic rationale is hypothesis-generating, not a treatment recommendation."
 
 # ---- multi-format reader (CSV / TSV / Excel) --------------------------------
@@ -213,8 +213,8 @@ build_cascade_tree <- function(df, p, smz, lay = DEF$lay){
     geom_segment(data=e2, aes(x=x,xend=xend,y=y,yend=yend), colour=e2$col, linewidth=e2$lwd, lineend="round") +
     geom_segment(data=e1[e1$on==0,,drop=FALSE], aes(x=x,xend=xend,y=y,yend=yend, colour=dev), linewidth=0.25, alpha=0.30) +
     geom_segment(data=e1[e1$on==1,,drop=FALSE], aes(x=x,xend=xend,y=y,yend=yend, colour=dev), linewidth=0.35, alpha=0.85) +
-    geom_point(data=df, aes(x=x, y=gy, colour=dev, shape=factor(on)), size=3.6, stroke=1.1) +
-    geom_text(data=df, aes(x=x, y=gy+0.5, label=gene), angle=90, hjust=0, vjust=0.5, size=3, colour="black") +
+    geom_point(data=df, aes(x=x, y=gy, colour=dev, shape=factor(on)), size=3.3, stroke=1.05) +
+    geom_text(data=df, aes(x=x, y=gy+0.5, label=gene), angle=90, hjust=0, vjust=0.5, size=2.9, colour="black") +
     geom_point(data=snode, aes(x=x, y=y, colour=z), size=9) +
     geom_label(data=snode, aes(x=x, y=y+1.3, label=lab), fontface=2, size=3.5, colour="black",
                fill="white", linewidth=0, label.padding=unit(0.1,"lines")) +
@@ -227,13 +227,13 @@ build_cascade_tree <- function(df, p, smz, lay = DEF$lay){
     scale_shape_manual(values=c(`0`=0, `1`=15),
                        labels=c(`0`="off  (< ref median)", `1`="on  (≥ ref median)"), name=NULL) +
     scale_x_continuous(limits=c(xr[1]-1.5, xr[2]+1.5)) +
-    scale_y_continuous(limits=c(ly-2.8, gy+6.8)) +
+    scale_y_continuous(limits=c(ly-2.8, gy+8.4)) +
     coord_cartesian(clip="off") +
     guides(colour=guide_colourbar(order=1, barwidth=unit(13,"lines"), barheight=unit(0.85,"lines"), title.position="top"),
            shape=guide_legend(order=2, override.aes=list(size=5.5))) +
     theme_void(base_size=13) +
     theme(legend.position="bottom", legend.box="horizontal", legend.spacing.x=unit(0.6,"lines"),
-          plot.margin=margin(8,12,8,12),
+          plot.margin=margin(16,12,8,12),
           legend.title=element_text(colour="black", size=13, face=2),
           legend.text=element_text(colour="black", size=12.5))
 }
@@ -354,7 +354,7 @@ about_tab <- nav_panel(title = tagList(icon("circle-info"), " About"), value = "
         "",
         "**Execution** measures the shared cytotoxic machinery of **CD8 T cells and NK cells** (granzymes, perforin, granulysin, NKG7): it reflects their combined killing output and does not separate the two lineages.",
         "",
-        "The **lowest** layer relative to the reference is flagged for attention - the stage that reads weakest versus the reference population. (It marks where the cascade score is lowest, not a proven causal bottleneck.)",
+        "The patient's **relative weakest layer** is flagged for attention - the stage that reads lowest within the analyzed cohort (or versus the reference for a single uploaded sample). The archetype is a relative, population-dependent label, not a proven causal bottleneck; the continuous layer scores above are population-independent.",
         sep="\n")),
       card_header("One scale throughout"),
       markdown(paste(
@@ -363,7 +363,7 @@ about_tab <- nav_panel(title = tagList(icon("circle-info"), " About"), value = "
         "- **0** = the reference median.",
         "- Units are **standard deviations** of the reference.",
         "- The **shaded band** on each gauge is the *typical range* (middle 50% of the reference).",
-        "- The layer **left of the band** is flagged as the lowest versus the reference.",
+        "- A layer **left of the band** sits below the reference typical range; the starred layer is the patient's relative weakest layer within the analyzed cohort.",
         "",
         "Genes are colored by the same idea: <span style='color:#6A2C5A'>**plum = above the reference**</span>,",
         "<span style='color:#9C7A3E'>**gold = below**</span>. A filled square (black outline) marks a gene the score counts as \"on\".",
@@ -402,8 +402,20 @@ ui <- page_navbar(
       div("See where immunity stalls.", style="font-size:0.62rem;font-style:italic;color:#6A2C5A"))),
   theme = app_theme, fillable = FALSE,
   header = tagList(
+    # Prime the Plotly.js load at app start (see output$`.plotly_primer`): the main
+    # plotly library is attached only when a plot first renders and loads async, so
+    # without this the cohort plots - inserted together when their lazily-rendered
+    # tab opens - can run before it loads ("Plotly is not defined", a blank widget
+    # that never retries). This always-present 1px plot triggers the load up front.
+    div(style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none",
+        plotlyOutput(".plotly_primer", width="1px", height="1px")),
     tags$head(
-      tags$link(rel="icon", type="image/svg+xml", href="icon.svg")),
+      tags$link(rel="icon", type="image/svg+xml", href="icon.svg"),
+      tags$style(HTML(paste(
+        # highlight the active navbar tab
+        ".navbar-nav .nav-link.active, .nav-link.active{font-weight:700 !important;color:#6A2C5A !important;}",
+        ".navbar-nav .nav-link.active{border-bottom:3px solid #6A2C5A;}",
+        sep="\n")))),
     tags$script(HTML(
       "document.addEventListener('shown.bs.collapse', function(){ setTimeout(function(){ window.dispatchEvent(new Event('resize')); }, 50); });"))),
   sidebar = sidebar(width = 335, open = "open",
@@ -454,7 +466,9 @@ ui <- page_navbar(
               tags$b(style=sprintf("color:%s", CASC_HIGH), "plum = high"),
               "); filled square = gene “on” (≥ reference median), open square = “off”.")),
         card(full_screen = TRUE,
-          div(style="overflow-x:auto", plotOutput("gene_plot", width = "1850px", height = "720px"))),
+          div(style="width:100%", plotOutput("gene_plot", width = "100%", height = "650px")),
+          div(style="font-size:0.72rem;color:#000000;margin-top:2px",
+              "Fitted to the window. Use the expand control (top-right) for a larger, denser view of all 98 genes.")),
         div(style="font-size:0.78rem;color:#000000;margin-top:4px",
             tags$b("Cascade tree:"), " top row = the 98-gene panel; thick edges from sub-module to layer are ",
             tags$b(style=sprintf("color:%s", CASC_HIGH), "plum = activating (+)"), ", ",
@@ -580,6 +594,12 @@ server <- function(input, output, session) {
     else build_cascade_tree(df, patient(), psub(), pal()$lay) }, res = 108)
 
   # ---- Cohort explorer ----
+  # Primer: renders at startup (suspendWhenHidden=FALSE) to trigger the async
+  # Plotly.js load before the user reaches the cohort tab, so its plots never race it.
+  output$`.plotly_primer` <- renderPlotly({
+    plotly::plot_ly(x=0, y=0, type="scatter", mode="markers") |> plotly::config(displayModeBar=FALSE)
+  })
+  outputOptions(output, ".plotly_primer", suspendWhenHidden=FALSE)
   output$donut <- renderPlotly({ req(res()); s<-res()$scores; arch<-pal()$arch
     tab <- as.data.frame(table(factor(s$archetype, names(arch)))); names(tab)<-c("a","n"); tab<-tab[tab$n>0,]
     plot_ly(tab, labels=~a, values=~n, type="pie", hole=0.58, sort=FALSE,
@@ -609,7 +629,7 @@ server <- function(input, output, session) {
   base_theme <- function(p){
     grDevices::pdf(NULL); on.exit(grDevices::dev.off(), add=TRUE)
     ggplotly(p, tooltip="text") |>
-      layout(font=list(family="Inter, system-ui, Arial, sans-serif", color="black"), margin=list(t=24,l=64,b=48,r=16)) |> config(displayModeBar=FALSE)
+      layout(font=list(family="Inter, system-ui, Arial, sans-serif", color="black"), margin=list(t=24,l=88,b=48,r=16)) |> config(displayModeBar=FALSE)
   }
   output$cohort <- renderPlotly({ base_theme(build_layer_violin_jit(long(), pal()$lay)) })
   output$patients <- renderPlotly({ req(res()); L<-long(); arch<-pal()$arch

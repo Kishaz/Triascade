@@ -16,7 +16,10 @@ y <- ifelse(pd$binaryResponse=="CR/PR",1L, ifelse(pd$binaryResponse=="SD/PD",0L,
 Z  <- function(v){ s<-sd(v,na.rm=TRUE); if(is.na(s)||s==0) v*0 else (v-mean(v,na.rm=TRUE))/s }
 sub<- function(gs){ g<-intersect(toupper(gs),rownames(E)); colMeans(t(apply(E[g,,drop=FALSE],1,Z))) }
 
-cm <- score_cohort_median(E, PANEL); cm <- cm[match(colnames(E),cm$sample),]
+# UNIFIED scoring: single-patient selfnorm vs the frozen reference (same as all other
+# analyses). The archetype is the within-cohort relative weakest layer of these scores.
+ref <- readRDS("../app/references/ICI_v1.rds")$ref
+cm <- score_locked(E, ref, mode="selfnorm"); cm <- cm[match(colnames(E),cm$sample),]
 S <- Z(cm$Sensory); I <- Z(cm$Integration); X <- Z(cm$Execution)
 ti <- cbind(Sensory=S, Integration=I, Execution=X)
 wmin <- colnames(ti)[apply(ti,1,which.min)]; mz <- apply(ti,1,min)
@@ -114,7 +117,7 @@ pbl <- wilcox.test(DD$tgfb[arch=="blocked"], DD$tgfb[arch!="blocked"])$p.value
 pd_ <- ggplot(DD, aes(arch, tgfb, fill=arch=="blocked")) +
   geom_hline(yintercept=0, colour=RULE, linewidth=0.3) +
   geom_boxplot(outlier.size=0.4, linewidth=0.3, width=0.62, colour=INK) +
-  annotate("text", x=2, y=2.5, label=sprintf("blocked vs rest\np = %.0e", pbl), hjust=0.5, vjust=1,
+  annotate("text", x=2, y=2.5, label=sprintf("blocked vs rest\np = %.3f", pbl), hjust=0.5, vjust=1,
            family=PUB_FONT, fontface=3, size=(PT_BASE-2)/.pt, colour=INK, lineheight=0.95) +
   scale_fill_manual(values=c(`TRUE`=PLUM, `FALSE`="#EFE7DD"), guide="none") +
   scale_y_continuous("TGF-β / stroma (orthogonal z)", limits=c(-1.6,2.7), breaks=seq(-1,2,1)) +
@@ -168,3 +171,6 @@ for(a in levels(arch)) cat(sprintf("  %s = %-8s sample %s\n", pn[a], a, colnames
 write.csv(data.frame(patient=pn[levels(arch)], archetype=levels(arch), sample=colnames(E)[ex[levels(arch)]],
           row.names=NULL), "../results/tables/ICI_archetype_exemplars.csv", row.names=FALSE)
 cat("done — 5-panel archetype biology figure\n")
+cat("VERIFY  n=", length(arch), "  dist: ", paste(names(table(arch)), table(arch), sep="=", collapse=" "), "\n")
+cat(sprintf("VERIFY  phenotype chi2 p=%.2e ; TGF-beta blocked p=%.3f ; no-kill ptex=%.2e (ea=%d, pbe=%d)\n",
+    chip, pbl, ptex, sum(flav=="effector-absent"), sum(flav=="primed-but-exhausted")))

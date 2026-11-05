@@ -66,12 +66,22 @@ score_uploaded <- function(E, assets){
                   Integration = as.numeric(zf(sc$Integration, "Integration")),
                   Execution   = as.numeric(zf(sc$Execution,   "Execution")),
                   stringsAsFactors = FALSE)
-  lay <- c("Sensory","Integration","Execution"); mat <- as.matrix(Z[, lay])
+  lay <- c("Sensory","Integration","Execution"); Zref <- as.matrix(Z[, lay])   # reference scale (gauge)
+  # Archetype = the relative weakest layer within the analyzed set (population-relative; the
+  # manuscript's cohort-level method). When >= 10 samples are analyzed together, each layer is
+  # standardized within that set; a lone/small upload falls back to the reference scale.
+  if (nrow(Z) >= 10) {
+    zc <- function(v){ s <- sd(v, na.rm = TRUE); if (is.na(s) || s == 0) v*0 else (v - mean(v, na.rm = TRUE))/s }
+    mat <- cbind(Sensory = zc(Zref[,"Sensory"]), Integration = zc(Zref[,"Integration"]), Execution = zc(Zref[,"Execution"]))
+    arch_scale <- "cohort"
+  } else {
+    mat <- Zref; arch_scale <- "reference"
+  }
   wmin <- lay[max.col(-mat, ties.method="first")]; mz <- apply(mat, 1, min)
   Z$floor_layer <- ifelse(mz >= -0.5, "none", wmin)
   Z$archetype   <- ifelse(mz >= -0.5, "intact",
                      ifelse(wmin=="Sensory","cold", ifelse(wmin=="Integration","blocked","no-kill")))
   gene <- tryCatch(gene_detail(E, ref), error = function(e) NULL)   # per-gene drivers
   list(scores = Z, coverage = cov_n, n_panel = length(PG), n_samples = ncol(E),
-       logged = logged, mapped = mapped, submod = submod, gene = gene)
+       logged = logged, mapped = mapped, submod = submod, gene = gene, arch_scale = arch_scale)
 }

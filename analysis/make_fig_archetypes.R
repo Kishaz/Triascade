@@ -2,9 +2,9 @@
 # Three-stage alluvial: CANCER TYPE -> ARCHETYPE -> RESPONSE (validated cohorts
 # pooled by cancer type). One read shows which cancers feed which archetypes and
 # where those archetypes end up. Ribbons coloured by archetype.
-# Archetype classified STRICTLY from per-patient layer scores (classify()):
-#   Inflamed = S+ I+ E+ (all layers at/above the cohort median, per Fig 2A); else the
-#   lowest sub-median layer names the failure (cold=S, blocked=I, no-kill=E).
+# Archetype (unified method, matches Fig 7 and the app): single-patient selfnorm layer
+#   scores standardized WITHIN the cohort; immune-intact if the lowest standardized layer
+#   is >= -0.5 SD, else the lowest layer names the deficit (cold=S, blocked=I, no-kill=E).
 # NB these are ABSOLUTE patient counts (base ICB response rate ~29%): read ribbon
 # widths as counts, not rates -- per-archetype response RATE is in the supp table.
 # Needs per-sample layer scores in pancancer_validation.rds. Editable SVG.
@@ -27,9 +27,10 @@ ARCH <- c("intact","no-kill","blocked","cold")
 ALAB <- c(intact="Inflamed", "no-kill"="Execution-failed", blocked="Excluded", cold="Desert / cold")
 ACOL <- c(intact="#5E9C86", "no-kill"=ROSE, blocked=PLUM, cold=SAND_DEEP)
 afac <- function(v) factor(ALAB[v], levels=unname(ALAB[ARCH]))
-classify <- function(s){ z<-function(v)(v-mean(v))/sd(v)
-  M <- cbind(cold=z(s$sens_cohort), blocked=z(s$integ_cohort), "no-kill"=z(s$exec_cohort))
-  ifelse(M[,1]>=0 & M[,2]>=0 & M[,3]>=0, "intact", colnames(M)[max.col(-M, ties.method="first")]) }
+classify <- function(s){ z<-function(v)(v-mean(v,na.rm=TRUE))/sd(v,na.rm=TRUE)
+  M <- cbind(cold=z(s$sens_single), blocked=z(s$integ_single), "no-kill"=z(s$exec_single))
+  wmin <- colnames(M)[max.col(-M, ties.method="first")]; mz <- apply(M, 1, min)
+  ifelse(mz >= -0.5, "intact", wmin) }
 
 ## ---- per-patient Cancer / Archetype / Response (validated cohorts) ----------
 dd <- do.call(rbind, lapply(WORKS, function(k){ s<-R[[k]]$scores
