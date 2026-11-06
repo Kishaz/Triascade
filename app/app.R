@@ -125,12 +125,12 @@ build_gauge <- function(p, lay = DEF$lay){
     scale_shape_manual(name=NULL, values=c("Lowest-scoring layer (below typical range)"=8))
   pl +
     scale_x_continuous("Standardized score vs reference  (0 = mean)",
-                       limits=c(-lim,lim), breaks=seq(-2,2,1)) +
-    scale_y_discrete(NULL, labels=c(Sensory="Sensory\nrecognition",
-                                    Integration="Integration\naccess",
-                                    Execution="Execution\neffector")) + theme_minimal(base_size=13) +
+                       limits=c(-lim,lim), breaks=seq(-floor(lim), floor(lim), 1)) +
+    scale_y_discrete(NULL, labels=c(Sensory="Sensory (See)",
+                                    Integration="Integration (Reach)",
+                                    Execution="Execution (Kill)")) + theme_minimal(base_size=13) +
     theme(panel.grid=element_blank(), axis.text=element_text(colour="black"),
-          axis.text.y=element_text(face=2, size=12.5, lineheight=0.86), axis.title.x=element_text(colour="black"),
+          axis.text.y=element_text(face=2, size=10.5), axis.title.x=element_text(colour="black"),
           axis.line.x=element_line(colour="black", linewidth=0.3),
           legend.position="bottom", legend.margin=margin(t=-2,b=0),
           legend.text=element_text(colour="black", size=12.5),
