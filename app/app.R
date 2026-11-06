@@ -121,9 +121,12 @@ build_gauge <- function(p, lay = DEF$lay){
     geom_segment(aes(x=0, xend=z, yend=layer), colour=g$bar, linewidth=2.6, lineend="round") +
     geom_point(aes(x=z), fill=g$bar, colour="white", size=6.8, shape=21, stroke=1.1) +
     geom_text(aes(x=lx, label=sprintf("%+.1f", z), hjust=hj), colour="black", fontface=2, size=3.6)
-  if (nrow(fl)) pl <- pl +
-    geom_point(data=fl, aes(x=z, shape="Lowest-scoring layer (below typical range)"), colour="black", size=4.8) +
-    scale_shape_manual(name=NULL, values=c("Lowest-scoring layer (below typical range)"="★"))
+  if (nrow(fl)) {                                      # floor marker: a true 5-point star drawn as a polygon
+    fx <- fl$z[1]; fy <- as.integer(fl$layer)[1]       # (font-independent, so it renders in webR too)
+    aa <- (90 + seq(0, 324, by=36)) * pi/180; rr <- rep(c(1, 0.4), 5)
+    pl <- pl + annotate("polygon", x = fx + 0.052*rr*cos(aa), y = fy + 0.095*rr*sin(aa),
+                        fill="black", colour="white", linewidth=0.35)
+  }
   pl +
     scale_x_continuous("Standardized score vs reference  (0 = mean)",
                        limits=c(-lim,lim), breaks=seq(-floor(lim), floor(lim), 1)) +
