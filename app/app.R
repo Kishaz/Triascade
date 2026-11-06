@@ -112,17 +112,18 @@ build_gauge <- function(p, lay = DEF$lay){
   L <- c("Sensory","Integration","Execution"); z <- c(p$Sensory,p$Integration,p$Execution)
   g <- data.frame(layer=factor(L, levels=rev(L)), z=z)
   g$floor <- as.character(g$layer)==p$floor_layer; g$fill <- unname(lay[as.character(g$layer)])
+  g$bar <- ifelse(g$z >= 0, "#6A2C5A", "#9C7A3E")   # above reference = plum, below = gold (matches gene colours)
   lim <- max(2.2, max(abs(z),na.rm=TRUE)+0.85); fl <- g[g$floor,,drop=FALSE]
   g$lx <- g$z + ifelse(g$z>=0, 0.15, -0.15); g$hj <- ifelse(g$z>=0, 0, 1)  # labels sit just outside each dot
   pl <- ggplot(g, aes(z, layer)) +
-    annotate("rect", xmin=-BAND, xmax=BAND, ymin=0.4, ymax=3.6, fill="#F1EADF") +
+    annotate("rect", xmin=-BAND, xmax=BAND, ymin=0.4, ymax=3.6, fill="#ECECEC") +
     geom_vline(xintercept=0, colour="black", linewidth=0.4) +
-    geom_segment(aes(x=0, xend=z, yend=layer), colour=g$fill, linewidth=3) +
-    geom_point(aes(x=z), colour=g$fill, size=7) +
+    geom_segment(aes(x=0, xend=z, yend=layer), colour=g$bar, linewidth=2.6, lineend="round") +
+    geom_point(aes(x=z), fill=g$bar, colour="white", size=6.8, shape=21, stroke=1.1) +
     geom_text(aes(x=lx, label=sprintf("%+.1f", z), hjust=hj), colour="black", fontface=2, size=3.6)
   if (nrow(fl)) pl <- pl +
-    geom_point(data=fl, aes(x=z, shape="Lowest-scoring layer (below typical range)"), colour="black", size=4.4, stroke=1.3) +
-    scale_shape_manual(name=NULL, values=c("Lowest-scoring layer (below typical range)"=8))
+    geom_point(data=fl, aes(x=z, shape="Lowest-scoring layer (below typical range)"), colour="black", size=4.8) +
+    scale_shape_manual(name=NULL, values=c("Lowest-scoring layer (below typical range)"="★"))
   pl +
     scale_x_continuous("Standardized score vs reference  (0 = mean)",
                        limits=c(-lim,lim), breaks=seq(-floor(lim), floor(lim), 1)) +
@@ -154,7 +155,7 @@ build_drilldown <- function(smz, floor_layer, lay = DEF$lay){
   d$driver <- d$layer==floor_layer & floor_layer!="none" & d$unfav==ave(d$unfav, d$layer, FUN=max) & d$unfav>0
   d$lab <- factor(d$lab, levels=rev(d$lab)); lim <- max(1.5, max(abs(d$z),na.rm=TRUE)+0.3)
   ggplot(d, aes(z, lab)) +
-    annotate("rect", xmin=-BAND, xmax=BAND, ymin=0.4, ymax=5.6, fill="#F1EADF") +
+    annotate("rect", xmin=-BAND, xmax=BAND, ymin=0.4, ymax=5.6, fill="#ECECEC") +
     geom_vline(xintercept=0, colour="black", linewidth=0.4) +
     geom_segment(aes(x=0, xend=z, yend=lab), colour=d$fill, linewidth=3) +
     geom_point(aes(x=z), colour=d$fill, size=6.5) +
