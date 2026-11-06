@@ -1,8 +1,8 @@
 # =============================================================================
 # CascadeScope - score tumor RNA against a locked Immune Cascade Index (ICI)
 # reference (single-patient, selfnorm, cohort-independent). One consistent scale
-# throughout: the STANDARDIZED SCORE vs the reference population (0 = reference
-# median, in SD units; left of the typical-range band = lowest layer).
+# throughout: the STANDARDIZED SCORE vs the reference population (layer scores:
+# 0 = reference mean, in SD units; left of the typical-range band = lowest-scoring layer).
 #   * Patient report  : one-patient read-out (call, gauge, drill-down) + PDF
 #   * Gene drivers     : how all 98 panel genes scored for the selected patient
 #   * Cohort explorer  : archetype proportions, distributions, click-through beeswarm
@@ -11,9 +11,13 @@
 # first column = gene symbol). Reference registry: app/references/*.rds.
 # Run: shiny::runApp("app")
 # =============================================================================
-library(shiny); library(bslib); library(plotly); library(DT); library(ggplot2); library(patchwork); library(readxl)
+library(shiny); library(bslib); library(plotly); library(DT); library(ggplot2); library(patchwork)
+# readxl (Excel input) and openxlsx (Excel download) are used namespaced and are
+# optional: CSV / TSV work without them, so the app still loads where they are
+# unavailable (e.g. the in-browser webR build).
 source("ici_locked_reference.R"); source("score_cohort.R")
 `%||%` <- function(a, b) if (is.null(a)) b else a
+
 
 ref_files <- list.files("references", pattern = "[.]rds$", full.names = TRUE)
 stopifnot(length(ref_files) >= 1)
@@ -56,14 +60,14 @@ app_theme <- bs_theme(version = 5, bg = "#ffffff", fg = "#000000", primary = "#6
 # ---- interpretation text -----------------------------------------------------
 GLOSS <- c(intact="inflamed / hot", cold="immune-desert", blocked="immune-excluded", `no-kill`="inflamed-dysfunctional")
 CALL <- list(
-  intact  = list(short="Immune-engaged", t="Immune-engaged (inflamed / hot): all three layers intact",
-    s="All three cascade layers are within or above the typical range of the reference, a profile consistent with checkpoint-blockade benefit. If this tumor does not respond, resistance likely lies outside the measured immune cascade."),
-  cold    = list(short="Cold", t="Cold (immune-desert): Sensory is the lowest layer",
-    s="Antigen presentation and IFN signaling are the lowest-scoring layer: the tumor is immunologically cold. Checkpoint blockade alone is unlikely to engage an anti-tumor immune response that is largely absent."),
-  blocked = list(short="Blocked", t="Blocked (immune-excluded): Integration is the lowest layer",
-    s="T-cell trafficking and infiltration are the lowest-scoring layer, a pattern consistent with stromal or TGF-beta mediated exclusion. Checkpoint blockade alone is unlikely to overcome exclusion."),
-  `no-kill`= list(short="No-kill", t="No-kill (inflamed-dysfunctional): Execution is the lowest layer",
-    s="Immune cells have reached the tumor, but cytotoxic effector output (the shared killing program of CD8 T cells and NK cells) is the lowest layer (effector-deficient or exhausted)."))
+  intact  = list(short="Immune-intact", t="Immune-intact (inflamed / hot): no substantially reduced layer",
+    s="All three cascade layers are within or above the typical range of the reference. If this tumor is non-responsive, resistance likely lies outside the measured immune cascade. The biological and therapeutic implications are investigational."),
+  cold    = list(short="Cold", t="Cold (immune-desert): Sensory is the lowest-scoring layer",
+    s="Antigen presentation and IFN signaling are the lowest-scoring layer relative to the reference, a profile consistent with an immunologically cold tumor. The biological and therapeutic implications are investigational."),
+  blocked = list(short="Blocked", t="Blocked (immune-excluded): Integration is the lowest-scoring layer",
+    s="T-cell trafficking and infiltration are the lowest-scoring layer relative to the reference, a pattern consistent with stromal or TGF-beta mediated exclusion. The biological and therapeutic implications are investigational."),
+  `no-kill`= list(short="No-kill", t="No-kill (inflamed-dysfunctional): Execution is the lowest-scoring layer",
+    s="Immune cells have reached the tumor, but cytotoxic effector output (the shared killing program of CD8 T cells and NK cells) is the lowest-scoring layer (effector-deficient or exhausted)."))
 BIO_LEAD <- list(
   intact  = "No layer stands out as low; all three are within range of the reference. If the tumor is non-responsive, look outside the cascade.",
   cold    = "Priming is the gap: the immune response is not being started.",
@@ -71,10 +75,10 @@ BIO_LEAD <- list(
   `no-kill`= "Killing is the gap: cytotoxic lymphocytes (CD8 T and NK cells) are present but their killing output is low.")
 BIO_CHIPS <- list(
   intact  = c("Antigen loss / B2M / MHC defects", "Non-immune resistance", "Confirm with PD-L1 / TMB / MSI"),
-  cold    = c("Antigen-presentation / IFN induction", "Innate agonists (STING / TLR)", "Radiation + ICB", "Vaccine combinations"),
-  blocked = c("Anti-TGF-β", "Anti-angiogenic", "Stroma-directed combinations"),
-  `no-kill`= c("LAG-3", "TIM-3", "TIGIT", "Effector cytokine support"))
-GAUGE_CAP <- "Each bar is the patient's standardized score for that layer versus the reference population (0 = reference median, in SD units; shaded band = typical range, the middle 50% of the reference). The starred layer is the patient's relative weakest layer within the analyzed cohort (for a single uploaded sample, versus the reference)."
+  cold    = c("Antigen presentation / IFN signaling", "Innate sensing (STING / TLR)"),
+  blocked = c("TGF-β signaling", "Stromal exclusion", "Vascular barriers", "Impaired trafficking"),
+  `no-kill`= c("Effector exhaustion", "Inhibitory checkpoints (LAG-3 / TIM-3 / TIGIT)", "Low cytotoxic output"))
+GAUGE_CAP <- "Each bar is the patient's standardized layer score versus the reference population (0 = reference mean, in SD units; shaded band = typical range, the middle 50% of the reference). The starred layer is the patient's relative weakest layer within the analyzed cohort (for a single uploaded sample, versus the reference)."
 RUO <- "Research use only. Investigational biomarker; not a validated clinical test. Does not replace approved biomarkers (PD-L1, TMB, MSI) or clinical judgment. Mechanistic rationale is hypothesis-generating, not a treatment recommendation."
 
 # ---- multi-format reader (CSV / TSV / Excel) --------------------------------
@@ -117,14 +121,16 @@ build_gauge <- function(p, lay = DEF$lay){
     geom_point(aes(x=z), colour=g$fill, size=7) +
     geom_text(aes(x=lx, label=sprintf("%+.1f", z), hjust=hj), colour="black", fontface=2, size=3.6)
   if (nrow(fl)) pl <- pl +
-    geom_point(data=fl, aes(x=z, shape="Lowest layer (below typical range)"), colour="black", size=4.4, stroke=1.3) +
-    scale_shape_manual(name=NULL, values=c("Lowest layer (below typical range)"=8))
+    geom_point(data=fl, aes(x=z, shape="Lowest-scoring layer (below typical range)"), colour="black", size=4.4, stroke=1.3) +
+    scale_shape_manual(name=NULL, values=c("Lowest-scoring layer (below typical range)"=8))
   pl +
-    scale_x_continuous("Standardized score vs reference  (0 = median)",
+    scale_x_continuous("Standardized score vs reference  (0 = mean)",
                        limits=c(-lim,lim), breaks=seq(-2,2,1)) +
-    scale_y_discrete(NULL) + theme_minimal(base_size=13) +
+    scale_y_discrete(NULL, labels=c(Sensory="Sensory\nrecognition",
+                                    Integration="Integration\naccess",
+                                    Execution="Execution\neffector")) + theme_minimal(base_size=13) +
     theme(panel.grid=element_blank(), axis.text=element_text(colour="black"),
-          axis.text.y=element_text(face=2, size=14), axis.title.x=element_text(colour="black"),
+          axis.text.y=element_text(face=2, size=12.5, lineheight=0.86), axis.title.x=element_text(colour="black"),
           axis.line.x=element_line(colour="black", linewidth=0.3),
           legend.position="bottom", legend.margin=margin(t=-2,b=0),
           legend.text=element_text(colour="black", size=12.5),
@@ -153,7 +159,7 @@ build_drilldown <- function(smz, floor_layer, lay = DEF$lay){
     geom_segment(aes(x=0, xend=z, yend=lab), colour=d$fill, linewidth=3) +
     geom_point(aes(x=z), colour=d$fill, size=6.5) +
     geom_point(data=d[d$driver,,drop=FALSE], aes(x=z), shape=21, size=8, stroke=1.3, colour="black", fill=NA) +
-    scale_x_continuous("Standardized score vs reference  (0 = median)", limits=c(-lim,lim), breaks=seq(-2,2,1)) +
+    scale_x_continuous("Standardized score vs reference  (0 = mean)", limits=c(-lim,lim), breaks=seq(-2,2,1)) +
     scale_y_discrete(NULL) + theme_minimal(base_size=12) +
     theme(panel.grid=element_blank(), axis.text=element_text(colour="black"),
           axis.text.y=element_text(face=2), axis.title.x=element_text(colour="black"),
@@ -281,7 +287,7 @@ build_layer_violin_jit <- function(L, lay){
 build_report <- function(p, a, cov, np, arch = DEF$arch, lay = DEF$lay, smz = NULL, study = NULL){
   wrap <- function(s,w=104) paste(strwrap(s,w), collapse="\n"); ar <- p$archetype
   tp <- function() ggplot()+xlim(0,1)+ylim(0,1)+theme_void()
-  readout <- sprintf("Sensory %+.2f      ·      Integration %+.2f      ·      Execution %+.2f        (standardized vs reference; 0 = median)",
+  readout <- sprintf("Sensory %+.2f      ·      Integration %+.2f      ·      Execution %+.2f        (standardized vs reference; 0 = mean)",
                      p$Sensory, p$Integration, p$Execution)
   hdr <- if (!is.null(study) && nzchar(study)) sprintf("Study: %s        Generated: %s", study, Sys.Date()) else sprintf("Generated: %s", Sys.Date())
   drv <- if (!is.null(smz)) drill_text(smz, p$floor_layer) else NULL
@@ -295,14 +301,14 @@ build_report <- function(p, a, cov, np, arch = DEF$arch, lay = DEF$lay, smz = NU
     annotate("text",x=0,y=0.08,hjust=0,vjust=1,label=wrap(paste0("Layer scores:  ",readout),92),size=2.95,colour="black",lineheight=0.95)
   bottom <- tp() +
     (if (!is.null(drv)) annotate("text",x=0,y=0.98,hjust=0,vjust=1,label=wrap(drv,84),fontface=2,size=3.3,colour="black")) +
-    annotate("text",x=0,y=0.80,hjust=0,vjust=1,label=wrap(paste0("Lowest-layer biology (investigational): ",BIO_LEAD[[ar]],"  Directions: ",paste(BIO_CHIPS[[ar]],collapse=", "),"."),92),size=3.0,colour="black",lineheight=0.95)+
+    annotate("text",x=0,y=0.80,hjust=0,vjust=1,label=wrap(paste0("Lowest-layer biology (investigational): ",BIO_LEAD[[ar]],"  Programs for investigation: ",paste(BIO_CHIPS[[ar]],collapse=", "),"."),92),size=3.0,colour="black",lineheight=0.95)+
     annotate("text",x=0,y=0.52,hjust=0,vjust=1,label=wrap(GAUGE_CAP,100),size=2.9,colour="black",lineheight=0.95)+
-    annotate("text",x=0,y=0.30,hjust=0,vjust=1,label=wrap(sprintf("Method: scored with %s (%d genes); reference %s; per-sample self-normalization; panel coverage %d/%d; reference built %s.",
+    annotate("text",x=0,y=0.30,hjust=0,vjust=1,label=wrap(sprintf("Method: scored with %s (%d genes); reference %s; within-sample standardization; panel coverage %d/%d; reference built %s.",
              a$version,a$n_genes,a$ref_label,cov,np,as.character(a$built)),104),size=2.85,colour="black",lineheight=0.95)+
     annotate("text",x=0,y=0.13,hjust=0,vjust=1,label=wrap(RUO,104),size=2.8,colour="black",lineheight=0.95)
   if (!is.null(smz)) {
     dd <- build_drilldown(smz, p$floor_layer, lay) +
-          ggtitle("Cascade drill-down: sub-modules of the lowest layer") +
+          ggtitle("Cascade drill-down: sub-modules of the lowest-scoring layer") +
           theme(plot.title = element_text(face=2, size=11, colour="black"))
     return(top / build_gauge(p, lay) / dd / bottom + plot_layout(heights=c(1.5,1.0,1.2,1.55)))
   }
@@ -341,10 +347,10 @@ about_tab <- nav_panel(title = tagList(icon("circle-info"), " About"), value = "
       markdown(paste(
         "**CascadeScope** is the software; the **Immune Cascade Index (ICI)** is the method it implements.",
         "",
-        "- **Immune Cascade Index (ICI)** is the *science*: the 98-gene, three-layer framework for reading the anti-tumor immune response, developed and validated in the manuscript.",
+        "- **Immune Cascade Index (ICI)** is the *science*: the 98-gene, three-layer framework for reading the antitumor immune response, developed and validated in the manuscript.",
         "- **CascadeScope** is the *software*: it computes and visualizes the ICI for one patient at a time. The method can evolve independently; the tool is the interface built around it.",
         "",
-        "CascadeScope scores a tumor's RNA against a locked ICI reference and shows, for one patient, **which stage of the anti-tumor immune response reads weakest**.",
+        "CascadeScope scores a tumor's RNA against a locked ICI reference and shows, for one patient, **which stage of the antitumor immune response reads weakest**.",
         "",
         "The ICI reads the response as a three-stage **cascade**, from sensing to killing, and scores each stage against the reference:",
         "",
@@ -360,7 +366,7 @@ about_tab <- nav_panel(title = tagList(icon("circle-info"), " About"), value = "
       markdown(paste(
         "Every score - layers, sub-modules and individual genes - is shown as a **standardized score versus the reference population**:",
         "",
-        "- **0** = the reference median.",
+        "- **0** = the reference mean (for per-gene calls, the reference median).",
         "- Units are **standard deviations** of the reference.",
         "- The **shaded band** on each gauge is the *typical range* (middle 50% of the reference).",
         "- A layer **left of the band** sits below the reference typical range; the starred layer is the patient's relative weakest layer within the analyzed cohort.",
@@ -370,9 +376,9 @@ about_tab <- nav_panel(title = tagList(icon("circle-info"), " About"), value = "
         sep="\n"))),
     card(card_header("The four archetypes"),
       tags$table(class="table table-sm", style="font-size:0.85rem",
-        tags$thead(tags$tr(tags$th("Call"), tags$th("Phenotype"), tags$th("Limiting layer"))),
+        tags$thead(tags$tr(tags$th("Call"), tags$th("Phenotype"), tags$th("Lowest-scoring layer"))),
         tags$tbody(
-          tags$tr(tags$td(tags$b("Immune-engaged")), tags$td("inflamed / hot"), tags$td("none")),
+          tags$tr(tags$td(tags$b("Immune-intact")), tags$td("inflamed / hot"), tags$td("none")),
           tags$tr(tags$td(tags$b("Cold")), tags$td("immune-desert"), tags$td("Sensory")),
           tags$tr(tags$td(tags$b("Blocked")), tags$td("immune-excluded"), tags$td("Integration")),
           tags$tr(tags$td(tags$b("No-kill")), tags$td("inflamed-dysfunctional"), tags$td("Execution")))),
@@ -383,6 +389,28 @@ about_tab <- nav_panel(title = tagList(icon("circle-info"), " About"), value = "
         "- A single patient is just a one-sample file; scoring is **cohort-independent**.",
         sep="\n")),
       div(style="font-size:0.74rem;color:#000;border-top:1px solid #000;padding-top:8px;margin-top:4px", RUO))))
+
+# ---- first-load landing (shown until a file or the example is loaded) --------
+landing_card <- card(class = "border-0 shadow-none",
+  div(style="max-width:760px;margin:26px auto 8px auto;padding:8px 16px;text-align:center",
+    HTML('<svg width="54" height="54" viewBox="0 0 120 120" style="display:block;margin:0 auto 10px auto">
+      <rect width="120" height="120" rx="26" fill="#6A2C5A"/>
+      <rect x="28" y="32" width="64" height="14" rx="7" fill="#ffffff"/>
+      <rect x="28" y="54" width="46" height="14" rx="7" fill="#ffffff" fill-opacity="0.82"/>
+      <rect x="28" y="76" width="30" height="14" rx="7" fill="#E8B54B"/></svg>'),
+    h3(style="font-weight:800;color:#6A2C5A;margin-bottom:4px", "Profile antitumor immune state from tumor RNA"),
+    div(style="font-size:0.95rem;color:#333;max-width:620px;margin:0 auto 14px auto",
+        "CascadeScope applies the 98-gene Immune Cascade Index to quantify three functional states against a frozen reference. Scores are computed for a single sample or a whole cohort."),
+    div(style="font-weight:800;letter-spacing:.3px;color:#6A2C5A;font-size:1.0rem;margin-bottom:16px",
+        "Recognition  →  Access  →  Effector function"),
+    div(style="display:flex;gap:14px;justify-content:center;align-items:flex-start;flex-wrap:wrap;text-align:left",
+        actionButton("example_land", "Try example cohort", class = "btn-primary", icon = icon("play")),
+        div(style="min-width:280px",
+            fileInput("file_land", NULL, accept = c(".csv",".tsv",".txt",".xlsx",".xls"),
+                      buttonLabel = "Upload RNA-seq…", placeholder = "CSV / TSV / Excel"),
+            div(style="margin-top:-10px;font-size:0.72rem;color:#777;text-align:center",
+                "gene × sample table (first column = gene symbol)"))),
+    div(style="margin-top:16px;font-size:0.72rem;color:#000000", "Research use only. Investigational biomarker; not a validated clinical test.")))
 
 ui <- page_navbar(
   id = "nav",
@@ -398,8 +426,7 @@ ui <- page_navbar(
     div(style="line-height:1.12",
       div(style="font-weight:800;font-size:1.15rem;letter-spacing:.2px",
           HTML('<span style="color:#6A2C5A">Cascade</span><span style="color:#9C7A3E">Scope</span>')),
-      div("Immune Cascade Index", style="font-size:0.74rem;font-weight:600;color:#777777;letter-spacing:.3px"),
-      div("See where immunity stalls.", style="font-size:0.62rem;font-style:italic;color:#6A2C5A"))),
+      div("Immune Cascade Index", style="font-size:0.74rem;font-weight:600;color:#777777;letter-spacing:.3px"))),
   theme = app_theme, fillable = FALSE,
   header = tagList(
     # Prime the Plotly.js load at app start (see output$`.plotly_primer`): the main
@@ -418,7 +445,8 @@ ui <- page_navbar(
         sep="\n")))),
     tags$script(HTML(
       "document.addEventListener('shown.bs.collapse', function(){ setTimeout(function(){ window.dispatchEvent(new Event('resize')); }, 50); });"))),
-  sidebar = sidebar(width = 335, open = "open",
+  sidebar = sidebar(width = 335, title = "Data & settings",
+                    open = list(desktop = "open", mobile = "closed"),
     selectInput("refver", "Panel / reference", choices = ref_choices, width = "100%"),
     markdown("Score tumor **RNA-seq** (TPM, log-TPM or counts) against the selected locked reference. Upload a **gene × sample** table (**CSV, TSV or Excel**; first column = gene symbol); a single patient is just one sample."),
     fileInput("file", NULL, accept = c(".csv",".tsv",".txt",".xlsx",".xls"), buttonLabel = "Browse…", placeholder = "CSV / TSV / Excel"),
@@ -436,6 +464,8 @@ ui <- page_navbar(
     div(style="margin-top:auto;font-size:0.72rem;color:#000000", textOutput("reflab"))),
 
   nav_panel(title = tagList(icon("user-check"), " Patient report"), value = "patient",
+    conditionalPanel("!output.has_data", landing_card),
+    conditionalPanel("output.has_data", uiOutput("qc_report"),
     card(
       card_header(div(style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap",
         div(textOutput("rep_hdr", inline = TRUE), style="font-weight:600"),
@@ -449,13 +479,13 @@ ui <- page_navbar(
     accordion(id = "acc", open = c("meaning","biology"),
       accordion_panel("What this result means", value = "meaning",
         uiOutput("rep_meaning")),
-      accordion_panel("Lowest-layer biology & investigational directions", value = "biology",
+      accordion_panel("Lowest-layer biology (programs for investigation)", value = "biology",
         uiOutput("rep_bio")),
-      accordion_panel("Cascade drill-down: sub-modules within the lowest layer", value = "drill",
+      accordion_panel("Cascade drill-down: sub-modules within the lowest-scoring layer", value = "drill",
         plotOutput("drill", height = "230px"),
         uiOutput("drill_text"),
         div(style="font-size:0.74rem;color:#000000;margin-top:4px",
-            "Activating programs (+): higher is better. Suppressive programs (−): lower is better. The ringed point is the sub-module furthest from the reference in the lowest layer.")),
+            "Activating programs (+): higher is better. Suppressive programs (−): lower is better. The ringed point is the sub-module furthest from the reference in the lowest-scoring layer.")),
       accordion_panel("Gene drivers: how all 98 panel genes scored", value = "genes",
         div(style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:4px",
           div(style="min-width:260px", selectInput("gene_layer", "Show", width="100%",
@@ -466,9 +496,9 @@ ui <- page_navbar(
               tags$b(style=sprintf("color:%s", CASC_HIGH), "plum = high"),
               "); filled square = gene “on” (≥ reference median), open square = “off”.")),
         card(full_screen = TRUE,
-          div(style="width:100%", plotOutput("gene_plot", width = "100%", height = "650px")),
+          div(style="overflow-x:auto", plotOutput("gene_plot", width = "1850px", height = "720px")),
           div(style="font-size:0.72rem;color:#000000;margin-top:2px",
-              "Fitted to the window. Use the expand control (top-right) for a larger, denser view of all 98 genes.")),
+              "Scroll horizontally to see all 98 genes at full size; use the expand control (top-right) for a full-screen view.")),
         div(style="font-size:0.78rem;color:#000000;margin-top:4px",
             tags$b("Cascade tree:"), " top row = the 98-gene panel; thick edges from sub-module to layer are ",
             tags$b(style=sprintf("color:%s", CASC_HIGH), "plum = activating (+)"), ", ",
@@ -477,13 +507,13 @@ ui <- page_navbar(
             tags$b("Layer heatmaps:"), " the three layers side by side, each on its own colour scale for head-to-head comparison. Use the expand control at the panel's top-right for a full-screen view.")),
       accordion_panel("Method, reference & disclaimer", value = "method",
         uiOutput("rep_stamp"),
-        div(style="font-size:0.74rem;color:#000000;border-top:1px solid #000000;padding-top:8px;margin-top:6px", RUO)))),
+        div(style="font-size:0.74rem;color:#000000;border-top:1px solid #000000;padding-top:8px;margin-top:6px", RUO))))),
 
   nav_panel(title = tagList(icon("chart-column"), " Cohort explorer"), value = "cohort",
     layout_columns(fill = FALSE,
       value_box("Patients scored", textOutput("n_pat", inline = TRUE), theme = "primary"),
       value_box("Panel coverage", textOutput("cov", inline = TRUE), theme = value_box_theme(bg="#9C7A3E", fg=ink("#9C7A3E"))),
-      value_box("Cascade-intact", textOutput("intact", inline = TRUE), theme = value_box_theme(bg="#C9A66B", fg="#000000"))),
+      value_box("Immune-intact", textOutput("intact", inline = TRUE), theme = value_box_theme(bg="#C9A66B", fg="#000000"))),
     div(style="margin:2px 0 8px 0", downloadButton("dl_cohort", "Download cohort report (PDF)", class = "btn-primary btn-sm")),
     layout_columns(col_widths = c(5,7),
       card(full_screen=TRUE, card_header("Archetype proportions"), plotlyOutput("donut", height="300px"),
@@ -514,6 +544,10 @@ server <- function(input, output, session) {
   }
   observeEvent(input$file, { req(input$file); load_file(input$file$datapath, input$file$name) })
   observeEvent(input$example, { load_file("example_cohort.csv", "example_cohort.csv") })
+  observeEvent(input$example_land, { load_file("example_cohort.csv", "example_cohort.csv") })
+  observeEvent(input$file_land, { req(input$file_land); load_file(input$file_land$datapath, input$file_land$name) })
+  output$has_data <- reactive({ !is.null(raw()) })
+  outputOptions(output, "has_data", suspendWhenHidden = FALSE)
   res <- reactive({ req(raw(), assets()); score_uploaded(raw(), assets()) })
   observeEvent(res(), { updateSelectInput(session, "patient", choices = res()$scores$sample) })
   patient <- reactive({ req(res(), input$patient); s<-res()$scores; s[s$sample==input$patient, ][1, ] })
@@ -546,7 +580,7 @@ server <- function(input, output, session) {
         out <- data.frame(gene=g, round(m,3), check.names=FALSE); names(out)[-1] <- paste0("Sample", seq_len(ncol(out)-1))
       } else out <- data.frame(gene=pg, Sample1=NA, Sample2=NA, Sample3=NA)
       write.csv(out, f, row.names=FALSE) })
-  output$reflab <- renderText({ sprintf("Reference cohort: %s", assets()$ref_label) })
+  output$reflab <- renderText({ sprintf("Reference: %s", assets()$ref_label) })
   output$qc <- renderUI({ req(res()); cov<-res()$coverage; np<-res()$n_panel; pct<-round(100*cov/np)
     col <- if (pct>=90) "#1b5e20" else if (pct>=75) "#8a4b00" else "#8a0017"
     tagList(div(style=sprintf("font-size:0.8rem;color:%s;font-weight:600",col), sprintf("Coverage %d%%  (%d/%d panel genes)",pct,cov,np)),
@@ -554,16 +588,38 @@ server <- function(input, output, session) {
       if (res()$logged) div(style="font-size:0.72rem;color:#000000","Input looked linear; log2 applied."),
       if (pct<75) div(style="font-size:0.72rem;color:#8a0017","Low coverage; interpret with caution.")) })
 
+  # compact "input quality" strip shown above the patient result
+  output$qc_report <- renderUI({ req(res()); r<-res(); cov<-r$coverage; np<-r$n_panel; pct<-round(100*cov/np)
+    lc <- r$layer_cov
+    pill <- function(label, val, col="#1b5e20")
+      div(style="padding:4px 11px;border:1px solid #e3dccb;border-radius:14px;background:#faf7f1;display:inline-flex;gap:6px;align-items:center;font-size:0.8rem",
+          tags$span(style=sprintf("color:%s;font-weight:700",col), val), tags$span(style="color:#555", label))
+    layer_pill <- function(nm,key){ if (is.null(lc) || !(key %in% colnames(lc))) return(NULL)
+      have<-lc["have",key]; tot<-lc["total",key]
+      col <- if (have>=0.9*tot) "#1b5e20" else if (have>=0.8*tot) "#8a4b00" else "#8a0017"
+      pill(nm, sprintf("%d/%d", have, tot), col) }
+    covcol <- if (pct>=90) "#1b5e20" else if (pct>=75) "#8a4b00" else "#8a0017"
+    card(class="mb-2", card_body(style="padding:9px 14px",
+      div(style="display:flex;gap:9px;flex-wrap:wrap;align-items:center",
+        tags$span(style="font-weight:700;color:#000;margin-right:2px", "Input quality"),
+        pill("panel coverage", sprintf("%d/%d", cov, np), covcol),
+        layer_pill("Sensory","Sensory"), layer_pill("Integration","Integration"), layer_pill("Execution","Execution"),
+        if ((r$mapped %||% 0)>0) pill("identifiers mapped", sprintf("+%d", r$mapped), "#555"),
+        if (isTRUE(r$logged)) pill("input", "log2 applied", "#555"),
+        pill("reference", sprintf("%s locked", assets()$version), "#6A2C5A"),
+        if (pct<75) tags$span(style="color:#8a0017;font-size:0.8rem;font-weight:600;margin-left:4px",
+                              "Low coverage — interpret with caution.")))) })
+
   # ---- Patient report ----
   output$rep_floor_badge <- renderUI({ req(patient()); p<-patient(); col<-unname(pal()$arch[p$archetype])
-    lab <- if (p$floor_layer=="none") "All three layers intact" else sprintf("Lowest layer: %s ★", p$floor_layer)
+    lab <- if (p$floor_layer=="none") "All three layers intact" else sprintf("Lowest-scoring layer: %s ★", p$floor_layer)
     span(lab, style=sprintf("display:inline-block;padding:4px 13px;border-radius:999px;font-weight:700;font-size:0.9rem;color:%s;background:%s", ink(col), col)) })
   output$rep_hdr <- renderText({ req(patient()); st<-studylab()
     if (nzchar(st)) sprintf("Patient %s  ·  %s", patient()$sample, st) else sprintf("Patient %s", patient()$sample) })
   output$rep_readout <- renderUI({ req(patient()); p<-patient()
     txt <- sprintf("Sensory %+.2f  ·  Integration %+.2f  ·  Execution %+.2f", p$Sensory, p$Integration, p$Execution)
     div(style="font-size:0.84rem;color:#000000;margin-top:4px", tags$b("Layer scores: "), txt,
-        span(style="color:#000000", "  (standardized vs reference; 0 = median)")) })
+        span(style="color:#000000", "  (standardized vs reference; 0 = mean)")) })
   output$rep_call <- renderUI({ req(patient()); a<-patient()$archetype
     div(div(style=sprintf("font-size:1.2rem;font-weight:800;color:%s", onwhite(unname(pal()$arch[a]))), CALL[[a]]$t)) })
   output$rep_meaning <- renderUI({ req(patient()); div(style="font-size:0.92rem;color:#000000", CALL[[patient()$archetype]]$s) })
@@ -571,12 +627,12 @@ server <- function(input, output, session) {
     tagList(
       div(style="font-size:0.92rem;color:#000000", tags$b(BIO_LEAD[[a]])),
       div(style="font-size:0.78rem;color:#000000;margin-top:6px",
-          if (a=="intact") "If this tumor is non-responsive, check:" else "Investigational directions (hypothesis-generating, not a recommendation):"),
+          if (a=="intact") "If this tumor is non-responsive, check:" else "Biological programs for investigation (hypothesis-generating, not treatment recommendations):"),
       chips(BIO_CHIPS[[a]], col)) })
   output$rep_stamp <- renderUI({ req(res()); a<-assets(); st<-studylab()
     pre <- if (nzchar(st)) sprintf("Study: %s  ·  ", st) else ""
     div(style="font-size:0.74rem;color:#000000",
-        sprintf("%sGenerated %s  ·  Scored with %s (%d genes)  ·  reference %s  ·  per-sample self-normalization  ·  coverage %d/%d  ·  reference built %s",
+        sprintf("%sGenerated %s  ·  Scored with %s (%d genes)  ·  reference %s  ·  within-sample standardization  ·  coverage %d/%d  ·  reference built %s",
                 pre, Sys.Date(), a$version, a$n_genes, a$ref_label, res()$coverage, res()$n_panel, as.character(a$built))) })
   output$gauge <- renderPlot({ req(patient()); build_gauge(patient(), pal()$lay) }, res=108)
   output$drill <- renderPlot({ req(psub()); build_drilldown(psub(), patient()$floor_layer, pal()$lay) }, res=108)
@@ -638,7 +694,7 @@ server <- function(input, output, session) {
             color=~archetype, colors=arch, customdata=~sample, text=~tt, hoverinfo="text",
             marker=list(size=11, line=list(width=1.4, color="#ffffff"))) |>
       layout(shapes=list(list(type="line", x0=0, x1=0, y0=0.5, y1=3.5, line=list(color="black", width=1))),
-             xaxis=list(title=list(text="standardized score vs reference (0 = median)", font=list(size=14)), zeroline=FALSE),
+             xaxis=list(title=list(text="standardized score vs reference (0 = mean)", font=list(size=14)), zeroline=FALSE),
              yaxis=list(tickvals=c(1,2,3), ticktext=c("<b>Sensory</b>","<b>Integration</b>","<b>Execution</b>"),
                         tickfont=list(size=15, color="black"), title="", range=c(0.4,3.6)),
              legend=list(orientation="h", y=1.17, x=0.5, xanchor="center", font=list(size=15, color="black"), itemsizing="constant"),

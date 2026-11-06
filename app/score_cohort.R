@@ -82,6 +82,12 @@ score_uploaded <- function(E, assets){
   Z$archetype   <- ifelse(mz >= -0.5, "intact",
                      ifelse(wmin=="Sensory","cold", ifelse(wmin=="Integration","blocked","no-kill")))
   gene <- tryCatch(gene_detail(E, ref), error = function(e) NULL)   # per-gene drivers
+  lp <- ref$PANEL                                                   # per-layer coverage (for the QC strip)
+  lg <- list(Sensory = unique(toupper(lp$SENSORY)),
+             Integration = unique(toupper(c(lp$INTPOS, lp$INTNEG))),
+             Execution = unique(toupper(c(lp$EXECPOS, lp$EXECNEG))))
+  layer_cov <- sapply(lg, function(g) c(have = length(intersect(g, rownames(E))), total = length(g)))
   list(scores = Z, coverage = cov_n, n_panel = length(PG), n_samples = ncol(E),
-       logged = logged, mapped = mapped, submod = submod, gene = gene, arch_scale = arch_scale)
+       logged = logged, mapped = mapped, submod = submod, gene = gene, arch_scale = arch_scale,
+       layer_cov = layer_cov)
 }
