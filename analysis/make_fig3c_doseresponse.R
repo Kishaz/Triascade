@@ -40,7 +40,7 @@ p <- ggplot(agg, aes(bin, pct, fill=bin)) +
   scale_x_discrete("Integration score (within-trial tertile)") +
   theme_publication(grid="y") +
   theme(plot.tag=element_text(size=PT_PANEL_TAG, face="bold", family=PUB_FONT, colour=INK)) +
-  labs(tag="C")
+  labs(tag="d")
 
 save_fig(p, "ICI_Fig3c_doseresponse", width_mm=85, height_mm=84, dir="../results/figures/composite")
 cat(sprintf("done — response rate by Integration tertile: %s (base %.0f%%)\n",

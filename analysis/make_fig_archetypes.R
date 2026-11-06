@@ -59,7 +59,7 @@ p <- ggplot(alc, aes(y=n, axis1=Cancer, axis2=Archetype, axis3=Response)) +
                      expand=expansion(add=c(0.24,0.24)), position="top") +
   coord_cartesian(clip="off") +
   guides(fill=guide_legend(nrow=1, override.aes=list(colour="white"))) +
-  labs(tag="D") +
+  labs(tag="e") +
   theme_void(base_family=PUB_FONT) +
   theme(axis.text.x.top=element_text(size=PT_AXIS_TITLE, colour=INK, face=2, margin=margin(b=2,t=1)),
         legend.position="bottom", legend.text=element_text(size=PT_LEGEND, colour=INK),

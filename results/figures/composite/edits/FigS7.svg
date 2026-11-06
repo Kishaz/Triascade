@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="493.23pt"
+   height="340.16pt"
+   viewBox="0 0 493.23 340.16"
+   version="1.1"
+   id="svg113"
+   sodipodi:docname="FigS7.svg"
+   inkscape:export-filename="FigS7.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs113" />
+  <sodipodi:namedview
+     id="namedview113"
+     pagecolor="#ffffff"
+     bordercolor="#cccccc"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="1"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="pt"
+     inkscape:export-bgcolor="#ffffffff"
+     inkscape:zoom="1.48"
+     inkscape:cx="328.37838"
+     inkscape:cy="226.01351"
+     inkscape:window-width="1920"
+     inkscape:window-height="1052"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg113" />
+  <g
+     class="svglite"
+     id="g113">
+    <defs
+       id="defs1">
+      <style
+         type="text/css"
+         id="style1"><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  ]]></style>
+    </defs>
+    <defs
+       id="defs2">
+      <clipPath
+         id="cpMC4wMHw0OTMuMjN8MC4wMHwzNDAuMTY=">
+        <rect
+           x="0.00"
+           y="0.00"
+           width="493.23"
+           height="340.16"
+           id="rect2" />
+      </clipPath>
+    </defs>
+    <defs
+       id="defs4">
+      <clipPath
+         id="cpNzkuNTJ8NDc2LjIyfDIwLjQxfDMwNi4yMQ==">
+        <rect
+           x="79.52"
+           y="20.41"
+           width="396.70"
+           height="285.80"
+           id="rect4" />
+      </clipPath>
+    </defs>
+    <g
+       clip-path="url(#cpNzkuNTJ8NDc2LjIyfDIwLjQxfDMwNi4yMQ==)"
+       id="g69">
+      <polyline
+         points="79.52,306.21 79.52,20.41 "
+         style="stroke-width: 0.43; stroke: #E5E5E5; stroke-linecap: butt;"
+         id="polyline4" />
+      <polyline
+         points="199.74,306.21 199.74,20.41 "
+         style="stroke-width: 0.43; stroke: #E5E5E5; stroke-linecap: butt;"
+         id="polyline5" />
+      <polyline
+         points="319.95,306.21 319.95,20.41 "
+         style="stroke-width: 0.43; stroke: #E5E5E5; stroke-linecap: butt;"
+         id="polyline6" />
+      <polyline
+         points="440.16,306.21 440.16,20.41 "
+         style="stroke-width: 0.43; stroke: #E5E5E5; stroke-linecap: butt;"
+         id="polyline7" />
+      <rect
+         x="79.52"
+         y="31.08"
+         width="360.63"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #1F6F8B;"
+         id="rect7" />
+      <rect
+         x="79.52"
+         y="48.72"
+         width="240.42"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #1F6F8B;"
+         id="rect8" />
+      <rect
+         x="79.52"
+         y="66.37"
+         width="192.34"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #1F6F8B;"
+         id="rect9" />
+      <rect
+         x="79.52"
+         y="84.01"
+         width="168.30"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #1F6F8B;"
+         id="rect10" />
+      <rect
+         x="79.52"
+         y="101.65"
+         width="144.25"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #1F6F8B;"
+         id="rect11" />
+      <rect
+         x="79.52"
+         y="119.29"
+         width="144.25"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #1F6F8B;"
+         id="rect12" />
+      <rect
+         x="79.52"
+         y="136.93"
+         width="120.21"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #1F6F8B;"
+         id="rect13" />
+      <rect
+         x="79.52"
+         y="154.58"
+         width="120.21"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #1F6F8B;"
+         id="rect14" />
+      <rect
+         x="79.52"
+         y="172.22"
+         width="120.21"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #1F6F8B;"
+         id="rect15" />
+      <rect
+         x="79.52"
+         y="189.86"
+         width="48.08"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #1F6F8B;"
+         id="rect16" />
+      <rect
+         x="79.52"
+         y="207.50"
+         width="24.04"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #1F6F8B;"
+         id="rect17" />
+      <rect
+         x="79.52"
+         y="225.14"
+         width="0.00"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #1F6F8B;"
+         id="rect18" />
+      <rect
+         x="79.52"
+         y="242.79"
+         width="0.00"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #1F6F8B;"
+         id="rect19" />
+      <rect
+         x="79.52"
+         y="260.43"
+         width="0.00"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #1F6F8B;"
+         id="rect20" />
+      <rect
+         x="79.52"
+         y="278.07"
+         width="0.00"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #1F6F8B;"
+         id="rect21" />
+      <rect
+         x="79.52"
+         y="295.71"
+         width="0.00"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #1F6F8B;"
+         id="rect22" />
+      <rect
+         x="79.52"
+         y="24.56"
+         width="360.63"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #E07B39;"
+         id="rect23" />
+      <rect
+         x="79.52"
+         y="42.20"
+         width="168.30"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #E07B39;"
+         id="rect24" />
+      <rect
+         x="79.52"
+         y="59.84"
+         width="192.34"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #E07B39;"
+         id="rect25" />
+      <rect
+         x="79.52"
+         y="77.48"
+         width="168.30"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #E07B39;"
+         id="rect26" />
+      <rect
+         x="79.52"
+         y="95.12"
+         width="168.30"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #E07B39;"
+         id="rect27" />
+      <rect
+         x="79.52"
+         y="112.77"
+         width="144.25"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #E07B39;"
+         id="rect28" />
+      <rect
+         x="79.52"
+         y="130.41"
+         width="120.21"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #E07B39;"
+         id="rect29" />
+      <rect
+         x="79.52"
+         y="148.05"
+         width="120.21"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #E07B39;"
+         id="rect30" />
+      <rect
+         x="79.52"
+         y="165.69"
+         width="48.08"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #E07B39;"
+         id="rect31" />
+      <rect
+         x="79.52"
+         y="183.33"
+         width="48.08"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #E07B39;"
+         id="rect32" />
+      <rect
+         x="79.52"
+         y="200.97"
+         width="24.04"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #E07B39;"
+         id="rect33" />
+      <rect
+         x="79.52"
+         y="218.62"
+         width="0.00"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #E07B39;"
+         id="rect34" />
+      <rect
+         x="79.52"
+         y="236.26"
+         width="0.00"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #E07B39;"
+         id="rect35" />
+      <rect
+         x="79.52"
+         y="253.90"
+         width="0.00"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #E07B39;"
+         id="rect36" />
+      <rect
+         x="79.52"
+         y="271.54"
+         width="0.00"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #E07B39;"
+         id="rect37" />
+      <rect
+         x="79.52"
+         y="289.18"
+         width="0.00"
+         height="6.35"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #E07B39;"
+         id="rect38" />
+      <text
+         x="442.99"
+         y="37.29"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text38">15</text>
+      <text
+         x="322.78"
+         y="54.94"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text39">10</text>
+      <text
+         x="273.28"
+         y="72.58"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text40">8</text>
+      <text
+         x="249.24"
+         y="90.22"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text41">7</text>
+      <text
+         x="225.19"
+         y="107.86"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text42">6</text>
+      <text
+         x="225.19"
+         y="125.50"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text43">6</text>
+      <text
+         x="201.15"
+         y="143.14"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text44">5</text>
+      <text
+         x="201.15"
+         y="160.79"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text45">5</text>
+      <text
+         x="201.15"
+         y="178.43"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text46">5</text>
+      <text
+         x="129.02"
+         y="196.07"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text47">2</text>
+      <text
+         x="104.98"
+         y="213.71"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text48">1</text>
+      <text
+         x="80.94"
+         y="231.35"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text49">0</text>
+      <text
+         x="80.94"
+         y="249.00"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text50">0</text>
+      <text
+         x="80.94"
+         y="266.64"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text51">0</text>
+      <text
+         x="80.94"
+         y="284.28"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text52">0</text>
+      <text
+         x="80.94"
+         y="301.92"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text53">0</text>
+      <text
+         x="442.99"
+         y="30.77"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text54">15</text>
+      <text
+         x="249.24"
+         y="48.41"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text55">7</text>
+      <text
+         x="273.28"
+         y="66.05"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text56">8</text>
+      <text
+         x="249.24"
+         y="83.69"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text57">7</text>
+      <text
+         x="249.24"
+         y="101.33"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text58">7</text>
+      <text
+         x="225.19"
+         y="118.98"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text59">6</text>
+      <text
+         x="201.15"
+         y="136.62"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text60">5</text>
+      <text
+         x="201.15"
+         y="154.26"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text61">5</text>
+      <text
+         x="129.02"
+         y="171.90"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text62">2</text>
+      <text
+         x="129.02"
+         y="189.54"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text63">2</text>
+      <text
+         x="104.98"
+         y="207.19"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text64">1</text>
+      <text
+         x="80.94"
+         y="224.83"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text65">0</text>
+      <text
+         x="80.94"
+         y="242.47"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text66">0</text>
+      <text
+         x="80.94"
+         y="260.11"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text67">0</text>
+      <text
+         x="80.94"
+         y="277.75"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text68">0</text>
+      <text
+         x="80.94"
+         y="295.40"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text69">0</text>
+    </g>
+    <g
+       clip-path="url(#cpMC4wMHw0OTMuMjN8MC4wMHwzNDAuMTY=)"
+       id="g112">
+      <polyline
+         points="79.52,306.21 79.52,20.41 "
+         style="stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;"
+         id="polyline69" />
+      <text
+         x="74.13"
+         y="299.21"
+         text-anchor="end"
+         style="font-size: 10.00px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text70">Thyroid</text>
+      <text
+         x="74.13"
+         y="281.56"
+         text-anchor="end"
+         style="font-size: 10.00px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text71">Testis</text>
+      <text
+         x="74.13"
+         y="263.92"
+         text-anchor="end"
+         style="font-size: 10.00px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text72">Prostate</text>
+      <text
+         x="74.13"
+         y="246.28"
+         text-anchor="end"
+         style="font-size: 10.00px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text73">Pancreas</text>
+      <text
+         x="74.13"
+         y="228.64"
+         text-anchor="end"
+         style="font-size: 10.00px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text74">Brain</text>
+      <text
+         x="74.13"
+         y="211.00"
+         text-anchor="end"
+         style="font-size: 10.00px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text75">Ovary</text>
+      <text
+         x="74.13"
+         y="193.35"
+         text-anchor="end"
+         style="font-size: 10.00px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text76">Breast</text>
+      <text
+         x="74.13"
+         y="175.71"
+         text-anchor="end"
+         style="font-size: 10.00px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text77">Colon</text>
+      <text
+         x="74.13"
+         y="158.07"
+         text-anchor="end"
+         style="font-size: 10.00px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text78">Liver</text>
+      <text
+         x="74.13"
+         y="140.43"
+         text-anchor="end"
+         style="font-size: 10.00px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text79">Gastric</text>
+      <text
+         x="74.13"
+         y="122.79"
+         text-anchor="end"
+         style="font-size: 10.00px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text80">Kidney</text>
+      <text
+         x="74.13"
+         y="105.14"
+         text-anchor="end"
+         style="font-size: 10.00px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text81">Uterus</text>
+      <text
+         x="74.13"
+         y="87.50"
+         text-anchor="end"
+         style="font-size: 10.00px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text82">Esophagus</text>
+      <text
+         x="74.13"
+         y="69.86"
+         text-anchor="end"
+         style="font-size: 10.00px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text83">Bladder</text>
+      <text
+         x="74.13"
+         y="52.22"
+         text-anchor="end"
+         style="font-size: 10.00px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text84">Skin</text>
+      <text
+         x="74.13"
+         y="34.58"
+         text-anchor="end"
+         style="font-size: 10.00px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text85">Lung</text>
+      <polyline
+         points="76.12,295.62 79.52,295.62 "
+         style="stroke-width: 0.53; stroke: #404040; stroke-linecap: butt;"
+         id="polyline85" />
+      <polyline
+         points="76.12,277.98 79.52,277.98 "
+         style="stroke-width: 0.53; stroke: #404040; stroke-linecap: butt;"
+         id="polyline86" />
+      <polyline
+         points="76.12,260.34 79.52,260.34 "
+         style="stroke-width: 0.53; stroke: #404040; stroke-linecap: butt;"
+         id="polyline87" />
+      <polyline
+         points="76.12,242.70 79.52,242.70 "
+         style="stroke-width: 0.53; stroke: #404040; stroke-linecap: butt;"
+         id="polyline88" />
+      <polyline
+         points="76.12,225.06 79.52,225.06 "
+         style="stroke-width: 0.53; stroke: #404040; stroke-linecap: butt;"
+         id="polyline89" />
+      <polyline
+         points="76.12,207.41 79.52,207.41 "
+         style="stroke-width: 0.53; stroke: #404040; stroke-linecap: butt;"
+         id="polyline90" />
+      <polyline
+         points="76.12,189.77 79.52,189.77 "
+         style="stroke-width: 0.53; stroke: #404040; stroke-linecap: butt;"
+         id="polyline91" />
+      <polyline
+         points="76.12,172.13 79.52,172.13 "
+         style="stroke-width: 0.53; stroke: #404040; stroke-linecap: butt;"
+         id="polyline92" />
+      <polyline
+         points="76.12,154.49 79.52,154.49 "
+         style="stroke-width: 0.53; stroke: #404040; stroke-linecap: butt;"
+         id="polyline93" />
+      <polyline
+         points="76.12,136.85 79.52,136.85 "
+         style="stroke-width: 0.53; stroke: #404040; stroke-linecap: butt;"
+         id="polyline94" />
+      <polyline
+         points="76.12,119.20 79.52,119.20 "
+         style="stroke-width: 0.53; stroke: #404040; stroke-linecap: butt;"
+         id="polyline95" />
+      <polyline
+         points="76.12,101.56 79.52,101.56 "
+         style="stroke-width: 0.53; stroke: #404040; stroke-linecap: butt;"
+         id="polyline96" />
+      <polyline
+         points="76.12,83.92 79.52,83.92 "
+         style="stroke-width: 0.53; stroke: #404040; stroke-linecap: butt;"
+         id="polyline97" />
+      <polyline
+         points="76.12,66.28 79.52,66.28 "
+         style="stroke-width: 0.53; stroke: #404040; stroke-linecap: butt;"
+         id="polyline98" />
+      <polyline
+         points="76.12,48.64 79.52,48.64 "
+         style="stroke-width: 0.53; stroke: #404040; stroke-linecap: butt;"
+         id="polyline99" />
+      <polyline
+         points="76.12,30.99 79.52,30.99 "
+         style="stroke-width: 0.53; stroke: #404040; stroke-linecap: butt;"
+         id="polyline100" />
+      <polyline
+         points="79.52,306.21 476.22,306.21 "
+         style="stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;"
+         id="polyline101" />
+      <polyline
+         points="79.52,309.61 79.52,306.21 "
+         style="stroke-width: 0.53; stroke: #404040; stroke-linecap: butt;"
+         id="polyline102" />
+      <polyline
+         points="199.74,309.61 199.74,306.21 "
+         style="stroke-width: 0.53; stroke: #404040; stroke-linecap: butt;"
+         id="polyline103" />
+      <polyline
+         points="319.95,309.61 319.95,306.21 "
+         style="stroke-width: 0.53; stroke: #404040; stroke-linecap: butt;"
+         id="polyline104" />
+      <polyline
+         points="440.16,309.61 440.16,306.21 "
+         style="stroke-width: 0.53; stroke: #404040; stroke-linecap: butt;"
+         id="polyline105" />
+      <text
+         x="79.52"
+         y="318.05"
+         text-anchor="middle"
+         style="font-size: 9.00px; font-family: &quot;Arial&quot;;"
+         id="text105">0</text>
+      <text
+         x="199.74"
+         y="318.05"
+         text-anchor="middle"
+         style="font-size: 9.00px; font-family: &quot;Arial&quot;;"
+         id="text106">5</text>
+      <text
+         x="319.95"
+         y="318.05"
+         text-anchor="middle"
+         style="font-size: 9.00px; font-family: &quot;Arial&quot;;"
+         id="text107">10</text>
+      <text
+         x="440.16"
+         y="318.05"
+         text-anchor="middle"
+         style="font-size: 9.00px; font-family: &quot;Arial&quot;;"
+         id="text108">15</text>
+      <text
+         x="277.87"
+         y="329.44"
+         text-anchor="middle"
+         style="font-size: 10.50px; font-family: &quot;Arial&quot;;"
+         id="text109">Distinct approved checkpoint-inhibitor regimens (drug + combination partner)</text>
+      <text
+         transform="translate(16.02,163.31) rotate(-90)"
+         text-anchor="middle"
+         style="font-size: 10.50px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text110">Cancer type</text>
+      <rect
+         x="80.17"
+         y="9.15"
+         width="7.78"
+         height="7.78"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #1F6F8B;"
+         id="rect110" />
+      <rect
+         x="116.20"
+         y="9.15"
+         width="7.78"
+         height="7.78"
+         style="stroke-width: 0.97; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #E07B39;"
+         id="rect111" />
+      <text
+         x="93.58"
+         y="16.08"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text111">FDA</text>
+      <text
+         x="129.61"
+         y="16.08"
+         style="font-size: 8.50px; font-family: &quot;Arial&quot;;"
+         id="text112">EMA</text>
+    </g>
+  </g>
+  <!-- text joined by svg_join_text.py -->
+</svg>

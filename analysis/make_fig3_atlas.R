@@ -112,7 +112,7 @@ for (b in BADGES) p <- p + badge(b$x, b$y, b$num)
 
 ## ---- titles, sex labels ----
 p <- p +
-  annotate("text", x=2, y=163, label="A", family=PUB_FONT, size=PT_PANEL_TAG/.pt, fontface=2, hjust=0) +
+  annotate("text", x=2, y=163, label="b", family=PUB_FONT, size=PT_PANEL_TAG/.pt, fontface=2, hjust=0) +
   annotate("text", x=MALE$cx, y=23, label="Male",   family=PUB_FONT, size=8/.pt, fontface=2, hjust=0.5, colour=INK) +
   annotate("text", x=FEM$cx,  y=23, label="Female", family=PUB_FONT, size=8/.pt, fontface=2, hjust=0.5, colour=INK)
 

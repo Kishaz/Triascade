@@ -1,0 +1,137 @@
+organ,drug,cancer_type,regimen,fda,ema
+Skin,pembrolizumab,Melanoma,monotherapy (met),2014,2015
+Skin,pembrolizumab,Melanoma,adjuvant,2019,2018
+Skin,pembrolizumab,Merkel cell,monotherapy,2018,no
+Skin,pembrolizumab,cSCC,monotherapy,2020,no
+Skin,nivolumab,Melanoma,monotherapy (met),2014,2015
+Skin,nivolumab,Melanoma,+ipilimumab,2015,2016
+Skin,nivolumab,Melanoma,adjuvant,2017,2018
+Skin,nivolumab,Melanoma,+relatlimab (Opdualag),2022,2022
+Skin,atezolizumab,Melanoma,+cobimetinib+vemurafenib,2020,no
+Skin,ipilimumab,Melanoma,monotherapy (met),2011,2011
+Skin,ipilimumab,Melanoma,adjuvant,2015,no
+Skin,cemiplimab,cSCC,monotherapy,2018,2019
+Skin,cemiplimab,cSCC,adjuvant,2025,2025
+Skin,cemiplimab,BCC,monotherapy,2021,2021
+Skin,avelumab,Merkel cell,monotherapy,2017,2017
+Skin,retifanlimab,Merkel cell,monotherapy,2023,no
+Skin,cosibelimab,cSCC,monotherapy,2024,no
+Lung,pembrolizumab,NSCLC,+pemetrexed+platinum (1L nonsq),2017,2018
+Lung,pembrolizumab,NSCLC,+carbo/paclitaxel (1L sq),2018,2019
+Lung,pembrolizumab,NSCLC,monotherapy (1L),2016,2017
+Lung,pembrolizumab,NSCLC,monotherapy (2L),2015,2016
+Lung,pembrolizumab,NSCLC,+platinum perioperative,2023,2024
+Lung,pembrolizumab,NSCLC,monotherapy adjuvant,2023,2023
+Lung,nivolumab,NSCLC,+chemo neoadjuvant,2022,2023
+Lung,nivolumab,NSCLC,+chemo perioperative,2024,2025
+Lung,nivolumab,NSCLC,+ipilimumab (1L),2020,no
+Lung,nivolumab,NSCLC,+ipilimumab+chemo (1L),2020,2020
+Lung,nivolumab,NSCLC,monotherapy (2L),2015,2015
+Lung,atezolizumab,NSCLC,monotherapy adjuvant,2021,2022
+Lung,atezolizumab,NSCLC,monotherapy (1L high PD-L1),2020,2021
+Lung,atezolizumab,NSCLC,+bev+paclitaxel+carbo (1L),2018,2019
+Lung,atezolizumab,NSCLC,+nab-paclitaxel+carbo (1L),2019,2019
+Lung,atezolizumab,NSCLC,monotherapy (2L),2016,2017
+Lung,atezolizumab,NSCLC,monotherapy (1L platinum-ineligible),no,2024
+Lung,atezolizumab,SCLC,+carbo+etoposide (1L),2019,2019
+Lung,atezolizumab,SCLC,+lurbinectedin maintenance,2025,no
+Lung,durvalumab,NSCLC,monotherapy consolidation (PACIFIC),2018,2018
+Lung,durvalumab,NSCLC,+chemo perioperative (AEGEAN),2024,2025
+Lung,durvalumab,NSCLC,+tremelimumab+chemo (POSEIDON),2022,2023
+Lung,durvalumab,SCLC,+etoposide+platinum (CASPIAN),2020,2020
+Lung,durvalumab,SCLC,monotherapy limited-stage (ADRIATIC),2024,2025
+Lung,cemiplimab,NSCLC,monotherapy (1L PD-L1>=50),2021,2021
+Lung,cemiplimab,NSCLC,+chemo (1L),2022,2023
+Lung,tislelizumab,NSCLC,+chemo (1L sq),no,2024
+Lung,tislelizumab,NSCLC,+chemo (1L non-sq),no,2024
+Lung,tislelizumab,NSCLC,monotherapy (2L),no,2024
+Lung,tislelizumab,NSCLC,perioperative,no,2025
+Lung,tislelizumab,SCLC,+etoposide+platinum (1L),no,2025
+Gastric,pembrolizumab,Gastric/GEJ,+trastuzumab+chemo (HER2+),2021,2023
+Gastric,pembrolizumab,Gastric/GEJ,+chemo (HER2-),2023,2023
+Gastric,nivolumab,Gastric/GEJ,+chemo (1L),2021,2022
+Gastric,durvalumab,Gastric/GEJ,+FLOT perioperative (MATTERHORN),2025,2026
+Gastric,tislelizumab,Gastric/GEJ,+chemo (1L),2024,2024
+Esophagus,pembrolizumab,Esophageal/GEJ,+platinum+FU,2021,2021
+Esophagus,pembrolizumab,Esophageal,monotherapy (squamous 2L),2019,no
+Esophagus,nivolumab,Esophageal/GEJ,monotherapy adjuvant,2021,2022
+Esophagus,nivolumab,Esophageal SCC,+chemo (1L),2022,2022
+Esophagus,nivolumab,Esophageal SCC,+ipilimumab (1L),2022,2022
+Esophagus,nivolumab,Esophageal SCC,monotherapy (2L),2020,2021
+Esophagus,toripalimab,Esophageal SCC,+chemo (1L),no,2024
+Esophagus,tislelizumab,Esophageal SCC,monotherapy (2L),2024,2023
+Esophagus,tislelizumab,Esophageal SCC,+chemo (1L),2025,2024
+Bladder,pembrolizumab,Urothelial,+enfortumab vedotin (1L),2023,2024
+Bladder,pembrolizumab,Urothelial,monotherapy (LA/met),2017,2017
+Bladder,pembrolizumab,Bladder MIBC,+enfortumab vedotin (perioperative),2025,2026
+Bladder,pembrolizumab,Bladder NMIBC,monotherapy (BCG-unresponsive),2020,no
+Bladder,nivolumab,Urothelial,monotherapy adjuvant,2021,2022
+Bladder,nivolumab,Urothelial,+cisplatin+gemcitabine (1L),2024,2024
+Bladder,nivolumab,Urothelial,monotherapy (2L),2017,2017
+Bladder,atezolizumab,Bladder MIBC,monotherapy adjuvant ctDNA+,2026,no
+Bladder,atezolizumab,Urothelial,monotherapy (2L),withdrawn,2017
+Bladder,atezolizumab,Urothelial,monotherapy (1L cisplatin-ineligible),withdrawn,2017
+Bladder,durvalumab,Bladder MIBC,+gem+cis perioperative (NIAGARA),2025,2025
+Bladder,durvalumab,Bladder NMIBC,+BCG (POTOMAC),2026,no
+Bladder,durvalumab,Urothelial,monotherapy (2L),withdrawn,no
+Bladder,avelumab,Urothelial,monotherapy 1L maintenance,2020,2021
+Bladder,avelumab,Urothelial,monotherapy (2L),2017,no
+Kidney,pembrolizumab,RCC,+axitinib (1L),2019,2019
+Kidney,pembrolizumab,RCC,+lenvatinib (1L),2021,2021
+Kidney,pembrolizumab,RCC,monotherapy adjuvant,2021,2022
+Kidney,pembrolizumab,RCC,+belzutifan adjuvant,2026,no
+Kidney,nivolumab,RCC,+ipilimumab (1L),2018,2019
+Kidney,nivolumab,RCC,+cabozantinib (1L),2021,2021
+Kidney,nivolumab,RCC,monotherapy (2L),2015,2016
+Kidney,avelumab,RCC,+axitinib (1L),2019,2019
+Liver,pembrolizumab,HCC,monotherapy (2L),2018,no
+Liver,pembrolizumab,Biliary tract,+gem+cis (1L),2023,2023
+Liver,nivolumab,HCC,+ipilimumab (1L),2025,2025
+Liver,nivolumab,HCC,+ipilimumab (2L post-sorafenib),2020,no
+Liver,atezolizumab,HCC,+bevacizumab (1L),2020,2020
+Liver,durvalumab,Biliary tract,+gem+cis (TOPAZ-1),2022,2022
+Liver,durvalumab,HCC,+tremelimumab (STRIDE),2022,2023
+Liver,durvalumab,HCC,monotherapy (1L),no,2023
+Colon,pembrolizumab,Colorectal MSI-H,monotherapy (incl 1L),2020,2021
+Colon,nivolumab,Colorectal MSI-H,+ipilimumab (1L),2025,2025
+Colon,nivolumab,Colorectal MSI-H,+ipilimumab (2L),2018,2025
+Colon,nivolumab,Colorectal MSI-H,monotherapy,2017,no
+Colon,atezolizumab,Colon dMMR,+FOLFOX adjuvant (Stage III),2026,no
+Colon,dostarlimab,Rectal MSI-H,monotherapy (LARC),2026,no
+Breast,pembrolizumab,TNBC,+chemo neoadjuvant (early),2021,2022
+Breast,pembrolizumab,TNBC,+sacituzumab govitecan (1L),2026,no
+Breast,pembrolizumab,TNBC,+chemo (met),2020,2021
+Breast,atezolizumab,TNBC,+nab-paclitaxel (1L),withdrawn,2019
+Uterus,pembrolizumab,Endometrial,+carbo+paclitaxel,2024,2024
+Uterus,pembrolizumab,Endometrial,+lenvatinib (pMMR),2019,2021
+Uterus,pembrolizumab,Endometrial,monotherapy (MSI-H),2022,2022
+Uterus,durvalumab,Endometrial,+chemo->mono (dMMR),2024,2026
+Uterus,durvalumab,Endometrial,+chemo->+olaparib (pMMR),no,2026
+Uterus,dostarlimab,Endometrial,monotherapy (dMMR),2021,2021
+Uterus,dostarlimab,Endometrial,+chemo->mono (all-comers),2024,2025
+Ovary,pembrolizumab,Ovarian,+paclitaxel+-bevacizumab,2026,2026
+Head and neck,pembrolizumab,HNSCC,neoadjuvant->adjuvant,2025,2025
+Head and neck,pembrolizumab,HNSCC,+platinum+FU (1L),2019,2019
+Head and neck,pembrolizumab,HNSCC,monotherapy (1L),2019,2019
+Head and neck,pembrolizumab,HNSCC,monotherapy (2L),2016,2018
+Head and neck,nivolumab,HNSCC,monotherapy (2L),2016,2017
+Cervix,pembrolizumab,Cervical,+chemoradiotherapy,2024,2024
+Cervix,pembrolizumab,Cervical,+chemo+-bev,2021,2022
+Cervix,pembrolizumab,Cervical,monotherapy,2018,no
+Cervix,cemiplimab,Cervical,monotherapy,no,2022
+Anal,retifanlimab,Anal SCC,+chemo (1L),2025,2026
+Anal,retifanlimab,Anal SCC,monotherapy (2L),2025,no
+Nasopharynx,toripalimab,Nasopharyngeal,+chemo (1L),2023,2024
+Nasopharynx,toripalimab,Nasopharyngeal,monotherapy,2023,no
+Nasopharynx,tislelizumab,Nasopharyngeal,+chemo (1L),no,2025
+Lymphoma,pembrolizumab,Classical Hodgkin,monotherapy,2017,2017
+Lymphoma,pembrolizumab,PMBCL,monotherapy,2018,no
+Lymphoma,nivolumab,Classical Hodgkin,+AVD (1L),2026,2025
+Lymphoma,nivolumab,Classical Hodgkin,+brentuximab,no,2025
+Lymphoma,nivolumab,Classical Hodgkin,monotherapy,2016,2016
+Pleura,pembrolizumab,Mesothelioma,+pemetrexed+platinum,2024,2025
+Pleura,nivolumab,Mesothelioma,+ipilimumab,2020,2021
+Soft tissue,atezolizumab,Alveolar soft part sarcoma,monotherapy,2022,no
+Tumor-agnostic,pembrolizumab,MSI-H/dMMR solid tumors,monotherapy,2017,no
+Tumor-agnostic,pembrolizumab,TMB-high solid tumors,monotherapy,2020,no
+Tumor-agnostic,dostarlimab,dMMR solid tumors,monotherapy,2021,no

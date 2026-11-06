@@ -26,7 +26,7 @@ E_lab <- "bold(E)==frac(1,19)~sum(b[g], g %in% 'effector') - frac(1,19)~sum(b[g]
 
 b2 <- list(
   # panel tag
-  annotate("text", x = OFF, y = 129, label = "B", family = PUB_FONT, size = PT_PANEL_TAG/.pt, fontface = 2, hjust = 0),
+  annotate("text", x = OFF, y = 129, label = "b", family = PUB_FONT, size = PT_PANEL_TAG/.pt, fontface = 2, hjust = 0),
 
   # ========== STEP 1 : binarize ==========
   annotate("point", x = 5+OFF, y = 124, size = 5.2, colour = INK),
@@ -71,27 +71,18 @@ b2 <- list(
   tb(3, 7.5, "S %in% group('[',list(0,1),']')*';   '*I*','~E %in% group('[',list(-1,+1),']')",
       size = 8, hjust = 0, parse = TRUE))
 
-# ---- Panel C: validation, sourced as layers and shifted BELOW the A/B row -------
-# pA and b2 are already materialized, so it is safe for 2C to redefine the helpers.
-FIG2C_XOFF     <- 0                      # left-align C with A
-FIG2C_YOFF     <- -95                    # drop C below the A/B row
-FIG2C_ASLAYERS <- TRUE                   # expose C_layers; do not save 2C on its own
-source("make_fig2C_validation.R")        # -> C_layers
-
-# ---- per-panel frames, so the three panels never read as one continuous figure --
-# Each box encloses one panel's content with padding; a gutter separates A | B and
-# a clear band separates the top row from C.
+# ---- per-panel frames: A | B only (the old 2C validation panel is dropped; it is
+# now Fig 3). A gutter separates A | B.
 frames <- list(
   annotate("rect", xmin =  -2, xmax = 184.5, ymin =   1.5, ymax = 131.5, fill = NA, colour = INK, linewidth = 0.7),  # A
-  annotate("rect", xmin = 186.5, xmax = 276, ymin =   1.5, ymax = 131.5, fill = NA, colour = INK, linewidth = 0.7),  # B
-  annotate("rect", xmin =  -2, xmax = 276,   ymin = -70,   ymax =  -4,   fill = NA, colour = INK, linewidth = 0.7))  # C
+  annotate("rect", xmin = 186.5, xmax = 276, ymin =   1.5, ymax = 131.5, fill = NA, colour = INK, linewidth = 0.7))  # B
 
-fig2 <- pA + b2 + C_layers + frames +
-  coord_fixed(ratio = 1, xlim = c(-4, 278), ylim = c(-72, 133.5), expand = FALSE, clip = "off")
+fig2 <- pA + b2 + frames +
+  coord_fixed(ratio = 1, xlim = c(-4, 278), ylim = c(-1, 133.5), expand = FALSE, clip = "off")
 
-# This combined figure is wider and taller than one journal page on purpose
-# (2A + a vertical 2B column, with 2C below); lift save_fig's double-column width
-# cap for it only. Scale is kept identical to 2A standalone: 186 units -> 174 mm.
+# Two-panel top row (2A + a vertical 2B column); the 2C validation panel now lives in
+# Fig 3. Lift save_fig's double-column width cap for it only. Scale is kept identical
+# to 2A standalone: 186 units -> 174 mm.
 FIG_W_DOUBLE <- 320
-save_fig(fig2, "ICI_Fig2", width_mm = 282*174/186, height_mm = 205.5*174/186, dir = "../results/figures/composite")
+save_fig(fig2, "ICI_Fig2", width_mm = 282*174/186, height_mm = 134.5*174/186, dir = "../results/figures/composite")
 cat("done\n")

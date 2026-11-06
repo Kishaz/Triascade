@@ -155,9 +155,9 @@ p <- ggplot() +
   geom_rect(data=lay, aes(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax, colour=layer), fill=pal_layer_fill[lay$layer], linewidth=1.1) +
   geom_text(data=layer_txt, aes(x=x,y=y,label=label), family=PUB_FONT, size=layer_txt$sz/.pt, colour=layer_txt$col, parse=TRUE) +
   ## tags
-  annotate("text", x=1,  y=OFF2+106, label="A", family=PUB_FONT, size=PT_PANEL_TAG/.pt, fontface=2, hjust=0) +
-  annotate("text", x=52, y=OFF2+106, label="B", family=PUB_FONT, size=PT_PANEL_TAG/.pt, fontface=2, hjust=0) +
-  annotate("text", x=1,  y=84,        label="C", family=PUB_FONT, size=PT_PANEL_TAG/.pt, fontface=2, hjust=0) +
+  annotate("text", x=1,  y=OFF2+106, label="a", family=PUB_FONT, size=PT_PANEL_TAG/.pt, fontface=2, hjust=0) +
+  annotate("text", x=52, y=OFF2+106, label="b", family=PUB_FONT, size=PT_PANEL_TAG/.pt, fontface=2, hjust=0) +
+  annotate("text", x=1,  y=84,        label="c", family=PUB_FONT, size=PT_PANEL_TAG/.pt, fontface=2, hjust=0) +
   coord_fixed(ratio=1, xlim=c(0,180), ylim=c(19,OFF2+108), expand=FALSE, clip="off") +
   theme_void() + theme(plot.background=element_rect(fill="white", colour=NA), plot.margin=margin(1,1,1,1,"mm"))
 

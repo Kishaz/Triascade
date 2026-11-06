@@ -106,7 +106,7 @@ for (i in seq_along(ARCH)) { a <- ARCH[[i]]; y <- AY[i]
     txt(30, y, a$name, size=8, face=2, hjust=0, colour=INK))) }
 
 pA <- ggplot() +
-  annotate("text", x=1, y=129, label="A", family=PUB_FONT, size=PT_PANEL_TAG/.pt, fontface=2, hjust=0) +
+  annotate("text", x=1, y=129, label="a", family=PUB_FONT, size=PT_PANEL_TAG/.pt, fontface=2, hjust=0) +
 
   # ===================== DERIVE =====================
   txt(93, 126, "Score each patient at each layer", size=10.5, face=2) +

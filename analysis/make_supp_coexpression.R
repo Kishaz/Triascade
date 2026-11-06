@@ -83,6 +83,13 @@ build <- function(scheme){
   save_fig(fig, nm, width_mm=174, height_mm=if(lcol==3) 116 else 112, dir="../results/figures/composite")
 }
 build("dir"); build("module")
-write.csv(data.frame(gene=asg$gene, module=asg$module, layer=asg$Layer, direction=asg$dir),
+# Supplementary module-membership table = the FULL authoritative 98-gene assignment
+# (all 100 layer assignments, incl. the IFNG/TGFB1 dual-layer rows), independent of
+# which genes survive into the co-expression network above (that set is filtered to
+# genes expressed/variable in the IMvigor210 reference, so it is legitimately smaller).
+full <- read.csv("ICI_98_module_assignment.csv", stringsAsFactors=FALSE); full$gene <- toupper(full$gene)
+write.csv(data.frame(gene=full$gene, module=full$module,
+                     layer=c(Sense="Sensory", Integration="Integration", Execution="Execution")[full$layer],
+                     direction=ifelse(full$direction=="positive", "activating (+)", "suppressive (−)")),
           "../results/tables/ICI_coexpression_modules.csv", row.names=FALSE)
 cat("done - co-expression figures (direction + 6-module), ref IMvigor210 n=", ncol(E), "\n")

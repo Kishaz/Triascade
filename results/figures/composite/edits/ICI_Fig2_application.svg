@@ -1,0 +1,1573 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="747.80pt"
+   height="356.66pt"
+   viewBox="0 0 747.80 356.66"
+   version="1.1"
+   id="svg196"
+   sodipodi:docname="ICI_Fig2_application.svg"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   inkscape:export-filename="ICI_Fig2_application.png"
+   inkscape:export-xdpi="600"
+   inkscape:export-ydpi="600"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs196" />
+  <sodipodi:namedview
+     id="namedview196"
+     pagecolor="#ffffff"
+     bordercolor="#cccccc"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="1"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="pt"
+     inkscape:export-bgcolor="#ffffffff"
+     inkscape:zoom="1.06"
+     inkscape:cx="497.64151"
+     inkscape:cy="236.32075"
+     inkscape:window-width="1920"
+     inkscape:window-height="1022"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g195" />
+  <g
+     class="svglite"
+     id="g196">
+    <defs
+       id="defs1">
+      <style
+         type="text/css"
+         id="style1"><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  ]]></style>
+    </defs>
+    <rect
+       width="100%"
+       height="100%"
+       style="stroke: none; fill: #FFFFFF;"
+       id="rect1" />
+    <defs
+       id="defs2">
+      <clipPath
+         id="cpMC4wMHw3NDcuODB8MC4wMHwzNTYuNjY=">
+        <rect
+           x="0.00"
+           y="0.00"
+           width="747.80"
+           height="356.66"
+           id="rect2" />
+      </clipPath>
+    </defs>
+    <g
+       clip-path="url(#cpMC4wMHw3NDcuODB8MC4wMHwzNTYuNjY=)"
+       id="g2" />
+    <defs
+       id="defs3">
+      <clipPath
+         id="cpMy4xMXw3NDQuNjl8MC4wMHwzNTYuNjY=">
+        <rect
+           x="3.11"
+           y="0.00"
+           width="741.58"
+           height="356.66"
+           id="rect3" />
+      </clipPath>
+    </defs>
+    <g
+       clip-path="url(#cpMy4xMXw3NDQuNjl8MC4wMHwzNTYuNjY=)"
+       id="g4"
+       inkscape:export-filename="ICI_Fig2_application.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600">
+      <rect
+         x="3.11"
+         y="0.00"
+         width="741.58"
+         height="356.66"
+         style="stroke-width: 0.00; stroke: none; fill: #FFFFFF;"
+         id="rect4" />
+    </g>
+    <g
+       clip-path="url(#cpMC4wMHw3NDcuODB8MC4wMHwzNTYuNjY=)"
+       id="g195">
+      <text
+         x="18.99"
+         y="18.870001"
+         style="font-weight:bold;font-size:12px;font-family:Arial"
+         id="text4">a</text>
+      <text
+         x="238.07999"
+         y="25.27"
+         text-anchor="middle"
+         style="font-weight:bold;font-size:12.18px;font-family:Arial"
+         id="text5">Score each patient at each layer</text>
+      <rect
+         x="29.43"
+         y="32.85"
+         width="83.51"
+         height="36.53"
+         style="stroke-width: 1.28; stroke: #8A7F71; stroke-linecap: butt; stroke-linejoin: miter; fill: #F7F1E6;"
+         id="rect5" />
+      <text
+         x="71.18"
+         y="48.12"
+         text-anchor="middle"
+         style="font-size: 9.86px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text6">patient cohort</text>
+      <text
+         x="71.18"
+         y="59.65"
+         text-anchor="middle"
+         style="font-size: 9.28px; font-family: &quot;Arial&quot;;"
+         id="text7">transcriptomes</text>
+      <rect
+         x="146.86"
+         y="30.24"
+         width="182.67"
+         height="41.75"
+         style="stroke-width: 1.28; stroke: #8A7F71; stroke-linecap: butt; stroke-linejoin: miter; fill: #F7F1E6;"
+         id="rect7" />
+      <text
+         x="238.20"
+         y="43.99"
+         text-anchor="middle"
+         style="font-size: 9.28px; font-family: &quot;Arial&quot;;"
+         id="text8">binarize each gene at its</text>
+      <text
+         x="238.20"
+         y="54.95"
+         text-anchor="middle"
+         style="font-size: 9.28px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text9">cohort median</text>
+      <text
+         x="204.29"
+         y="64.75"
+         style="font-size: 9.51px; font-family: &quot;Arial&quot;;"
+         id="text10">b</text>
+      <text
+         x="209.58"
+         y="66.47"
+         style="font-size: 6.66px; font-family: &quot;Arial&quot;;"
+         id="text11">g</text>
+      <text
+         xml:space="preserve"
+         x="215.48"
+         y="64.75"
+         style="font-size: 9.51px; font-family: &quot;Symbol&quot;;"
+         id="text13">= <tspan
+   style="font-family: &quot;Arial&quot;;"
+   id="tspan11">1</tspan>  <tspan
+   style="font-family: &quot;Arial&quot;;"
+   id="tspan12">if</tspan>  <tspan
+   style="font-family: &quot;Arial&quot;;"
+   id="tspan13">x</tspan></text>
+      <text
+         x="247.18"
+         y="66.47"
+         style="font-size: 6.66px; font-family: &quot;Arial&quot;;"
+         id="text14">g</text>
+      <text
+         xml:space="preserve"
+         x="253.08"
+         y="64.75"
+         style="font-size: 9.51px; font-family: &quot;Symbol&quot;;"
+         id="text15">≥ <tspan
+   style="font-family: &quot;Arial&quot;;"
+   id="tspan14">m</tspan></text>
+      <text
+         x="268.40"
+         y="66.47"
+         style="font-size: 6.66px; font-family: &quot;Arial&quot;;"
+         id="text16">g</text>
+      <rect
+         x="363.46"
+         y="32.85"
+         width="125.26"
+         height="36.53"
+         style="stroke-width: 1.28; stroke: #8A7F71; stroke-linecap: butt; stroke-linejoin: miter; fill: #F7F1E6;"
+         id="rect16" />
+      <text
+         x="426.09"
+         y="46.60"
+         text-anchor="middle"
+         style="font-size: 9.28px; font-family: &quot;Arial&quot;;"
+         id="text17">combine per layer</text>
+      <text
+         x="426.09"
+         y="58.35"
+         text-anchor="middle"
+         style="font-size: 9.28px; font-family: &quot;Arial&quot;;"
+         id="text18">(÷ gene count)</text>
+      <line
+         x1="112.94"
+         y1="51.11"
+         x2="146.86"
+         y2="51.11"
+         style="stroke-width: 1.49; stroke-linecap: butt;"
+         id="line18" />
+      <polygon
+         points="142.44,53.66 146.86,51.11 142.44,48.56 "
+         style="stroke-width: 1.49; stroke-linecap: butt; fill: #000000;"
+         id="polygon18" />
+      <line
+         x1="329.54"
+         y1="51.11"
+         x2="363.46"
+         y2="51.11"
+         style="stroke-width: 1.49; stroke-linecap: butt;"
+         id="line19" />
+      <polygon
+         points="359.04,53.66 363.46,51.11 359.04,48.56 "
+         style="stroke-width: 1.49; stroke-linecap: butt; fill: #000000;"
+         id="polygon19" />
+      <line
+         x1="426.09"
+         y1="69.38"
+         x2="426.09"
+         y2="85.04"
+         style="stroke-width: 1.49; stroke-linecap: butt;"
+         id="line20" />
+      <polygon
+         points="423.54,80.62 426.09,85.04 428.64,80.62 "
+         style="stroke-width: 1.49; stroke-linecap: butt; fill: #000000;"
+         id="polygon20" />
+      <text
+         x="37.26"
+         y="91.59"
+         style="font-size: 11.02px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text20">Three scores per patient, each on its own range:</text>
+      <rect
+         x="37.26"
+         y="106.96"
+         width="15.66"
+         height="13.57"
+         style="stroke-width: 1.28; stroke: #9C7A3E; stroke-linecap: butt; stroke-linejoin: miter; fill: #9C7A3E;"
+         id="rect20" />
+      <text
+         x="45.09"
+         y="117.48"
+         text-anchor="middle"
+         style="font-size: 10.44px; font-weight: bold;fill: #FFFFFF; font-family: &quot;Arial&quot;;"
+         id="text21">S</text>
+      <text
+         x="60.75"
+         y="117.40"
+         style="font-size: 10.21px; font-weight: bold;fill: #9C7A3E; font-family: &quot;Arial&quot;;"
+         id="text22">Sensory</text>
+      <line
+         x1="141.64"
+         y1="113.74"
+         x2="475.67"
+         y2="113.74"
+         style="stroke-width: 1.71; stroke: #9C7A3E; stroke-linecap: butt;"
+         id="line22" />
+      <line
+         x1="141.64"
+         y1="117.66"
+         x2="141.64"
+         y2="109.83"
+         style="stroke-width: 1.71; stroke: #9C7A3E; stroke-linecap: butt;"
+         id="line23" />
+      <line
+         x1="475.67"
+         y1="117.66"
+         x2="475.67"
+         y2="109.83"
+         style="stroke-width: 1.71; stroke: #9C7A3E; stroke-linecap: butt;"
+         id="line24" />
+      <text
+         x="141.64"
+         y="125.34"
+         text-anchor="middle"
+         style="font-size: 8.35px;fill: #9C7A3E; font-family: &quot;Arial&quot;;"
+         id="text24">0</text>
+      <text
+         x="475.67"
+         y="125.34"
+         text-anchor="middle"
+         style="font-size: 8.35px;fill: #9C7A3E; font-family: &quot;Arial&quot;;"
+         id="text25">1</text>
+      <text
+         x="141.64"
+         y="133.78"
+         style="font-size: 8.58px; font-style: italic; font-family: &quot;Arial&quot;;"
+         id="text26">not detected</text>
+      <text
+         x="475.67"
+         y="133.78"
+         text-anchor="end"
+         style="font-size: 8.58px; font-style: italic; font-family: &quot;Arial&quot;;"
+         id="text27">fully detected</text>
+      <rect
+         x="37.26"
+         y="135.66"
+         width="15.66"
+         height="13.57"
+         style="stroke-width: 1.28; stroke: #6A2C5A; stroke-linecap: butt; stroke-linejoin: miter; fill: #6A2C5A;"
+         id="rect27" />
+      <text
+         x="45.09"
+         y="146.19"
+         text-anchor="middle"
+         style="font-size: 10.44px; font-weight: bold;fill: #FFFFFF; font-family: &quot;Arial&quot;;"
+         id="text28">I</text>
+      <text
+         x="60.75"
+         y="146.10"
+         style="font-size: 10.21px; font-weight: bold;fill: #6A2C5A; font-family: &quot;Arial&quot;;"
+         id="text29">Integration</text>
+      <line
+         x1="141.64"
+         y1="142.45"
+         x2="475.67"
+         y2="142.45"
+         style="stroke-width: 1.71; stroke: #6A2C5A; stroke-linecap: butt;"
+         id="line29" />
+      <line
+         x1="141.64"
+         y1="146.36"
+         x2="141.64"
+         y2="138.53"
+         style="stroke-width: 1.71; stroke: #6A2C5A; stroke-linecap: butt;"
+         id="line30" />
+      <line
+         x1="475.67"
+         y1="146.36"
+         x2="475.67"
+         y2="138.53"
+         style="stroke-width: 1.71; stroke: #6A2C5A; stroke-linecap: butt;"
+         id="line31" />
+      <text
+         x="141.64"
+         y="154.05"
+         text-anchor="middle"
+         style="font-size: 8.35px;fill: #6A2C5A; font-family: &quot;Arial&quot;;"
+         id="text31">−1</text>
+      <text
+         x="475.67"
+         y="154.05"
+         text-anchor="middle"
+         style="font-size: 8.35px;fill: #6A2C5A; font-family: &quot;Arial&quot;;"
+         id="text32">+1</text>
+      <text
+         x="141.64"
+         y="162.48"
+         style="font-size: 8.58px; font-style: italic; font-family: &quot;Arial&quot;;"
+         id="text33">suppressed</text>
+      <text
+         x="475.67"
+         y="162.48"
+         text-anchor="end"
+         style="font-size: 8.58px; font-style: italic; font-family: &quot;Arial&quot;;"
+         id="text34">open access</text>
+      <line
+         x1="308.66"
+         y1="146.36"
+         x2="308.66"
+         y2="138.53"
+         style="stroke-width: 0.85; stroke: #6A2C5A; stroke-linecap: butt;"
+         id="line34" />
+      <text
+         x="308.66"
+         y="154.13"
+         text-anchor="middle"
+         style="font-size: 8.58px;fill: #6A2C5A; font-family: &quot;Arial&quot;;"
+         id="text35">0</text>
+      <text
+         x="308.66"
+         y="162.48"
+         text-anchor="middle"
+         style="font-size: 8.58px; font-style: italic; font-family: &quot;Arial&quot;;"
+         id="text36">balanced</text>
+      <rect
+         x="37.26"
+         y="164.37"
+         width="15.66"
+         height="13.57"
+         style="stroke-width: 1.28; stroke: #B2567E; stroke-linecap: butt; stroke-linejoin: miter; fill: #B2567E;"
+         id="rect36" />
+      <text
+         x="45.09"
+         y="174.89"
+         text-anchor="middle"
+         style="font-size: 10.44px; font-weight: bold;fill: #FFFFFF; font-family: &quot;Arial&quot;;"
+         id="text37">E</text>
+      <text
+         x="60.75"
+         y="174.81"
+         style="font-size: 10.21px; font-weight: bold;fill: #B2567E; font-family: &quot;Arial&quot;;"
+         id="text38">Execution</text>
+      <line
+         x1="141.64"
+         y1="171.15"
+         x2="475.67"
+         y2="171.15"
+         style="stroke-width: 1.71; stroke: #B2567E; stroke-linecap: butt;"
+         id="line38" />
+      <line
+         x1="141.64"
+         y1="175.07"
+         x2="141.64"
+         y2="167.24"
+         style="stroke-width: 1.71; stroke: #B2567E; stroke-linecap: butt;"
+         id="line39" />
+      <line
+         x1="475.67"
+         y1="175.07"
+         x2="475.67"
+         y2="167.24"
+         style="stroke-width: 1.71; stroke: #B2567E; stroke-linecap: butt;"
+         id="line40" />
+      <text
+         x="141.64"
+         y="182.75"
+         text-anchor="middle"
+         style="font-size: 8.35px;fill: #B2567E; font-family: &quot;Arial&quot;;"
+         id="text40">−1</text>
+      <text
+         x="475.67"
+         y="182.75"
+         text-anchor="middle"
+         style="font-size: 8.35px;fill: #B2567E; font-family: &quot;Arial&quot;;"
+         id="text41">+1</text>
+      <text
+         x="141.64"
+         y="191.19"
+         style="font-size: 8.58px; font-style: italic; font-family: &quot;Arial&quot;;"
+         id="text42">exhausted</text>
+      <text
+         x="475.67"
+         y="191.19"
+         text-anchor="end"
+         style="font-size: 8.58px; font-style: italic; font-family: &quot;Arial&quot;;"
+         id="text43">cytotoxic</text>
+      <line
+         x1="308.66"
+         y1="175.07"
+         x2="308.66"
+         y2="167.24"
+         style="stroke-width: 0.85; stroke: #B2567E; stroke-linecap: butt;"
+         id="line43" />
+      <text
+         x="308.66"
+         y="182.84"
+         text-anchor="middle"
+         style="font-size: 8.58px;fill: #B2567E; font-family: &quot;Arial&quot;;"
+         id="text44">0</text>
+      <text
+         x="308.66"
+         y="191.19"
+         text-anchor="middle"
+         style="font-size: 8.58px; font-style: italic; font-family: &quot;Arial&quot;;"
+         id="text45">balanced</text>
+      <text
+         x="259.08"
+         y="204.22"
+         text-anchor="middle"
+         style="font-size: 12.18px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text46">Application of the three scores</text>
+      <rect
+         x="29.43"
+         y="215.52"
+         width="151.36"
+         height="125.26"
+         style="stroke-width: 1.92; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;"
+         id="rect46" />
+      <circle
+         cx="45.09"
+         cy="225.96"
+         r="5.90"
+         style="stroke-width: 0.71; fill: #000000;"
+         id="circle46" />
+      <text
+         x="45.09"
+         y="229.28"
+         text-anchor="middle"
+         style="font-size: 9.28px; font-weight: bold;fill: #FFFFFF; font-family: &quot;Arial&quot;;"
+         id="text47">1</text>
+      <text
+         x="59.44"
+         y="229.69"
+         style="font-size: 10.44px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text48">Archetypes</text>
+      <text
+         x="37.26"
+         y="244.64"
+         style="font-size: 8.47px; font-family: &quot;Arial&quot;;"
+         id="text49">Each +/− pattern is a type:</text>
+      <text
+         x="42.48"
+         y="260.34"
+         text-anchor="middle"
+         style="font-size: 8.58px; font-weight: bold;fill: #9C7A3E; font-family: &quot;Arial&quot;;"
+         id="text50">S</text>
+      <text
+         x="58.14"
+         y="260.34"
+         text-anchor="middle"
+         style="font-size: 8.58px; font-weight: bold;fill: #6A2C5A; font-family: &quot;Arial&quot;;"
+         id="text51">I</text>
+      <text
+         x="73.79"
+         y="260.34"
+         text-anchor="middle"
+         style="font-size: 8.58px; font-weight: bold;fill: #B2567E; font-family: &quot;Arial&quot;;"
+         id="text52">E</text>
+      <text
+         x="94.67"
+         y="260.43"
+         style="font-size: 8.82px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text53">Archetype</text>
+      <line
+         x1="37.26"
+         y1="262.49"
+         x2="167.74"
+         y2="262.49"
+         style="stroke-width: 0.64; stroke-linecap: butt;"
+         id="line53" />
+      <rect
+         x="37.52"
+         y="267.97"
+         width="9.92"
+         height="9.92"
+         style="stroke-width: 1.28; stroke: #9C7A3E; stroke-linecap: butt; stroke-linejoin: miter; fill: #9C7A3E;"
+         id="rect53" />
+      <text
+         x="42.48"
+         y="275.63"
+         text-anchor="middle"
+         style="font-size: 7.54px; font-weight: bold;fill: #FFFFFF; font-family: &quot;Arial&quot;;"
+         id="text54">+</text>
+      <rect
+         x="53.18"
+         y="267.97"
+         width="9.92"
+         height="9.92"
+         style="stroke-width: 1.28; stroke: #6A2C5A; stroke-linecap: butt; stroke-linejoin: miter; fill: #6A2C5A;"
+         id="rect54" />
+      <text
+         x="58.14"
+         y="275.63"
+         text-anchor="middle"
+         style="font-size: 7.54px; font-weight: bold;fill: #FFFFFF; font-family: &quot;Arial&quot;;"
+         id="text55">+</text>
+      <rect
+         x="68.83"
+         y="267.97"
+         width="9.92"
+         height="9.92"
+         style="stroke-width: 1.28; stroke: #B2567E; stroke-linecap: butt; stroke-linejoin: miter; fill: #B2567E;"
+         id="rect55" />
+      <text
+         x="73.79"
+         y="275.63"
+         text-anchor="middle"
+         style="font-size: 7.54px; font-weight: bold;fill: #FFFFFF; font-family: &quot;Arial&quot;;"
+         id="text56">+</text>
+      <text
+         x="94.67"
+         y="276.25"
+         style="font-size: 9.28px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text57">Inflamed</text>
+      <rect
+         x="37.52"
+         y="284.93"
+         width="9.92"
+         height="9.92"
+         style="stroke-width: 1.28; stroke: #9C7A3E; stroke-linecap: butt; stroke-linejoin: miter; fill: #9C7A3E;"
+         id="rect57" />
+      <text
+         x="42.48"
+         y="292.59"
+         text-anchor="middle"
+         style="font-size: 7.54px; font-weight: bold;fill: #FFFFFF; font-family: &quot;Arial&quot;;"
+         id="text58">+</text>
+      <rect
+         x="53.18"
+         y="284.93"
+         width="9.92"
+         height="9.92"
+         style="stroke-width: 1.28; stroke: #6A2C5A; stroke-linecap: butt; stroke-linejoin: miter; fill: #6A2C5A;"
+         id="rect58" />
+      <text
+         x="58.14"
+         y="292.59"
+         text-anchor="middle"
+         style="font-size: 7.54px; font-weight: bold;fill: #FFFFFF; font-family: &quot;Arial&quot;;"
+         id="text59">+</text>
+      <rect
+         x="68.83"
+         y="284.93"
+         width="9.92"
+         height="9.92"
+         style="stroke-width: 1.28; stroke: #B2567E; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;"
+         id="rect59" />
+      <text
+         x="73.79"
+         y="292.59"
+         text-anchor="middle"
+         style="font-size: 7.54px; font-weight: bold;fill: #B2567E; font-family: &quot;Arial&quot;;"
+         id="text60">−</text>
+      <text
+         x="94.67"
+         y="293.21"
+         style="font-size: 9.28px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text61">Execution Failed</text>
+      <rect
+         x="37.52"
+         y="301.90"
+         width="9.92"
+         height="9.92"
+         style="stroke-width: 1.28; stroke: #9C7A3E; stroke-linecap: butt; stroke-linejoin: miter; fill: #9C7A3E;"
+         id="rect61" />
+      <text
+         x="42.48"
+         y="309.55"
+         text-anchor="middle"
+         style="font-size: 7.54px; font-weight: bold;fill: #FFFFFF; font-family: &quot;Arial&quot;;"
+         id="text62">+</text>
+      <rect
+         x="53.18"
+         y="301.90"
+         width="9.92"
+         height="9.92"
+         style="stroke-width: 1.28; stroke: #6A2C5A; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;"
+         id="rect62" />
+      <text
+         x="58.14"
+         y="309.55"
+         text-anchor="middle"
+         style="font-size: 7.54px; font-weight: bold;fill: #6A2C5A; font-family: &quot;Arial&quot;;"
+         id="text63">−</text>
+      <rect
+         x="68.83"
+         y="301.90"
+         width="9.92"
+         height="9.92"
+         style="stroke-width: 1.28; stroke: #B2567E; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;"
+         id="rect63" />
+      <text
+         x="73.79"
+         y="309.55"
+         text-anchor="middle"
+         style="font-size: 7.54px; font-weight: bold;fill: #B2567E; font-family: &quot;Arial&quot;;"
+         id="text64">−</text>
+      <text
+         x="94.67"
+         y="310.17"
+         style="font-size: 9.28px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text65">Excluded</text>
+      <rect
+         x="37.52"
+         y="318.86"
+         width="9.92"
+         height="9.92"
+         style="stroke-width: 1.28; stroke: #9C7A3E; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;"
+         id="rect65" />
+      <text
+         x="42.48"
+         y="326.51"
+         text-anchor="middle"
+         style="font-size: 7.54px; font-weight: bold;fill: #9C7A3E; font-family: &quot;Arial&quot;;"
+         id="text66">−</text>
+      <rect
+         x="53.18"
+         y="318.86"
+         width="9.92"
+         height="9.92"
+         style="stroke-width: 1.28; stroke: #6A2C5A; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;"
+         id="rect66" />
+      <text
+         x="58.14"
+         y="326.51"
+         text-anchor="middle"
+         style="font-size: 7.54px; font-weight: bold;fill: #6A2C5A; font-family: &quot;Arial&quot;;"
+         id="text67">−</text>
+      <rect
+         x="68.83"
+         y="318.86"
+         width="9.92"
+         height="9.92"
+         style="stroke-width: 1.28; stroke: #B2567E; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;"
+         id="rect67" />
+      <text
+         x="73.79"
+         y="326.51"
+         text-anchor="middle"
+         style="font-size: 7.54px; font-weight: bold;fill: #B2567E; font-family: &quot;Arial&quot;;"
+         id="text68">−</text>
+      <text
+         x="94.67"
+         y="327.14"
+         style="font-size: 9.28px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text69">Desert</text>
+      <rect
+         x="188.62"
+         y="215.52"
+         width="151.36"
+         height="125.26"
+         style="stroke-width: 1.92; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;"
+         id="rect69" />
+      <circle
+         cx="204.27"
+         cy="225.96"
+         r="5.90"
+         style="stroke-width: 0.71; fill: #000000;"
+         id="circle69" />
+      <text
+         x="204.27"
+         y="229.28"
+         text-anchor="middle"
+         style="font-size: 9.28px; font-weight: bold;fill: #FFFFFF; font-family: &quot;Arial&quot;;"
+         id="text70">2</text>
+      <text
+         x="218.63"
+         y="229.69"
+         style="font-size: 10.44px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text71">Stratify ICB benefit</text>
+      <text
+         x="196.45"
+         y="244.77"
+         style="font-size: 8.82px; font-family: &quot;Arial&quot;;"
+         id="text72">from the layer scores:</text>
+      <polygon
+         points="193.57,281.28 194.88,271.36 197.75,268.75 202.97,268.75 205.84,271.36 207.14,281.28 "
+         style="stroke-width: 0.00; stroke: #8A7F71; stroke-linecap: butt; fill: #8A7F71;"
+         id="polygon72" />
+      <circle
+         cx="200.36"
+         cy="265.10"
+         r="3.77"
+         style="stroke-width: 0.71; stroke: #8A7F71; fill: #8A7F71;"
+         id="circle72" />
+      <polygon
+         points="209.23,281.28 210.54,271.36 213.41,268.75 218.63,268.75 221.50,271.36 222.80,281.28 "
+         style="stroke-width: 0.00; stroke: #8A7F71; stroke-linecap: butt; fill: #8A7F71;"
+         id="polygon73" />
+      <circle
+         cx="216.02"
+         cy="265.10"
+         r="3.77"
+         style="stroke-width: 0.71; stroke: #8A7F71; fill: #8A7F71;"
+         id="circle73" />
+      <text
+         x="208.19"
+         y="292.79"
+         text-anchor="middle"
+         style="font-size: 8.12px; font-family: &quot;Arial&quot;;"
+         id="text73">patients</text>
+      <line
+         x1="225.15"
+         y1="272.93"
+         x2="234.28"
+         y2="272.93"
+         style="stroke-width: 1.28; stroke-linecap: butt;"
+         id="line73" />
+      <polygon
+         points="231.09,274.77 234.28,272.93 231.09,271.09 "
+         style="stroke-width: 1.28; stroke-linecap: butt; fill: #000000;"
+         id="polygon74" />
+      <line
+         x1="246.03"
+         y1="312.07"
+         x2="246.03"
+         y2="252.05"
+         style="stroke-width: 1.28; stroke-linecap: butt;"
+         id="line74" />
+      <line
+         x1="246.03"
+         y1="312.07"
+         x2="326.93"
+         y2="312.07"
+         style="stroke-width: 1.28; stroke-linecap: butt;"
+         id="line75" />
+      <line
+         x1="251.25"
+         y1="304.25"
+         x2="321.71"
+         y2="257.27"
+         style="stroke-width: 2.35; stroke-linecap: butt;"
+         id="line76" />
+      <line
+         x1="251.25"
+         y1="304.25"
+         x2="321.71"
+         y2="304.25"
+         style="stroke-width: 2.13; stroke: #C9BEB0; stroke-dasharray: 5.69,5.69; stroke-linecap: butt;"
+         id="line77" />
+      <text
+         x="303.44"
+         y="254.66"
+         text-anchor="middle"
+         style="font-size: 7.31px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text77">ICB</text>
+      <text
+         x="306.05"
+         y="301.64"
+         text-anchor="middle"
+         style="font-size: 7.31px; font-family: &quot;Arial&quot;;"
+         id="text78">control</text>
+      <text
+         transform="translate(241.80,282.06) rotate(-90)"
+         text-anchor="middle"
+         style="font-size: 7.89px; font-family: &quot;Arial&quot;;"
+         id="text79">response</text>
+      <text
+         x="251.25"
+         y="321.42"
+         text-anchor="middle"
+         style="font-size: 7.89px; font-family: &quot;Arial&quot;;"
+         id="text80">low</text>
+      <text
+         x="321.71"
+         y="321.42"
+         text-anchor="middle"
+         style="font-size: 7.89px; font-family: &quot;Arial&quot;;"
+         id="text81">high</text>
+      <text
+         x="286.48"
+         y="330.02"
+         text-anchor="middle"
+         style="font-size: 8.58px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text82">layer score</text>
+      <text
+         x="196.45"
+         y="337.60"
+         style="font-size: 7.89px; font-style: italic; font-family: &quot;Arial&quot;;"
+         id="text83">layer × treatment model.</text>
+      <rect
+         x="347.80"
+         y="215.52"
+         width="143.53"
+         height="125.26"
+         style="stroke-width: 1.92; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;"
+         id="rect83" />
+      <circle
+         cx="363.46"
+         cy="225.96"
+         r="5.90"
+         style="stroke-width: 0.71; fill: #000000;"
+         id="circle83" />
+      <text
+         x="363.46"
+         y="229.28"
+         text-anchor="middle"
+         style="font-size: 9.28px; font-weight: bold;fill: #FFFFFF; font-family: &quot;Arial&quot;;"
+         id="text84">3</text>
+      <text
+         x="377.81"
+         y="229.40"
+         style="font-size: 9.63px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text85">Localize the bottleneck</text>
+      <text
+         x="355.63"
+         y="244.77"
+         style="font-size: 8.82px; font-family: &quot;Arial&quot;;"
+         id="text86">Lowest score names the layer:</text>
+      <rect
+         x="358.24"
+         y="266.67"
+         width="11.74"
+         height="12.53"
+         style="stroke-width: 1.07; stroke: #9C7A3E; stroke-linecap: butt; stroke-linejoin: miter; fill: #F4ECDB;"
+         id="rect86" />
+      <text
+         x="364.11"
+         y="276.37"
+         text-anchor="middle"
+         style="font-size: 9.63px; font-weight: bold;fill: #9C7A3E; font-family: &quot;Arial&quot;;"
+         id="text87">S</text>
+      <text
+         x="373.90"
+         y="276.17"
+         style="font-size: 9.05px;fill: #9C7A3E; font-family: &quot;Arial&quot;;"
+         id="text88">low</text>
+      <text
+         x="394.78"
+         y="276.04"
+         style="font-size: 8.70px; font-family: &quot;Arial&quot;;"
+         id="text89">tumor not detected</text>
+      <rect
+         x="358.24"
+         y="284.93"
+         width="11.74"
+         height="12.53"
+         style="stroke-width: 1.07; stroke: #6A2C5A; stroke-linecap: butt; stroke-linejoin: miter; fill: #EAD8E5;"
+         id="rect89" />
+      <text
+         x="364.11"
+         y="294.64"
+         text-anchor="middle"
+         style="font-size: 9.63px; font-weight: bold;fill: #6A2C5A; font-family: &quot;Arial&quot;;"
+         id="text90">I</text>
+      <text
+         x="373.90"
+         y="294.44"
+         style="font-size: 9.05px;fill: #6A2C5A; font-family: &quot;Arial&quot;;"
+         id="text91">low</text>
+      <text
+         x="394.78"
+         y="294.31"
+         style="font-size: 8.70px; font-family: &quot;Arial&quot;;"
+         id="text92">immune access blocked</text>
+      <rect
+         x="358.24"
+         y="303.20"
+         width="11.74"
+         height="12.53"
+         style="stroke-width: 1.07; stroke: #B2567E; stroke-linecap: butt; stroke-linejoin: miter; fill: #F7E1EC;"
+         id="rect92" />
+      <text
+         x="364.11"
+         y="312.91"
+         text-anchor="middle"
+         style="font-size: 9.63px; font-weight: bold;fill: #B2567E; font-family: &quot;Arial&quot;;"
+         id="text93">E</text>
+      <text
+         x="373.90"
+         y="312.70"
+         style="font-size: 9.05px;fill: #B2567E; font-family: &quot;Arial&quot;;"
+         id="text94">low</text>
+      <text
+         x="394.78"
+         y="312.57"
+         style="font-size: 8.70px; font-family: &quot;Arial&quot;;"
+         id="text95">no tumor-cell killing</text>
+      <text
+         x="506.98999"
+         y="18.870001"
+         style="font-weight:bold;font-size:12px;font-family:Arial"
+         id="text96">b</text>
+      <circle
+         cx="520.04"
+         cy="27.63"
+         r="5.90"
+         style="stroke-width: 0.71; fill: #000000;"
+         id="circle96" />
+      <text
+         x="520.04"
+         y="30.95"
+         text-anchor="middle"
+         style="font-size: 9.28px; font-weight: bold;fill: #FFFFFF; font-family: &quot;Arial&quot;;"
+         id="text97">1</text>
+      <text
+         x="535.70"
+         y="28.96"
+         style="font-size: 11.02px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text98">Binarize each gene at its</text>
+      <text
+         x="535.70"
+         y="41.22"
+         style="font-size: 11.02px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text99">cohort median</text>
+      <line
+         x1="533.09"
+         y1="85.04"
+         x2="710.54"
+         y2="85.04"
+         style="stroke-width: 0.85; stroke-linecap: butt;"
+         id="line99" />
+      <polygon
+         points="707.10,87.02 710.54,85.04 707.10,83.05 "
+         style="stroke-width: 0.85; stroke-linecap: butt; fill: #000000;"
+         id="polygon99" />
+      <text
+         transform="translate(716.47,85.04) rotate(-90)"
+         text-anchor="middle"
+         style="font-size: 9.28px; font-family: &quot;Arial&quot;;"
+         id="text100">expression</text>
+      <line
+         x1="611.37"
+         y1="98.09"
+         x2="611.37"
+         y2="71.99"
+         style="stroke-width: 1.07; stroke: #4C1F41; stroke-dasharray: 2.85,2.85; stroke-linecap: butt;"
+         id="line100" />
+      <text
+         x="605.35"
+         y="65.16"
+         style="font-size: 9.86px;fill: #4C1F41; font-family: &quot;Arial&quot;;"
+         id="text101">m</text>
+      <text
+         x="613.56"
+         y="66.95"
+         style="font-size: 6.90px;fill: #4C1F41; font-family: &quot;Arial&quot;;"
+         id="text102">g</text>
+      <text
+         x="611.37"
+         y="58.05"
+         text-anchor="middle"
+         style="font-size: 8.47px; font-family: &quot;Arial&quot;;"
+         id="text103">cohort median</text>
+      <circle
+         cx="548.74"
+         cy="85.04"
+         r="3.56"
+         style="stroke-width: 0.71; fill: #FFFFFF;"
+         id="circle103" />
+      <circle
+         cx="567.01"
+         cy="85.04"
+         r="3.56"
+         style="stroke-width: 0.71; fill: #FFFFFF;"
+         id="circle104" />
+      <circle
+         cx="585.28"
+         cy="85.04"
+         r="3.56"
+         style="stroke-width: 0.71; fill: #FFFFFF;"
+         id="circle105" />
+      <circle
+         cx="603.54"
+         cy="85.04"
+         r="3.56"
+         style="stroke-width: 0.71; fill: #FFFFFF;"
+         id="circle106" />
+      <circle
+         cx="627.03"
+         cy="85.04"
+         r="3.56"
+         style="stroke-width: 0.71; fill: #C9BEB0;"
+         id="circle107" />
+      <circle
+         cx="645.30"
+         cy="85.04"
+         r="3.56"
+         style="stroke-width: 0.71; fill: #C9BEB0;"
+         id="circle108" />
+      <circle
+         cx="663.57"
+         cy="85.04"
+         r="3.56"
+         style="stroke-width: 0.71; fill: #C9BEB0;"
+         id="circle109" />
+      <circle
+         cx="681.83"
+         cy="85.04"
+         r="3.56"
+         style="stroke-width: 0.71; fill: #C9BEB0;"
+         id="circle110" />
+      <text
+         x="559.03"
+         y="98.94"
+         style="font-size: 8.47px; font-family: &quot;Arial&quot;;"
+         id="text110">x</text>
+      <text
+         x="563.26"
+         y="100.48"
+         style="font-size: 5.93px; font-family: &quot;Arial&quot;;"
+         id="text111">g</text>
+      <text
+         xml:space="preserve"
+         x="568.50"
+         y="98.94"
+         style="font-size: 8.47px; font-family: &quot;Symbol&quot;;"
+         id="text112">&lt; <tspan
+   style="font-family: &quot;Arial&quot;;"
+   id="tspan111">m</tspan></text>
+      <text
+         x="582.14"
+         y="100.48"
+         style="font-size: 5.93px; font-family: &quot;Arial&quot;;"
+         id="text113">g</text>
+      <text
+         x="560.59"
+         y="110.33"
+         style="font-size: 9.28px; font-family: &quot;Arial&quot;;"
+         id="text114">b</text>
+      <text
+         x="565.74"
+         y="112.02"
+         style="font-size: 6.50px; font-family: &quot;Arial&quot;;"
+         id="text115">g</text>
+      <text
+         xml:space="preserve"
+         x="571.49"
+         y="110.33"
+         style="font-size: 9.28px; font-family: &quot;Symbol&quot;;"
+         id="text116">= <tspan
+   style="font-family: &quot;Arial&quot;;"
+   id="tspan115">0</tspan></text>
+      <text
+         x="637.32"
+         y="98.94"
+         style="font-size: 8.47px; font-family: &quot;Arial&quot;;"
+         id="text117">x</text>
+      <text
+         x="641.55"
+         y="100.48"
+         style="font-size: 5.93px; font-family: &quot;Arial&quot;;"
+         id="text118">g</text>
+      <text
+         xml:space="preserve"
+         x="646.79"
+         y="98.94"
+         style="font-size: 8.47px; font-family: &quot;Symbol&quot;;"
+         id="text119">≥ <tspan
+   style="font-family: &quot;Arial&quot;;"
+   id="tspan118">m</tspan></text>
+      <text
+         x="660.43"
+         y="100.48"
+         style="font-size: 5.93px; font-family: &quot;Arial&quot;;"
+         id="text120">g</text>
+      <text
+         x="638.87"
+         y="110.33"
+         style="font-size: 9.28px; font-family: &quot;Arial&quot;;"
+         id="text121">b</text>
+      <text
+         x="644.03"
+         y="112.02"
+         style="font-size: 6.50px; font-family: &quot;Arial&quot;;"
+         id="text122">g</text>
+      <text
+         xml:space="preserve"
+         x="649.78"
+         y="110.33"
+         style="font-size: 9.28px; font-family: &quot;Symbol&quot;;"
+         id="text123">= <tspan
+   style="font-family: &quot;Arial&quot;;"
+   id="tspan122">1</tspan></text>
+      <text
+         x="564.62"
+         y="132.11"
+         style="font-size: 11.60px; font-family: &quot;Arial&quot;;"
+         id="text124">b</text>
+      <text
+         x="571.06"
+         y="134.22"
+         style="font-size: 8.12px; font-family: &quot;Arial&quot;;"
+         id="text125">g</text>
+      <text
+         x="578.25"
+         y="132.11"
+         style="font-size: 11.60px; font-family: &quot;Symbol&quot;;"
+         id="text126">=</text>
+      <text
+         x="587.30"
+         y="120.81"
+         style="font-size: 11.60px; font-family: &quot;Symbol&quot;;"
+         id="text127"></text>
+      <text
+         x="587.30"
+         y="132.46"
+         style="font-size: 11.60px; font-family: &quot;Symbol&quot;;"
+         id="text128"></text>
+      <text
+         x="587.30"
+         y="144.11"
+         style="font-size: 11.60px; font-family: &quot;Symbol&quot;;"
+         id="text129"></text>
+      <text
+         xml:space="preserve"
+         x="593.95"
+         y="121.11"
+         style="font-size: 11.60px; font-family: &quot;Arial&quot;;"
+         id="text130">1,<tspan
+   style="font-family: &quot;Symbol&quot;;"
+   id="tspan129">  </tspan>if<tspan
+   style="font-family: &quot;Symbol&quot;;"
+   id="tspan130">  </tspan>x</text>
+      <text
+         x="626.81"
+         y="123.21"
+         style="font-size: 8.12px; font-family: &quot;Arial&quot;;"
+         id="text131">g</text>
+      <text
+         xml:space="preserve"
+         x="634.00"
+         y="121.11"
+         style="font-size: 11.60px; font-family: &quot;Symbol&quot;;"
+         id="text132">≥ <tspan
+   style="font-family: &quot;Arial&quot;;"
+   id="tspan131">m</tspan></text>
+      <text
+         x="652.70"
+         y="123.21"
+         style="font-size: 8.12px; font-family: &quot;Arial&quot;;"
+         id="text133">g</text>
+      <text
+         xml:space="preserve"
+         x="593.03"
+         y="141.18"
+         style="font-size: 11.60px; font-family: &quot;Arial&quot;;"
+         id="text134">0,<tspan
+   style="font-family: &quot;Symbol&quot;;"
+   id="tspan133">  </tspan>otherwise</text>
+      <text
+         x="512.21"
+         y="154.68"
+         style="font-size: 9.28px; font-family: &quot;Arial&quot;;"
+         id="text135">x</text>
+      <text
+         x="516.85"
+         y="156.37"
+         style="font-size: 6.50px; font-family: &quot;Arial&quot;;"
+         id="text136">g</text>
+      <text
+         x="520.45"
+         y="154.68"
+         style="font-size: 9.28px; font-family: &quot;Arial&quot;;"
+         id="text137"> = gene expression in the tumor</text>
+      <text
+         x="512.21"
+         y="166.43"
+         style="font-size: 9.28px; font-family: &quot;Arial&quot;;"
+         id="text138">m</text>
+      <text
+         x="519.93"
+         y="168.11"
+         style="font-size: 6.50px; font-family: &quot;Arial&quot;;"
+         id="text139">g</text>
+      <text
+         x="523.53"
+         y="166.43"
+         style="font-size: 9.28px; font-family: &quot;Arial&quot;;"
+         id="text140"> = cohort median</text>
+      <text
+         x="512.21"
+         y="178.23"
+         style="font-size: 9.28px; font-family: &quot;Arial&quot;;"
+         id="text141">b</text>
+      <text
+         x="517.36"
+         y="179.91"
+         style="font-size: 6.50px; font-family: &quot;Arial&quot;;"
+         id="text142">g</text>
+      <text
+         x="520.97"
+         y="178.23"
+         style="font-size: 9.28px; font-family: &quot;Arial&quot;;"
+         id="text143"> = 1 (high) or 0 (low)</text>
+      <line
+         x1="512.21"
+         y1="192.03"
+         x2="731.42"
+         y2="192.03"
+         style="stroke-width: 0.85; stroke: #CCCCCC; stroke-linecap: butt;"
+         id="line143" />
+      <circle
+         cx="520.04"
+         cy="205.08"
+         r="5.90"
+         style="stroke-width: 0.71; fill: #000000;"
+         id="circle143" />
+      <text
+         x="520.04"
+         y="208.40"
+         text-anchor="middle"
+         style="font-size: 9.28px; font-weight: bold;fill: #FFFFFF; font-family: &quot;Arial&quot;;"
+         id="text144">2</text>
+      <text
+         x="535.70"
+         y="209.02"
+         style="font-size: 11.02px; font-weight: bold; font-family: &quot;Arial&quot;;"
+         id="text145">Combine within each layer</text>
+      <text
+         xml:space="preserve"
+         x="514.82"
+         y="234.03"
+         style="font-size: 11.60px; font-weight: bold; fill: #9C7A3E; font-family: &quot;Arial&quot;;"
+         id="text146">S <tspan
+   style="font-family: &quot;Symbol&quot;; font-weight: normal;"
+   id="tspan145">=</tspan></text>
+      <text
+         x="537.51"
+         y="223.87"
+         style="font-size: 11.60px;fill: #9C7A3E; font-family: &quot;Arial&quot;;"
+         id="text147">1</text>
+      <text
+         x="534.28"
+         y="243.10"
+         style="font-size: 11.60px;fill: #9C7A3E; font-family: &quot;Arial&quot;;"
+         id="text148">21</text>
+      <polyline
+         points="534.28,230.61 547.19,230.61 "
+         style="stroke-width: 0.75; stroke: #9C7A3E;"
+         id="polyline148" />
+      <text
+         x="547.19"
+         y="234.03"
+         style="font-size: 11.60px;fill: #9C7A3E; font-family: &quot;Symbol&quot;;"
+         id="text149" />
+      <text
+         x="564.96"
+         y="233.59"
+         style="font-size: 14.50px;fill: #9C7A3E; font-family: &quot;Symbol&quot;;"
+         id="text150">∑</text>
+      <text
+         xml:space="preserve"
+         x="550.09"
+         y="243.86"
+         style="font-size: 8.12px; fill: #9C7A3E; font-family: &quot;Arial&quot;;"
+         id="text151">g<tspan
+   style="font-family: &quot;Symbol&quot;;"
+   id="tspan150">∈</tspan>Sensory</text>
+      <text
+         x="591.77"
+         y="234.03"
+         style="font-size: 11.60px;fill: #9C7A3E; font-family: &quot;Arial&quot;;"
+         id="text152">b</text>
+      <text
+         x="598.21"
+         y="236.13"
+         style="font-size: 8.12px;fill: #9C7A3E; font-family: &quot;Arial&quot;;"
+         id="text153">g</text>
+      <text
+         xml:space="preserve"
+         x="514.82"
+         y="273.22"
+         style="font-size: 11.60px; font-weight: bold; fill: #6A2C5A; font-family: &quot;Arial&quot;;"
+         id="text154">I <tspan
+   style="font-family: &quot;Symbol&quot;; font-weight: normal;"
+   id="tspan153">=</tspan></text>
+      <text
+         x="533.00"
+         y="263.06"
+         style="font-size: 11.60px;fill: #6A2C5A; font-family: &quot;Arial&quot;;"
+         id="text155">1</text>
+      <text
+         x="529.77"
+         y="282.29"
+         style="font-size: 11.60px;fill: #6A2C5A; font-family: &quot;Arial&quot;;"
+         id="text156">21</text>
+      <polyline
+         points="529.77,269.81 542.67,269.81 "
+         style="stroke-width: 0.75; stroke: #6A2C5A;"
+         id="polyline156" />
+      <text
+         x="542.67"
+         y="273.22"
+         style="font-size: 11.60px;fill: #6A2C5A; font-family: &quot;Symbol&quot;;"
+         id="text157" />
+      <text
+         x="562.70"
+         y="272.78"
+         style="font-size: 14.50px;fill: #6A2C5A; font-family: &quot;Symbol&quot;;"
+         id="text158">∑</text>
+      <text
+         xml:space="preserve"
+         x="545.57"
+         y="282.96"
+         style="font-size: 8.12px; fill: #6A2C5A; font-family: &quot;Arial&quot;;"
+         id="text159">g<tspan
+   style="font-family: &quot;Symbol&quot;;"
+   id="tspan158">∈</tspan>activating</text>
+      <text
+         x="591.75"
+         y="273.22"
+         style="font-size: 11.60px;fill: #6A2C5A; font-family: &quot;Arial&quot;;"
+         id="text160">b</text>
+      <text
+         x="598.20"
+         y="275.33"
+         style="font-size: 8.12px;fill: #6A2C5A; font-family: &quot;Arial&quot;;"
+         id="text161">g</text>
+      <text
+         x="604.85"
+         y="273.22"
+         style="font-size: 11.60px;fill: #6A2C5A; font-family: &quot;Symbol&quot;;"
+         id="text162">−</text>
+      <text
+         x="616.59"
+         y="263.06"
+         style="font-size: 11.60px;fill: #6A2C5A; font-family: &quot;Arial&quot;;"
+         id="text163">1</text>
+      <text
+         x="613.36"
+         y="282.29"
+         style="font-size: 11.60px;fill: #6A2C5A; font-family: &quot;Arial&quot;;"
+         id="text164">20</text>
+      <polyline
+         points="613.36,269.81 626.27,269.81 "
+         style="stroke-width: 0.75; stroke: #6A2C5A;"
+         id="polyline164" />
+      <text
+         x="626.27"
+         y="273.22"
+         style="font-size: 11.60px;fill: #6A2C5A; font-family: &quot;Symbol&quot;;"
+         id="text165" />
+      <text
+         x="650.81"
+         y="272.78"
+         style="font-size: 14.50px;fill: #6A2C5A; font-family: &quot;Symbol&quot;;"
+         id="text166">∑</text>
+      <text
+         xml:space="preserve"
+         x="629.17"
+         y="282.96"
+         style="font-size: 8.12px; fill: #6A2C5A; font-family: &quot;Arial&quot;;"
+         id="text167">g<tspan
+   style="font-family: &quot;Symbol&quot;;"
+   id="tspan166">∈</tspan>suppressive</text>
+      <text
+         x="684.39"
+         y="273.22"
+         style="font-size: 11.60px;fill: #6A2C5A; font-family: &quot;Arial&quot;;"
+         id="text168">b</text>
+      <text
+         x="690.84"
+         y="275.33"
+         style="font-size: 8.12px;fill: #6A2C5A; font-family: &quot;Arial&quot;;"
+         id="text169">g</text>
+      <text
+         xml:space="preserve"
+         x="514.82"
+         y="312.32"
+         style="font-size: 11.60px; font-weight: bold; fill: #B2567E; font-family: &quot;Arial&quot;;"
+         id="text170">E <tspan
+   style="font-family: &quot;Symbol&quot;; font-weight: normal;"
+   id="tspan169">=</tspan></text>
+      <text
+         x="537.51"
+         y="302.16"
+         style="font-size: 11.60px;fill: #B2567E; font-family: &quot;Arial&quot;;"
+         id="text171">1</text>
+      <text
+         x="534.28"
+         y="321.38"
+         style="font-size: 11.60px;fill: #B2567E; font-family: &quot;Arial&quot;;"
+         id="text172">19</text>
+      <polyline
+         points="534.28,308.90 547.19,308.90 "
+         style="stroke-width: 0.75; stroke: #B2567E;"
+         id="polyline172" />
+      <text
+         x="547.19"
+         y="312.32"
+         style="font-size: 11.60px;fill: #B2567E; font-family: &quot;Symbol&quot;;"
+         id="text173" />
+      <text
+         x="563.53"
+         y="311.88"
+         style="font-size: 14.50px;fill: #B2567E; font-family: &quot;Symbol&quot;;"
+         id="text174">∑</text>
+      <text
+         xml:space="preserve"
+         x="550.09"
+         y="322.15"
+         style="font-size: 8.12px; fill: #B2567E; font-family: &quot;Arial&quot;;"
+         id="text175">g<tspan
+   style="font-family: &quot;Symbol&quot;;"
+   id="tspan174">∈</tspan>effector</text>
+      <text
+         x="588.91"
+         y="312.32"
+         style="font-size: 11.60px;fill: #B2567E; font-family: &quot;Arial&quot;;"
+         id="text176">b</text>
+      <text
+         x="595.35"
+         y="314.42"
+         style="font-size: 8.12px;fill: #B2567E; font-family: &quot;Arial&quot;;"
+         id="text177">g</text>
+      <text
+         x="602.00"
+         y="312.32"
+         style="font-size: 11.60px;fill: #B2567E; font-family: &quot;Symbol&quot;;"
+         id="text178">−</text>
+      <text
+         x="613.75"
+         y="302.16"
+         style="font-size: 11.60px;fill: #B2567E; font-family: &quot;Arial&quot;;"
+         id="text179">1</text>
+      <text
+         x="610.51"
+         y="321.38"
+         style="font-size: 11.60px;fill: #B2567E; font-family: &quot;Arial&quot;;"
+         id="text180">19</text>
+      <polyline
+         points="610.51,308.90 623.42,308.90 "
+         style="stroke-width: 0.75; stroke: #B2567E;"
+         id="polyline180" />
+      <text
+         x="623.42"
+         y="312.32"
+         style="font-size: 11.60px;fill: #B2567E; font-family: &quot;Symbol&quot;;"
+         id="text181" />
+      <text
+         x="645.94"
+         y="311.88"
+         style="font-size: 14.50px;fill: #B2567E; font-family: &quot;Symbol&quot;;"
+         id="text182">∑</text>
+      <text
+         xml:space="preserve"
+         x="626.32"
+         y="322.05"
+         style="font-size: 8.12px; fill: #B2567E; font-family: &quot;Arial&quot;;"
+         id="text183">g<tspan
+   style="font-family: &quot;Symbol&quot;;"
+   id="tspan182">∈</tspan>exhaustion</text>
+      <text
+         x="677.49"
+         y="312.32"
+         style="font-size: 11.60px;fill: #B2567E; font-family: &quot;Arial&quot;;"
+         id="text184">b</text>
+      <text
+         x="683.93"
+         y="314.42"
+         style="font-size: 8.12px;fill: #B2567E; font-family: &quot;Arial&quot;;"
+         id="text185">g</text>
+      <text
+         xml:space="preserve"
+         x="514.82"
+         y="334.70"
+         style="font-size: 9.28px; font-family: &quot;Arial&quot;;"
+         id="text194">S <tspan
+   style="font-family: &quot;Symbol&quot;;"
+   id="tspan185">∈ </tspan><tspan
+   style="font-size: 11.60px; font-family: &quot;Symbol&quot;;"
+   id="tspan186">[</tspan>0<tspan
+   style="font-family: &quot;Symbol&quot;;"
+   id="tspan187">, </tspan>1<tspan
+   style="font-size: 11.60px; font-family: &quot;Symbol&quot;;"
+   id="tspan188">]</tspan>;   I,<tspan
+   style="font-family: &quot;Symbol&quot;;"
+   id="tspan189"> </tspan>E <tspan
+   style="font-family: &quot;Symbol&quot;;"
+   id="tspan190">∈ </tspan><tspan
+   style="font-size: 11.60px; font-family: &quot;Symbol&quot;;"
+   id="tspan191">[</tspan><tspan
+   style="font-family: &quot;Symbol&quot;;"
+   id="tspan192">−</tspan> 1<tspan
+   style="font-family: &quot;Symbol&quot;;"
+   id="tspan193">, +</tspan> 1<tspan
+   style="font-size: 11.60px; font-family: &quot;Symbol&quot;;"
+   id="tspan194">]</tspan></text>
+      <rect
+         x="11.16"
+         y="8.05"
+         width="486.69"
+         height="339.25"
+         style="stroke-width: 1.49; stroke-linecap: butt; stroke-linejoin: miter;"
+         id="rect194" />
+      <rect
+         x="503.07"
+         y="8.05"
+         width="233.56"
+         height="339.25"
+         style="stroke-width: 1.49; stroke-linecap: butt; stroke-linejoin: miter;"
+         id="rect195" />
+    </g>
+  </g>
+  <!-- text joined by svg_join_text.py -->
+</svg>

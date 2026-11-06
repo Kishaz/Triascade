@@ -43,7 +43,7 @@ forms <- data.frame(
 
 p <- ggplot() +
   # panel tag
-  annotate("text", x = 1, y = 79, label = "B", family = PUB_FONT, size = PT_PANEL_TAG/.pt, fontface = 2, hjust = 0) +
+  annotate("text", x = 1, y = 79, label = "b", family = PUB_FONT, size = PT_PANEL_TAG/.pt, fontface = 2, hjust = 0) +
   # step badges + headers
   geom_point(data = badge, aes(x = x, y = y), shape = 21, size = 5.4, fill = INK, colour = INK) +
   geom_text(data = badge, aes(x = x, y = y, label = n), family = PUB_FONT, size = 8/.pt, fontface = 2, colour = "white") +

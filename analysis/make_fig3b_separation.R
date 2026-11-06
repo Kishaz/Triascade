@@ -115,7 +115,7 @@ build <- function(layer, score_col, tag, outname, outdir="../results/figures/com
 ## Integration = the main Fig 3b (composite/). Sensory + Execution = SUPPLEMENTARY
 ## figures: same plot for the other two layers, showing Integration separates best.
 SUPP <- "../results/figures/supplementary"
-build("Integration","integ_single","B","ICI_Fig3b_separation")
+build("Integration","integ_single","c","ICI_Fig3b_separation")
 build("Sensory",    "sens_single", "a","ICI_SuppFig_separation_sensory",   SUPP)
 build("Execution",  "exec_single", "b","ICI_SuppFig_separation_execution", SUPP)
 cat("done\n")

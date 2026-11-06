@@ -29,3 +29,6 @@ review/
 # ── Not tracked here (kept on disk): manuscript drafts & old snapshots ─
 manuscript/
 archive/
+manuscript/node_modules/
+manuscript/package-lock.json
+manuscript/tools/references.json

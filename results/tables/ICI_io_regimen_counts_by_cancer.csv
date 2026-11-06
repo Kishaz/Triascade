@@ -1,0 +1,25 @@
+"on_atlas","organ","ici_status","n_fda","n_ema","n_drugs","n_withdrawn"
+"yes","Lung","val",15,15,6,0
+"yes","Skin","val",10,7,8,0
+"yes","Bladder","val",8,8,5,3
+"yes","Esophagus","null",7,7,4,0
+"yes","Uterus","none",6,7,3,0
+"yes","Kidney","null",6,6,3,0
+"yes","Gastric","val",5,5,4,0
+"yes","Liver","none",5,5,4,0
+"yes","Colon","none",5,2,4,0
+"yes","Breast","val",2,2,2,1
+"yes","Ovary","none",1,1,1,0
+"yes","Brain","none",0,0,0,0
+"yes","Pancreas","null",0,0,0,0
+"yes","Prostate","none",0,0,0,0
+"yes","Testis","none",0,0,0,0
+"yes","Thyroid","none",0,0,0,0
+"no","Cervix",NA,3,3,2,0
+"no","Head and neck",NA,3,3,2,0
+"no","Lymphoma",NA,3,4,2,0
+"no","Anal",NA,2,0,1,0
+"no","Nasopharynx",NA,2,2,2,0
+"no","Pleura",NA,2,2,2,0
+"no","Tumor-agnostic",NA,2,0,2,0
+"no","Soft tissue",NA,1,0,1,0
