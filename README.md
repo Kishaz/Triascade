@@ -13,7 +13,8 @@ reference and example data — see **[`app/README.md`](app/README.md)** for inst
 reproducibility.
 
 ```bash
-cd app && Rscript run.R      # installs deps if needed, launches Triascade
+git clone https://github.com/Kishaz/Triascade.git
+cd Triascade/app && Rscript run.R   # installs deps if needed, launches Triascade
 ```
 
 ## Repository layout

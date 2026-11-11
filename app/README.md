@@ -155,6 +155,8 @@ see [`SHARING.md`](SHARING.md).
 
 If you use Triascade or the ICI, please cite the manuscript (citation to be added on publication).
 
+Source code: **https://github.com/Kishaz/Triascade**
+
 Released under the [MIT License](LICENSE). The bundled example data is a public IMvigor210 subset.
 
 ## Authors
