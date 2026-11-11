@@ -34,5 +34,5 @@ copy "$C/ICI_Fig3b_auc"                          FigS4
 # FigS5: merge separation sensory+execution; FigS6: merge added-value bars+rates
 copy "$S/ICI_SuppFig_stability"                  FigS7
 copy "$C/ICI_Fig_io_landscape"                   FigS8
-copy "$S/ICI_SuppFig_cascadescope_tool"          FigS9
+copy "$S/ICI_SuppFig_triascade_tool"          FigS9
 echo "done"

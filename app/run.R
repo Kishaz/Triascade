@@ -1,4 +1,4 @@
-# One-command launcher for CascadeScope.
+# One-command launcher for Triascade.
 # From this folder:  Rscript run.R   (or in R:  source("run.R"))
 # Installs any missing runtime packages from CRAN, then starts the app.
 pkgs <- c("shiny", "bslib", "plotly", "DT", "ggplot2", "patchwork", "readxl", "openxlsx")

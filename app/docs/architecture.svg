@@ -32,7 +32,7 @@
      inkscape:window-y="0"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg52" />
-  <!-- CascadeScope method + results poster. Reuses manuscript Figure 1 panels B and C;
+  <!-- Triascade method + results poster. Reuses manuscript Figure 1 panels B and C;
        house palette; American English; no em-dashes. Panel text is live; plots/panels are linked images. -->
   <rect
      width="1480"
@@ -70,7 +70,7 @@
      font-weight="700"
      id="text2"><tspan
        fill="#6A2C5A"
-       id="tspan1">CascadeScope</tspan><tspan
+       id="tspan1">Triascade</tspan><tspan
        fill="#000000"
        font-size="20"
        font-weight="400"
@@ -550,7 +550,7 @@
      font-size="19px"
      font-weight="700"
      fill="#000000"
-     id="text47">3  What CascadeScope produces  <tspan
+     id="text47">3  What Triascade produces  <tspan
    font-weight="400"
    font-size="16px"
    id="tspan47">(example cohort, n = 60)</tspan></text>

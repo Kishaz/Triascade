@@ -1,5 +1,5 @@
 # =============================================================================
-# SUPPLEMENTARY: the CascadeScope tool as a data-flow schematic - tumor RNA in,
+# SUPPLEMENTARY: the Triascade tool as a data-flow schematic - tumor RNA in,
 # per-patient cascade read-outs out. Shapes with geometric (square-corner) black
 # connectors, read left -> right: INPUT -> HARMONIZE -> SCORE (against the frozen
 # locked reference) -> CALL the archetype -> three OUTPUTS. House style: Arial,
@@ -71,7 +71,7 @@ FILL_STEP <- "white"; FILL_REF <- "#F4ECDB"; FILL_OUT <- CREAM_LT
 ARCH <- c(intact = "#2E7D32", cold = SAND_DEEP, blocked = PLUM, "no-kill" = ROSE)  # archetype = its floor layer; intact = none
 
 # =============================================================================
-# header: the CascadeScope logo in place of a text title (aspect preserved)
+# header: the Triascade logo in place of a text title (aspect preserved)
 logo <- png::readPNG("../app/www/logo.png")
 LGH <- 15.5; LGW <- LGH * (dim(logo)[2] / dim(logo)[1])
 add(annotation_raster(logo, xmin = 3.5, xmax = 3.5 + LGW, ymin = 118.5 - LGH, ymax = 118.5, interpolate = TRUE))
@@ -121,6 +121,6 @@ p <- ggplot() + L +
   coord_cartesian(xlim = c(0, W), ylim = c(YB, H), expand = FALSE, clip = "off") +
   theme_void() + theme(plot.background = element_rect(fill = "white", colour = NA),
                        plot.margin = margin(1,1,1,1))
-save_fig(p, "ICI_SuppFig_cascadescope_tool", width_mm = W, height_mm = H - YB,
+save_fig(p, "ICI_SuppFig_triascade_tool", width_mm = W, height_mm = H - YB,
          dir = "../results/figures/supplementary")
-cat("done - CascadeScope tool schematic\n")
+cat("done - Triascade tool schematic\n")

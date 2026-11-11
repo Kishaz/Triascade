@@ -1,5 +1,5 @@
 # =============================================================================
-# CascadeScope - score tumor RNA against a locked Immune Cascade Index (ICI)
+# Triascade - score tumor RNA against a locked Immune Cascade Index (ICI)
 # reference (single-patient, selfnorm, cohort-independent). One consistent scale
 # throughout: the STANDARDIZED SCORE vs the reference population (layer scores:
 # 0 = reference mean, in SD units; left of the typical-range band = lowest-scoring layer).
@@ -296,7 +296,7 @@ build_report <- function(p, a, cov, np, arch = DEF$arch, lay = DEF$lay, smz = NU
   hdr <- if (!is.null(study) && nzchar(study)) sprintf("Study: %s        Generated: %s", study, Sys.Date()) else sprintf("Generated: %s", Sys.Date())
   drv <- if (!is.null(smz)) drill_text(smz, p$floor_layer) else NULL
   top <- tp() +
-    annotate("text",x=0,y=0.98,hjust=0,vjust=1,label="CascadeScope: patient report",fontface=2,size=5.9,colour="#6A2C5A")+
+    annotate("text",x=0,y=0.98,hjust=0,vjust=1,label="Triascade: patient report",fontface=2,size=5.9,colour="#6A2C5A")+
     annotate("text",x=0,y=0.82,hjust=0,vjust=1,label=hdr,size=3.2,colour="black")+
     annotate("text",x=0,y=0.70,hjust=0,vjust=1,label=sprintf("Patient: %s",p$sample),fontface=2,size=3.9,colour="black")+
     annotate("text",x=0,y=0.55,hjust=0,vjust=1,label="RESULT",fontface=2,size=3.0,colour="#6A2C5A")+
@@ -325,7 +325,7 @@ build_cohort_report <- function(scores, a, cov, np, arch = DEF$arch, lay = DEF$l
   arch_line <- paste(sprintf("%s %d (%d%%)", names(tab), as.numeric(tab), pct)[as.numeric(tab)>0], collapse="     ")
   hdr <- if (!is.null(study) && nzchar(study)) sprintf("Study: %s        Generated: %s", study, Sys.Date()) else sprintf("Generated: %s", Sys.Date())
   top <- ggplot()+xlim(0,1)+ylim(0,1)+theme_void()+
-    annotate("text",x=0,y=0.96,hjust=0,vjust=1,label="CascadeScope: cohort report",fontface=2,size=6.0,colour="#6A2C5A")+
+    annotate("text",x=0,y=0.96,hjust=0,vjust=1,label="Triascade: cohort report",fontface=2,size=6.0,colour="#6A2C5A")+
     annotate("text",x=0,y=0.76,hjust=0,vjust=1,size=3.5,colour="black",label=hdr)+
     annotate("text",x=0,y=0.56,hjust=0,vjust=1,size=3.5,colour="black",
       label=sprintf("%d patients   |   coverage %d/%d panel genes   |   %s (%d genes)   |   reference %s", n, cov, np, a$version, a$n_genes, a$ref_label))+
@@ -347,14 +347,14 @@ chips <- function(items, col){
 
 about_tab <- nav_panel(title = tagList(icon("circle-info"), " About"), value = "about",
   layout_columns(col_widths = c(8,4),
-    card(card_header("CascadeScope and the Immune Cascade Index"),
+    card(card_header("Triascade and the Immune Cascade Index"),
       markdown(paste(
-        "**CascadeScope** is the software; the **Immune Cascade Index (ICI)** is the method it implements.",
+        "**Triascade** is the software; the **Immune Cascade Index (ICI)** is the method it implements.",
         "",
         "- **Immune Cascade Index (ICI)** is the *science*: the 98-gene, three-layer framework for reading the antitumor immune response, developed and validated in the manuscript.",
-        "- **CascadeScope** is the *software*: it computes and visualizes the ICI for one patient at a time. The method can evolve independently; the tool is the interface built around it.",
+        "- **Triascade** is the *software*: it computes and visualizes the ICI for one patient at a time. The method can evolve independently; the tool is the interface built around it.",
         "",
-        "CascadeScope scores a tumor's RNA against a locked ICI reference and shows, for one patient, **which stage of the antitumor immune response reads weakest**.",
+        "Triascade scores a tumor's RNA against a locked ICI reference and shows, for one patient, **which stage of the antitumor immune response reads weakest**.",
         "",
         "The ICI reads the response as a three-stage **cascade**, from sensing to killing, and scores each stage against the reference:",
         "",
@@ -404,7 +404,7 @@ landing_card <- card(class = "border-0 shadow-none",
       <rect x="28" y="76" width="30" height="14" rx="7" fill="#E8B54B"/></svg>'),
     h3(style="font-weight:800;color:#6A2C5A;margin-bottom:4px", "Profile antitumor immune state from tumor RNA"),
     div(style="font-size:0.95rem;color:#333;max-width:620px;margin:0 auto 14px auto",
-        "CascadeScope applies the 98-gene Immune Cascade Index to quantify three functional states against a frozen reference. Scores are computed for a single sample or a whole cohort."),
+        "Triascade applies the 98-gene Immune Cascade Index to quantify three functional states against a frozen reference. Scores are computed for a single sample or a whole cohort."),
     div(style="font-weight:800;letter-spacing:.3px;color:#6A2C5A;font-size:1.0rem;margin-bottom:16px",
         "Recognition  →  Access  →  Effector function"),
     div(style="display:flex;gap:14px;justify-content:center;align-items:flex-start;flex-wrap:wrap;text-align:left",
@@ -418,7 +418,7 @@ landing_card <- card(class = "border-0 shadow-none",
 
 ui <- page_navbar(
   id = "nav",
-  window_title = "CascadeScope",
+  window_title = "Triascade",
   title = div(style="display:flex;align-items:center;gap:9px",
     HTML('<svg width="38" height="38" viewBox="0 0 120 120" style="display:block;flex:none">
       <rect width="120" height="120" rx="26" fill="#6A2C5A"/>

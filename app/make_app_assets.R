@@ -1,4 +1,4 @@
-# Provenance / build script for the shipped CascadeScope assets. NOT required to
+# Provenance / build script for the shipped Triascade assets. NOT required to
 # run the app (the app ships the frozen reference and example below). Rebuilding
 # needs the reference cohort expression matrix and the panel definition, which are
 # NOT distributed, plus Bioconductor's org.Hs.eg.db. Run once, from the project root:

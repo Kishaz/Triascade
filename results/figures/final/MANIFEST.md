@@ -36,7 +36,7 @@ letters and must be fixed by hand in Inkscape: the hand-edited `composite/edits/
 | **FigS6** | merge `ICI_Fig_addedvalue` + `ICI_Fig_addedvalue_rates` | `make_fig_addedvalue*.R` + Inkscape | **pending (merge)** |
 | **FigS7** | `supplementary/ICI_SuppFig_stability` | `make_supp_stability.R` | yes |
 | **FigS8** | `composite/ICI_Fig_io_landscape` | `make_fig_io_landscape.R` | yes |
-| **FigS9** | `supplementary/ICI_SuppFig_cascadescope_tool` | `make_supp_cascadescope_tool.R` | yes |
+| **FigS9** | `supplementary/ICI_SuppFig_triascade_tool` | `make_supp_triascade_tool.R` | yes |
 
 ## Still to do before submission
 - **Fig 3, Fig 4** — assemble editable-SVG composites in Inkscape (your step, per rule #1),

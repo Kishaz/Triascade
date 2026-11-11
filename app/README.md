@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="www/logo.png" alt="CascadeScope: Immune Cascade Index" width="460">
+  <img src="www/logo.png" alt="Triascade: Immune Cascade Index" width="460">
 </p>
 
 <p align="center">
-  <b>CascadeScope</b>: score tumor RNA against the <b>Immune Cascade Index (ICI)</b> and see
+  <b>Triascade</b>: score tumor RNA against the <b>Immune Cascade Index (ICI)</b> and see
   <i>where immunity stalls</i>, one patient at a time.
 </p>
 
@@ -14,17 +14,17 @@
 ---
 
 <p align="center">
-  <img src="docs/architecture.png" alt="How CascadeScope works: the three-layer immune cascade, the scoring formula, the four archetypes, and the app's patient and cohort outputs" width="1000">
+  <img src="docs/architecture.png" alt="How Triascade works: the three-layer immune cascade, the scoring formula, the four archetypes, and the app's patient and cohort outputs" width="1000">
 </p>
 
 ## What this is
 
-**CascadeScope** is the software; the **Immune Cascade Index (ICI)** is the method it implements.
+**Triascade** is the software; the **Immune Cascade Index (ICI)** is the method it implements.
 
 - **Immune Cascade Index (ICI)** is the *science*: a 98-gene, three-layer transcriptomic framework
   for reading the anti-tumor immune response to checkpoint blockade, developed and validated in the
   manuscript.
-- **CascadeScope** is the *software*: a self-contained R/Shiny app that computes and visualizes the
+- **Triascade** is the *software*: a self-contained R/Shiny app that computes and visualizes the
   ICI for a single patient (or a cohort), locally. Your data never leaves the machine.
 
 The ICI reads the immune response as a three-stage **cascade** and scores each stage against a
@@ -153,7 +153,7 @@ see [`SHARING.md`](SHARING.md).
 
 ## Citing & license
 
-If you use CascadeScope or the ICI, please cite the manuscript (citation to be added on publication).
+If you use Triascade or the ICI, please cite the manuscript (citation to be added on publication).
 
 Released under the [MIT License](LICENSE). The bundled example data is a public IMvigor210 subset.
 
@@ -164,6 +164,6 @@ Released under the [MIT License](LICENSE). The bundled example data is a public 
 
 ## Research use only
 
-CascadeScope is an **investigational** research tool. It is **not** a validated clinical test, does
+Triascade is an **investigational** research tool. It is **not** a validated clinical test, does
 not replace approved biomarkers (PD-L1, TMB, MSI) or clinical judgment, and its mechanistic rationale
 is hypothesis-generating, not a treatment recommendation.
