@@ -1,0 +1,13 @@
+stage,count,note
+pubmed_identified,1500,Records identified through PubMed
+europepmc_identified,1150,Records identified through Europe PMC
+total_identified,2650,Records identified through database searching (1500 + 1150)
+duplicates_removed,977,Duplicate records removed (2650 - 1673)
+after_duplicates,1673,Records after duplicates removed
+excluded_title_abstract,930,Records excluded at title/abstract screening
+reports_assessed,743,Reports assessed for eligibility (1673 - 930)
+excluded_full_text,348,Reports excluded at full-text eligibility
+reports_not_retrieved,9,Reports sought but not retrieved (no accessible full text)
+studies_included,386,Studies included in the derivation (743 - 348 - 9)
+signatures_derived,210,Published gene signatures extracted from the 386 studies
+panel_genes,98,Unique genes after co-occurrence network + Louvain community detection
