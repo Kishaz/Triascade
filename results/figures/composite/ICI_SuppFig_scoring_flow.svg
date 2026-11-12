@@ -436,7 +436,7 @@
 <text x='54.60' y='165.76' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>COL1A1</text>
 <text x='54.59' y='175.33' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>FAP</text>
 <text x='54.59' y='200.23' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>GZMB</text>
-<text x='54.59' y='209.81' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>PRF1</text>
+<text x='54.59' y='209.80' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>PRF1</text>
 <text x='54.59' y='214.59' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>NKG7</text>
 <text x='54.60' y='226.56' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>CD8A</text>
 <text x='54.60' y='246.67' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>PDCD1</text>
@@ -934,7 +934,7 @@
 <text x='298.92' y='165.76' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>COL1A1</text>
 <text x='298.91' y='175.33' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>FAP</text>
 <text x='298.91' y='200.23' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>GZMB</text>
-<text x='298.91' y='209.80' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>PRF1</text>
+<text x='298.91' y='209.81' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>PRF1</text>
 <text x='298.91' y='214.59' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>NKG7</text>
 <text x='298.92' y='226.56' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>CD8A</text>
 <text x='298.92' y='246.67' text-anchor='end' style='font-size: 4.40px; font-family: "Arial";'>PDCD1</text>
@@ -1441,7 +1441,7 @@
 <line x1='56.40' y1='409.52' x2='67.45' y2='409.52' style='stroke-width: 0.26; stroke: #8A7F71;' />
 <line x1='56.40' y1='436.81' x2='67.45' y2='436.81' style='stroke-width: 0.26; stroke: #8A7F71;' />
 <line x1='56.39' y1='448.78' x2='67.45' y2='448.78' style='stroke-width: 0.26; stroke: #8A7F71;' />
-<line x1='56.40' y1='455.96' x2='67.45' y2='455.97' style='stroke-width: 0.26; stroke: #8A7F71;' />
+<line x1='56.40' y1='455.97' x2='67.45' y2='455.97' style='stroke-width: 0.26; stroke: #8A7F71;' />
 <line x1='56.39' y1='465.54' x2='67.45' y2='465.54' style='stroke-width: 0.26; stroke: #8A7F71;' />
 <line x1='56.39' y1='490.44' x2='67.45' y2='490.44' style='stroke-width: 0.26; stroke: #8A7F71;' />
 <line x1='56.39' y1='500.02' x2='67.45' y2='500.01' style='stroke-width: 0.26; stroke: #8A7F71;' />
@@ -2068,7 +2068,7 @@
 <g clip-path='url(#cpMjQ2LjYxfDQ5MC4zOXwyOTQuNjJ8NTg2LjQw)'>
 </g>
 <g clip-path='url(#cpMC4wMHw0OTMuMjN8MC4wMHw2MzQuOTY=)'>
-<text x='372.17' y='320.49' text-anchor='middle' style='font-size: 9.00px; font-weight: bold; font-family: "Arial";'>N3 · no-kill non-responder</text>
+<text x='372.17' y='320.49' text-anchor='middle' style='font-size: 9.00px; font-weight: bold; font-family: "Arial";'>N3 · Execution-impaired non-responder</text>
 </g>
 <g clip-path='url(#cpMjQ2LjYxfDQ5MC4zOXwyOTQuNjJ8NTg2LjQw)'>
 </g>

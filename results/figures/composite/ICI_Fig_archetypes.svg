@@ -157,23 +157,23 @@
 <text x='81.49' y='258.65' text-anchor='middle' style='font-size: 9.50px; font-family: "Arial";'>Gastric</text>
 <text x='81.49' y='238.38' text-anchor='middle' style='font-size: 9.50px; font-family: "Arial";'>NSCLC</text>
 <text transform='translate(84.89,136.37) rotate(-90)' text-anchor='middle' style='font-size: 9.50px; font-family: "Arial";'>Urothelial</text>
-<text transform='translate(253.34,362.85) rotate(-90)' text-anchor='middle' style='font-size: 9.50px; font-family: "Arial";'>Desert / cold</text>
-<text transform='translate(253.34,288.43) rotate(-90)' text-anchor='middle' style='font-size: 9.50px; font-family: "Arial";'>Excluded</text>
-<text transform='translate(253.34,220.24) rotate(-90)' text-anchor='middle' style='font-size: 9.50px; font-family: "Arial";'>Execution-failed</text>
-<text transform='translate(253.34,117.71) rotate(-90)' text-anchor='middle' style='font-size: 9.50px; font-family: "Arial";'>Inflamed</text>
+<text transform='translate(253.34,362.85) rotate(-90)' text-anchor='middle' style='font-size: 9.50px; font-family: "Arial";'>Cold</text>
+<text transform='translate(253.34,288.43) rotate(-90)' text-anchor='middle' style='font-size: 9.50px; font-family: "Arial";'>Blocked</text>
+<text transform='translate(253.34,220.24) rotate(-90)' text-anchor='middle' style='font-size: 9.50px; font-family: "Arial";'>Execution-impaired</text>
+<text transform='translate(253.34,117.71) rotate(-90)' text-anchor='middle' style='font-size: 9.50px; font-family: "Arial";'>Intact</text>
 <text transform='translate(421.80,276.68) rotate(-90)' text-anchor='middle' style='font-size: 9.50px; font-family: "Arial";'>Non-responder</text>
 <text transform='translate(421.80,99.74) rotate(-90)' text-anchor='middle' style='font-size: 9.50px; font-family: "Arial";'>Responder</text>
 <text x='81.49' y='26.82' text-anchor='middle' style='font-size: 11.00px; font-weight: bold; font-family: "Arial";'>Cancer type</text>
 <text x='249.95' y='26.82' text-anchor='middle' style='font-size: 11.00px; font-weight: bold; font-family: "Arial";'>Archetype</text>
 <text x='418.41' y='26.82' text-anchor='middle' style='font-size: 11.00px; font-weight: bold; font-family: "Arial";'>ICB response</text>
-<rect x='93.52' y='425.63' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #5E9C86; fill-opacity: 0.78;' />
-<rect x='160.12' y='425.63' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #B2567E; fill-opacity: 0.78;' />
-<rect x='259.52' y='425.63' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #6A2C5A; fill-opacity: 0.78;' />
-<rect x='328.90' y='425.63' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #9C7A3E; fill-opacity: 0.78;' />
-<text x='115.57' y='437.15' style='font-size: 10.00px; font-family: "Arial";'>Inflamed</text>
-<text x='182.17' y='437.15' style='font-size: 10.00px; font-family: "Arial";'>Execution-failed</text>
-<text x='281.57' y='437.15' style='font-size: 10.00px; font-family: "Arial";'>Excluded</text>
-<text x='350.95' y='437.15' style='font-size: 10.00px; font-family: "Arial";'>Desert / cold</text>
+<rect x='113.82' y='425.63' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #5E9C86; fill-opacity: 0.78;' />
+<rect x='166.53' y='425.63' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #B2567E; fill-opacity: 0.78;' />
+<rect x='280.36' y='425.63' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #6A2C5A; fill-opacity: 0.78;' />
+<rect x='344.18' y='425.63' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #9C7A3E; fill-opacity: 0.78;' />
+<text x='135.87' y='437.15' style='font-size: 10.00px; font-family: "Arial";'>Intact</text>
+<text x='188.58' y='437.15' style='font-size: 10.00px; font-family: "Arial";'>Execution-impaired</text>
+<text x='302.41' y='437.15' style='font-size: 10.00px; font-family: "Arial";'>Blocked</text>
+<text x='366.23' y='437.15' style='font-size: 10.00px; font-family: "Arial";'>Cold</text>
 <text x='17.51' y='15.53' text-anchor='middle' style='font-size: 12.00px; font-weight: bold; font-family: "Arial";'>e</text>
 </g>
 </g>
