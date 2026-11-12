@@ -829,11 +829,11 @@
 <line x1='43.67' y1='468.91' x2='212.60' y2='468.91' style='stroke-width: 0.64; stroke: #404040; stroke-linecap: butt;' />
 <line x1='67.81' y1='446.05' x2='67.81' y2='425.48' style='stroke-width: 0.64; stroke-linecap: butt;' />
 <line x1='67.81' y1='466.67' x2='67.81' y2='495.45' style='stroke-width: 0.64; stroke-linecap: butt;' />
-<polygon points='55.34,446.05 55.34,466.67 80.27,466.67 80.27,446.05 55.34,446.05 ' style='stroke-width: 0.64; stroke-linecap: butt; stroke-linejoin: miter; fill: #EFE7DD;' />
+<polygon points='55.34,446.05 55.34,466.67 80.27,466.67 80.27,446.05 55.34,446.05 ' style='stroke-width: 0.64; stroke-linecap: butt; stroke-linejoin: miter; fill: #9C7A3E;' />
 <line x1='55.34' y1='454.99' x2='80.27' y2='454.99' style='stroke-width: 1.28; stroke-linecap: butt; stroke-linejoin: miter;' />
 <line x1='108.03' y1='456.12' x2='108.03' y2='427.77' style='stroke-width: 0.64; stroke-linecap: butt;' />
 <line x1='108.03' y1='492.17' x2='108.03' y2='507.62' style='stroke-width: 0.64; stroke-linecap: butt;' />
-<polygon points='95.56,456.12 95.56,492.17 120.49,492.17 120.49,456.12 95.56,456.12 ' style='stroke-width: 0.64; stroke-linecap: butt; stroke-linejoin: miter; fill: #6A2C5A;' />
+<polygon points='95.56,456.12 95.56,492.17 120.49,492.17 120.49,456.12 95.56,456.12 ' style='stroke-width: 0.64; stroke-linecap: butt; stroke-linejoin: miter; fill: #EFE7DD;' />
 <line x1='95.56' y1='478.12' x2='120.49' y2='478.12' style='stroke-width: 1.28; stroke-linecap: butt; stroke-linejoin: miter;' />
 <line x1='148.25' y1='449.69' x2='148.25' y2='420.25' style='stroke-width: 0.64; stroke-linecap: butt;' />
 <line x1='148.25' y1='482.03' x2='148.25' y2='507.69' style='stroke-width: 0.64; stroke-linecap: butt;' />
@@ -843,8 +843,8 @@
 <line x1='188.47' y1='482.68' x2='188.47' y2='508.73' style='stroke-width: 0.64; stroke-linecap: butt;' />
 <polygon points='176.00,456.05 176.00,482.68 200.93,482.68 200.93,456.05 176.00,456.05 ' style='stroke-width: 0.64; stroke-linecap: butt; stroke-linejoin: miter; fill: #EFE7DD;' />
 <line x1='176.00' y1='469.69' x2='200.93' y2='469.69' style='stroke-width: 1.28; stroke-linecap: butt; stroke-linejoin: miter;' />
-<text x='108.03' y='411.84' text-anchor='middle' style='font-size: 8.00px; font-style: italic; font-family: "Arial";'>blocked vs rest</text>
-<text x='108.03' y='420.96' text-anchor='middle' style='font-size: 8.00px; font-style: italic; font-family: "Arial";'>p = 0.015</text>
+<text x='152.27' y='410.58' text-anchor='middle' style='font-size: 8.00px; font-style: italic; font-family: "Arial";'>cold vs rest</text>
+<text x='152.27' y='419.70' text-anchor='middle' style='font-size: 8.00px; font-style: italic; font-family: "Arial";'>p = 2.2e-07,  Cliff's δ = 0.41</text>
 </g>
 <g clip-path='url(#cpMC4wMHw0OTMuMjN8MC4wMHw1NjYuOTM=)'>
 </g>

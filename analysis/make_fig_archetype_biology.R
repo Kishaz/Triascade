@@ -27,7 +27,7 @@ arch <- factor(ifelse(mz>=-0.5,"intact",ifelse(wmin=="Sensory","cold",
          ifelse(wmin=="Integration","blocked","execution-impaired"))), c("cold","blocked","execution-impaired","intact"))
 ALAB <- c(cold="P1 · Cold\n(Sensory floor)", blocked="P2 · Blocked\n(Integration floor)",
           `execution-impaired`="P3 · Exec-impaired\n(Execution floor)", intact="P4 · Intact\n(no floor)")
-AWHY <- c(cold="luminal/UroA immune-cold", blocked="TGF-β / stromal exclusion",
+AWHY <- c(cold="immune-cold / TGF-β stromal exclusion", blocked="access deficit (preserved sensing)",
           `execution-impaired`="effector deficit", intact="inflamed yet resistant")
 
 ## ---- panel a: exemplar patient per archetype -------------------------------
@@ -106,20 +106,25 @@ pc <- ggplot(PC, aes(arch, frac, fill=phenotype)) +
         legend.position="top", legend.justification="left", legend.box.spacing=unit(1,"mm"),
         legend.text=element_text(size=PT_BASE-1, colour=INK), plot.margin=margin(2,2,2,2,"mm"))
 
-## ---- panel d: flagship ORTHOGONAL driver — TGF-beta/stromal exclusion -------
-# genes outside the 98-gene panel; explains the Integration ("blocked") floor
+## ---- panel d: orthogonal driver of the COLD (Sensory) floor — TGF-beta/stroma
+# Genes outside the 98-gene panel. Under single-patient selfnorm scoring the
+# TGF-beta/stromal-exclusion program tracks the Sensory layer (r = -0.40), so it
+# marks the immunologically COLD archetype; the blocked (Integration) floor is an
+# access-specific deficit with preserved antigen sensing and is NOT stromal.
 PG <- unique(toupper(unlist(PANEL)))
 tgfb_g <- setdiff(toupper(c("ACTA2","ACTG2","ADAM12","CNN1","COL4A1","COL5A1","COL5A2","COL6A3",
   "COMP","CTGF","FAP","FBN1","FN1","LRRC15","POSTN","PDGFRB","TAGLN","TGFB1","TGFBR2","VCAN",
   "THBS2","SPARC")), PG)
 DD <- data.frame(arch=arch, tgfb=sub(tgfb_g))
-pbl <- wilcox.test(DD$tgfb[arch=="blocked"], DD$tgfb[arch!="blocked"])$p.value
-pd_ <- ggplot(DD, aes(arch, tgfb, fill=arch=="blocked")) +
+.wc <- wilcox.test(DD$tgfb[arch=="cold"], DD$tgfb[arch!="cold"]); pcold <- .wc$p.value
+.nc <- sum(arch=="cold"); .nr <- sum(arch!="cold")
+cliff_tgfb <- as.numeric(2*.wc$statistic/(.nc*.nr) - 1)            # Cliff's delta (effect size)
+pd_ <- ggplot(DD, aes(arch, tgfb, fill=arch=="cold")) +
   geom_hline(yintercept=0, colour=RULE, linewidth=0.3) +
   geom_boxplot(outlier.size=0.4, linewidth=0.3, width=0.62, colour=INK) +
-  annotate("text", x=2, y=2.5, label=sprintf("blocked vs rest\np = %.3f", pbl), hjust=0.5, vjust=1,
+  annotate("text", x=3.1, y=2.55, label=sprintf("cold vs rest\np = %.1e,  Cliff's δ = %.2f", pcold, cliff_tgfb), hjust=0.5, vjust=1,
            family=PUB_FONT, fontface=3, size=(PT_BASE-2)/.pt, colour=INK, lineheight=0.95) +
-  scale_fill_manual(values=c(`TRUE`=PLUM, `FALSE`="#EFE7DD"), guide="none") +
+  scale_fill_manual(values=c(`TRUE`=SAND_DEEP, `FALSE`="#EFE7DD"), guide="none") +
   scale_y_continuous("TGF-β / stroma (orthogonal z)", limits=c(-1.6,2.7), breaks=seq(-1,2,1)) +
   scale_x_discrete(NULL) +
   theme_publication(grid="y") +
@@ -172,5 +177,5 @@ write.csv(data.frame(patient=pn[levels(arch)], archetype=levels(arch), sample=co
           row.names=NULL), "../results/tables/ICI_archetype_exemplars.csv", row.names=FALSE)
 cat("done — 5-panel archetype biology figure\n")
 cat("VERIFY  n=", length(arch), "  dist: ", paste(names(table(arch)), table(arch), sep="=", collapse=" "), "\n")
-cat(sprintf("VERIFY  phenotype chi2 p=%.2e ; TGF-beta blocked p=%.3f ; exec-impaired ptex=%.2e (ea=%d, pbe=%d)\n",
-    chip, pbl, ptex, sum(flav=="effector-absent"), sum(flav=="primed-but-exhausted")))
+cat(sprintf("VERIFY  phenotype chi2 p=%.2e ; TGF-beta COLD vs rest p=%.2e (Cliff d=%.2f) ; exec-impaired ptex=%.2e (ea=%d, pbe=%d)\n",
+    chip, pcold, cliff_tgfb, ptex, sum(flav=="effector-absent"), sum(flav=="primed-but-exhausted")))
