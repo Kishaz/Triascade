@@ -66,8 +66,8 @@ theme_publication <- function(base_size = PT_AXIS_TEXT, grid = c("none","y","x",
       legend.background = element_blank(), legend.margin = margin(0,0,0,0),
       strip.background = element_blank(),
       strip.text = element_text(size = PT_AXIS_TEXT, colour = INK))
-  if (grid %in% c("y","both")) th <- th + theme(panel.grid.major.y = element_line(linewidth=0.2, colour="grey90"))
-  if (grid %in% c("x","both")) th <- th + theme(panel.grid.major.x = element_line(linewidth=0.2, colour="grey90"))
+  # Grid lines disabled globally (house style: no grid lines on any plot).
+  # The `grid` argument is retained for call-site compatibility but is a no-op.
   th
 }
 
