@@ -43,6 +43,15 @@ dd$Response  <- factor(ifelse(dd$y==1,"Responder","Non-responder"), c("Responder
 alc <- as.data.frame(table(Cancer=dd$Cancer, Archetype=dd$Archetype, Response=dd$Response)); names(alc)[4]<-"n"
 alc <- alc[alc$n>0, ]
 
+## ---- supplementary Fig 3e counts: cancer x archetype x response (reviewer R14) --
+ag <- aggregate(y ~ Cancer + Archetype, dd, function(v) c(n=length(v), R=sum(v)))
+fig3e <- data.frame(cancer=ag$Cancer, archetype=ag$Archetype, n=ag$y[,"n"],
+                    responders=ag$y[,"R"], non_responders=ag$y[,"n"]-ag$y[,"R"],
+                    response_rate_pct=round(100*ag$y[,"R"]/ag$y[,"n"],1))
+fig3e <- fig3e[order(fig3e$cancer, fig3e$archetype), ]
+write.csv(fig3e, "../results/tables/ICI_SuppTable_fig3e_alluvial.csv", row.names=FALSE)
+cat(sprintf("wrote Fig 3e counts table (%d cancer x archetype cells, %d patients)\n", nrow(fig3e), sum(fig3e$n)))
+
 ## ---- three-stage alluvial --------------------------------------------------
 pal <- setNames(unname(ACOL[ARCH]), unname(ALAB[ARCH]))
 p <- ggplot(alc, aes(y=n, axis1=Cancer, axis2=Archetype, axis3=Response)) +

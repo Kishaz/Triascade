@@ -92,6 +92,18 @@ names(PC) <- c("arch","phenotype","frac")
 PC$arch <- factor(PC$arch, levels=levels(arch))
 PC$phenotype <- factor(PC$phenotype, levels=c("desert","excluded","inflamed"))
 chip <- chisq.test(table(arch[keep], ph[keep]))$p.value
+
+## ---- supplementary count tables for panels b and c (reviewer C149) ----------
+b7 <- as.data.frame(t(sapply(levels(arch), function(a) round(apply(SM[arch==a,,drop=FALSE],2,median),3))))
+b7 <- cbind(archetype=levels(arch), n=as.integer(table(arch)[levels(arch)]), b7)
+write.csv(b7, "../results/tables/ICI_SuppTable_fig7b_submodules.csv", row.names=FALSE)
+ctab <- table(arch[keep], ph[keep])
+pct  <- round(100*ctab/rowSums(ctab), 1)
+cnt  <- as.data.frame.matrix(ctab); names(cnt) <- paste0("n_", names(cnt))
+pcd  <- as.data.frame.matrix(pct);  names(pcd) <- paste0("pct_", names(pcd))
+c7 <- cbind(archetype=rownames(ctab), n_phenotyped=as.integer(rowSums(ctab)), cnt, pcd)
+write.csv(c7, "../results/tables/ICI_SuppTable_fig7c_phenotype.csv", row.names=FALSE)
+cat("wrote Supp tables fig7b (submodule medians) + fig7c (phenotype counts)\n")
 pc <- ggplot(PC, aes(arch, frac, fill=phenotype)) +
   geom_col(width=0.74, colour="white", linewidth=0.3) +
   annotate("text", x=0.5, y=1.07, hjust=0, vjust=0, family=PUB_FONT, fontface=3,
