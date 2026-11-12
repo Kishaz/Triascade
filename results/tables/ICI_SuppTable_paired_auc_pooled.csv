@@ -1,0 +1,5 @@
+"comparator","pooled_dAUC","lo","hi","p","n_cohorts","n_higher","n_sig"
+"T-cell-inflamed GEP",0.044,-0.005,0.092,0.078,11,9,1
+"IFN-gamma signature",0.025,-0.014,0.064,0.21,11,8,1
+"Cytolytic activity",0.066,0.004,0.128,0.036,11,9,2
+"PD-L1 mRNA (CD274)",0.054,0.013,0.096,0.0097,11,10,1

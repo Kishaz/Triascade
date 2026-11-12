@@ -1,0 +1,4 @@
+"analysis","Integration_r","response_AUC","archetype_concordance_pct","note"
+"10% gene dropout",0.97,0.6,80,"vs full-coverage AUC 0.61"
+"20% gene dropout",0.94,0.6,75,"vs full-coverage AUC 0.61"
+"Reference portability (IMvigor210-derived)",0.85,0.62,58,"NeoTRIP AUC 0.61 vs IMvigor210-ref AUC 0.62"

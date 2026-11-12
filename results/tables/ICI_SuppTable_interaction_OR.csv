@@ -1,0 +1,10 @@
+"layer","model","n","OR","CI_low","CI_high","interaction_P_LRT"
+"Sensory","I-SPY2",248,2.01,0.95,4.25,0.06
+"Sensory","GeparNuevo",100,0.92,0.3,2.77,0.88
+"Sensory","Pooled (trial-stratified)",348,1.41,0.82,2.4,0.21
+"Integration","I-SPY2",248,2.28,1.07,4.87,0.026
+"Integration","GeparNuevo",100,1.11,0.38,3.25,0.85
+"Integration","Pooled (trial-stratified)",348,1.82,1.03,3.19,0.035
+"Execution","I-SPY2",248,1.15,0.55,2.44,0.7
+"Execution","GeparNuevo",100,1,0.38,2.64,1
+"Execution","Pooled (trial-stratified)",348,0.98,0.57,1.7,0.96

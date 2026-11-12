@@ -1,0 +1,3 @@
+"model","tau2","pooled_AUC","CI_low","CI_high","I2_pct"
+"DerSimonian-Laird (primary)",0.1026,0.722,0.657,0.78,42
+"REML (sensitivity)",0.1105,0.723,0.656,0.781,42

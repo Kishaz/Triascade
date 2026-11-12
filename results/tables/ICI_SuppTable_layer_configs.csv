@@ -1,0 +1,9 @@
+"SIE_pattern","type","observed","expected","std_residual"
+"000","forward-concordant",214,132.6,7.07
+"111","forward-concordant",121,66,6.77
+"110","forward-concordant",93,91.2,0.19
+"011","discordant",70,82.7,-1.4
+"101","discordant",60,77.8,-2.02
+"001","discordant",73,97.5,-2.48
+"100","forward-concordant",68,107,-3.77
+"010","discordant",69,113.1,-4.15
