@@ -24,11 +24,11 @@ S <- Z(cm$Sensory); I <- Z(cm$Integration); X <- Z(cm$Execution)
 ti <- cbind(Sensory=S, Integration=I, Execution=X)
 wmin <- colnames(ti)[apply(ti,1,which.min)]; mz <- apply(ti,1,min)
 arch <- factor(ifelse(mz>=-0.5,"intact",ifelse(wmin=="Sensory","cold",
-         ifelse(wmin=="Integration","blocked","no-kill"))), c("cold","blocked","no-kill","intact"))
+         ifelse(wmin=="Integration","blocked","execution-impaired"))), c("cold","blocked","execution-impaired","intact"))
 ALAB <- c(cold="P1 · Cold\n(Sensory floor)", blocked="P2 · Blocked\n(Integration floor)",
-          `no-kill`="P3 · No-kill\n(Execution floor)", intact="P4 · Intact\n(no floor)")
+          `execution-impaired`="P3 · Exec-impaired\n(Execution floor)", intact="P4 · Intact\n(no floor)")
 AWHY <- c(cold="luminal/UroA immune-cold", blocked="TGF-β / stromal exclusion",
-          `no-kill`="effector deficit", intact="inflamed yet resistant")
+          `execution-impaired`="effector deficit", intact="inflamed yet resistant")
 
 ## ---- panel a: exemplar patient per archetype -------------------------------
 # pick the clearest exemplar: a non-responder whose floor is unambiguous
@@ -128,8 +128,8 @@ pd_ <- ggplot(DD, aes(arch, tgfb, fill=arch=="blocked")) +
         axis.title.y=element_text(size=PT_AXIS_TITLE-0.5, colour=INK, margin=margin(r=1)),
         plot.margin=margin(2,3,2,2,"mm"))
 
-## ---- panel e: no-kill REFINEMENT — two actionable flavours ------------------
-nk <- arch=="no-kill"
+## ---- panel e: Execution-impaired REFINEMENT — two actionable flavours ------------------
+nk <- arch=="execution-impaired"
 effM <- SM[,"Effector (+)"]; exhM <- SM[,"Exhaustion (−)"]
 tex_g <- setdiff(c("LAYN","TNFRSF9","TOX","CXCL13"), PG); tex <- sub(tex_g)
 flav <- ifelse(effM[nk] < median(effM), "effector-absent", "primed-but-exhausted")
@@ -172,5 +172,5 @@ write.csv(data.frame(patient=pn[levels(arch)], archetype=levels(arch), sample=co
           row.names=NULL), "../results/tables/ICI_archetype_exemplars.csv", row.names=FALSE)
 cat("done — 5-panel archetype biology figure\n")
 cat("VERIFY  n=", length(arch), "  dist: ", paste(names(table(arch)), table(arch), sep="=", collapse=" "), "\n")
-cat(sprintf("VERIFY  phenotype chi2 p=%.2e ; TGF-beta blocked p=%.3f ; no-kill ptex=%.2e (ea=%d, pbe=%d)\n",
+cat(sprintf("VERIFY  phenotype chi2 p=%.2e ; TGF-beta blocked p=%.3f ; exec-impaired ptex=%.2e (ea=%d, pbe=%d)\n",
     chip, pbl, ptex, sum(flav=="effector-absent"), sum(flav=="primed-but-exhausted")))

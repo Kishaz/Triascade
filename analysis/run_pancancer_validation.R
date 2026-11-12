@@ -67,19 +67,19 @@ icb_eval <- function(E, y, cohort, cancer, drug) {
   Z <- function(v) (v-mean(v,na.rm=TRUE))/sd(v,na.rm=TRUE)
   tiers <- cbind(Sensory=Z(cm$Sensory),Integration=Z(cm$Integration),Execution=Z(cm$Execution))
   wmin <- colnames(tiers)[apply(tiers,1,which.min)]; minz<-apply(tiers,1,min)
-  kl <- ifelse(minz>=-0.5,"intact",ifelse(wmin=="Sensory","cold",ifelse(wmin=="Integration","blocked","no-kill")))
+  kl <- ifelse(minz>=-0.5,"intact",ifelse(wmin=="Sensory","cold",ifelse(wmin=="Integration","blocked","execution-impaired")))
   cat(sprintf("\n### %-16s %-11s %-12s n=%d (R %d/NR %d, %2.0f%%)  panel %d/98\n",
               cohort, cancer, drug, length(y), sum(y), sum(y==0), 100*mean(y), cov))
   cat(sprintf("  %-12s cohort  single(self)  single(ext)\n",""))
   for (L in layers) cat(sprintf("  %-12s %.3f     %.3f        %.3f\n", L, A["cohort",L],A["single_self",L],A["single_ext",L]))
   ci<-cii(cm$Integration); cs<-cii(sp$Integration)
   cat(sprintf("  Integration CI: cohort %.3f[%.2f-%.2f]  single %.3f[%.2f-%.2f]\n", ci[1],ci[2],ci[3],cs[1],cs[2],cs[3]))
-  cat("  NR limiting layer: "); print(table(factor(kl[y==0],c("cold","blocked","no-kill","intact"))))
+  cat("  NR limiting layer: "); print(table(factor(kl[y==0],c("cold","blocked","execution-impaired","intact"))))
   cat("  bench AUC (same patients): ");
   cat(paste(sprintf("%s %.2f", rownames(BEN), BEN[,"auc"]), collapse="  "), "\n")
   list(cohort=cohort,cancer=cancer,drug=drug,n=length(y),nR=sum(y),nNR=sum(y==0),cov=cov,
        auc=A,int_ci=ci,int_ci_single=cs,bench=BEN,
-       nr_comp=table(factor(kl[y==0],c("cold","blocked","no-kill","intact"))),
+       nr_comp=table(factor(kl[y==0],c("cold","blocked","execution-impaired","intact"))),
        scores=data.frame(sample=as.character(sp$sample), y=y,
                          sens_single =as.numeric(sp$Sensory),     sens_cohort =as.numeric(cm$Sensory),
                          integ_single=as.numeric(sp$Integration), integ_cohort=as.numeric(cm$Integration),

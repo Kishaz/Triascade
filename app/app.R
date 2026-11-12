@@ -27,16 +27,16 @@ ref_choices <- setNames(ref_files, vapply(ref_files, function(f){ m<-readRDS(f)
 # ---- colour palettes (archetype + layer); user-selectable --------------------
 PALETTES <- list(
   "Okabe-Ito (color-blind safe)" = list(
-    arch = c(intact="#009E73", cold="#0072B2", blocked="#D55E00", `no-kill`="#CC79A7"),
+    arch = c(intact="#009E73", cold="#0072B2", blocked="#D55E00", `execution-impaired`="#CC79A7"),
     lay  = c(Sensory="#E69F00", Integration="#0072B2", Execution="#CC79A7")),
   "House (plum / sand)" = list(
-    arch = c(intact="#2e7d32", cold="#9C7A3E", blocked="#6A2C5A", `no-kill`="#B2567E"),
+    arch = c(intact="#2e7d32", cold="#9C7A3E", blocked="#6A2C5A", `execution-impaired`="#B2567E"),
     lay  = c(Sensory="#9C7A3E", Integration="#6A2C5A", Execution="#B2567E")),
   "High contrast" = list(
-    arch = c(intact="#1b9e77", cold="#1f78b4", blocked="#e6550d", `no-kill`="#6a51a3"),
+    arch = c(intact="#1b9e77", cold="#1f78b4", blocked="#e6550d", `execution-impaired`="#6a51a3"),
     lay  = c(Sensory="#d95f02", Integration="#1f78b4", Execution="#6a51a3")),
   "Viridis" = list(
-    arch = c(intact="#440154", cold="#31688e", blocked="#35b779", `no-kill`="#fde725"),
+    arch = c(intact="#440154", cold="#31688e", blocked="#35b779", `execution-impaired`="#fde725"),
     lay  = c(Sensory="#443983", Integration="#21918c", Execution="#7ad151")))
 DEF <- PALETTES[[1]]
 BAND <- 0.674                                                # typical range = middle 50% of the reference (SD units)
@@ -58,7 +58,7 @@ app_theme <- bs_theme(version = 5, bg = "#ffffff", fg = "#000000", primary = "#6
   secondary = "#9C7A3E", base_font = SANS, heading_font = SANS, "border-radius" = "0.65rem")
 
 # ---- interpretation text -----------------------------------------------------
-GLOSS <- c(intact="inflamed / hot", cold="immune-desert", blocked="immune-excluded", `no-kill`="inflamed-dysfunctional")
+GLOSS <- c(intact="inflamed / hot", cold="immune-desert", blocked="immune-excluded", `execution-impaired`="inflamed-dysfunctional")
 CALL <- list(
   intact  = list(short="Immune-intact", t="Immune-intact (inflamed / hot): no substantially reduced layer",
     s="All three cascade layers are within or above the typical range of the reference. If this tumor is non-responsive, resistance likely lies outside the measured immune cascade. The biological and therapeutic implications are investigational."),
@@ -66,18 +66,18 @@ CALL <- list(
     s="Antigen presentation and IFN signaling are the lowest-scoring layer relative to the reference, a profile consistent with an immunologically cold tumor. The biological and therapeutic implications are investigational."),
   blocked = list(short="Blocked", t="Blocked (immune-excluded): Integration is the lowest-scoring layer",
     s="T-cell trafficking and infiltration are the lowest-scoring layer relative to the reference, a pattern consistent with stromal or TGF-beta mediated exclusion. The biological and therapeutic implications are investigational."),
-  `no-kill`= list(short="No-kill", t="No-kill (inflamed-dysfunctional): Execution is the lowest-scoring layer",
+  `execution-impaired`= list(short="Execution-impaired", t="Execution-impaired (inflamed-dysfunctional): Execution is the lowest-scoring layer",
     s="Immune cells have reached the tumor, but cytotoxic effector output (the shared killing program of CD8 T cells and NK cells) is the lowest-scoring layer (effector-deficient or exhausted)."))
 BIO_LEAD <- list(
   intact  = "No layer stands out as low; all three are within range of the reference. If the tumor is non-responsive, look outside the cascade.",
   cold    = "Priming is the gap: the immune response is not being started.",
   blocked = "Entry is the gap: immune cells are held at the margin and kept out of the tumor.",
-  `no-kill`= "Killing is the gap: cytotoxic lymphocytes (CD8 T and NK cells) are present but their killing output is low.")
+  `execution-impaired`= "Killing is the gap: cytotoxic lymphocytes (CD8 T and NK cells) are present but their killing output is low.")
 BIO_CHIPS <- list(
   intact  = c("Antigen loss / B2M / MHC defects", "Non-immune resistance", "Confirm with PD-L1 / TMB / MSI"),
   cold    = c("Antigen presentation / IFN signaling", "Innate sensing (STING / TLR)"),
   blocked = c("TGF-β signaling", "Stromal exclusion", "Vascular barriers", "Impaired trafficking"),
-  `no-kill`= c("Effector exhaustion", "Inhibitory checkpoints (LAG-3 / TIM-3 / TIGIT)", "Low cytotoxic output"))
+  `execution-impaired`= c("Effector exhaustion", "Inhibitory checkpoints (LAG-3 / TIM-3 / TIGIT)", "Low cytotoxic output"))
 GAUGE_CAP <- "Each bar is the patient's standardized layer score versus the reference population (0 = reference mean, in SD units; shaded band = typical range, the middle 50% of the reference). The starred layer is the patient's relative weakest layer within the analyzed cohort (for a single uploaded sample, versus the reference)."
 RUO <- "Research use only. Investigational biomarker; not a validated clinical test. Does not replace approved biomarkers (PD-L1, TMB, MSI) or clinical judgment. Mechanistic rationale is hypothesis-generating, not a treatment recommendation."
 
@@ -385,7 +385,7 @@ about_tab <- nav_panel(title = tagList(icon("circle-info"), " About"), value = "
           tags$tr(tags$td(tags$b("Immune-intact")), tags$td("inflamed / hot"), tags$td("none")),
           tags$tr(tags$td(tags$b("Cold")), tags$td("immune-desert"), tags$td("Sensory")),
           tags$tr(tags$td(tags$b("Blocked")), tags$td("immune-excluded"), tags$td("Integration")),
-          tags$tr(tags$td(tags$b("No-kill")), tags$td("inflamed-dysfunctional"), tags$td("Execution")))),
+          tags$tr(tags$td(tags$b("Execution-impaired")), tags$td("inflamed-dysfunctional"), tags$td("Execution")))),
       card_header("Panel & input"),
       markdown(paste(
         "- **98-gene panel**, locked reference (versioned; swappable).",
@@ -524,7 +524,7 @@ ui <- page_navbar(
            div(style="font-size:0.78rem;color:#000000",
                div(tags$b("Canonical phenotypes:")),
                div(tags$b("cold"), " = immune-desert  ·  ", tags$b("blocked"), " = immune-excluded  ·  ",
-                   tags$b("no-kill"), " = inflamed-dysfunctional  ·  ", tags$b("intact"), " = inflamed / hot."))),
+                   tags$b("execution-impaired"), " = inflamed-dysfunctional  ·  ", tags$b("intact"), " = inflamed / hot."))),
       card(full_screen=TRUE, card_header("Cohort distribution: the three layer scores"), plotlyOutput("cohort", height="300px"))),
     card(full_screen=TRUE, card_header("Per-patient profiles"),
       div(style="font-size:0.8rem;color:#000000;margin-bottom:4px",

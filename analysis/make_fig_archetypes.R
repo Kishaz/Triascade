@@ -4,7 +4,7 @@
 # where those archetypes end up. Ribbons coloured by archetype.
 # Archetype (unified method, matches Fig 7 and the app): single-patient selfnorm layer
 #   scores standardized WITHIN the cohort; immune-intact if the lowest standardized layer
-#   is >= -0.5 SD, else the lowest layer names the deficit (cold=S, blocked=I, no-kill=E).
+#   is >= -0.5 SD, else the lowest layer names the deficit (cold=S, blocked=I, exec-impaired=E).
 # NB these are ABSOLUTE patient counts (base ICB response rate ~29%): read ribbon
 # widths as counts, not rates -- per-archetype response RATE is in the supp table.
 # Needs per-sample layer scores in pancancer_validation.rds. Editable SVG.
@@ -23,12 +23,12 @@ CANC <- c(melanoma="Melanoma", urothelial="Urothelial", NSCLC="NSCLC", gastric="
 cdisp <- function(x){ v<-unname(CANC[x]); ifelse(is.na(v), x, v) }
 
 ## ---- archetype levels, labels, colours (failing layer's S/I/E colour) ------
-ARCH <- c("intact","no-kill","blocked","cold")
-ALAB <- c(intact="Inflamed", "no-kill"="Execution-failed", blocked="Excluded", cold="Desert / cold")
-ACOL <- c(intact="#5E9C86", "no-kill"=ROSE, blocked=PLUM, cold=SAND_DEEP)
+ARCH <- c("intact","execution-impaired","blocked","cold")
+ALAB <- c(intact="Intact", "execution-impaired"="Execution-impaired", blocked="Blocked", cold="Cold")
+ACOL <- c(intact="#5E9C86", "execution-impaired"=ROSE, blocked=PLUM, cold=SAND_DEEP)
 afac <- function(v) factor(ALAB[v], levels=unname(ALAB[ARCH]))
 classify <- function(s){ z<-function(v)(v-mean(v,na.rm=TRUE))/sd(v,na.rm=TRUE)
-  M <- cbind(cold=z(s$sens_single), blocked=z(s$integ_single), "no-kill"=z(s$exec_single))
+  M <- cbind(cold=z(s$sens_single), blocked=z(s$integ_single), "execution-impaired"=z(s$exec_single))
   wmin <- colnames(M)[max.col(-M, ties.method="first")]; mz <- apply(M, 1, min)
   ifelse(mz >= -0.5, "intact", wmin) }
 
@@ -79,9 +79,9 @@ if(file.exists("svg_join_text.py")) system("python3 svg_join_text.py ../results/
 comp <- do.call(rbind, lapply(ORDER, function(k){ s<-R[[k]]$scores; a<-classify(s)
   tb <- table(factor(a, ARCH))
   data.frame(cohort=R[[k]]$cohort, cancer=R[[k]]$cancer, bucket=bucket[k], n=sum(tb),
-             Inflamed=as.integer(tb["intact"]), Execution_failed=as.integer(tb["no-kill"]),
-             Excluded=as.integer(tb["blocked"]), Desert=as.integer(tb["cold"]),
-             pct_Inflamed=round(100*tb["intact"]/sum(tb),1),
-             pctR_Inflamed=round(100*mean(s$y[a=="intact"]),1), row.names=NULL) }))
+             Intact=as.integer(tb["intact"]), Execution_impaired=as.integer(tb["execution-impaired"]),
+             Blocked=as.integer(tb["blocked"]), Cold=as.integer(tb["cold"]),
+             pct_Intact=round(100*tb["intact"]/sum(tb),1),
+             pctR_Intact=round(100*mean(s$y[a=="intact"]),1), row.names=NULL) }))
 write.csv(comp, "../results/tables/ICI_SuppTable_archetype_composition.csv", row.names=FALSE)
 cat(sprintf("done — 3-stage alluvial (base ICB response %.0f%%) + supp table\n", 100*base))

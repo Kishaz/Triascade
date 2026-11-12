@@ -1,4 +1,4 @@
-"cohort","cancer","bucket","n","Inflamed","Execution_failed","Excluded","Desert","pct_Inflamed","pctR_Inflamed"
+"cohort","cancer","bucket","n","Intact","Execution_impaired","Blocked","Cold","pct_Intact","pctR_Intact"
 "IMvigor210","urothelial","works",298,108,56,66,68,36.2,29.6
 "GSE78220","melanoma","works",27,12,4,4,7,44.4,75
 "GSE91061","melanoma","works",49,23,5,11,10,46.9,21.7

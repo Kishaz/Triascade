@@ -68,7 +68,7 @@ boxlab <- function(cx, y1, title, body, tcol = INK) {
 # ---- palette roles -----------------------------------------------------------
 BORDER <- PLUM_DEEP                                    # box outline
 FILL_STEP <- "white"; FILL_REF <- "#F4ECDB"; FILL_OUT <- CREAM_LT
-ARCH <- c(intact = "#2E7D32", cold = SAND_DEEP, blocked = PLUM, "no-kill" = ROSE)  # archetype = its floor layer; intact = none
+ARCH <- c(intact = "#2E7D32", cold = SAND_DEEP, blocked = PLUM, "execution-impaired" = ROSE)  # archetype = its floor layer; intact = none
 
 # =============================================================================
 # header: the Triascade logo in place of a text title (aspect preserved)

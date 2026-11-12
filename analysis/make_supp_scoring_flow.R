@@ -6,7 +6,7 @@
 #   gene z  ->  indicator (>= locked ref median)  ->  signed sub-module
 #   ->  the 3 layer scores (floor ringed).
 # 2x2: one clean intact RESPONDER (no floor) + three floored NON-responders
-# (cold / blocked / no-kill). All 98 gene dots shown; ~20 marker genes labelled.
+# (cold / blocked / Execution-impaired). All 98 gene dots shown; ~20 marker genes labelled.
 # House style; genes grouped BY module so edges read cleanly; editable SVG.
 # =============================================================================
 suppressPackageStartupMessages({ library(ggplot2); library(patchwork) })
@@ -83,16 +83,16 @@ draw_patient <- function(samp, pid, sub){
 
 ## ---- pick the four patients ------------------------------------------------
 arch <- apply(LZall,1,function(r){ w<-LORD[which.min(r)]; if(min(r)>=-0.5) "intact" else
-  c(Sensory="cold",Integration="blocked",Execution="no-kill")[w] })
+  c(Sensory="cold",Integration="blocked",Execution="execution-impaired")[w] })
 ys <- setNames(y, colnames(E))
 pickNR <- function(a){ i<-which(arch==a & ys==0); j<-i[which.max(apply(LZall[i,,drop=FALSE],1,function(r) sort(r)[2]-min(r)))]; names(arch)[j] }
 pickR_intact <- { i<-which(arch=="intact" & ys==1); names(arch)[i[which.max(apply(LZall[i,,drop=FALSE],1,min))]] }
-P <- c(R=pickR_intact, cold=pickNR("cold"), blocked=pickNR("blocked"), nokill=pickNR("no-kill"))
+P <- c(R=pickR_intact, cold=pickNR("cold"), blocked=pickNR("blocked"), execimpaired=pickNR("execution-impaired"))
 
 pR  <- draw_patient(P["R"],      "R1", "intact responder")
 pC  <- draw_patient(P["cold"],   "N1", "cold non-responder")
 pB  <- draw_patient(P["blocked"],"N2", "blocked non-responder")
-pK  <- draw_patient(P["nokill"], "N3", "no-kill non-responder")
+pK  <- draw_patient(P["execimpaired"], "N3", "Execution-impaired non-responder")
 
 ## ---- shared legend ---------------------------------------------------------
 leg <- ggplot() + xlim(0,10) + ylim(0.6,2.4) + theme_void() +

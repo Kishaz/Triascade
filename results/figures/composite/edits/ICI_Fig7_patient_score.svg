@@ -473,7 +473,7 @@
          y="34.23"
          text-anchor="middle"
          style="font-weight:bold;font-size:9.5px;font-family:Arial"
-         id="text44">P3 · No-kill</text>
+         id="text44">P3 · Execution-impaired</text>
       <text
          x="319.91"
          y="45.060001"
@@ -1411,7 +1411,7 @@
          y="324.26001"
          text-anchor="end"
          style="font-weight:bold;font-size:10px;font-family:Arial"
-         id="text204">no-kill</text>
+         id="text204">execution-impaired</text>
       <text
          x="60.610001"
          y="291.41"
@@ -1877,7 +1877,7 @@
          transform="rotate(-20,1235.5128,-1034.7036)"
          text-anchor="end"
          style="font-size:9.5px;font-family:Arial"
-         id="text292">no-kill</text>
+         id="text292">execution-impaired</text>
       <text
          transform="rotate(-20,1252.9528,-1133.6107)"
          text-anchor="end"
@@ -2421,7 +2421,7 @@
          transform="rotate(-20,1613.6769,-155.70245)"
          text-anchor="end"
          style="font-size:9.5px;font-family:Arial"
-         id="text385">no-kill</text>
+         id="text385">execution-impaired</text>
       <text
          transform="rotate(-20,1633.7869,-269.75193)"
          text-anchor="end"

@@ -54,7 +54,7 @@ nrp <- nrp[match(ord, as.character(nrp$class)), ]
 nnrp <- sum(nrp$n_NR)
 compcol <- c(unname(col["Sense"]), unname(col["Integration"]), unname(col["Execution"]), NEUTRAL)
 complet <- c("S","I","E","")                       # layer letters (match A/B) above each bar
-complab <- c("cold","blocked","no-kill","none")    # plain descriptor under the letter
+complab <- c("cold","blocked","exec-impaired","none")    # plain descriptor under the letter
 cbx <- c(240, 250, 260, 270); cbw <- 7; cbb <- 34; cbsc <- 36/max(nrp$n_NR)  # tallest bar matches ROC height (y34-70)
 comp_layers <- c(list(
   annotate("segment", x=236+CXO, xend=236+CXO, y=cbb+CYO, yend=cbb+36+CYO, colour=INK, linewidth=0.4),

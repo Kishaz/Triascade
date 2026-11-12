@@ -80,7 +80,7 @@ score_uploaded <- function(E, assets){
   wmin <- lay[max.col(-mat, ties.method="first")]; mz <- apply(mat, 1, min)
   Z$floor_layer <- ifelse(mz >= -0.5, "none", wmin)
   Z$archetype   <- ifelse(mz >= -0.5, "intact",
-                     ifelse(wmin=="Sensory","cold", ifelse(wmin=="Integration","blocked","no-kill")))
+                     ifelse(wmin=="Sensory","cold", ifelse(wmin=="Integration","blocked","execution-impaired")))
   gene <- tryCatch(gene_detail(E, ref), error = function(e) NULL)   # per-gene drivers
   lp <- ref$PANEL                                                   # per-layer coverage (for the QC strip)
   lg <- list(Sensory = unique(toupper(lp$SENSORY)),

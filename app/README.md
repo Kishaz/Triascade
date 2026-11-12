@@ -48,7 +48,7 @@ The overview figure at the top walks through it end to end:
 2. **Score:** each gene is self-normalized within the sample and compared to a **frozen 98-gene
    reference**, so a single patient is scored **cohort-independently**.
 3. **Cascade:** genes roll up into 5 sub-modules and 3 layers; each layer gets a standardized score
-   vs the reference, and the lowest layer names the archetype (**intact · cold · blocked · no-kill**).
+   vs the reference, and the lowest layer names the archetype (**intact · cold · blocked · Execution-impaired**).
 4. **Read-outs:** patient report, 98-gene cascade view, and cohort explorer, with PDF / CSV export.
 
 ## Features
