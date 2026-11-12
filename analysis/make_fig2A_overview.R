@@ -13,28 +13,28 @@ source("ici_theme.R")
 .pt <- 2.845276
 col <- pal_layer
 
-EX <- list(S = 0.75, I = 0.34, E = 0.74)              # example tumor scores
+EX <- list(S = 0.8, I = -0.2, E = -1.2)              # example tumor scores (reference SD units)
 
 G <- list(
   list(sym="S", name="Sensory",     col=unname(col["Sense"]),
-       lo=0,  hi=1,  val=EX$S, mid=NA, valfmt="%.2f",
-       lo_lab="0", hi_lab="1", mid_lab=NA,
-       lo_mean="not detected", mid_mean=NA,         hi_mean="fully detected"),
+       lo=-2, hi=2,  val=EX$S, mid=0, valfmt="%+.1f",
+       lo_lab="−2", hi_lab="+2", mid_lab="0",
+       lo_mean="not detected", mid_mean="reference", hi_mean="fully detected"),
   list(sym="I", name="Integration", col=unname(col["Integration"]),
-       lo=-1, hi=1,  val=EX$I, mid=0,  valfmt="%+.2f",
-       lo_lab="−1", hi_lab="+1", mid_lab="0",
-       lo_mean="suppressed",   mid_mean="balanced", hi_mean="open access"),
+       lo=-2, hi=2,  val=EX$I, mid=0,  valfmt="%+.1f",
+       lo_lab="−2", hi_lab="+2", mid_lab="0",
+       lo_mean="suppressed",   mid_mean="reference", hi_mean="open access"),
   list(sym="E", name="Execution",   col=unname(col["Execution"]),
-       lo=-1, hi=1,  val=EX$E, mid=0,  valfmt="%+.2f",
-       lo_lab="−1", hi_lab="+1", mid_lab="0",
-       lo_mean="exhausted",    mid_mean="balanced", hi_mean="cytotoxic"))
-GY  <- c(91, 80, 69); TX0 <- 48; TX1 <- 176
+       lo=-2, hi=2,  val=EX$E, mid=0,  valfmt="%+.1f",
+       lo_lab="−2", hi_lab="+2", mid_lab="0",
+       lo_mean="exhausted",    mid_mean="reference", hi_mean="cytotoxic"))
+GY  <- c(102, 91, 80); TX0 <- 48; TX1 <- 176
 
 # Localize rows: the lowest score names the failing layer (which layer, not the therapy).
 LOC <- list(
   list(sym="S", col=unname(col["Sense"]),       why="tumor not detected"),
   list(sym="I", col=unname(col["Integration"]), why="immune access blocked"),
-  list(sym="E", col=unname(col["Execution"]),   why="no tumor-cell killing"))
+  list(sym="E", col=unname(col["Execution"]),   why="impaired tumor-cell killing"))
 
 # Archetypes: canonical S/I/E high(1)/low(0) patterns -> named phenotype (name only; the
 # ICB expectation per archetype is a result and lives in a separate figure).
@@ -44,10 +44,10 @@ LOC <- list(
 # S+ I- E- (1,0,0). Ordered STEP-WISE down the cascade (S->I->E): the failure point moves
 # one layer earlier each row, so the + cells form a descending staircase.
 ARCH <- list(
-  list(pat=c(1,1,1), name="Inflamed"),          # cascade completes
-  list(pat=c(1,1,0), name="Execution Failed"),  # fails at E
-  list(pat=c(1,0,0), name="Excluded"),           # fails at I
-  list(pat=c(0,0,0), name="Desert"))             # fails at S
+  list(pat=c(1,1,1), name="Intact"),              # cascade completes
+  list(pat=c(1,1,0), name="Execution-impaired"),  # fails at E
+  list(pat=c(1,0,0), name="Blocked"),             # fails at I
+  list(pat=c(0,0,0), name="Cold"))                # fails at S
 AY  <- c(30, 23.5, 17, 10.5)          # archetype row y-centers (inside card 3)
 ASX <- c(10, 16, 22)                  # x of the S/I/E signature-code columns (archetype card = leftmost)
 ASCOL <- unname(col[c("Sense","Integration","Execution")])
@@ -93,7 +93,7 @@ for (i in seq_along(LOC)) { l <- LOC[[i]]; y <- ly[i]
     rect(131, 135.5, y-2.4, y+2.4, pal_layer_fill[c("Sense","Integration","Execution")[i]], l$col, lwd=0.5),
     txt(133.25, y, l$sym, size=8.3, face=2, colour=l$col),
     txt(137, y, "low", size=7.8, hjust=0, colour=l$col),
-    txt(145, y, l$why, size=7.5, hjust=0, colour=INK))) }
+    txt(143, y, l$why, size=6.8, hjust=0, colour=INK))) }
 
 # archetype rows (card 1, leftmost): layer box (filled=high / open=low) with its +/- sign inside + name
 arch_layers <- list()
@@ -103,27 +103,27 @@ for (i in seq_along(ARCH)) { a <- ARCH[[i]]; y <- AY[i]
       rect(ASX[j]-1.9, ASX[j]+1.9, y-1.9, y+1.9, if (hi) ASCOL[j] else "white", ASCOL[j], lwd=0.6),
       txt(ASX[j], y, if (hi) "+" else "−", size=6.5, face=2, colour=if (hi) "white" else ASCOL[j]))) }
   arch_layers <- c(arch_layers, list(
-    txt(30, y, a$name, size=8, face=2, hjust=0, colour=INK))) }
+    txt(27, y, a$name, size=7.4, face=2, hjust=0, colour=INK))) }
 
 pA <- ggplot() +
-  annotate("text", x=1, y=129, label="a", family=PUB_FONT, size=PT_PANEL_TAG/.pt, fontface=2, hjust=0) +
+  annotate("text", x=1, y=148, label="a", family=PUB_FONT, size=PT_PANEL_TAG/.pt, fontface=2, hjust=0) +
 
   # ===================== DERIVE =====================
-  txt(93, 126, "Score each patient at each layer", size=10.5, face=2) +
-  rect(5, 37, 108, 122, CREAM, MUTED) +
-  txt(21, 117.5, "patient cohort", size=8.5, face=2) + txt(21, 113, "transcriptomes", size=8) +
-  rect(50, 120, 107, 123, CREAM, MUTED) +
-  txt(85, 119, "binarize each gene at its", size=8) +
-  txt(85, 114.8, "cohort median", size=8, face=2) +
-  txt(85, 110.5, "b[g]==1~~'if'~~x[g] >= m[g]", size=8.2, parse=TRUE) +
-  rect(133, 181, 108, 122, CREAM, MUTED) +
-  txt(157, 118, "combine per layer", size=8) + txt(157, 113.5, "(÷ gene count)", size=8) +
-  harrow(37, 50, 115) + harrow(120, 133, 115) +
-  annotate("segment", x=157, xend=157, y=108, yend=102, colour=INK, linewidth=0.7,
+  txt(93, 145, "Score each patient at each layer", size=10.5, face=2) +
+  rect(5, 37, 127, 141, CREAM, MUTED) +
+  txt(21, 136.5, "patient cohort", size=8.5, face=2) + txt(21, 132, "transcriptomes", size=8) +
+  rect(50, 120, 126, 142, CREAM, MUTED) +
+  txt(85, 138, "flag each gene vs the", size=8) +
+  txt(85, 133.8, "frozen reference", size=8, face=2) +
+  txt(85, 129.5, "b[g]==1~~'if'~~z[g] >= t[g]", size=8.2, parse=TRUE) +
+  rect(133, 181, 127, 141, CREAM, MUTED) +
+  txt(157, 137, "count per layer, then", size=8) + txt(157, 132.5, "standardize vs reference", size=8) +
+  harrow(37, 50, 134) + harrow(120, 133, 134) +
+  annotate("segment", x=157, xend=157, y=126, yend=116, colour=INK, linewidth=0.7,
            arrow=arrow(length=unit(1.8,"mm"), type="closed")) +
 
   # ===================== SCORES + MEANING =====================
-  txt(8, 101, "Three scores per patient, each on its own range:", size=9.5, face=2, hjust=0) +
+  txt(8, 112, "Three layer scores, in reference SD units (0 = reference mean):", size=9.5, face=2, hjust=0) +
   gauge_layers +
 
   # ===================== APPLICATION (three cards on one row) =====================
@@ -137,7 +137,7 @@ pA <- ggplot() +
   txt(ASX[1], 36, "S", size=7.4, face=2, colour=ASCOL[1]) +
   txt(ASX[2], 36, "I", size=7.4, face=2, colour=ASCOL[2]) +
   txt(ASX[3], 36, "E", size=7.4, face=2, colour=ASCOL[3]) +
-  txt(30, 36, "Archetype", size=7.6, face=2, hjust=0, colour=INK) +
+  txt(27, 36, "Archetype", size=7.6, face=2, hjust=0, colour=INK) +
   annotate("segment", x=8, xend=58, y=34, yend=34, colour=INK, linewidth=0.3) +
   arch_layers +
 

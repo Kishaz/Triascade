@@ -14,75 +14,81 @@ source("make_fig2A_overview.R")         # -> pA, and helpers txt()/rect()/col/.p
 OFF <- 188                              # x-offset of the 2B column (tight gutter to 2A)
 tb  <- function(x, y, ...) txt(x + OFF, y, ...)
 
-# ---- step 1: binarization number line ---------------------------------------
-axy <- 102; medx <- 40
+# ---- geometry: three stacked steps in the 2B column -------------------------
+axy <- 120; thx <- 40                     # number-line y ; frozen-threshold x
 pts2 <- data.frame(x = c(16,23,30,37, 46,53,60,67) + OFF, y = axy,
                    fill = c(rep("white",4), rep(NEUTRAL,4)))
 
-lab_bin <- "b[g]==bgroup('{', atop(1*','~~'if'~~x[g]>=m[g], 0*','~~'otherwise'), '.')"
-S_lab <- "bold(S)==frac(1,21)~sum(b[g], g %in% 'Sensory')"
-I_lab <- "bold(I)==frac(1,21)~sum(b[g], g %in% 'activating') - frac(1,20)~sum(b[g], g %in% 'suppressive')"
-E_lab <- "bold(E)==frac(1,19)~sum(b[g], g %in% 'effector') - frac(1,19)~sum(b[g], g %in% 'exhaustion')"
+lab_bin <- "b[g]==bgroup('{', atop(1*','~~'if'~~z[g]>=t[g], 0*','~~'otherwise'), '.')"
+S_lab <- "bold(S)==sum(b[g], g %in% 'Sensory')"
+I_lab <- "bold(I)==sum(b[g], g %in% 'activating') - sum(b[g], g %in% 'suppressive')"
+E_lab <- "bold(E)==sum(b[g], g %in% 'effector') - sum(b[g], g %in% 'exhaustion')"
+std_lab <- "bold(L)*'*' == frac(bold(L) - mu[L], sigma[L])"
 
 b2 <- list(
   # panel tag
-  annotate("text", x = OFF, y = 129, label = "b", family = PUB_FONT, size = PT_PANEL_TAG/.pt, fontface = 2, hjust = 0),
+  annotate("text", x = OFF, y = 148, label = "b", family = PUB_FONT, size = PT_PANEL_TAG/.pt, fontface = 2, hjust = 0),
 
-  # ========== STEP 1 : binarize ==========
-  annotate("point", x = 5+OFF, y = 124, size = 5.2, colour = INK),
-  tb(5, 124, "1", size = 8, face = 2, colour = "white"),
-  tb(11, 125,   "Binarize each gene at its", size = 9.5, face = 2, hjust = 0),
-  tb(11, 120.3, "cohort median",             size = 9.5, face = 2, hjust = 0),
+  # ========== STEP 1 : flag each gene vs the frozen reference ==========
+  annotate("point", x = 5+OFF, y = 144, size = 5.2, colour = INK),
+  tb(5, 144, "1", size = 8, face = 2, colour = "white"),
+  tb(11, 145,   "Flag each gene against", size = 9.5, face = 2, hjust = 0),
+  tb(11, 140.3, "the frozen reference",   size = 9.5, face = 2, hjust = 0),
 
-  # number line + median
+  # number line + frozen-reference threshold
   annotate("segment", x = 10+OFF, xend = 78+OFF, y = axy, yend = axy, colour = INK, linewidth = 0.4,
            arrow = arrow(length = unit(1.4,"mm"), type = "closed")),
-  annotate("text", x = 79+OFF, y = axy, label = "expression", angle = 90,
-           family = PUB_FONT, size = 8*FSCALE/.pt, colour = INK, hjust = 0.5),
-  annotate("segment", x = medx+OFF, xend = medx+OFF, y = axy-5, yend = axy+5, colour = ACCENT, linewidth = 0.5, linetype = "22"),
-  tb(medx, axy+8,   "m[g]", size = 8.5, colour = ACCENT, parse = TRUE),
-  tb(medx, axy+11.5,"cohort median", size = 7.3),
+  annotate("text", x = 80+OFF, y = axy, label = "standardized~expression", angle = 90,
+           family = PUB_FONT, size = 7.2*FSCALE/.pt, colour = INK, hjust = 0.5, parse = TRUE),
+  annotate("segment", x = thx+OFF, xend = thx+OFF, y = axy-5, yend = axy+5, colour = ACCENT, linewidth = 0.5, linetype = "22"),
+  tb(thx, axy+8,   "t[g]", size = 8.5, colour = ACCENT, parse = TRUE),
+  tb(thx, axy+11.5,"frozen reference", size = 7.3),
   geom_point(data = pts2, aes(x = x, y = y), shape = 21, size = 3.0, fill = pts2$fill, colour = INK, stroke = 0.5),
-  tb(25, axy-5, "x[g] < m[g]", size = 7.3, parse = TRUE),
-  tb(25, axy-9, "b[g]==0",     size = 8, face = 2, parse = TRUE),
-  tb(55, axy-5, "x[g] >= m[g]", size = 7.3, parse = TRUE),
-  tb(55, axy-9, "b[g]==1",      size = 8, face = 2, parse = TRUE),
+  tb(23, axy-6, "z[g] < t[g]  (b[g]==0)", size = 7.2, parse = TRUE),
+  tb(57, axy-6, "z[g] >= t[g]  (b[g]==1)", size = 7.2, parse = TRUE),
 
   # indicator formula
-  tb(40, 85, lab_bin, size = 10, parse = TRUE),
+  tb(40, 102, lab_bin, size = 10, parse = TRUE),
 
   # legend
-  tb(2, 76, "x[g]*' = gene expression in the tumor'", size = 8, hjust = 0, parse = TRUE),
-  tb(2, 71.5, "m[g]*' = cohort median'",     size = 8, hjust = 0, parse = TRUE),
-  tb(2, 67, "b[g]*' = 1 (high) or 0 (low)'",           size = 8, hjust = 0, parse = TRUE),
+  tb(2, 95, "z[g]*' = within-sample standardized expression'", size = 7.4, hjust = 0, parse = TRUE),
+  tb(2, 91, "t[g]*' = frozen gene-specific reference threshold'", size = 7.4, hjust = 0, parse = TRUE),
 
-  # divider between the two steps
-  annotate("segment", x = 2+OFF, xend = 86+OFF, y = 61, yend = 61, colour = "grey80", linewidth = 0.4),
+  # divider
+  annotate("segment", x = 2+OFF, xend = 86+OFF, y = 85, yend = 85, colour = "grey80", linewidth = 0.4),
 
-  # ========== STEP 2 : sum within each layer ==========
-  annotate("point", x = 5+OFF, y = 56, size = 5.2, colour = INK),
-  tb(5, 56, "2", size = 8, face = 2, colour = "white"),
-  tb(11, 56, "Combine within each layer", size = 9.5, face = 2, hjust = 0),
+  # ========== STEP 2 : count within each layer ==========
+  annotate("point", x = 5+OFF, y = 79.5, size = 5.2, colour = INK),
+  tb(5, 79.5, "2", size = 8, face = 2, colour = "white"),
+  tb(11, 80.5, "Count within each layer", size = 9.5, face = 2, hjust = 0),
+  tb(11, 76,   "(activating − suppressive)", size = 8, hjust = 0),
 
-  tb(3, 46, S_lab, size = 10, hjust = 0, parse = TRUE, colour = unname(col["Sense"])),
-  tb(3, 31, I_lab, size = 10, hjust = 0, parse = TRUE, colour = unname(col["Integration"])),
-  tb(3, 16, E_lab, size = 10, hjust = 0, parse = TRUE, colour = unname(col["Execution"])),
+  tb(3, 66, S_lab, size = 9.5, hjust = 0, parse = TRUE, colour = unname(col["Sense"])),
+  tb(3, 57, I_lab, size = 9.5, hjust = 0, parse = TRUE, colour = unname(col["Integration"])),
+  tb(3, 48, E_lab, size = 9.5, hjust = 0, parse = TRUE, colour = unname(col["Execution"])),
 
-  tb(3, 7.5, "S %in% group('[',list(0,1),']')*';   '*I*','~E %in% group('[',list(-1,+1),']')",
-      size = 8, hjust = 0, parse = TRUE))
+  # divider
+  annotate("segment", x = 2+OFF, xend = 86+OFF, y = 41, yend = 41, colour = "grey80", linewidth = 0.4),
 
-# ---- per-panel frames: A | B only (the old 2C validation panel is dropped; it is
-# now Fig 3). A gutter separates A | B.
+  # ========== STEP 3 : standardize against the frozen reference ==========
+  annotate("point", x = 5+OFF, y = 35, size = 5.2, colour = INK),
+  tb(5, 35, "3", size = 8, face = 2, colour = "white"),
+  tb(11, 35.5, "Standardize vs the frozen reference", size = 9.0, face = 2, hjust = 0),
+
+  tb(22, 24, std_lab, size = 11, parse = TRUE),
+  tb(2, 12, "mu[L]*', '*sigma[L]*' = frozen reference layer mean, SD'", size = 7.4, hjust = 0, parse = TRUE),
+  tb(2, 7.5, "bold(L)*'* in reference SD units  (0 = reference mean)'", size = 7.4, hjust = 0, parse = TRUE))
+
+# ---- per-panel frames: A | B (taller for legibility). A gutter separates A | B.
 frames <- list(
-  annotate("rect", xmin =  -2, xmax = 184.5, ymin =   1.5, ymax = 131.5, fill = NA, colour = INK, linewidth = 0.7),  # A
-  annotate("rect", xmin = 186.5, xmax = 276, ymin =   1.5, ymax = 131.5, fill = NA, colour = INK, linewidth = 0.7))  # B
+  annotate("rect", xmin =  -2, xmax = 184.5, ymin = 1.5, ymax = 150, fill = NA, colour = INK, linewidth = 0.7),  # A
+  annotate("rect", xmin = 186.5, xmax = 276, ymin = 1.5, ymax = 150, fill = NA, colour = INK, linewidth = 0.7))  # B
 
 fig2 <- pA + b2 + frames +
-  coord_fixed(ratio = 1, xlim = c(-4, 278), ylim = c(-1, 133.5), expand = FALSE, clip = "off")
+  coord_fixed(ratio = 1, xlim = c(-4, 278), ylim = c(-1, 152), expand = FALSE, clip = "off")
 
 # Two-panel top row (2A + a vertical 2B column); the 2C validation panel now lives in
-# Fig 3. Lift save_fig's double-column width cap for it only. Scale is kept identical
-# to 2A standalone: 186 units -> 174 mm.
+# Fig 3. Lift save_fig's double-column width cap for it only.
 FIG_W_DOUBLE <- 320
-save_fig(fig2, "ICI_Fig2", width_mm = 282*174/186, height_mm = 134.5*174/186, dir = "../results/figures/composite")
+save_fig(fig2, "ICI_Fig2", width_mm = 282*174/186, height_mm = 153*174/186, dir = "../results/figures/composite")
 cat("done\n")

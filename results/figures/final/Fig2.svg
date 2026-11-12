@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='747.80pt' height='356.66pt' viewBox='0 0 747.80 356.66'>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='747.80pt' height='405.72pt' viewBox='0 0 747.80 405.72'>
 <g class='svglite'>
 <defs>
   <style type='text/css'><![CDATA[
@@ -21,266 +21,262 @@
 </defs>
 <rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
 <defs>
-  <clipPath id='cpMC4wMHw3NDcuODB8MC4wMHwzNTYuNjY='>
-    <rect x='0.00' y='0.00' width='747.80' height='356.66' />
+  <clipPath id='cpMC4wMHw3NDcuODB8MC4wMHw0MDUuNzI='>
+    <rect x='0.00' y='0.00' width='747.80' height='405.72' />
   </clipPath>
 </defs>
-<g clip-path='url(#cpMC4wMHw3NDcuODB8MC4wMHwzNTYuNjY=)'>
+<g clip-path='url(#cpMC4wMHw3NDcuODB8MC4wMHw0MDUuNzI=)'>
 </g>
 <defs>
-  <clipPath id='cpMy4xMXw3NDQuNjl8MC4wMHwzNTYuNjY='>
-    <rect x='3.11' y='0.00' width='741.58' height='356.66' />
+  <clipPath id='cpMi4zOXw3NDUuNDF8MC4wMHw0MDUuNzI='>
+    <rect x='2.39' y='0.00' width='743.02' height='405.72' />
   </clipPath>
 </defs>
-<g clip-path='url(#cpMy4xMXw3NDQuNjl8MC4wMHwzNTYuNjY=)'>
-<rect x='3.11' y='0.00' width='741.58' height='356.66' style='stroke-width: 0.00; stroke: none; fill: #FFFFFF;' />
+<g clip-path='url(#cpMi4zOXw3NDUuNDF8MC4wMHw0MDUuNzI=)'>
+<rect x='2.39' y='0.00' width='743.02' height='405.72' style='stroke-width: 0.00; stroke: none; fill: #FFFFFF;' />
 </g>
-<g clip-path='url(#cpMC4wMHw3NDcuODB8MC4wMHwzNTYuNjY=)'>
-<text x='18.99' y='18.87' style='font-size: 12.00px; font-weight: bold; font-family: "Arial";'>a</text>
-<text x='259.08' y='26.77' text-anchor='middle' style='font-size: 12.18px; font-weight: bold; font-family: "Arial";'>Score each patient at each layer</text>
-<rect x='29.43' y='32.85' width='83.51' height='36.53' style='stroke-width: 1.28; stroke: #8A7F71; stroke-linecap: butt; stroke-linejoin: miter; fill: #F7F1E6;' />
-<text x='71.18' y='48.12' text-anchor='middle' style='font-size: 9.86px; font-weight: bold; font-family: "Arial";'>patient cohort</text>
-<text x='71.18' y='59.65' text-anchor='middle' style='font-size: 9.28px; font-family: "Arial";'>transcriptomes</text>
-<rect x='146.86' y='30.24' width='182.67' height='41.75' style='stroke-width: 1.28; stroke: #8A7F71; stroke-linecap: butt; stroke-linejoin: miter; fill: #F7F1E6;' />
-<text x='238.20' y='43.99' text-anchor='middle' style='font-size: 9.28px; font-family: "Arial";'>binarize each gene at its</text>
-<text x='238.20' y='54.95' text-anchor='middle' style='font-size: 9.28px; font-weight: bold; font-family: "Arial";'>cohort median</text>
-<text x='204.29' y='64.75' style='font-size: 9.51px; font-family: "Arial";'>b</text>
-<text x='209.58' y='66.47' style='font-size: 6.66px; font-family: "Arial";'>g</text>
-<text xml:space='preserve' x='215.48' y='64.75' style='font-size: 9.51px; font-family: "Symbol";'>= <tspan style='font-family: "Arial";'>1</tspan>  <tspan style='font-family: "Arial";'>if</tspan>  <tspan style='font-family: "Arial";'>x</tspan></text>
-<text x='247.18' y='66.47' style='font-size: 6.66px; font-family: "Arial";'>g</text>
-<text xml:space='preserve' x='253.08' y='64.75' style='font-size: 9.51px; font-family: "Symbol";'>≥ <tspan style='font-family: "Arial";'>m</tspan></text>
-<text x='268.40' y='66.47' style='font-size: 6.66px; font-family: "Arial";'>g</text>
-<rect x='363.46' y='32.85' width='125.26' height='36.53' style='stroke-width: 1.28; stroke: #8A7F71; stroke-linecap: butt; stroke-linejoin: miter; fill: #F7F1E6;' />
-<text x='426.09' y='46.60' text-anchor='middle' style='font-size: 9.28px; font-family: "Arial";'>combine per layer</text>
-<text x='426.09' y='58.35' text-anchor='middle' style='font-size: 9.28px; font-family: "Arial";'>(÷ gene count)</text>
-<line x1='112.94' y1='51.11' x2='146.86' y2='51.11' style='stroke-width: 1.49; stroke-linecap: butt;' />
-<polygon points='142.44,53.66 146.86,51.11 142.44,48.56 ' style='stroke-width: 1.49; stroke-linecap: butt; fill: #000000;' />
-<line x1='329.54' y1='51.11' x2='363.46' y2='51.11' style='stroke-width: 1.49; stroke-linecap: butt;' />
-<polygon points='359.04,53.66 363.46,51.11 359.04,48.56 ' style='stroke-width: 1.49; stroke-linecap: butt; fill: #000000;' />
-<line x1='426.09' y1='69.38' x2='426.09' y2='85.04' style='stroke-width: 1.49; stroke-linecap: butt;' />
-<polygon points='423.54,80.62 426.09,85.04 428.64,80.62 ' style='stroke-width: 1.49; stroke-linecap: butt; fill: #000000;' />
-<text x='37.26' y='91.59' style='font-size: 11.02px; font-weight: bold; font-family: "Arial";'>Three scores per patient, each on its own range:</text>
-<rect x='37.26' y='106.96' width='15.66' height='13.57' style='stroke-width: 1.28; stroke: #9C7A3E; stroke-linecap: butt; stroke-linejoin: miter; fill: #9C7A3E;' />
-<text x='45.09' y='117.48' text-anchor='middle' style='font-size: 10.44px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>S</text>
-<text x='60.75' y='117.40' style='font-size: 10.21px; font-weight: bold;fill: #9C7A3E; font-family: "Arial";'>Sensory</text>
-<line x1='141.64' y1='113.74' x2='475.67' y2='113.74' style='stroke-width: 1.71; stroke: #9C7A3E; stroke-linecap: butt;' />
-<line x1='141.64' y1='117.66' x2='141.64' y2='109.83' style='stroke-width: 1.71; stroke: #9C7A3E; stroke-linecap: butt;' />
-<line x1='475.67' y1='117.66' x2='475.67' y2='109.83' style='stroke-width: 1.71; stroke: #9C7A3E; stroke-linecap: butt;' />
-<text x='141.64' y='125.34' text-anchor='middle' style='font-size: 8.35px;fill: #9C7A3E; font-family: "Arial";'>0</text>
-<text x='475.67' y='125.34' text-anchor='middle' style='font-size: 8.35px;fill: #9C7A3E; font-family: "Arial";'>1</text>
-<text x='141.64' y='133.78' style='font-size: 8.58px; font-style: italic; font-family: "Arial";'>not detected</text>
-<text x='475.67' y='133.78' text-anchor='end' style='font-size: 8.58px; font-style: italic; font-family: "Arial";'>fully detected</text>
-<rect x='37.26' y='135.66' width='15.66' height='13.57' style='stroke-width: 1.28; stroke: #6A2C5A; stroke-linecap: butt; stroke-linejoin: miter; fill: #6A2C5A;' />
-<text x='45.09' y='146.19' text-anchor='middle' style='font-size: 10.44px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>I</text>
-<text x='60.75' y='146.10' style='font-size: 10.21px; font-weight: bold;fill: #6A2C5A; font-family: "Arial";'>Integration</text>
-<line x1='141.64' y1='142.45' x2='475.67' y2='142.45' style='stroke-width: 1.71; stroke: #6A2C5A; stroke-linecap: butt;' />
-<line x1='141.64' y1='146.36' x2='141.64' y2='138.53' style='stroke-width: 1.71; stroke: #6A2C5A; stroke-linecap: butt;' />
-<line x1='475.67' y1='146.36' x2='475.67' y2='138.53' style='stroke-width: 1.71; stroke: #6A2C5A; stroke-linecap: butt;' />
-<text x='141.64' y='154.05' text-anchor='middle' style='font-size: 8.35px;fill: #6A2C5A; font-family: "Arial";'>−1</text>
-<text x='475.67' y='154.05' text-anchor='middle' style='font-size: 8.35px;fill: #6A2C5A; font-family: "Arial";'>+1</text>
-<text x='141.64' y='162.48' style='font-size: 8.58px; font-style: italic; font-family: "Arial";'>suppressed</text>
-<text x='475.67' y='162.48' text-anchor='end' style='font-size: 8.58px; font-style: italic; font-family: "Arial";'>open access</text>
-<line x1='308.66' y1='146.36' x2='308.66' y2='138.53' style='stroke-width: 0.85; stroke: #6A2C5A; stroke-linecap: butt;' />
-<text x='308.66' y='154.13' text-anchor='middle' style='font-size: 8.58px;fill: #6A2C5A; font-family: "Arial";'>0</text>
-<text x='308.66' y='162.48' text-anchor='middle' style='font-size: 8.58px; font-style: italic; font-family: "Arial";'>balanced</text>
-<rect x='37.26' y='164.37' width='15.66' height='13.57' style='stroke-width: 1.28; stroke: #B2567E; stroke-linecap: butt; stroke-linejoin: miter; fill: #B2567E;' />
-<text x='45.09' y='174.89' text-anchor='middle' style='font-size: 10.44px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>E</text>
-<text x='60.75' y='174.81' style='font-size: 10.21px; font-weight: bold;fill: #B2567E; font-family: "Arial";'>Execution</text>
-<line x1='141.64' y1='171.15' x2='475.67' y2='171.15' style='stroke-width: 1.71; stroke: #B2567E; stroke-linecap: butt;' />
-<line x1='141.64' y1='175.07' x2='141.64' y2='167.24' style='stroke-width: 1.71; stroke: #B2567E; stroke-linecap: butt;' />
-<line x1='475.67' y1='175.07' x2='475.67' y2='167.24' style='stroke-width: 1.71; stroke: #B2567E; stroke-linecap: butt;' />
-<text x='141.64' y='182.75' text-anchor='middle' style='font-size: 8.35px;fill: #B2567E; font-family: "Arial";'>−1</text>
-<text x='475.67' y='182.75' text-anchor='middle' style='font-size: 8.35px;fill: #B2567E; font-family: "Arial";'>+1</text>
-<text x='141.64' y='191.19' style='font-size: 8.58px; font-style: italic; font-family: "Arial";'>exhausted</text>
-<text x='475.67' y='191.19' text-anchor='end' style='font-size: 8.58px; font-style: italic; font-family: "Arial";'>cytotoxic</text>
-<line x1='308.66' y1='175.07' x2='308.66' y2='167.24' style='stroke-width: 0.85; stroke: #B2567E; stroke-linecap: butt;' />
-<text x='308.66' y='182.84' text-anchor='middle' style='font-size: 8.58px;fill: #B2567E; font-family: "Arial";'>0</text>
-<text x='308.66' y='191.19' text-anchor='middle' style='font-size: 8.58px; font-style: italic; font-family: "Arial";'>balanced</text>
-<text x='259.08' y='204.22' text-anchor='middle' style='font-size: 12.18px; font-weight: bold; font-family: "Arial";'>Application of the three scores</text>
-<rect x='29.43' y='215.52' width='151.36' height='125.26' style='stroke-width: 1.92; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
-<circle cx='45.09' cy='225.96' r='5.90' style='stroke-width: 0.71; fill: #000000;' />
-<text x='45.09' y='229.28' text-anchor='middle' style='font-size: 9.28px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>1</text>
-<text x='59.44' y='229.69' style='font-size: 10.44px; font-weight: bold; font-family: "Arial";'>Archetypes</text>
-<text x='37.26' y='244.64' style='font-size: 8.47px; font-family: "Arial";'>Each +/− pattern is a type:</text>
-<text x='42.48' y='260.34' text-anchor='middle' style='font-size: 8.58px; font-weight: bold;fill: #9C7A3E; font-family: "Arial";'>S</text>
-<text x='58.14' y='260.34' text-anchor='middle' style='font-size: 8.58px; font-weight: bold;fill: #6A2C5A; font-family: "Arial";'>I</text>
-<text x='73.79' y='260.34' text-anchor='middle' style='font-size: 8.58px; font-weight: bold;fill: #B2567E; font-family: "Arial";'>E</text>
-<text x='94.67' y='260.43' style='font-size: 8.82px; font-weight: bold; font-family: "Arial";'>Archetype</text>
-<line x1='37.26' y1='262.49' x2='167.74' y2='262.49' style='stroke-width: 0.64; stroke-linecap: butt;' />
-<rect x='37.52' y='267.97' width='9.92' height='9.92' style='stroke-width: 1.28; stroke: #9C7A3E; stroke-linecap: butt; stroke-linejoin: miter; fill: #9C7A3E;' />
-<text x='42.48' y='275.63' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>+</text>
-<rect x='53.18' y='267.97' width='9.92' height='9.92' style='stroke-width: 1.28; stroke: #6A2C5A; stroke-linecap: butt; stroke-linejoin: miter; fill: #6A2C5A;' />
-<text x='58.14' y='275.63' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>+</text>
-<rect x='68.83' y='267.97' width='9.92' height='9.92' style='stroke-width: 1.28; stroke: #B2567E; stroke-linecap: butt; stroke-linejoin: miter; fill: #B2567E;' />
-<text x='73.79' y='275.63' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>+</text>
-<text x='94.67' y='276.25' style='font-size: 9.28px; font-weight: bold; font-family: "Arial";'>Inflamed</text>
-<rect x='37.52' y='284.93' width='9.92' height='9.92' style='stroke-width: 1.28; stroke: #9C7A3E; stroke-linecap: butt; stroke-linejoin: miter; fill: #9C7A3E;' />
-<text x='42.48' y='292.59' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>+</text>
-<rect x='53.18' y='284.93' width='9.92' height='9.92' style='stroke-width: 1.28; stroke: #6A2C5A; stroke-linecap: butt; stroke-linejoin: miter; fill: #6A2C5A;' />
-<text x='58.14' y='292.59' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>+</text>
-<rect x='68.83' y='284.93' width='9.92' height='9.92' style='stroke-width: 1.28; stroke: #B2567E; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
-<text x='73.79' y='292.59' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #B2567E; font-family: "Arial";'>−</text>
-<text x='94.67' y='293.21' style='font-size: 9.28px; font-weight: bold; font-family: "Arial";'>Execution Failed</text>
-<rect x='37.52' y='301.90' width='9.92' height='9.92' style='stroke-width: 1.28; stroke: #9C7A3E; stroke-linecap: butt; stroke-linejoin: miter; fill: #9C7A3E;' />
-<text x='42.48' y='309.55' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>+</text>
-<rect x='53.18' y='301.90' width='9.92' height='9.92' style='stroke-width: 1.28; stroke: #6A2C5A; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
-<text x='58.14' y='309.55' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #6A2C5A; font-family: "Arial";'>−</text>
-<rect x='68.83' y='301.90' width='9.92' height='9.92' style='stroke-width: 1.28; stroke: #B2567E; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
-<text x='73.79' y='309.55' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #B2567E; font-family: "Arial";'>−</text>
-<text x='94.67' y='310.17' style='font-size: 9.28px; font-weight: bold; font-family: "Arial";'>Excluded</text>
-<rect x='37.52' y='318.86' width='9.92' height='9.92' style='stroke-width: 1.28; stroke: #9C7A3E; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
-<text x='42.48' y='326.51' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #9C7A3E; font-family: "Arial";'>−</text>
-<rect x='53.18' y='318.86' width='9.92' height='9.92' style='stroke-width: 1.28; stroke: #6A2C5A; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
-<text x='58.14' y='326.51' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #6A2C5A; font-family: "Arial";'>−</text>
-<rect x='68.83' y='318.86' width='9.92' height='9.92' style='stroke-width: 1.28; stroke: #B2567E; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
-<text x='73.79' y='326.51' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #B2567E; font-family: "Arial";'>−</text>
-<text x='94.67' y='327.14' style='font-size: 9.28px; font-weight: bold; font-family: "Arial";'>Desert</text>
-<rect x='188.62' y='215.52' width='151.36' height='125.26' style='stroke-width: 1.92; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
-<circle cx='204.27' cy='225.96' r='5.90' style='stroke-width: 0.71; fill: #000000;' />
-<text x='204.27' y='229.28' text-anchor='middle' style='font-size: 9.28px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>2</text>
-<text x='218.63' y='229.69' style='font-size: 10.44px; font-weight: bold; font-family: "Arial";'>Stratify ICB benefit</text>
-<text x='196.45' y='244.77' style='font-size: 8.82px; font-family: "Arial";'>from the layer scores:</text>
-<polygon points='193.57,281.28 194.88,271.36 197.75,268.75 202.97,268.75 205.84,271.36 207.14,281.28 ' style='stroke-width: 0.00; stroke: #8A7F71; stroke-linecap: butt; fill: #8A7F71;' />
-<circle cx='200.36' cy='265.10' r='3.77' style='stroke-width: 0.71; stroke: #8A7F71; fill: #8A7F71;' />
-<polygon points='209.23,281.28 210.54,271.36 213.41,268.75 218.63,268.75 221.50,271.36 222.80,281.28 ' style='stroke-width: 0.00; stroke: #8A7F71; stroke-linecap: butt; fill: #8A7F71;' />
-<circle cx='216.02' cy='265.10' r='3.77' style='stroke-width: 0.71; stroke: #8A7F71; fill: #8A7F71;' />
-<text x='208.19' y='292.79' text-anchor='middle' style='font-size: 8.12px; font-family: "Arial";'>patients</text>
-<line x1='225.15' y1='272.93' x2='234.28' y2='272.93' style='stroke-width: 1.28; stroke-linecap: butt;' />
-<polygon points='231.09,274.77 234.28,272.93 231.09,271.09 ' style='stroke-width: 1.28; stroke-linecap: butt; fill: #000000;' />
-<line x1='246.03' y1='312.07' x2='246.03' y2='252.05' style='stroke-width: 1.28; stroke-linecap: butt;' />
-<line x1='246.03' y1='312.07' x2='326.93' y2='312.07' style='stroke-width: 1.28; stroke-linecap: butt;' />
-<line x1='251.25' y1='304.25' x2='321.71' y2='257.27' style='stroke-width: 2.35; stroke-linecap: butt;' />
-<line x1='251.25' y1='304.25' x2='321.71' y2='304.25' style='stroke-width: 2.13; stroke: #C9BEB0; stroke-dasharray: 5.69,5.69; stroke-linecap: butt;' />
-<text x='303.44' y='254.66' text-anchor='middle' style='font-size: 7.31px; font-weight: bold; font-family: "Arial";'>ICB</text>
-<text x='306.05' y='301.64' text-anchor='middle' style='font-size: 7.31px; font-family: "Arial";'>control</text>
-<text transform='translate(241.80,282.06) rotate(-90)' text-anchor='middle' style='font-size: 7.89px; font-family: "Arial";'>response</text>
-<text x='251.25' y='321.42' text-anchor='middle' style='font-size: 7.89px; font-family: "Arial";'>low</text>
-<text x='321.71' y='321.42' text-anchor='middle' style='font-size: 7.89px; font-family: "Arial";'>high</text>
-<text x='286.48' y='330.02' text-anchor='middle' style='font-size: 8.58px; font-weight: bold; font-family: "Arial";'>layer score</text>
-<text x='196.45' y='337.60' style='font-size: 7.89px; font-style: italic; font-family: "Arial";'>layer × treatment model.</text>
-<rect x='347.80' y='215.52' width='143.53' height='125.26' style='stroke-width: 1.92; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
-<circle cx='363.46' cy='225.96' r='5.90' style='stroke-width: 0.71; fill: #000000;' />
-<text x='363.46' y='229.28' text-anchor='middle' style='font-size: 9.28px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>3</text>
-<text x='377.81' y='229.40' style='font-size: 9.63px; font-weight: bold; font-family: "Arial";'>Localize the bottleneck</text>
-<text x='355.63' y='244.77' style='font-size: 8.82px; font-family: "Arial";'>Lowest score names the layer:</text>
-<rect x='358.24' y='266.67' width='11.74' height='12.53' style='stroke-width: 1.07; stroke: #9C7A3E; stroke-linecap: butt; stroke-linejoin: miter; fill: #F4ECDB;' />
-<text x='364.11' y='276.37' text-anchor='middle' style='font-size: 9.63px; font-weight: bold;fill: #9C7A3E; font-family: "Arial";'>S</text>
-<text x='373.90' y='276.17' style='font-size: 9.05px;fill: #9C7A3E; font-family: "Arial";'>low</text>
-<text x='394.78' y='276.04' style='font-size: 8.70px; font-family: "Arial";'>tumor not detected</text>
-<rect x='358.24' y='284.93' width='11.74' height='12.53' style='stroke-width: 1.07; stroke: #6A2C5A; stroke-linecap: butt; stroke-linejoin: miter; fill: #EAD8E5;' />
-<text x='364.11' y='294.64' text-anchor='middle' style='font-size: 9.63px; font-weight: bold;fill: #6A2C5A; font-family: "Arial";'>I</text>
-<text x='373.90' y='294.44' style='font-size: 9.05px;fill: #6A2C5A; font-family: "Arial";'>low</text>
-<text x='394.78' y='294.31' style='font-size: 8.70px; font-family: "Arial";'>immune access blocked</text>
-<rect x='358.24' y='303.20' width='11.74' height='12.53' style='stroke-width: 1.07; stroke: #B2567E; stroke-linecap: butt; stroke-linejoin: miter; fill: #F7E1EC;' />
-<text x='364.11' y='312.91' text-anchor='middle' style='font-size: 9.63px; font-weight: bold;fill: #B2567E; font-family: "Arial";'>E</text>
-<text x='373.90' y='312.70' style='font-size: 9.05px;fill: #B2567E; font-family: "Arial";'>low</text>
-<text x='394.78' y='312.57' style='font-size: 8.70px; font-family: "Arial";'>no tumor-cell killing</text>
-<text x='506.99' y='18.87' style='font-size: 12.00px; font-weight: bold; font-family: "Arial";'>b</text>
-<circle cx='520.04' cy='27.63' r='5.90' style='stroke-width: 0.71; fill: #000000;' />
-<text x='520.04' y='30.95' text-anchor='middle' style='font-size: 9.28px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>1</text>
-<text x='535.70' y='28.96' style='font-size: 11.02px; font-weight: bold; font-family: "Arial";'>Binarize each gene at its</text>
-<text x='535.70' y='41.22' style='font-size: 11.02px; font-weight: bold; font-family: "Arial";'>cohort median</text>
-<line x1='533.09' y1='85.04' x2='710.54' y2='85.04' style='stroke-width: 0.85; stroke-linecap: butt;' />
-<polygon points='707.10,87.02 710.54,85.04 707.10,83.05 ' style='stroke-width: 0.85; stroke-linecap: butt; fill: #000000;' />
-<text transform='translate(716.47,85.04) rotate(-90)' text-anchor='middle' style='font-size: 9.28px; font-family: "Arial";'>expression</text>
-<line x1='611.37' y1='98.09' x2='611.37' y2='71.99' style='stroke-width: 1.07; stroke: #4C1F41; stroke-dasharray: 2.85,2.85; stroke-linecap: butt;' />
-<text x='605.35' y='65.16' style='font-size: 9.86px;fill: #4C1F41; font-family: "Arial";'>m</text>
-<text x='613.56' y='66.95' style='font-size: 6.90px;fill: #4C1F41; font-family: "Arial";'>g</text>
-<text x='611.37' y='58.05' text-anchor='middle' style='font-size: 8.47px; font-family: "Arial";'>cohort median</text>
-<circle cx='548.74' cy='85.04' r='3.56' style='stroke-width: 0.71; fill: #FFFFFF;' />
-<circle cx='567.01' cy='85.04' r='3.56' style='stroke-width: 0.71; fill: #FFFFFF;' />
-<circle cx='585.28' cy='85.04' r='3.56' style='stroke-width: 0.71; fill: #FFFFFF;' />
-<circle cx='603.54' cy='85.04' r='3.56' style='stroke-width: 0.71; fill: #FFFFFF;' />
-<circle cx='627.03' cy='85.04' r='3.56' style='stroke-width: 0.71; fill: #C9BEB0;' />
-<circle cx='645.30' cy='85.04' r='3.56' style='stroke-width: 0.71; fill: #C9BEB0;' />
-<circle cx='663.57' cy='85.04' r='3.56' style='stroke-width: 0.71; fill: #C9BEB0;' />
-<circle cx='681.83' cy='85.04' r='3.56' style='stroke-width: 0.71; fill: #C9BEB0;' />
-<text x='559.03' y='98.94' style='font-size: 8.47px; font-family: "Arial";'>x</text>
-<text x='563.26' y='100.48' style='font-size: 5.93px; font-family: "Arial";'>g</text>
-<text xml:space='preserve' x='568.50' y='98.94' style='font-size: 8.47px; font-family: "Symbol";'>&lt; <tspan style='font-family: "Arial";'>m</tspan></text>
-<text x='582.14' y='100.48' style='font-size: 5.93px; font-family: "Arial";'>g</text>
-<text x='560.59' y='110.33' style='font-size: 9.28px; font-family: "Arial";'>b</text>
-<text x='565.74' y='112.02' style='font-size: 6.50px; font-family: "Arial";'>g</text>
-<text xml:space='preserve' x='571.49' y='110.33' style='font-size: 9.28px; font-family: "Symbol";'>= <tspan style='font-family: "Arial";'>0</tspan></text>
-<text x='637.32' y='98.94' style='font-size: 8.47px; font-family: "Arial";'>x</text>
-<text x='641.55' y='100.48' style='font-size: 5.93px; font-family: "Arial";'>g</text>
-<text xml:space='preserve' x='646.79' y='98.94' style='font-size: 8.47px; font-family: "Symbol";'>≥ <tspan style='font-family: "Arial";'>m</tspan></text>
-<text x='660.43' y='100.48' style='font-size: 5.93px; font-family: "Arial";'>g</text>
-<text x='638.87' y='110.33' style='font-size: 9.28px; font-family: "Arial";'>b</text>
-<text x='644.03' y='112.02' style='font-size: 6.50px; font-family: "Arial";'>g</text>
-<text xml:space='preserve' x='649.78' y='110.33' style='font-size: 9.28px; font-family: "Symbol";'>= <tspan style='font-family: "Arial";'>1</tspan></text>
-<text x='564.62' y='132.11' style='font-size: 11.60px; font-family: "Arial";'>b</text>
-<text x='571.06' y='134.22' style='font-size: 8.12px; font-family: "Arial";'>g</text>
-<text x='578.25' y='132.11' style='font-size: 11.60px; font-family: "Symbol";'>=</text>
-<text x='587.30' y='120.81' style='font-size: 11.60px; font-family: "Symbol";'></text>
-<text x='587.30' y='132.46' style='font-size: 11.60px; font-family: "Symbol";'></text>
-<text x='587.30' y='144.11' style='font-size: 11.60px; font-family: "Symbol";'></text>
-<text xml:space='preserve' x='593.95' y='121.11' style='font-size: 11.60px; font-family: "Arial";'>1,<tspan style='font-family: "Symbol";'>  </tspan>if<tspan style='font-family: "Symbol";'>  </tspan>x</text>
-<text x='626.81' y='123.21' style='font-size: 8.12px; font-family: "Arial";'>g</text>
-<text xml:space='preserve' x='634.00' y='121.11' style='font-size: 11.60px; font-family: "Symbol";'>≥ <tspan style='font-family: "Arial";'>m</tspan></text>
-<text x='652.70' y='123.21' style='font-size: 8.12px; font-family: "Arial";'>g</text>
-<text xml:space='preserve' x='593.03' y='141.18' style='font-size: 11.60px; font-family: "Arial";'>0,<tspan style='font-family: "Symbol";'>  </tspan>otherwise</text>
-<text x='512.21' y='154.68' style='font-size: 9.28px; font-family: "Arial";'>x</text>
-<text x='516.85' y='156.37' style='font-size: 6.50px; font-family: "Arial";'>g</text>
-<text x='520.45' y='154.68' style='font-size: 9.28px; font-family: "Arial";'> = gene expression in the tumor</text>
-<text x='512.21' y='166.43' style='font-size: 9.28px; font-family: "Arial";'>m</text>
-<text x='519.93' y='168.11' style='font-size: 6.50px; font-family: "Arial";'>g</text>
-<text x='523.53' y='166.43' style='font-size: 9.28px; font-family: "Arial";'> = cohort median</text>
-<text x='512.21' y='178.23' style='font-size: 9.28px; font-family: "Arial";'>b</text>
-<text x='517.36' y='179.91' style='font-size: 6.50px; font-family: "Arial";'>g</text>
-<text x='520.97' y='178.23' style='font-size: 9.28px; font-family: "Arial";'> = 1 (high) or 0 (low)</text>
-<line x1='512.21' y1='192.03' x2='731.42' y2='192.03' style='stroke-width: 0.85; stroke: #CCCCCC; stroke-linecap: butt;' />
-<circle cx='520.04' cy='205.08' r='5.90' style='stroke-width: 0.71; fill: #000000;' />
-<text x='520.04' y='208.40' text-anchor='middle' style='font-size: 9.28px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>2</text>
-<text x='535.70' y='209.02' style='font-size: 11.02px; font-weight: bold; font-family: "Arial";'>Combine within each layer</text>
-<text xml:space='preserve' x='514.82' y='234.03' style='font-size: 11.60px; font-weight: bold; fill: #9C7A3E; font-family: "Arial";'>S <tspan style='font-family: "Symbol"; font-weight: normal;'>=</tspan></text>
-<text x='537.51' y='223.87' style='font-size: 11.60px;fill: #9C7A3E; font-family: "Arial";'>1</text>
-<text x='534.28' y='243.10' style='font-size: 11.60px;fill: #9C7A3E; font-family: "Arial";'>21</text>
-<polyline points='534.28,230.61 547.19,230.61 ' style='stroke-width: 0.75; stroke: #9C7A3E;' />
-<text x='547.19' y='234.03' style='font-size: 11.60px;fill: #9C7A3E; font-family: "Symbol";'> </text>
-<text x='564.96' y='233.59' style='font-size: 14.50px;fill: #9C7A3E; font-family: "Symbol";'>∑</text>
-<text xml:space='preserve' x='550.09' y='243.86' style='font-size: 8.12px; fill: #9C7A3E; font-family: "Arial";'>g<tspan style='font-family: "Symbol";'>∈</tspan>Sensory</text>
-<text x='591.77' y='234.03' style='font-size: 11.60px;fill: #9C7A3E; font-family: "Arial";'>b</text>
-<text x='598.21' y='236.13' style='font-size: 8.12px;fill: #9C7A3E; font-family: "Arial";'>g</text>
-<text xml:space='preserve' x='514.82' y='273.22' style='font-size: 11.60px; font-weight: bold; fill: #6A2C5A; font-family: "Arial";'>I <tspan style='font-family: "Symbol"; font-weight: normal;'>=</tspan></text>
-<text x='533.00' y='263.06' style='font-size: 11.60px;fill: #6A2C5A; font-family: "Arial";'>1</text>
-<text x='529.77' y='282.29' style='font-size: 11.60px;fill: #6A2C5A; font-family: "Arial";'>21</text>
-<polyline points='529.77,269.81 542.67,269.81 ' style='stroke-width: 0.75; stroke: #6A2C5A;' />
-<text x='542.67' y='273.22' style='font-size: 11.60px;fill: #6A2C5A; font-family: "Symbol";'> </text>
-<text x='562.70' y='272.78' style='font-size: 14.50px;fill: #6A2C5A; font-family: "Symbol";'>∑</text>
-<text xml:space='preserve' x='545.57' y='282.96' style='font-size: 8.12px; fill: #6A2C5A; font-family: "Arial";'>g<tspan style='font-family: "Symbol";'>∈</tspan>activating</text>
-<text x='591.75' y='273.22' style='font-size: 11.60px;fill: #6A2C5A; font-family: "Arial";'>b</text>
-<text x='598.20' y='275.33' style='font-size: 8.12px;fill: #6A2C5A; font-family: "Arial";'>g</text>
-<text x='604.85' y='273.22' style='font-size: 11.60px;fill: #6A2C5A; font-family: "Symbol";'>−</text>
-<text x='616.59' y='263.06' style='font-size: 11.60px;fill: #6A2C5A; font-family: "Arial";'>1</text>
-<text x='613.36' y='282.29' style='font-size: 11.60px;fill: #6A2C5A; font-family: "Arial";'>20</text>
-<polyline points='613.36,269.81 626.27,269.81 ' style='stroke-width: 0.75; stroke: #6A2C5A;' />
-<text x='626.27' y='273.22' style='font-size: 11.60px;fill: #6A2C5A; font-family: "Symbol";'> </text>
-<text x='650.81' y='272.78' style='font-size: 14.50px;fill: #6A2C5A; font-family: "Symbol";'>∑</text>
-<text xml:space='preserve' x='629.17' y='282.96' style='font-size: 8.12px; fill: #6A2C5A; font-family: "Arial";'>g<tspan style='font-family: "Symbol";'>∈</tspan>suppressive</text>
-<text x='684.39' y='273.22' style='font-size: 11.60px;fill: #6A2C5A; font-family: "Arial";'>b</text>
-<text x='690.84' y='275.33' style='font-size: 8.12px;fill: #6A2C5A; font-family: "Arial";'>g</text>
-<text xml:space='preserve' x='514.82' y='312.32' style='font-size: 11.60px; font-weight: bold; fill: #B2567E; font-family: "Arial";'>E <tspan style='font-family: "Symbol"; font-weight: normal;'>=</tspan></text>
-<text x='537.51' y='302.16' style='font-size: 11.60px;fill: #B2567E; font-family: "Arial";'>1</text>
-<text x='534.28' y='321.38' style='font-size: 11.60px;fill: #B2567E; font-family: "Arial";'>19</text>
-<polyline points='534.28,308.90 547.19,308.90 ' style='stroke-width: 0.75; stroke: #B2567E;' />
-<text x='547.19' y='312.32' style='font-size: 11.60px;fill: #B2567E; font-family: "Symbol";'> </text>
-<text x='563.53' y='311.88' style='font-size: 14.50px;fill: #B2567E; font-family: "Symbol";'>∑</text>
-<text xml:space='preserve' x='550.09' y='322.15' style='font-size: 8.12px; fill: #B2567E; font-family: "Arial";'>g<tspan style='font-family: "Symbol";'>∈</tspan>effector</text>
-<text x='588.91' y='312.32' style='font-size: 11.60px;fill: #B2567E; font-family: "Arial";'>b</text>
-<text x='595.35' y='314.42' style='font-size: 8.12px;fill: #B2567E; font-family: "Arial";'>g</text>
-<text x='602.00' y='312.32' style='font-size: 11.60px;fill: #B2567E; font-family: "Symbol";'>−</text>
-<text x='613.75' y='302.16' style='font-size: 11.60px;fill: #B2567E; font-family: "Arial";'>1</text>
-<text x='610.51' y='321.38' style='font-size: 11.60px;fill: #B2567E; font-family: "Arial";'>19</text>
-<polyline points='610.51,308.90 623.42,308.90 ' style='stroke-width: 0.75; stroke: #B2567E;' />
-<text x='623.42' y='312.32' style='font-size: 11.60px;fill: #B2567E; font-family: "Symbol";'> </text>
-<text x='645.94' y='311.88' style='font-size: 14.50px;fill: #B2567E; font-family: "Symbol";'>∑</text>
-<text xml:space='preserve' x='626.32' y='322.05' style='font-size: 8.12px; fill: #B2567E; font-family: "Arial";'>g<tspan style='font-family: "Symbol";'>∈</tspan>exhaustion</text>
-<text x='677.49' y='312.32' style='font-size: 11.60px;fill: #B2567E; font-family: "Arial";'>b</text>
-<text x='683.93' y='314.42' style='font-size: 8.12px;fill: #B2567E; font-family: "Arial";'>g</text>
-<text xml:space='preserve' x='514.82' y='334.70' style='font-size: 9.28px; font-family: "Arial";'>S <tspan style='font-family: "Symbol";'>∈ </tspan><tspan style='font-size: 11.60px; font-family: "Symbol";'>[</tspan>0<tspan style='font-family: "Symbol";'>, </tspan>1<tspan style='font-size: 11.60px; font-family: "Symbol";'>]</tspan>;   I,<tspan style='font-family: "Symbol";'> </tspan>E <tspan style='font-family: "Symbol";'>∈ </tspan><tspan style='font-size: 11.60px; font-family: "Symbol";'>[</tspan><tspan style='font-family: "Symbol";'>−</tspan> 1<tspan style='font-family: "Symbol";'>, +</tspan> 1<tspan style='font-size: 11.60px; font-family: "Symbol";'>]</tspan></text>
-<rect x='11.16' y='8.05' width='486.69' height='339.25' style='stroke-width: 1.49; stroke-linecap: butt; stroke-linejoin: miter;' />
-<rect x='503.07' y='8.05' width='233.56' height='339.25' style='stroke-width: 1.49; stroke-linecap: butt; stroke-linejoin: miter;' />
+<g clip-path='url(#cpMC4wMHw3NDcuODB8MC4wMHw0MDUuNzI=)'>
+<text x='18.30' y='17.58' style='font-size: 12.00px; font-weight: bold; font-family: "Arial";'>a</text>
+<text x='258.85' y='25.50' text-anchor='middle' style='font-size: 12.18px; font-weight: bold; font-family: "Arial";'>Score each patient at each layer</text>
+<rect x='28.76' y='31.60' width='83.67' height='36.61' style='stroke-width: 1.28; stroke: #8A7F71; stroke-linecap: butt; stroke-linejoin: miter; fill: #F7F1E6;' />
+<text x='70.59' y='46.89' text-anchor='middle' style='font-size: 9.86px; font-weight: bold; font-family: "Arial";'>patient cohort</text>
+<text x='70.59' y='58.45' text-anchor='middle' style='font-size: 9.28px; font-family: "Arial";'>transcriptomes</text>
+<rect x='146.42' y='28.98' width='183.03' height='41.84' style='stroke-width: 1.28; stroke: #8A7F71; stroke-linecap: butt; stroke-linejoin: miter; fill: #F7F1E6;' />
+<text x='237.93' y='42.76' text-anchor='middle' style='font-size: 9.28px; font-family: "Arial";'>flag each gene vs the</text>
+<text x='237.93' y='53.74' text-anchor='middle' style='font-size: 9.28px; font-weight: bold; font-family: "Arial";'>frozen reference</text>
+<text x='206.67' y='63.56' style='font-size: 9.51px; font-family: "Arial";'>b</text>
+<text x='211.95' y='65.28' style='font-size: 6.66px; font-family: "Arial";'>g</text>
+<text xml:space='preserve' x='217.85' y='63.56' style='font-size: 9.51px; font-family: "Symbol";'>= <tspan style='font-family: "Arial";'>1</tspan>  <tspan style='font-family: "Arial";'>if</tspan>  <tspan style='font-family: "Arial";'>z</tspan></text>
+<text x='249.55' y='65.28' style='font-size: 6.66px; font-family: "Arial";'>g</text>
+<text xml:space='preserve' x='255.45' y='63.56' style='font-size: 9.51px; font-family: "Symbol";'>≥ <tspan style='font-family: "Arial";'>t</tspan></text>
+<text x='265.50' y='65.28' style='font-size: 6.66px; font-family: "Arial";'>g</text>
+<rect x='363.44' y='31.60' width='125.51' height='36.61' style='stroke-width: 1.28; stroke: #8A7F71; stroke-linecap: butt; stroke-linejoin: miter; fill: #F7F1E6;' />
+<text x='426.19' y='45.37' text-anchor='middle' style='font-size: 9.28px; font-family: "Arial";'>count per layer, then</text>
+<text x='426.19' y='57.14' text-anchor='middle' style='font-size: 9.28px; font-family: "Arial";'>standardize vs reference</text>
+<line x1='112.43' y1='49.90' x2='146.42' y2='49.90' style='stroke-width: 1.49; stroke-linecap: butt;' />
+<polygon points='142.00,52.45 146.42,49.90 142.00,47.35 ' style='stroke-width: 1.49; stroke-linecap: butt; fill: #000000;' />
+<line x1='329.45' y1='49.90' x2='363.44' y2='49.90' style='stroke-width: 1.49; stroke-linecap: butt;' />
+<polygon points='359.02,52.45 363.44,49.90 359.02,47.35 ' style='stroke-width: 1.49; stroke-linecap: butt; fill: #000000;' />
+<line x1='426.19' y1='70.82' x2='426.19' y2='96.96' style='stroke-width: 1.49; stroke-linecap: butt;' />
+<polygon points='423.64,92.55 426.19,96.96 428.74,92.55 ' style='stroke-width: 1.49; stroke-linecap: butt; fill: #000000;' />
+<text x='36.60' y='111.37' style='font-size: 11.02px; font-weight: bold; font-family: "Arial";'>Three layer scores, in reference SD units (0 = reference mean):</text>
+<rect x='36.60' y='126.77' width='15.69' height='13.60' style='stroke-width: 1.28; stroke: #9C7A3E; stroke-linecap: butt; stroke-linejoin: miter; fill: #9C7A3E;' />
+<text x='44.45' y='137.31' text-anchor='middle' style='font-size: 10.44px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>S</text>
+<text x='60.13' y='137.22' style='font-size: 10.21px; font-weight: bold;fill: #9C7A3E; font-family: "Arial";'>Sensory</text>
+<line x1='141.19' y1='133.57' x2='475.87' y2='133.57' style='stroke-width: 1.71; stroke: #9C7A3E; stroke-linecap: butt;' />
+<line x1='141.19' y1='137.49' x2='141.19' y2='129.65' style='stroke-width: 1.71; stroke: #9C7A3E; stroke-linecap: butt;' />
+<line x1='475.87' y1='137.49' x2='475.87' y2='129.65' style='stroke-width: 1.71; stroke: #9C7A3E; stroke-linecap: butt;' />
+<text x='141.19' y='145.19' text-anchor='middle' style='font-size: 8.35px;fill: #9C7A3E; font-family: "Arial";'>−2</text>
+<text x='475.87' y='145.19' text-anchor='middle' style='font-size: 8.35px;fill: #9C7A3E; font-family: "Arial";'>+2</text>
+<text x='141.19' y='153.64' style='font-size: 8.58px; font-style: italic; font-family: "Arial";'>not detected</text>
+<text x='475.87' y='153.64' text-anchor='end' style='font-size: 8.58px; font-style: italic; font-family: "Arial";'>fully detected</text>
+<line x1='308.53' y1='137.49' x2='308.53' y2='129.65' style='stroke-width: 0.85; stroke: #9C7A3E; stroke-linecap: butt;' />
+<text x='308.53' y='145.27' text-anchor='middle' style='font-size: 8.58px;fill: #9C7A3E; font-family: "Arial";'>0</text>
+<text x='308.53' y='153.64' text-anchor='middle' style='font-size: 8.58px; font-style: italic; font-family: "Arial";'>reference</text>
+<rect x='36.60' y='155.53' width='15.69' height='13.60' style='stroke-width: 1.28; stroke: #6A2C5A; stroke-linecap: butt; stroke-linejoin: miter; fill: #6A2C5A;' />
+<text x='44.45' y='166.07' text-anchor='middle' style='font-size: 10.44px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>I</text>
+<text x='60.13' y='165.99' style='font-size: 10.21px; font-weight: bold;fill: #6A2C5A; font-family: "Arial";'>Integration</text>
+<line x1='141.19' y1='162.33' x2='475.87' y2='162.33' style='stroke-width: 1.71; stroke: #6A2C5A; stroke-linecap: butt;' />
+<line x1='141.19' y1='166.25' x2='141.19' y2='158.41' style='stroke-width: 1.71; stroke: #6A2C5A; stroke-linecap: butt;' />
+<line x1='475.87' y1='166.25' x2='475.87' y2='158.41' style='stroke-width: 1.71; stroke: #6A2C5A; stroke-linecap: butt;' />
+<text x='141.19' y='173.95' text-anchor='middle' style='font-size: 8.35px;fill: #6A2C5A; font-family: "Arial";'>−2</text>
+<text x='475.87' y='173.95' text-anchor='middle' style='font-size: 8.35px;fill: #6A2C5A; font-family: "Arial";'>+2</text>
+<text x='141.19' y='182.40' style='font-size: 8.58px; font-style: italic; font-family: "Arial";'>suppressed</text>
+<text x='475.87' y='182.40' text-anchor='end' style='font-size: 8.58px; font-style: italic; font-family: "Arial";'>open access</text>
+<line x1='308.53' y1='166.25' x2='308.53' y2='158.41' style='stroke-width: 0.85; stroke: #6A2C5A; stroke-linecap: butt;' />
+<text x='308.53' y='174.03' text-anchor='middle' style='font-size: 8.58px;fill: #6A2C5A; font-family: "Arial";'>0</text>
+<text x='308.53' y='182.40' text-anchor='middle' style='font-size: 8.58px; font-style: italic; font-family: "Arial";'>reference</text>
+<rect x='36.60' y='184.30' width='15.69' height='13.60' style='stroke-width: 1.28; stroke: #B2567E; stroke-linecap: butt; stroke-linejoin: miter; fill: #B2567E;' />
+<text x='44.45' y='194.83' text-anchor='middle' style='font-size: 10.44px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>E</text>
+<text x='60.13' y='194.75' style='font-size: 10.21px; font-weight: bold;fill: #B2567E; font-family: "Arial";'>Execution</text>
+<line x1='141.19' y1='191.09' x2='475.87' y2='191.09' style='stroke-width: 1.71; stroke: #B2567E; stroke-linecap: butt;' />
+<line x1='141.19' y1='195.02' x2='141.19' y2='187.17' style='stroke-width: 1.71; stroke: #B2567E; stroke-linecap: butt;' />
+<line x1='475.87' y1='195.02' x2='475.87' y2='187.17' style='stroke-width: 1.71; stroke: #B2567E; stroke-linecap: butt;' />
+<text x='141.19' y='202.71' text-anchor='middle' style='font-size: 8.35px;fill: #B2567E; font-family: "Arial";'>−2</text>
+<text x='475.87' y='202.71' text-anchor='middle' style='font-size: 8.35px;fill: #B2567E; font-family: "Arial";'>+2</text>
+<text x='141.19' y='211.16' style='font-size: 8.58px; font-style: italic; font-family: "Arial";'>exhausted</text>
+<text x='475.87' y='211.16' text-anchor='end' style='font-size: 8.58px; font-style: italic; font-family: "Arial";'>cytotoxic</text>
+<line x1='308.53' y1='195.02' x2='308.53' y2='187.17' style='stroke-width: 0.85; stroke: #B2567E; stroke-linecap: butt;' />
+<text x='308.53' y='202.79' text-anchor='middle' style='font-size: 8.58px;fill: #B2567E; font-family: "Arial";'>0</text>
+<text x='308.53' y='211.16' text-anchor='middle' style='font-size: 8.58px; font-style: italic; font-family: "Arial";'>reference</text>
+<text x='258.85' y='252.98' text-anchor='middle' style='font-size: 12.18px; font-weight: bold; font-family: "Arial";'>Application of the three scores</text>
+<rect x='28.76' y='264.31' width='151.65' height='125.51' style='stroke-width: 1.92; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
+<circle cx='44.45' cy='274.76' r='5.90' style='stroke-width: 0.71; fill: #000000;' />
+<text x='44.45' y='278.08' text-anchor='middle' style='font-size: 9.28px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>1</text>
+<text x='58.83' y='278.50' style='font-size: 10.44px; font-weight: bold; font-family: "Arial";'>Archetypes</text>
+<text x='36.60' y='293.48' style='font-size: 8.47px; font-family: "Arial";'>Each +/− pattern is a type:</text>
+<text x='41.83' y='309.21' text-anchor='middle' style='font-size: 8.58px; font-weight: bold;fill: #9C7A3E; font-family: "Arial";'>S</text>
+<text x='57.52' y='309.21' text-anchor='middle' style='font-size: 8.58px; font-weight: bold;fill: #6A2C5A; font-family: "Arial";'>I</text>
+<text x='73.21' y='309.21' text-anchor='middle' style='font-size: 8.58px; font-weight: bold;fill: #B2567E; font-family: "Arial";'>E</text>
+<text x='86.28' y='309.29' style='font-size: 8.82px; font-weight: bold; font-family: "Arial";'>Archetype</text>
+<line x1='36.60' y1='311.37' x2='167.34' y2='311.37' style='stroke-width: 0.64; stroke-linecap: butt;' />
+<rect x='36.86' y='316.86' width='9.94' height='9.94' style='stroke-width: 1.28; stroke: #9C7A3E; stroke-linecap: butt; stroke-linejoin: miter; fill: #9C7A3E;' />
+<text x='41.83' y='324.53' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>+</text>
+<rect x='52.55' y='316.86' width='9.94' height='9.94' style='stroke-width: 1.28; stroke: #6A2C5A; stroke-linecap: butt; stroke-linejoin: miter; fill: #6A2C5A;' />
+<text x='57.52' y='324.53' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>+</text>
+<rect x='68.24' y='316.86' width='9.94' height='9.94' style='stroke-width: 1.28; stroke: #B2567E; stroke-linecap: butt; stroke-linejoin: miter; fill: #B2567E;' />
+<text x='73.21' y='324.53' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>+</text>
+<text x='86.28' y='324.90' style='font-size: 8.58px; font-weight: bold; font-family: "Arial";'>Intact</text>
+<rect x='36.86' y='333.86' width='9.94' height='9.94' style='stroke-width: 1.28; stroke: #9C7A3E; stroke-linecap: butt; stroke-linejoin: miter; fill: #9C7A3E;' />
+<text x='41.83' y='341.52' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>+</text>
+<rect x='52.55' y='333.86' width='9.94' height='9.94' style='stroke-width: 1.28; stroke: #6A2C5A; stroke-linecap: butt; stroke-linejoin: miter; fill: #6A2C5A;' />
+<text x='57.52' y='341.52' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>+</text>
+<rect x='68.24' y='333.86' width='9.94' height='9.94' style='stroke-width: 1.28; stroke: #B2567E; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
+<text x='73.21' y='341.52' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #B2567E; font-family: "Arial";'>−</text>
+<text x='86.28' y='341.90' style='font-size: 8.58px; font-weight: bold; font-family: "Arial";'>Execution-impaired</text>
+<rect x='36.86' y='350.85' width='9.94' height='9.94' style='stroke-width: 1.28; stroke: #9C7A3E; stroke-linecap: butt; stroke-linejoin: miter; fill: #9C7A3E;' />
+<text x='41.83' y='358.52' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>+</text>
+<rect x='52.55' y='350.85' width='9.94' height='9.94' style='stroke-width: 1.28; stroke: #6A2C5A; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
+<text x='57.52' y='358.52' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #6A2C5A; font-family: "Arial";'>−</text>
+<rect x='68.24' y='350.85' width='9.94' height='9.94' style='stroke-width: 1.28; stroke: #B2567E; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
+<text x='73.21' y='358.52' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #B2567E; font-family: "Arial";'>−</text>
+<text x='86.28' y='358.89' style='font-size: 8.58px; font-weight: bold; font-family: "Arial";'>Blocked</text>
+<rect x='36.86' y='367.85' width='9.94' height='9.94' style='stroke-width: 1.28; stroke: #9C7A3E; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
+<text x='41.83' y='375.51' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #9C7A3E; font-family: "Arial";'>−</text>
+<rect x='52.55' y='367.85' width='9.94' height='9.94' style='stroke-width: 1.28; stroke: #6A2C5A; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
+<text x='57.52' y='375.51' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #6A2C5A; font-family: "Arial";'>−</text>
+<rect x='68.24' y='367.85' width='9.94' height='9.94' style='stroke-width: 1.28; stroke: #B2567E; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
+<text x='73.21' y='375.51' text-anchor='middle' style='font-size: 7.54px; font-weight: bold;fill: #B2567E; font-family: "Arial";'>−</text>
+<text x='86.28' y='375.89' style='font-size: 8.58px; font-weight: bold; font-family: "Arial";'>Cold</text>
+<rect x='188.25' y='264.31' width='151.65' height='125.51' style='stroke-width: 1.92; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
+<circle cx='203.94' cy='274.76' r='5.90' style='stroke-width: 0.71; fill: #000000;' />
+<text x='203.94' y='278.08' text-anchor='middle' style='font-size: 9.28px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>2</text>
+<text x='218.32' y='278.50' style='font-size: 10.44px; font-weight: bold; font-family: "Arial";'>Stratify ICB benefit</text>
+<text x='196.10' y='293.61' style='font-size: 8.82px; font-family: "Arial";'>from the layer scores:</text>
+<polygon points='193.22,330.20 194.53,320.26 197.41,317.65 202.64,317.65 205.51,320.26 206.82,330.20 ' style='stroke-width: 0.00; stroke: #8A7F71; stroke-linecap: butt; fill: #8A7F71;' />
+<circle cx='200.02' cy='313.99' r='3.77' style='stroke-width: 0.71; stroke: #8A7F71; fill: #8A7F71;' />
+<polygon points='208.91,330.20 210.22,320.26 213.09,317.65 218.32,317.65 221.20,320.26 222.51,330.20 ' style='stroke-width: 0.00; stroke: #8A7F71; stroke-linecap: butt; fill: #8A7F71;' />
+<circle cx='215.71' cy='313.99' r='3.77' style='stroke-width: 0.71; stroke: #8A7F71; fill: #8A7F71;' />
+<text x='207.86' y='341.73' text-anchor='middle' style='font-size: 8.12px; font-family: "Arial";'>patients</text>
+<line x1='224.86' y1='321.83' x2='234.01' y2='321.83' style='stroke-width: 1.28; stroke-linecap: butt;' />
+<polygon points='230.82,323.67 234.01,321.83 230.82,319.99 ' style='stroke-width: 1.28; stroke-linecap: butt; fill: #000000;' />
+<line x1='245.78' y1='361.05' x2='245.78' y2='300.91' style='stroke-width: 1.28; stroke-linecap: butt;' />
+<line x1='245.78' y1='361.05' x2='326.83' y2='361.05' style='stroke-width: 1.28; stroke-linecap: butt;' />
+<line x1='251.01' y1='353.21' x2='321.60' y2='306.14' style='stroke-width: 2.35; stroke-linecap: butt;' />
+<line x1='251.01' y1='353.21' x2='321.60' y2='353.21' style='stroke-width: 2.13; stroke: #C9BEB0; stroke-dasharray: 5.69,5.69; stroke-linecap: butt;' />
+<text x='303.30' y='303.52' text-anchor='middle' style='font-size: 7.31px; font-weight: bold; font-family: "Arial";'>ICB</text>
+<text x='305.92' y='350.59' text-anchor='middle' style='font-size: 7.31px; font-family: "Arial";'>control</text>
+<text transform='translate(241.54,330.98) rotate(-90)' text-anchor='middle' style='font-size: 7.89px; font-family: "Arial";'>response</text>
+<text x='251.01' y='370.41' text-anchor='middle' style='font-size: 7.89px; font-family: "Arial";'>low</text>
+<text x='321.60' y='370.41' text-anchor='middle' style='font-size: 7.89px; font-family: "Arial";'>high</text>
+<text x='286.31' y='379.02' text-anchor='middle' style='font-size: 8.58px; font-weight: bold; font-family: "Arial";'>layer score</text>
+<text x='196.10' y='386.62' style='font-size: 7.89px; font-style: italic; font-family: "Arial";'>layer × treatment model.</text>
+<rect x='347.75' y='264.31' width='143.81' height='125.51' style='stroke-width: 1.92; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF;' />
+<circle cx='363.44' cy='274.76' r='5.90' style='stroke-width: 0.71; fill: #000000;' />
+<text x='363.44' y='278.08' text-anchor='middle' style='font-size: 9.28px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>3</text>
+<text x='377.82' y='278.21' style='font-size: 9.63px; font-weight: bold; font-family: "Arial";'>Localize the bottleneck</text>
+<text x='355.60' y='293.61' style='font-size: 8.82px; font-family: "Arial";'>Lowest score names the layer:</text>
+<rect x='358.21' y='315.55' width='11.77' height='12.55' style='stroke-width: 1.07; stroke: #9C7A3E; stroke-linecap: butt; stroke-linejoin: miter; fill: #F4ECDB;' />
+<text x='364.09' y='325.27' text-anchor='middle' style='font-size: 9.63px; font-weight: bold;fill: #9C7A3E; font-family: "Arial";'>S</text>
+<text x='373.90' y='325.07' style='font-size: 9.05px;fill: #9C7A3E; font-family: "Arial";'>low</text>
+<text x='389.59' y='324.65' style='font-size: 7.89px; font-family: "Arial";'>tumor not detected</text>
+<rect x='358.21' y='333.86' width='11.77' height='12.55' style='stroke-width: 1.07; stroke: #6A2C5A; stroke-linecap: butt; stroke-linejoin: miter; fill: #EAD8E5;' />
+<text x='364.09' y='343.58' text-anchor='middle' style='font-size: 9.63px; font-weight: bold;fill: #6A2C5A; font-family: "Arial";'>I</text>
+<text x='373.90' y='343.37' style='font-size: 9.05px;fill: #6A2C5A; font-family: "Arial";'>low</text>
+<text x='389.59' y='342.95' style='font-size: 7.89px; font-family: "Arial";'>immune access blocked</text>
+<rect x='358.21' y='352.16' width='11.77' height='12.55' style='stroke-width: 1.07; stroke: #B2567E; stroke-linecap: butt; stroke-linejoin: miter; fill: #F7E1EC;' />
+<text x='364.09' y='361.88' text-anchor='middle' style='font-size: 9.63px; font-weight: bold;fill: #B2567E; font-family: "Arial";'>E</text>
+<text x='373.90' y='361.68' style='font-size: 9.05px;fill: #B2567E; font-family: "Arial";'>low</text>
+<text x='389.59' y='361.25' style='font-size: 7.89px; font-family: "Arial";'>impaired tumor-cell killing</text>
+<text x='507.25' y='17.58' style='font-size: 12.00px; font-weight: bold; font-family: "Arial";'>b</text>
+<circle cx='520.32' cy='23.75' r='5.90' style='stroke-width: 0.71; fill: #000000;' />
+<text x='520.32' y='27.07' text-anchor='middle' style='font-size: 9.28px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>1</text>
+<text x='536.01' y='25.08' style='font-size: 11.02px; font-weight: bold; font-family: "Arial";'>Flag each gene against</text>
+<text x='536.01' y='37.37' style='font-size: 11.02px; font-weight: bold; font-family: "Arial";'>the frozen reference</text>
+<line x1='533.40' y1='86.51' x2='711.20' y2='86.51' style='stroke-width: 0.85; stroke-linecap: butt;' />
+<polygon points='707.76,88.49 711.20,86.51 707.76,84.52 ' style='stroke-width: 0.85; stroke-linecap: butt; fill: #000000;' />
+<text xml:space='preserve' transform='translate(718.59,131.65) rotate(-90)' style='font-size: 8.35px; font-family: "Arial";'>standardized<tspan style='font-family: "Symbol";'> </tspan>expression</text>
+<line x1='611.84' y1='99.58' x2='611.84' y2='73.43' style='stroke-width: 1.07; stroke: #4C1F41; stroke-dasharray: 2.85,2.85; stroke-linecap: butt;' />
+<text x='608.55' y='67.42' style='font-size: 9.86px;fill: #4C1F41; font-family: "Arial";'>t</text>
+<text x='611.29' y='69.21' style='font-size: 6.90px;fill: #4C1F41; font-family: "Arial";'>g</text>
+<text x='611.84' y='59.46' text-anchor='middle' style='font-size: 8.47px; font-family: "Arial";'>frozen reference</text>
+<circle cx='549.08' cy='86.51' r='3.56' style='stroke-width: 0.71; fill: #FFFFFF;' />
+<circle cx='567.39' cy='86.51' r='3.56' style='stroke-width: 0.71; fill: #FFFFFF;' />
+<circle cx='585.69' cy='86.51' r='3.56' style='stroke-width: 0.71; fill: #FFFFFF;' />
+<circle cx='603.99' cy='86.51' r='3.56' style='stroke-width: 0.71; fill: #FFFFFF;' />
+<circle cx='627.53' cy='86.51' r='3.56' style='stroke-width: 0.71; fill: #C9BEB0;' />
+<circle cx='645.83' cy='86.51' r='3.56' style='stroke-width: 0.71; fill: #C9BEB0;' />
+<circle cx='664.13' cy='86.51' r='3.56' style='stroke-width: 0.71; fill: #C9BEB0;' />
+<circle cx='682.43' cy='86.51' r='3.56' style='stroke-width: 0.71; fill: #C9BEB0;' />
+<text x='542.70' y='104.60' style='font-size: 8.35px; font-family: "Arial";'>z</text>
+<text x='546.87' y='106.12' style='font-size: 5.85px; font-family: "Arial";'>g</text>
+<text xml:space='preserve' x='552.06' y='104.60' style='font-size: 8.35px; font-family: "Symbol";'>&lt; <tspan style='font-family: "Arial";'>t</tspan></text>
+<text x='560.89' y='106.12' style='font-size: 5.85px; font-family: "Arial";'>g</text>
+<text xml:space='preserve' x='564.14' y='104.60' style='font-size: 10.44px; font-family: "Symbol";'>(<tspan style='font-size: 8.35px; font-family: "Arial";'>b</tspan></text>
+<text x='572.26' y='106.12' style='font-size: 5.85px; font-family: "Arial";'>g</text>
+<text xml:space='preserve' x='577.45' y='104.60' style='font-size: 8.35px; font-family: "Symbol";'>= <tspan style='font-family: "Arial";'>0</tspan><tspan style='font-size: 10.44px;'>)</tspan></text>
+<text x='631.60' y='104.60' style='font-size: 8.35px; font-family: "Arial";'>z</text>
+<text x='635.77' y='106.12' style='font-size: 5.85px; font-family: "Arial";'>g</text>
+<text xml:space='preserve' x='640.96' y='104.60' style='font-size: 8.35px; font-family: "Symbol";'>≥ <tspan style='font-family: "Arial";'>t</tspan></text>
+<text x='649.79' y='106.12' style='font-size: 5.85px; font-family: "Arial";'>g</text>
+<text xml:space='preserve' x='653.04' y='104.60' style='font-size: 10.44px; font-family: "Symbol";'>(<tspan style='font-size: 8.35px; font-family: "Arial";'>b</tspan></text>
+<text x='661.16' y='106.12' style='font-size: 5.85px; font-family: "Arial";'>g</text>
+<text xml:space='preserve' x='666.35' y='104.60' style='font-size: 8.35px; font-family: "Symbol";'>= <tspan style='font-family: "Arial";'>1</tspan><tspan style='font-size: 10.44px;'>)</tspan></text>
+<text x='565.08' y='136.28' style='font-size: 11.60px; font-family: "Arial";'>b</text>
+<text x='571.52' y='138.39' style='font-size: 8.12px; font-family: "Arial";'>g</text>
+<text x='578.71' y='136.28' style='font-size: 11.60px; font-family: "Symbol";'>=</text>
+<text x='587.76' y='124.98' style='font-size: 11.60px; font-family: "Symbol";'></text>
+<text x='587.76' y='136.63' style='font-size: 11.60px; font-family: "Symbol";'></text>
+<text x='587.76' y='148.28' style='font-size: 11.60px; font-family: "Symbol";'></text>
+<text xml:space='preserve' x='597.63' y='125.28' style='font-size: 11.60px; font-family: "Arial";'>1,<tspan style='font-family: "Symbol";'>  </tspan>if<tspan style='font-family: "Symbol";'>  </tspan>z</text>
+<text x='630.49' y='127.38' style='font-size: 8.12px; font-family: "Arial";'>g</text>
+<text xml:space='preserve' x='637.68' y='125.28' style='font-size: 11.60px; font-family: "Symbol";'>≥ <tspan style='font-family: "Arial";'>t</tspan></text>
+<text x='649.95' y='127.38' style='font-size: 8.12px; font-family: "Arial";'>g</text>
+<text xml:space='preserve' x='593.49' y='145.35' style='font-size: 11.60px; font-family: "Arial";'>0,<tspan style='font-family: "Symbol";'>  </tspan>otherwise</text>
+<text x='512.48' y='153.53' style='font-size: 8.58px; font-family: "Arial";'>z</text>
+<text x='516.77' y='155.09' style='font-size: 6.01px; font-family: "Arial";'>g</text>
+<text x='520.10' y='153.53' style='font-size: 8.58px; font-family: "Arial";'> = within-sample standardized expression</text>
+<text x='512.48' y='164.04' style='font-size: 8.58px; font-family: "Arial";'>t</text>
+<text x='514.86' y='165.60' style='font-size: 6.01px; font-family: "Arial";'>g</text>
+<text x='518.20' y='164.04' style='font-size: 8.58px; font-family: "Arial";'> = frozen gene-specific reference threshold</text>
+<line x1='512.48' y1='178.02' x2='732.11' y2='178.02' style='stroke-width: 0.85; stroke: #CCCCCC; stroke-linecap: butt;' />
+<circle cx='520.32' cy='192.40' r='5.90' style='stroke-width: 0.71; fill: #000000;' />
+<text x='520.32' y='195.72' text-anchor='middle' style='font-size: 9.28px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>2</text>
+<text x='536.01' y='193.73' style='font-size: 11.02px; font-weight: bold; font-family: "Arial";'>Count within each layer</text>
+<text x='536.01' y='204.87' style='font-size: 9.28px; font-family: "Arial";'>(activating − suppressive)</text>
+<text xml:space='preserve' x='515.09' y='227.55' style='font-size: 11.02px; font-weight: bold; fill: #9C7A3E; font-family: "Arial";'>S <tspan style='font-family: "Symbol"; font-weight: normal;'>=</tspan></text>
+<text x='547.71' y='227.13' style='font-size: 13.77px;fill: #9C7A3E; font-family: "Symbol";'>∑</text>
+<text xml:space='preserve' x='533.59' y='236.90' style='font-size: 7.71px; fill: #9C7A3E; font-family: "Arial";'>g<tspan style='font-family: "Symbol";'>∈</tspan>Sensory</text>
+<text x='573.17' y='227.55' style='font-size: 11.02px;fill: #9C7A3E; font-family: "Arial";'>b</text>
+<text x='579.29' y='229.55' style='font-size: 7.71px;fill: #9C7A3E; font-family: "Arial";'>g</text>
+<text xml:space='preserve' x='515.09' y='251.13' style='font-size: 11.02px; font-weight: bold; fill: #6A2C5A; font-family: "Arial";'>I <tspan style='font-family: "Symbol"; font-weight: normal;'>=</tspan></text>
+<text x='545.56' y='250.71' style='font-size: 13.77px;fill: #6A2C5A; font-family: "Symbol";'>∑</text>
+<text xml:space='preserve' x='529.30' y='260.38' style='font-size: 7.71px; fill: #6A2C5A; font-family: "Arial";'>g<tspan style='font-family: "Symbol";'>∈</tspan>activating</text>
+<text x='573.17' y='251.13' style='font-size: 11.02px;fill: #6A2C5A; font-family: "Arial";'>b</text>
+<text x='579.30' y='253.13' style='font-size: 7.71px;fill: #6A2C5A; font-family: "Arial";'>g</text>
+<text x='585.62' y='251.13' style='font-size: 11.02px;fill: #6A2C5A; font-family: "Symbol";'>−</text>
+<text x='614.26' y='250.71' style='font-size: 13.77px;fill: #6A2C5A; font-family: "Symbol";'>∑</text>
+<text xml:space='preserve' x='593.71' y='260.38' style='font-size: 7.71px; fill: #6A2C5A; font-family: "Arial";'>g<tspan style='font-family: "Symbol";'>∈</tspan>suppressive</text>
+<text x='646.14' y='251.13' style='font-size: 11.02px;fill: #6A2C5A; font-family: "Arial";'>b</text>
+<text x='652.27' y='253.13' style='font-size: 7.71px;fill: #6A2C5A; font-family: "Arial";'>g</text>
+<text xml:space='preserve' x='515.09' y='274.61' style='font-size: 11.02px; font-weight: bold; fill: #B2567E; font-family: "Arial";'>E <tspan style='font-family: "Symbol"; font-weight: normal;'>=</tspan></text>
+<text x='546.35' y='274.19' style='font-size: 13.77px;fill: #B2567E; font-family: "Symbol";'>∑</text>
+<text xml:space='preserve' x='533.59' y='283.96' style='font-size: 7.71px; fill: #B2567E; font-family: "Arial";'>g<tspan style='font-family: "Symbol";'>∈</tspan>effector</text>
+<text x='570.45' y='274.61' style='font-size: 11.02px;fill: #B2567E; font-family: "Arial";'>b</text>
+<text x='576.57' y='276.61' style='font-size: 7.71px;fill: #B2567E; font-family: "Arial";'>g</text>
+<text x='582.90' y='274.61' style='font-size: 11.02px;fill: #B2567E; font-family: "Symbol";'>−</text>
+<text x='609.60' y='274.19' style='font-size: 13.77px;fill: #B2567E; font-family: "Symbol";'>∑</text>
+<text xml:space='preserve' x='590.99' y='283.87' style='font-size: 7.71px; fill: #B2567E; font-family: "Arial";'>g<tspan style='font-family: "Symbol";'>∈</tspan>exhaustion</text>
+<text x='639.56' y='274.61' style='font-size: 11.02px;fill: #B2567E; font-family: "Arial";'>b</text>
+<text x='645.69' y='276.61' style='font-size: 7.71px;fill: #B2567E; font-family: "Arial";'>g</text>
+<line x1='512.48' y1='293.07' x2='732.11' y2='293.07' style='stroke-width: 0.85; stroke: #CCCCCC; stroke-linecap: butt;' />
+<circle cx='520.32' cy='308.76' r='5.90' style='stroke-width: 0.71; fill: #000000;' />
+<text x='520.32' y='312.08' text-anchor='middle' style='font-size: 9.28px; font-weight: bold;fill: #FFFFFF; font-family: "Arial";'>3</text>
+<text x='536.01' y='311.19' style='font-size: 10.44px; font-weight: bold; font-family: "Arial";'>Standardize vs the frozen reference</text>
+<text xml:space='preserve' x='536.04' y='341.48' style='font-size: 12.76px; font-weight: bold; font-family: "Arial";'>L<tspan style='font-weight: normal;'>* </tspan><tspan style='font-family: "Symbol"; font-weight: normal;'>=</tspan></text>
+<text xml:space='preserve' x='561.69' y='330.69' style='font-size: 12.76px; font-family: "Symbol";'><tspan style='font-weight: bold; font-family: "Arial";'>L</tspan> − μ</text>
+<text x='588.54' y='333.01' style='font-size: 8.93px; font-family: "Arial";'>L</text>
+<text x='571.27' y='351.08' style='font-size: 12.76px; font-family: "Symbol";'>σ</text>
+<text x='578.96' y='353.40' style='font-size: 8.93px; font-family: "Arial";'>L</text>
+<polyline points='561.69,337.73 593.50,337.73 ' style='stroke-width: 0.75;' />
+<text x='512.48' y='371.12' style='font-size: 8.58px; font-family: "Symbol";'>μ</text>
+<text x='517.42' y='372.67' style='font-size: 6.01px; font-family: "Arial";'>L</text>
+<text xml:space='preserve' x='520.75' y='371.12' style='font-size: 8.58px; font-family: "Arial";'>, <tspan style='font-family: "Symbol";'>σ</tspan></text>
+<text x='530.70' y='372.67' style='font-size: 6.01px; font-family: "Arial";'>L</text>
+<text x='534.04' y='371.12' style='font-size: 8.58px; font-family: "Arial";'> = frozen reference layer mean, SD</text>
+<text xml:space='preserve' x='512.48' y='382.88' style='font-size: 8.58px; font-family: "Arial";'><tspan style='font-weight: bold;'>L</tspan>* in reference SD units  (0 = reference mean)</text>
+<rect x='10.45' y='8.06' width='487.64' height='388.28' style='stroke-width: 1.49; stroke-linecap: butt; stroke-linejoin: miter;' />
+<rect x='503.33' y='8.06' width='234.02' height='388.28' style='stroke-width: 1.49; stroke-linecap: butt; stroke-linejoin: miter;' />
 </g>
 </g>
 <!-- text joined by svg_join_text.py -->
