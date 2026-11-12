@@ -34,12 +34,6 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpNDcuNzZ8MjM1LjI4fDE2Ljc5fDIwNS4wOQ==)'>
-<polyline points='47.76,205.09 235.28,205.09 ' style='stroke-width: 0.43; stroke: #E5E5E5; stroke-linecap: butt;' />
-<polyline points='47.76,167.81 235.28,167.81 ' style='stroke-width: 0.43; stroke: #E5E5E5; stroke-linecap: butt;' />
-<polyline points='47.76,130.52 235.28,130.52 ' style='stroke-width: 0.43; stroke: #E5E5E5; stroke-linecap: butt;' />
-<polyline points='47.76,93.23 235.28,93.23 ' style='stroke-width: 0.43; stroke: #E5E5E5; stroke-linecap: butt;' />
-<polyline points='47.76,55.94 235.28,55.94 ' style='stroke-width: 0.43; stroke: #E5E5E5; stroke-linecap: butt;' />
-<polyline points='47.76,18.65 235.28,18.65 ' style='stroke-width: 0.43; stroke: #E5E5E5; stroke-linecap: butt;' />
 <line x1='47.76' y1='150.23' x2='235.28' y2='150.23' style='stroke-width: 0.75; stroke: #404040; stroke-dasharray: 2.00,2.00; stroke-linecap: butt;' />
 <text x='58.31' y='148.44' style='font-size: 7.50px;fill: #8A7F71; font-family: "Arial";'>all patients  29%</text>
 <rect x='63.59' y='176.80' width='38.67' height='28.29' style='stroke-width: 0.64; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #D9B8CC;' />

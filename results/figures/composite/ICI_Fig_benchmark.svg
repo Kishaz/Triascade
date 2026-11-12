@@ -63,10 +63,6 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMTUzLjY2fDQzMi45NHwyNC4xMnwxMjIuNTk=)'>
-<polyline points='169.17,122.59 169.17,24.12 ' style='stroke-width: 0.43; stroke: #E5E5E5; stroke-linecap: butt;' />
-<polyline points='246.75,122.59 246.75,24.12 ' style='stroke-width: 0.43; stroke: #E5E5E5; stroke-linecap: butt;' />
-<polyline points='324.33,122.59 324.33,24.12 ' style='stroke-width: 0.43; stroke: #E5E5E5; stroke-linecap: butt;' />
-<polyline points='401.91,122.59 401.91,24.12 ' style='stroke-width: 0.43; stroke: #E5E5E5; stroke-linecap: butt;' />
 <line x1='169.17' y1='122.59' x2='169.17' y2='24.12' style='stroke-width: 0.75; stroke: #404040; stroke-dasharray: 2.00,2.00; stroke-linecap: butt;' />
 <text x='169.17' y='127.17' text-anchor='middle' style='font-size: 9.00px;fill: #8A7F71; font-family: "Arial";'>chance</text>
 <polyline points='386.08,114.42 386.08,108.47 ' style='stroke-width: 2.56; stroke: #6A2C5A; stroke-linecap: butt;' />
