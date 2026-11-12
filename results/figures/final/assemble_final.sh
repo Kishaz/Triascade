@@ -20,8 +20,12 @@ copy() {  # copy <src-stem-no-ext> <dest-stem>
 echo "Main figures:"
 copy "$C/edits/ICI_Fig1_full"          Fig1          # hand-edited composite
 copy "$C/ICI_Fig2"                     Fig2          # 2C trimmed
-copy "$C/ICI_Fig3_composite"           Fig3          # raster preview (A banner + B-E); editable assembly in Inkscape
-copy "$C/ICI_Fig4_composite"           Fig4          # raster preview; editable assembly in Inkscape
+# Fig3 and Fig4 are HAND-ASSEMBLED in Inkscape (base64 raster panels); final/Fig3.*
+# and final/Fig4.* are the authoritative deliverables. Do NOT copy the composite
+# previews over them here — that clobbered final/Fig3.png. Re-assemble those two in
+# Inkscape from the fresh composite panels instead.
+# copy "$C/ICI_Fig3_composite"           Fig3        # (skipped: hand-assembled)
+# copy "$C/ICI_Fig4_composite"           Fig4        # (skipped: hand-assembled)
 copy "$C/ICI_Fig_predictive"           Fig5
 copy "$C/ICI_Fig_cascade_biology"      Fig6
 copy "$C/ICI_Fig_archetype_biology"    Fig7
